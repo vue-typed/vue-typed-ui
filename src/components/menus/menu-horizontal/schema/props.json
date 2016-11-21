@@ -1,0 +1,11 @@
+{
+	"base": {
+		"MenuBase": "../menu-base"
+	},
+	"props": {
+		"secondary": {
+			"type": "boolean",
+			"description": "Display as secondary menu. See: http://semantic-ui.com/collections/menu.html#secondary-menu"
+		}	
+	}
+}

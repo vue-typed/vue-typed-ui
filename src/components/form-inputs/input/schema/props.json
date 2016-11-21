@@ -1,0 +1,20 @@
+{
+	"base": {
+		"FieldBase": "../../fields/field-base"
+	},
+
+	"props": {
+		"name": {
+			"type": "string",
+			"description": "Input element name"
+		},
+		"placeholder": {
+			"type": "string",
+			"description": "Input element placeholder"
+		},
+		"value": {
+			"type": "any",
+			"description": "v-model binding"
+		}
+	}
+}

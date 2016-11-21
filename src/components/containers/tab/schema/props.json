@@ -1,0 +1,11 @@
+{
+	"base": {
+		"Vue": "vue"
+	},
+	"props": {
+		"kind": {
+			"type": "'standard' | 'menu' | 'pointing'",
+			"description": "Tab style"
+		}
+	}
+}

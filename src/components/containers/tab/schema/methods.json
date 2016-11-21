@@ -1,0 +1,11 @@
+{
+	"changeTab": {
+		"description": "Changes tab to path",
+		"params": {
+			"path": {
+				"description": "Tab path name",
+				"type": "string"
+			}
+		}
+	}
+}

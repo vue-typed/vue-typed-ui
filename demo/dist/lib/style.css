@@ -1,0 +1,30 @@
+/*#app {
+	margin-top: 0px;
+}
+
+#article {
+	padding: 25px;
+}*/
+
+.main.container {
+	margin-top: 50px;
+}
+
+.demo-area .example {
+
+}
+
+.demo-area .source-code {
+	margin-top: 50px
+}
+
+.demo-area .source-code pre, .demo-area .source-code code {
+	background-color: white;
+}
+
+.clearfix:after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}

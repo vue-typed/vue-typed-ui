@@ -1,0 +1,28 @@
+{
+	"isBase": "true",
+	"base": {
+		"FieldBase": "../../../fields/field-base"
+	},
+	"props": {
+		"name": {
+			"type": "string",
+			"description": "Input element name"
+		},
+		"placeholder": {
+			"type": "string",
+			"description": "Input element placeholder"
+		},
+		"value": {
+			"type": "any",
+			"description": "v-model binding"
+		},
+		"range-start": {
+			"type": "HTMLElement | JQuery | string",
+			"description": "JQuery object or selector for another calendar that represents the start date of a date range"
+		},
+		"range-end": {
+			"type": "HTMLElement | JQuery | string",
+			"description": "JQuery object or selector for another calendar that represents the end date of a date range"
+		}
+	}
+}

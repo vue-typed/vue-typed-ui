@@ -1,0 +1,35 @@
+{
+	"base": {
+		"Vue": "vue"
+	},
+	"props": {
+		"icon": {
+			"type": "string",
+			"description": "Button icon"
+		},
+		"icon-pos": {
+			"type": "'left' | 'right'",
+			"description": "Button icon position"
+		},
+		"animation": {
+			"type": "string",
+			"description": "Semantic UI animation"
+		},
+		"disabled": {
+			"type": "'true' | 'false' | boolean",
+			"description": "Set button disable"
+		},
+		"size": {
+			"type": "'mini' | 'tiny' | 'small' | 'medium' | 'large' | 'big' | 'huge' | 'massive'",
+			"description": "Button size"
+		},
+		"float": {
+			"type": "'left' | 'right'",
+			"description": "A button can be aligned to the left or right of its container"
+		},
+		"color": {
+			"type": "string",
+			"description": "Button color name"
+		}
+	}
+}

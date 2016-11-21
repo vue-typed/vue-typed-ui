@@ -1,0 +1,893 @@
+{
+  "button": {
+    "module": "button",
+    "isBase": false,
+    "base": {
+      "Vue": "vue"
+    },
+    "methods": {
+      "loading": {
+        "description": "Set loading state of the button.",
+        "params": {
+          "state": {
+            "type": "boolean",
+            "description": "State of loading (true | false)"
+          }
+        }
+      }
+    },
+    "props": {
+      "animation": {
+        "type": "string",
+        "description": "Semantic UI animation"
+      },
+      "color": {
+        "type": "string",
+        "description": "Button color name"
+      },
+      "disabled": {
+        "type": "'true' | 'false' | boolean",
+        "description": "Set button disable"
+      },
+      "float": {
+        "type": "'left' | 'right'",
+        "description": "A button can be aligned to the left or right of its container"
+      },
+      "icon": {
+        "type": "string",
+        "description": "Button icon"
+      },
+      "icon-pos": {
+        "type": "'left' | 'right'",
+        "description": "Button icon position"
+      },
+      "size": {
+        "type": "'mini' | 'tiny' | 'small' | 'medium' | 'large' | 'big' | 'huge' | 'massive'",
+        "description": "Button size"
+      }
+    }
+  },
+  "calendar": {
+    "module": "calendar",
+    "isBase": "true",
+    "base": {
+      "FieldBase": "../../../fields/field-base"
+    },
+    "props": {
+      "kind": {
+        "type": "'default' | 'grouped' | 'inline'",
+        "description": "Field layout style"
+      },
+      "label": {
+        "type": "string",
+        "description": "Field label text"
+      },
+      "name": {
+        "type": "string",
+        "description": "Input element name"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "Input element placeholder"
+      },
+      "range-end": {
+        "type": "HTMLElement | JQuery | string",
+        "description": "JQuery object or selector for another calendar that represents the end date of a date range"
+      },
+      "range-start": {
+        "type": "HTMLElement | JQuery | string",
+        "description": "JQuery object or selector for another calendar that represents the start date of a date range"
+      },
+      "value": {
+        "type": "any",
+        "description": "v-model binding"
+      },
+      "wide": {
+        "type": "number",
+        "description": "Size of field"
+      }
+    },
+    "methods": {}
+  },
+  "checkbox": {
+    "module": "checkbox",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "enabled": {
+        "type": "'true' | 'false' | boolean",
+        "description": "Enable interaction with a checkbox"
+      },
+      "kind": {
+        "type": "'default' | 'slider' | 'toggle'",
+        "description": "Checkbox style"
+      },
+      "name": {
+        "type": "string",
+        "description": "Input element name"
+      },
+      "val": {
+        "type": "any",
+        "description": "Checked value"
+      },
+      "value": {
+        "type": "any",
+        "description": "v-model binding"
+      }
+    },
+    "methods": {}
+  },
+  "currency": {
+    "module": "currency",
+    "base": {
+      "Numeric": "../numeric"
+    },
+    "props": {
+      "decimal-places": {
+        "type": "number",
+        "description": "Number of decimal places"
+      },
+      "decimal-separator": {
+        "type": "string",
+        "description": "Decimal group separator"
+      },
+      "group-separator": {
+        "type": "string",
+        "description": "Thousands group separator"
+      },
+      "integer": {
+        "type": "boolean",
+        "description": "Take only integer value",
+        "default": "false"
+      },
+      "kind": {
+        "type": "'default' | 'grouped' | 'inline'",
+        "description": "Field layout style"
+      },
+      "label": {
+        "type": "string",
+        "description": "Field label text"
+      },
+      "max": {
+        "type": "number",
+        "description": "Maximum value allowed"
+      },
+      "min": {
+        "type": "number",
+        "description": "Minimum value allowed"
+      },
+      "name": {
+        "type": "string",
+        "description": "Input element name"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "Input element placeholder"
+      },
+      "sign": {
+        "type": "string",
+        "description": "Currency sign"
+      },
+      "sign-pos": {
+        "type": "'left' | 'right'",
+        "description": "Currency sign position"
+      },
+      "value": {
+        "type": "any",
+        "description": "v-model binding"
+      },
+      "wide": {
+        "type": "number",
+        "description": "Size of field"
+      }
+    },
+    "methods": {}
+  },
+  "date": {
+    "module": "date",
+    "base": {
+      "Calendar": "../calendar"
+    },
+    "props": {
+      "format": {
+        "type": "string",
+        "description": "Date format"
+      },
+      "kind": {
+        "type": "'default' | 'grouped' | 'inline'",
+        "description": "Field layout style"
+      },
+      "label": {
+        "type": "string",
+        "description": "Field label text"
+      },
+      "name": {
+        "type": "string",
+        "description": "Input element name"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "Input element placeholder"
+      },
+      "range-end": {
+        "type": "HTMLElement | JQuery | string",
+        "description": "JQuery object or selector for another calendar that represents the end date of a date range"
+      },
+      "range-start": {
+        "type": "HTMLElement | JQuery | string",
+        "description": "JQuery object or selector for another calendar that represents the start date of a date range"
+      },
+      "value": {
+        "type": "any",
+        "description": "v-model binding"
+      },
+      "wide": {
+        "type": "number",
+        "description": "Size of field"
+      }
+    },
+    "methods": {}
+  },
+  "datetime": {
+    "module": "datetime",
+    "base": {
+      "Calendar": "../calendar"
+    },
+    "props": {
+      "format": {
+        "type": "string",
+        "description": "Date format"
+      },
+      "kind": {
+        "type": "'default' | 'grouped' | 'inline'",
+        "description": "Field layout style"
+      },
+      "label": {
+        "type": "string",
+        "description": "Field label text"
+      },
+      "name": {
+        "type": "string",
+        "description": "Input element name"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "Input element placeholder"
+      },
+      "range-end": {
+        "type": "HTMLElement | JQuery | string",
+        "description": "JQuery object or selector for another calendar that represents the end date of a date range"
+      },
+      "range-start": {
+        "type": "HTMLElement | JQuery | string",
+        "description": "JQuery object or selector for another calendar that represents the start date of a date range"
+      },
+      "value": {
+        "type": "any",
+        "description": "v-model binding"
+      },
+      "wide": {
+        "type": "number",
+        "description": "Size of field"
+      }
+    },
+    "methods": {}
+  },
+  "dropdown": {
+    "module": "dropdown",
+    "base": {
+      "FieldBase": "../../fields/field-base"
+    },
+    "props": {
+      "kind": {
+        "type": "'default' | 'grouped' | 'inline'",
+        "description": "Field layout style"
+      },
+      "label": {
+        "type": "string",
+        "description": "Field label text"
+      },
+      "multiple": {
+        "type": "boolean",
+        "description": "A selection dropdown can allow multiple selections"
+      },
+      "name": {
+        "type": "string",
+        "description": "Input element name"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "Input element placeholder"
+      },
+      "search": {
+        "type": "boolean",
+        "description": "A selection dropdown can allow a user to search through a large list of choices."
+      },
+      "value": {
+        "type": "any",
+        "description": "v-model binding"
+      },
+      "wide": {
+        "type": "number",
+        "description": "Size of field"
+      }
+    },
+    "methods": {}
+  },
+  "dropdown-item": {
+    "module": "dropdown-item",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "value": {
+        "type": "any",
+        "description": "Dropdown item value"
+      }
+    },
+    "methods": {}
+  },
+  "field": {
+    "module": "field",
+    "base": {
+      "FieldBase": "../field-base"
+    },
+    "props": {
+      "kind": {
+        "type": "'default' | 'grouped' | 'inline'",
+        "description": "Field layout style"
+      },
+      "label": {
+        "type": "string",
+        "description": "Field label text"
+      },
+      "wide": {
+        "type": "number",
+        "description": "Size of field"
+      }
+    },
+    "methods": {}
+  },
+  "field-base": {
+    "module": "field-base",
+    "isBase": "true",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "kind": {
+        "type": "'default' | 'grouped' | 'inline'",
+        "description": "Field layout style"
+      },
+      "label": {
+        "type": "string",
+        "description": "Field label text"
+      },
+      "wide": {
+        "type": "number",
+        "description": "Size of field"
+      }
+    },
+    "methods": {}
+  },
+  "fields-group": {
+    "module": "fields-group",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "label": {
+        "type": "string",
+        "description": "Field label text"
+      },
+      "wide": {
+        "type": "number",
+        "description": "Size of field"
+      }
+    },
+    "methods": {}
+  },
+  "fields-inline": {
+    "module": "fields-inline",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "label": {
+        "type": "string",
+        "description": "Field label text"
+      },
+      "wide": {
+        "type": "number",
+        "description": "Size of field"
+      }
+    },
+    "methods": {}
+  },
+  "form": {
+    "module": "form",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "validateInline": {
+        "type": "boolean",
+        "description": "Show validation message inline"
+      },
+      "validator": {
+        "type": "any",
+        "description": "Fields validation object. See: http://semantic-ui.com/behaviors/form.html#specifying-validation-rules"
+      }
+    },
+    "methods": {}
+  },
+  "header": {
+    "module": "header",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {},
+    "methods": {}
+  },
+  "input": {
+    "module": "input",
+    "base": {
+      "FieldBase": "../../fields/field-base"
+    },
+    "props": {
+      "kind": {
+        "type": "'default' | 'grouped' | 'inline'",
+        "description": "Field layout style"
+      },
+      "label": {
+        "type": "string",
+        "description": "Field label text"
+      },
+      "name": {
+        "type": "string",
+        "description": "Input element name"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "Input element placeholder"
+      },
+      "value": {
+        "type": "any",
+        "description": "v-model binding"
+      },
+      "wide": {
+        "type": "number",
+        "description": "Size of field"
+      }
+    },
+    "methods": {}
+  },
+  "menu-base": {
+    "module": "menu-base",
+    "isBase": "true",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "sidebar": {
+        "type": "'vertical' | 'horizontal'",
+        "description": "Display menu as sidebar"
+      },
+      "sidebarToggle": {
+        "type": "HTMLElement | JQuery | string",
+        "description": "JQuery object or selector to be attached as sidebar toggle"
+      }
+    },
+    "methods": {}
+  },
+  "menu-dropdown": {
+    "module": "menu-dropdown",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "hover": {
+        "type": "boolean",
+        "description": "Trigger dropdown on hover."
+      },
+      "label": {
+        "type": "string",
+        "description": "Dropdown title/label."
+      }
+    },
+    "methods": {}
+  },
+  "menu-horizontal": {
+    "module": "menu-horizontal",
+    "base": {
+      "MenuBase": "../menu-base"
+    },
+    "props": {
+      "secondary": {
+        "type": "boolean",
+        "description": "Display as secondary menu. See: http://semantic-ui.com/collections/menu.html#secondary-menu"
+      },
+      "sidebar": {
+        "type": "'vertical' | 'horizontal'",
+        "description": "Display menu as sidebar"
+      },
+      "sidebarToggle": {
+        "type": "HTMLElement | JQuery | string",
+        "description": "JQuery object or selector to be attached as sidebar toggle"
+      }
+    },
+    "methods": {}
+  },
+  "menu-item": {
+    "module": "menu-item",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "content": {
+        "type": "string",
+        "description": "Replace slot with this content"
+      },
+      "icon": {
+        "type": "string",
+        "description": "Name of icon to be displayed"
+      },
+      "preventRouter": {
+        "type": "boolean",
+        "description": "If set to `true` then `to` attribute will always represents `href` attribute of `a` tag."
+      },
+      "to": {
+        "type": "string",
+        "description": "Target URL when menu item clicked. If you are using vue-router then this attribute represents `to` attribute of `router-link` tag."
+      }
+    },
+    "methods": {}
+  },
+  "menu-vertical": {
+    "module": "menu-vertical",
+    "base": {
+      "MenuBase": "../menu-base"
+    },
+    "props": {
+      "sidebar": {
+        "type": "'vertical' | 'horizontal'",
+        "description": "Display menu as sidebar"
+      },
+      "sidebarToggle": {
+        "type": "HTMLElement | JQuery | string",
+        "description": "JQuery object or selector to be attached as sidebar toggle"
+      }
+    },
+    "methods": {}
+  },
+  "modal": {
+    "module": "modal",
+    "isBase": false,
+    "base": {
+      "Vue": "vue"
+    },
+    "methods": {
+      "hide": {
+        "description": "Hides the modal"
+      },
+      "refresh": {
+        "description": "Refreshes centering of modal on page"
+      },
+      "show": {
+        "description": "Shows the modal"
+      },
+      "toggle": {
+        "description": "Toggles the modal"
+      }
+    },
+    "props": {
+      "attach-hide": {
+        "description": "Attach hide event to another element",
+        "type": "string",
+        "params": {
+          "selector": {
+            "type": "HTMLElement | JQuery | string",
+            "description": "Element identifier"
+          }
+        }
+      },
+      "attach-refresh": {
+        "description": "Attach refresh event to another element",
+        "type": "string",
+        "params": {
+          "selector": {
+            "type": "HTMLElement | JQuery | string",
+            "description": "Element identifier"
+          }
+        }
+      },
+      "attach-show": {
+        "description": "Attach show event to another element",
+        "type": "string",
+        "params": {
+          "selector": {
+            "type": "HTMLElement | JQuery | string",
+            "description": "Element identifier"
+          }
+        }
+      },
+      "attach-toggle": {
+        "description": "Attach toggle event to another element",
+        "type": "string",
+        "params": {
+          "selector": {
+            "type": "HTMLElement | JQuery | string",
+            "description": "Element identifier"
+          }
+        }
+      },
+      "closable": {
+        "description": "Setting to false will not allow you to close the modal by clicking on the dimmer.",
+        "type": "boolean"
+      },
+      "transition": {
+        "description": "Named transition to use when animating menu in and out, full list can be found in ui transitions docs.",
+        "type": "SemanticUI.AnimationNames"
+      }
+    }
+  },
+  "numeric": {
+    "module": "numeric",
+    "base": {
+      "FieldBase": "../../fields/field-base"
+    },
+    "props": {
+      "decimal-places": {
+        "type": "number",
+        "description": "Number of decimal places"
+      },
+      "decimal-separator": {
+        "type": "string",
+        "description": "Decimal group separator"
+      },
+      "group-separator": {
+        "type": "string",
+        "description": "Thousands group separator"
+      },
+      "integer": {
+        "type": "boolean",
+        "description": "Take only integer value",
+        "default": "false"
+      },
+      "kind": {
+        "type": "'default' | 'grouped' | 'inline'",
+        "description": "Field layout style"
+      },
+      "label": {
+        "type": "string",
+        "description": "Field label text"
+      },
+      "max": {
+        "type": "number",
+        "description": "Maximum value allowed"
+      },
+      "min": {
+        "type": "number",
+        "description": "Minimum value allowed"
+      },
+      "name": {
+        "type": "string",
+        "description": "Input element name"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "Input element placeholder"
+      },
+      "value": {
+        "type": "any",
+        "description": "v-model binding"
+      },
+      "wide": {
+        "type": "number",
+        "description": "Size of field"
+      }
+    },
+    "methods": {}
+  },
+  "pusher": {
+    "module": "pusher",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {},
+    "methods": {}
+  },
+  "radio": {
+    "module": "radio",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "name": {
+        "type": "string",
+        "description": "Input element name"
+      },
+      "val": {
+        "type": "any",
+        "description": "Checked value"
+      },
+      "value": {
+        "type": "any",
+        "description": "v-model binding"
+      }
+    },
+    "methods": {}
+  },
+  "radio-group": {
+    "module": "radio-group",
+    "base": {
+      "FieldBase": "../../fields/field-base"
+    },
+    "props": {
+      "kind": {
+        "type": "'default' | 'grouped' | 'inline'",
+        "description": "Field layout style"
+      },
+      "label": {
+        "type": "string",
+        "description": "Field label text"
+      },
+      "name": {
+        "type": "string",
+        "description": "Name of radio group"
+      },
+      "wide": {
+        "type": "number",
+        "description": "Size of field"
+      }
+    },
+    "methods": {}
+  },
+  "segment": {
+    "module": "segment",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {},
+    "methods": {}
+  },
+  "tab": {
+    "module": "tab",
+    "isBase": false,
+    "base": {
+      "Vue": "vue"
+    },
+    "methods": {
+      "changeTab": {
+        "description": "Changes tab to path",
+        "params": {
+          "path": {
+            "description": "Tab path name",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "props": {
+      "kind": {
+        "type": "'standard' | 'menu' | 'pointing'",
+        "description": "Tab style"
+      }
+    }
+  },
+  "tab-item": {
+    "module": "tab-item",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "active": {
+        "type": "boolean",
+        "description": "Set tab to active"
+      },
+      "caption": {
+        "type": "string",
+        "description": "Tab caption"
+      }
+    },
+    "methods": {}
+  },
+  "time": {
+    "module": "time",
+    "base": {
+      "Calendar": "../calendar"
+    },
+    "props": {
+      "format": {
+        "type": "string",
+        "description": "Date format"
+      },
+      "kind": {
+        "type": "'default' | 'grouped' | 'inline'",
+        "description": "Field layout style"
+      },
+      "label": {
+        "type": "string",
+        "description": "Field label text"
+      },
+      "name": {
+        "type": "string",
+        "description": "Input element name"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "Input element placeholder"
+      },
+      "range-end": {
+        "type": "HTMLElement | JQuery | string",
+        "description": "JQuery object or selector for another calendar that represents the end date of a date range"
+      },
+      "range-start": {
+        "type": "HTMLElement | JQuery | string",
+        "description": "JQuery object or selector for another calendar that represents the start date of a date range"
+      },
+      "value": {
+        "type": "any",
+        "description": "v-model binding"
+      },
+      "wide": {
+        "type": "number",
+        "description": "Size of field"
+      }
+    },
+    "methods": {}
+  },
+  "tree": {
+    "module": "tree",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "childTag": {
+        "type": "string",
+        "description": "HTML child tag name. Default is `li`.",
+        "default": "'li'"
+      },
+      "children": {
+        "type": "string",
+        "description": "A property name of data model represents children property. Children property must be in array type contains list of `model`."
+      },
+      "content": {
+        "type": "string",
+        "description": "A property name of data model represents content of tree view."
+      },
+      "html": {
+        "type": "boolean",
+        "description": "Indicate that the content is in HTML format. If set true then `content` property will be ignored, you'll need to supply `htmlContent` property instead."
+      },
+      "htmlContent": {
+        "type": "string",
+        "description": "Html content that displayed on tree content area. You must set `html` property to `true` to use this property."
+      },
+      "model": {
+        "type": "any",
+        "description": "Data model to populate."
+      },
+      "parentTag": {
+        "type": "string",
+        "description": "HTML parent tag name. Default is `ul`.",
+        "default": "'ul'"
+      }
+    },
+    "methods": {}
+  },
+  "view-source": {
+    "module": "view-source",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "lang": {
+        "type": "string",
+        "description": "Source code language. The list of supported language is available in th: http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html. Fill with `nohighlight` to disable highlighting."
+      }
+    },
+    "methods": {}
+  }
+}

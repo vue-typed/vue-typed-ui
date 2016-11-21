@@ -1,0 +1,14 @@
+{
+	"show": {
+		"description": "Shows the modal"
+	},
+	"hide": {
+		"description": "Hides the modal"
+	},
+	"toggle": {
+		"description": "Toggles the modal"
+	},
+	"refresh": {
+		"description": "Refreshes centering of modal on page"
+	}
+}

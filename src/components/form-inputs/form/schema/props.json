@@ -1,0 +1,15 @@
+{
+	"base": {
+		"Vue": "vue"
+	},
+	"props": {
+		"validator": {
+			"type": "any",
+			"description": "Fields validation object. See: http://semantic-ui.com/behaviors/form.html#specifying-validation-rules"
+		},
+		"validateInline": {
+			"type": "boolean",
+			"description": "Show validation message inline"
+		}
+	}
+}

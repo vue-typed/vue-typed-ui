@@ -1,0 +1,9 @@
+{
+	"base": {
+		"Vue": "vue"
+	},
+	"isBase": "true",
+	"props": {
+		
+	}
+}

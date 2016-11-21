@@ -1,0 +1,11 @@
+{
+	"base": {
+		"Vue": "vue"
+	},
+	"props": {
+		"lang": {
+			"type": "string",
+			"description": "Source code language. The list of supported language is available in th: http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html. Fill with `nohighlight` to disable highlighting."
+		}
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"base": {
+		"Vue": "vue"
+	},
+	"isBase": "true",
+	"props": {		
+		"label": {
+			"type": "string",
+			"description": "Field label text"
+		},
+		"wide": {
+			"type": "number",
+			"description": "Size of field"
+		},
+		"kind": {
+			"type": "'default' | 'grouped' | 'inline'",
+			"description": "Field layout style"
+		}
+	}
+}

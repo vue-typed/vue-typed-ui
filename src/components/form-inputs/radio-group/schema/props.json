@@ -1,0 +1,11 @@
+{
+	"base": {
+		"FieldBase" : "../../fields/field-base"
+	},
+	"props": {
+		"name": {
+			"type": "string",
+			"description": "Name of radio group"
+		}
+	}
+}

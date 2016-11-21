@@ -1,0 +1,38 @@
+<div>
+
+	<app-menu sidebar="true" sidebarToggle=".sidebar-toggle"></app-menu>
+
+
+	<div class="ui inverted main menu fixed top">
+		<div class="ui grid container">
+			
+			<a class="launch icon item sidebar-toggle tablet mobile only column">
+				<i class="sidebar icon"></i>
+			</a>
+			<div class="item ui header">
+				<h3>VueTypedUI</h3>
+			</div>
+
+			<div class="right menu">
+				<a class="ui item" v-on:click="changeSettings"><i class="icon setting"></i> Change Settings</a>
+				<a class="ui item"><i class="icon github alternate"></i> Fork Me</a>
+			</div>
+		</div>
+	</div>
+
+
+	<ui-pusher>
+
+		<div class="ui grid main container">
+			<div class="four wide column computer only">
+				<app-menu class="fluid"></app-menu>
+			</div>
+			<div class="twelve wide computer sixteen wide tablet column">
+				<app-settings-page id="app-settings-page"></app-settings-page>
+				<router-view></router-view>
+			</div>
+		</div>
+
+	</ui-pusher>
+
+</div>

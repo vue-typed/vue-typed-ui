@@ -1,0 +1,11 @@
+{
+	"base": {
+		"Calendar": "../calendar"
+	},
+	"props": {
+		"format": {
+			"type": "string",
+			"description": "Date format"
+		}
+	}
+}

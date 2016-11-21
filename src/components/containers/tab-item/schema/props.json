@@ -1,0 +1,15 @@
+{
+	"base": {
+		"Vue": "vue"
+	},
+	"props": {
+		"caption": {
+			"type": "string",
+			"description": "Tab caption"
+		},
+		"active": {
+			"type": "boolean",
+			"description": "Set tab to active"
+		}
+	}
+}

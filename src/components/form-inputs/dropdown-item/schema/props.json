@@ -1,0 +1,11 @@
+{
+	"base": {
+		"Vue": "vue"
+	},
+	"props": {
+		"value": {
+			"type": "any",
+			"description": "Dropdown item value"
+		}
+	}
+}

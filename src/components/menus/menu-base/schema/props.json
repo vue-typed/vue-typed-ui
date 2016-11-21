@@ -1,0 +1,17 @@
+{
+	"base": {
+		"Vue": "vue"
+	},
+	"isBase": "true",
+	"props": {
+		"sidebar": {
+			"type": "'vertical' | 'horizontal'",
+			"description": "Display menu as sidebar"
+		},
+
+		"sidebarToggle": {
+			"type": "HTMLElement | JQuery | string",
+			"description": "JQuery object or selector to be attached as sidebar toggle"
+		}
+	}
+}

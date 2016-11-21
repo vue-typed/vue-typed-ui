@@ -1,0 +1,85 @@
+<div>
+	<ui-h4>Vertical Menu</ui-h4>
+	<ui-menu-vertical>
+		<ui-menu-item @click="clicked">Home</ui-menu-item>
+		<ui-menu-item>Messages</ui-menu-item>
+		<ui-menu-item>Friends</ui-menu-item>
+	</ui-menu-vertical>
+
+	<ui-h4>With Header</ui-h4>
+	<ui-menu-vertical>
+		<div class="item">
+			<div class="header">Header</div>
+			<div class="menu">
+				<ui-menu-item @click="clicked">Home</ui-menu-item>
+				<ui-menu-item>Messages</ui-menu-item>
+				<ui-menu-item>Friends</ui-menu-item>
+			</div>
+		</div>
+	</ui-menu-vertical>
+
+	<ui-h4>Horizontal Menu</ui-h4>
+	<ui-menu-horizontal>
+		<ui-menu-item>Editorials</ui-menu-item>
+		<ui-menu-item>Reviews</ui-menu-item>
+		<ui-menu-item>Upcoming Events</ui-menu-item>
+	</ui-menu-horizontal>
+	<ui-menu-horizontal>
+		<ui-menu-item>Editorials</ui-menu-item>
+		<ui-menu-item>Reviews</ui-menu-item>
+		<ui-menu-item>Upcoming Events</ui-menu-item>
+		<div class="right menu">
+			<div class="item">
+				<div class="ui icon input">
+					<input type="text" placeholder="Search...">
+					<i class="search link icon"></i>
+				</div>
+			</div>
+			<a class="ui item">
+      	Logout
+    	</a>
+		</div>
+	</ui-menu-horizontal>
+
+	<ui-h4>Dropdown Menu</ui-h4>
+	<ui-menu-vertical>
+		<ui-menu-item>Foo</ui-menu-item>
+		<ui-menu-item>Bar</ui-menu-item>
+		<ui-menu-dropdown label="Sub Menu">
+			<ui-menu-item @click="clicked">Home</ui-menu-item>
+			<ui-menu-item>Messages</ui-menu-item>
+			<ui-menu-item>Friends</ui-menu-item>
+		</ui-menu-dropdown>
+	</ui-menu-vertical>
+
+	<ui-h4>Dropdown Menu On Hover</ui-h4>
+	<ui-menu-vertical>
+		<ui-menu-item>Foo</ui-menu-item>
+		<ui-menu-item>Bar</ui-menu-item>
+		<ui-menu-dropdown label="Sub Menu" :hover="true">
+			<ui-menu-item @click="clicked">Home</ui-menu-item>
+			<ui-menu-item>Messages</ui-menu-item>
+			<ui-menu-item>Friends</ui-menu-item>
+		</ui-menu-dropdown>
+	</ui-menu-vertical>
+
+	<ui-h4>Styles</ui-h4>
+	<ui-menu-horizontal class="secondary pointing">
+		<ui-menu-item>Editorials</ui-menu-item>
+		<ui-menu-item>Reviews</ui-menu-item>
+		<ui-menu-item>Upcoming Events</ui-menu-item>
+	</ui-menu-horizontal>
+
+	<ui-menu-vertical class="pointing">
+		<ui-menu-item>Editorials</ui-menu-item>
+		<ui-menu-item>Reviews</ui-menu-item>
+		<ui-menu-item>Upcoming Events</ui-menu-item>
+	</ui-menu-vertical>
+
+	<ui-menu-vertical class="secondary pointing">
+		<ui-menu-item>Editorials</ui-menu-item>
+		<ui-menu-item>Reviews</ui-menu-item>
+		<ui-menu-item>Upcoming Events</ui-menu-item>
+	</ui-menu-vertical>
+
+</div>

@@ -1,0 +1,44 @@
+{
+	"base": {
+		"FieldBase": "../../fields/field-base"
+	},
+	"props": {
+		"name": {
+			"type": "string",
+			"description": "Input element name"
+		},
+		"placeholder": {
+			"type": "string",
+			"description": "Input element placeholder"
+		},
+		"value": {
+			"type": "any",
+			"description": "v-model binding"
+		},
+		"group-separator": {
+			"type": "string",
+			"description": "Thousands group separator"
+		},
+		"decimal-separator": {
+			"type": "string",
+			"description": "Decimal group separator"
+		},
+		"decimal-places": {
+			"type": "number",
+			"description": "Number of decimal places"
+		},
+		"min": {
+			"type": "number",
+			"description": "Minimum value allowed"
+		},
+		"max": {
+			"type": "number",
+			"description": "Maximum value allowed"
+		},
+		"integer": {
+			"type": "boolean",
+			"description": "Take only integer value",
+			"default": "false"
+		}
+	}	
+}
