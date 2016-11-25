@@ -424,6 +424,7 @@
   },
   "header": {
     "module": "header",
+    "isBase": "true",
     "base": {
       "Vue": "vue"
     },
@@ -557,6 +558,33 @@
       "sidebarToggle": {
         "type": "HTMLElement | JQuery | string",
         "description": "JQuery object or selector to be attached as sidebar toggle"
+      }
+    },
+    "methods": {}
+  },
+  "message": {
+    "module": "message",
+    "base": {
+      "Vue": "vue"
+    },
+    "props": {
+      "closable": {
+        "type": "boolean",
+        "description": "Add close icon choose to hide message.",
+        "default": "false"
+      },
+      "icon": {
+        "type": "string",
+        "description": "Icon appears on the left of message contens."
+      },
+      "kind": {
+        "type": "'default' | 'compact' | 'floating'",
+        "description": "Message variations."
+      },
+      "transition": {
+        "type": "string",
+        "description": "Semantic UI transition on closing message.",
+        "default": "'fade'"
       }
     },
     "methods": {}

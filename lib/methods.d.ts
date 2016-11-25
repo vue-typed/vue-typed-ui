@@ -1,7 +1,3 @@
-interface JQuery {
-    
-}
-
 export interface Modal {
 
     /**

@@ -15,6 +15,7 @@ import { DateTime } from './datetime';
 import { Modal } from './modal';
 import { Tree } from './tree';
 import { Menu } from './menu';
+import { Message } from './message';
 
 
 // Main routes builder
@@ -35,7 +36,8 @@ const m = [
 	{ text: 'Dropdown', path: 'dropdown', component: Dropdown },
 	{ text: 'Modal', path: 'modal', component: Modal },
 	{ text: 'Tree', path: 'tree', component: Tree },
-	{ text: 'Menu', path: 'menu', component: Menu }
+	{ text: 'Menu', path: 'menu', component: Menu },
+	{ text: 'Message', path: 'message', component: Message }
 ]
 
 // Build router routes

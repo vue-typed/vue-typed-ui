@@ -2359,6 +2359,66 @@ var H5 = function (_HeaderBase9) {
 }(HeaderBase);
 H5 = __decorate([vueTyped.Component()], H5);
 
+var _MessageBase = function (_Vue) {
+    inherits(_MessageBase, _Vue);
+
+    function _MessageBase() {
+        classCallCheck(this, _MessageBase);
+
+        /**
+         * Add close icon choose to hide message.
+         *
+         * @default false
+         * @type {boolean}
+         */
+        var _this = possibleConstructorReturn(this, (_MessageBase.__proto__ || Object.getPrototypeOf(_MessageBase)).apply(this, arguments));
+
+        _this.closable = false;
+        /**
+         * Semantic UI transition on closing message.
+         *
+         * @default 'fade'
+         * @type {string}
+         */
+        _this.transition = 'fade';
+        return _this;
+    }
+
+    return _MessageBase;
+}(Vue);
+
+__decorate([vueTyped.Prop({
+    type: Boolean
+})], _MessageBase.prototype, "closable", void 0);
+__decorate([vueTyped.Prop({
+    type: String
+})], _MessageBase.prototype, "transition", void 0);
+__decorate([vueTyped.Prop()], _MessageBase.prototype, "kind", void 0);
+__decorate([vueTyped.Prop({
+    type: String
+})], _MessageBase.prototype, "icon", void 0);
+
+var Message = function (_MessageBase2) {
+    inherits(Message, _MessageBase2);
+
+    function Message() {
+        classCallCheck(this, Message);
+        return possibleConstructorReturn(this, (Message.__proto__ || Object.getPrototypeOf(Message)).apply(this, arguments));
+    }
+
+    createClass(Message, [{
+        key: 'mounted',
+        value: function mounted() {
+            if (this.icon) {
+                $(this.$el).addClass('icon');
+            }
+        }
+    }]);
+    return Message;
+}(_MessageBase);
+Message = __decorate([vueTyped.Component({
+    template: '\n\t<div class="ui message">\n  \t<i v-if="closable" class="close icon"></i>\n\t\t<div v-if="header && !icon" class="header">\n  \t\t<slot name="header"></slot>\n\t\t</div>\n\t\t<p v-if="!icon"><slot></slot></p>\n\t\t<i v-if="icon" class="{{icon}} icon"></i>\n\t\t<div v-if="icon" class="content">\n\t\t\t<div v-if="header" class="header">\n    \t\t<slot name="header"></slot>\n\t\t\t</div>\n    \t<p><slot></slot></p>\n  \t</div>\n\t</div>\n\t' })], Message);
+
 var _ModalBase = function (_Vue) {
     inherits(_ModalBase, _Vue);
 
@@ -2683,6 +2743,7 @@ var c = Object.freeze({
 	get H3 () { return H3; },
 	get H4 () { return H4; },
 	get H5 () { return H5; },
+	get Message () { return Message; },
 	get Modal () { return Modal; },
 	get Tree () { return Tree; }
 });

@@ -32,6 +32,7 @@ export * from './menus/menu-item';
 export * from './menus/menu-dropdown';
 export * from './etc/view-source';
 export * from './etc/header';
+export * from './etc/message';
 
 export * from './modal'
 
