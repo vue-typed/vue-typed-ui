@@ -38,4 +38,14 @@ export abstract class _InputBase extends FieldBase {
     @Prop()
     value: any
 
+    /**
+     * Input element is password element
+     * 
+     * @type {boolean}
+     */
+    @Prop({
+        type: Boolean
+    })
+    password: boolean
+
 }

@@ -674,6 +674,9 @@ __decorate([vueTyped.Prop({
     type: String
 })], _InputBase.prototype, "placeholder", void 0);
 __decorate([vueTyped.Prop()], _InputBase.prototype, "value", void 0);
+__decorate([vueTyped.Prop({
+    type: Boolean
+})], _InputBase.prototype, "password", void 0);
 
 // ref: http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 var Input = function (_InputBase2) {
@@ -695,7 +698,7 @@ var Input = function (_InputBase2) {
         value: function createComponent(ch) {
             return ch('input', {
                 attrs: {
-                    type: 'text',
+                    type: this.password ? 'password' : 'text',
                     name: this.name,
                     placeholder: this.placeholder
                 },
@@ -2409,15 +2412,24 @@ var Message = function (_MessageBase2) {
     createClass(Message, [{
         key: 'mounted',
         value: function mounted() {
+            var self = this;
             if (this.icon) {
                 $(this.$el).addClass('icon');
+            }
+            if (this.kind && this.kind !== 'default') {
+                $(this.$el).addClass(this.kind);
+            }
+            if (this.closable) {
+                $(this.$el).find('.close.icon').on('click', function () {
+                    $(this).closest('.message').transition(self.transition);
+                });
             }
         }
     }]);
     return Message;
 }(_MessageBase);
 Message = __decorate([vueTyped.Component({
-    template: '\n\t<div class="ui message">\n  \t<i v-if="closable" class="close icon"></i>\n\t\t<div v-if="header && !icon" class="header">\n  \t\t<slot name="header"></slot>\n\t\t</div>\n\t\t<p v-if="!icon"><slot></slot></p>\n\t\t<i v-if="icon" class="{{icon}} icon"></i>\n\t\t<div v-if="icon" class="content">\n\t\t\t<div v-if="header" class="header">\n    \t\t<slot name="header"></slot>\n\t\t\t</div>\n    \t<p><slot></slot></p>\n  \t</div>\n\t</div>\n\t' })], Message);
+    template: '\n\t<div class="ui message">\n  \t<i v-if="closable" class="close icon"></i>\n\t\t<div v-if="$slots.header && !icon" class="header">\n  \t\t<slot name="header"></slot>\n\t\t</div>\n\t\t<p v-if="!icon"><slot></slot></p>\n\t\t<i v-if="icon" :class="icon + \' icon\'"></i>\n\t\t<div v-if="icon" class="content">\n\t\t\t<div v-if="$slots.header" class="header">\n    \t\t<slot name="header"></slot>\n\t\t\t</div>\n    \t<p><slot></slot></p>\n  \t</div>\n\t</div>\n\t' })], Message);
 
 var _ModalBase = function (_Vue) {
     inherits(_ModalBase, _Vue);

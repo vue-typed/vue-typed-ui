@@ -8,6 +8,8 @@ import * as Vue from 'vue'
 export class Input extends Base  {
 	firstName: string = 'John'
 	lastName: string = 'Doe'
+	password: string = 'supersecretpassword'
+
 	get fullName() {
 		return this.firstName + ' ' + this.lastName;
 	}

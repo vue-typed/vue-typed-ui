@@ -449,6 +449,10 @@
         "type": "string",
         "description": "Input element name"
       },
+      "password": {
+        "type": "boolean",
+        "description": "Input element is password element"
+      },
       "placeholder": {
         "type": "string",
         "description": "Input element placeholder"

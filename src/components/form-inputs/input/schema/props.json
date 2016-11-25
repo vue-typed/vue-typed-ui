@@ -15,6 +15,10 @@
 		"value": {
 			"type": "any",
 			"description": "v-model binding"
+		},
+		"password": {
+			"type": "boolean",
+			"description": "Input element is password element"
 		}
 	}
 }

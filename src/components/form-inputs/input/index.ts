@@ -21,7 +21,7 @@ export class Input extends _InputBase {
 				
 		return ch('input', {
 			attrs: {
-				type: 'text',
+				type: this.password ? 'password' : 'text',
 				name: this.name,
 				placeholder: this.placeholder
 			},
