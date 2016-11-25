@@ -1,0 +1,157 @@
+{
+    "ui-button": {
+        "prefix": "ui-button",
+        "body": "<ui-button>$0</ui-button>",
+        "description": "VueTypedUI Button"
+    },
+    "ui-calendar": {
+        "prefix": "ui-calendar",
+        "body": "<ui-calendar>$0</ui-calendar>",
+        "description": "VueTypedUI Calendar"
+    },
+    "ui-checkbox": {
+        "prefix": "ui-checkbox",
+        "body": "<ui-checkbox>$0</ui-checkbox>",
+        "description": "VueTypedUI Checkbox"
+    },
+    "ui-currency": {
+        "prefix": "ui-currency",
+        "body": "<ui-currency>$0</ui-currency>",
+        "description": "VueTypedUI Currency"
+    },
+    "ui-date": {
+        "prefix": "ui-date",
+        "body": "<ui-date>$0</ui-date>",
+        "description": "VueTypedUI Date"
+    },
+    "ui-datetime": {
+        "prefix": "ui-datetime",
+        "body": "<ui-datetime>$0</ui-datetime>",
+        "description": "VueTypedUI Datetime"
+    },
+    "ui-dropdown": {
+        "prefix": "ui-dropdown",
+        "body": "<ui-dropdown>$0</ui-dropdown>",
+        "description": "VueTypedUI Dropdown"
+    },
+    "ui-dropdown-item": {
+        "prefix": "ui-dropdown-item",
+        "body": "<ui-dropdown-item>$0</ui-dropdown-item>",
+        "description": "VueTypedUI DropdownItem"
+    },
+    "ui-field": {
+        "prefix": "ui-field",
+        "body": "<ui-field>$0</ui-field>",
+        "description": "VueTypedUI Field"
+    },
+    "ui-field-base": {
+        "prefix": "ui-field-base",
+        "body": "<ui-field-base>$0</ui-field-base>",
+        "description": "VueTypedUI FieldBase"
+    },
+    "ui-fields-group": {
+        "prefix": "ui-fields-group",
+        "body": "<ui-fields-group>$0</ui-fields-group>",
+        "description": "VueTypedUI FieldsGroup"
+    },
+    "ui-fields-inline": {
+        "prefix": "ui-fields-inline",
+        "body": "<ui-fields-inline>$0</ui-fields-inline>",
+        "description": "VueTypedUI FieldsInline"
+    },
+    "ui-form": {
+        "prefix": "ui-form",
+        "body": "<ui-form>$0</ui-form>",
+        "description": "VueTypedUI Form"
+    },
+    "ui-header": {
+        "prefix": "ui-header",
+        "body": "<ui-header>$0</ui-header>",
+        "description": "VueTypedUI Header"
+    },
+    "ui-input": {
+        "prefix": "ui-input",
+        "body": "<ui-input>$0</ui-input>",
+        "description": "VueTypedUI Input"
+    },
+    "ui-menu-base": {
+        "prefix": "ui-menu-base",
+        "body": "<ui-menu-base>$0</ui-menu-base>",
+        "description": "VueTypedUI MenuBase"
+    },
+    "ui-menu-dropdown": {
+        "prefix": "ui-menu-dropdown",
+        "body": "<ui-menu-dropdown>$0</ui-menu-dropdown>",
+        "description": "VueTypedUI MenuDropdown"
+    },
+    "ui-menu-horizontal": {
+        "prefix": "ui-menu-horizontal",
+        "body": "<ui-menu-horizontal>$0</ui-menu-horizontal>",
+        "description": "VueTypedUI MenuHorizontal"
+    },
+    "ui-menu-item": {
+        "prefix": "ui-menu-item",
+        "body": "<ui-menu-item>$0</ui-menu-item>",
+        "description": "VueTypedUI MenuItem"
+    },
+    "ui-menu-vertical": {
+        "prefix": "ui-menu-vertical",
+        "body": "<ui-menu-vertical>$0</ui-menu-vertical>",
+        "description": "VueTypedUI MenuVertical"
+    },
+    "ui-modal": {
+        "prefix": "ui-modal",
+        "body": "<ui-modal>$0</ui-modal>",
+        "description": "VueTypedUI Modal"
+    },
+    "ui-numeric": {
+        "prefix": "ui-numeric",
+        "body": "<ui-numeric>$0</ui-numeric>",
+        "description": "VueTypedUI Numeric"
+    },
+    "ui-pusher": {
+        "prefix": "ui-pusher",
+        "body": "<ui-pusher>$0</ui-pusher>",
+        "description": "VueTypedUI Pusher"
+    },
+    "ui-radio": {
+        "prefix": "ui-radio",
+        "body": "<ui-radio>$0</ui-radio>",
+        "description": "VueTypedUI Radio"
+    },
+    "ui-radio-group": {
+        "prefix": "ui-radio-group",
+        "body": "<ui-radio-group>$0</ui-radio-group>",
+        "description": "VueTypedUI RadioGroup"
+    },
+    "ui-segment": {
+        "prefix": "ui-segment",
+        "body": "<ui-segment>$0</ui-segment>",
+        "description": "VueTypedUI Segment"
+    },
+    "ui-tab": {
+        "prefix": "ui-tab",
+        "body": "<ui-tab>$0</ui-tab>",
+        "description": "VueTypedUI Tab"
+    },
+    "ui-tab-item": {
+        "prefix": "ui-tab-item",
+        "body": "<ui-tab-item>$0</ui-tab-item>",
+        "description": "VueTypedUI TabItem"
+    },
+    "ui-time": {
+        "prefix": "ui-time",
+        "body": "<ui-time>$0</ui-time>",
+        "description": "VueTypedUI Time"
+    },
+    "ui-tree": {
+        "prefix": "ui-tree",
+        "body": "<ui-tree>$0</ui-tree>",
+        "description": "VueTypedUI Tree"
+    },
+    "ui-view-source": {
+        "prefix": "ui-view-source",
+        "body": "<ui-view-source>$0</ui-view-source>",
+        "description": "VueTypedUI ViewSource"
+    }
+}
