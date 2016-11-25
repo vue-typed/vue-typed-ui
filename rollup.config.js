@@ -2,9 +2,10 @@ import typescript from 'rollup-plugin-typescript'
 import babel from 'rollup-plugin-babel'
 var pkg = require('./package.json')
 var path = require('path')
+var version = process.env.VERSION || pkg.version
 
 var banner = `/**
-  * ${pkg.name} ${pkg.version}
+  * ${pkg.name} ${version}
   * ${pkg.description}
   * ${pkg.homepage}
   
