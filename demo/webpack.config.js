@@ -20,13 +20,7 @@ var config = {
     publicPath: '/dist/'
   },
 
-  // webpack-dev-server config, see: https://webpack.github.io/docs/webpack-dev-server.html
-  devServer: {
-    contentBase: './demo',
-    hot: true,
-    inline: true,
-    port: 3030
-  },
+  
 
   devtool: "#inline-source-map",
 
@@ -52,12 +46,7 @@ var config = {
     //  THIS IS IMPORTANT, OR '$' WILL NOT INJECTED WITH SEMANTIC-UI
     //  BECAUSE YOU ARE USING YOUR OWN COMPILED JQUERY 
     'jquery': 'jQuery'
-  },
-
-  plugins: [
-    // HMR issue, see: https://github.com/webpack/webpack/issues/1151
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  }
 
 }
 
@@ -89,6 +78,19 @@ if (process.env.NODE_ENV === 'production') {
   config.module.loaders = config.module.loaders.concat([
     { test: /\.ts(x?)$/, loader: 'ts' }
   ])
+
+  // webpack-dev-server config, see: https://webpack.github.io/docs/webpack-dev-server.html
+  config.devServer = {
+    contentBase: './demo',
+    hot: true,
+    inline: true,
+    port: 3030
+  }
+
+  config.plugins = [
+    // HMR issue, see: https://github.com/webpack/webpack/issues/1151
+    new webpack.HotModuleReplacementPlugin()
+  ]
 }
 
 
