@@ -54,4 +54,14 @@ export abstract class _CalendarBase extends FieldBase {
     @Prop()
     rangeEnd: HTMLElement | JQuery | string
 
+    /**
+     * Enable user to clear the value by clicking clear button on the right side of control
+     * 
+     * @type {boolean}
+     */
+    @Prop({
+        type: Boolean
+    })
+    canClear: boolean
+
 }

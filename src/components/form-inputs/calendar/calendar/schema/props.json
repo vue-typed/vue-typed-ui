@@ -23,6 +23,10 @@
 		"range-end": {
 			"type": "HTMLElement | JQuery | string",
 			"description": "JQuery object or selector for another calendar that represents the end date of a date range"
+		},
+		"can-clear": {
+			"type": "boolean",
+			"description": "Enable user to clear the value by clicking clear button on the right side of control"
 		}
 	}
 }
