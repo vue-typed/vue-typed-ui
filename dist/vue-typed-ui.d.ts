@@ -9,7 +9,7 @@ declare namespace VueTypedUI {
 	export type Options = opts.Options
 	export type Settings = sets.Settings
 	export type FormOptions = formOpt.FormOptions
-	export function FormComponent(options): ClassDecorator
+	export function FormComponent(options: FormOptions): ClassDecorator
 	export function Validate(options): PropertyDecorator
 }
 
