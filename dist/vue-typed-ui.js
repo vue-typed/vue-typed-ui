@@ -317,6 +317,10 @@ var Form = function (_FormBase2) {
                     inline: this.validateInline
                 });
             }
+            // domProps.onsubmit is flaky, let's do with jQuery instead
+            $(this.$el).submit(function (e) {
+                e.preventDefault();
+            });
             $(this.$el).form(opt);
         }
     }, {
@@ -330,7 +334,8 @@ var Form = function (_FormBase2) {
             return ch('form', {
                 class: 'ui form',
                 domProps: {
-                    onsubmit: function onsubmit() {
+                    onsubmit: function onsubmit(e) {
+                        e.preventDefault();
                         return false;
                     }
                 }
