@@ -24,6 +24,11 @@ export class Form extends _FormBase {
 			})
 		}
 
+		// domProps.onsubmit is flaky, let's do with jQuery instead
+		$(this.$el).submit(function (e) {
+			e.preventDefault();
+		});
+
 		$(this.$el).form(opt)
 
 	}
@@ -36,7 +41,8 @@ export class Form extends _FormBase {
 		return ch('form', {
 			class: 'ui form',
 			domProps: {
-				onsubmit: function () {
+				onsubmit: function onsubmit(e) {
+					e.preventDefault();
 					return false;
 				}
 			}
