@@ -1,5 +1,6 @@
 import typescript from 'rollup-plugin-typescript'
 import babel from 'rollup-plugin-babel'
+import postcss from 'rollup-plugin-postcss'
 var pkg = require('./package.json')
 var path = require('path')
 var version = process.env.VERSION || pkg.version
@@ -27,7 +28,8 @@ export default {
         map: { mappings: '' }
       })
     },
-    typescript({    typescript: require('typescript')  }),
+    typescript({    typescript: require('typescript')  }),    
+    postcss(),
     babel({
       'presets': [
         [

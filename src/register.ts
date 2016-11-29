@@ -1,5 +1,6 @@
 import * as c from './components'
 import * as m from './components/methods'
+import * as md from './modules'
 import * as f from './filters'
 import * as Vue from 'vue'
 
@@ -9,9 +10,12 @@ export function register_all_components(vue: typeof Vue, prefix: string) {
 	}
 }
 
-export function register_all_methods(instance) {
+export function register_all_methods(instance) {	
 	for(var k in m) {
 		instance[k] = m[k](instance)
+	}
+	for(var k in md) {
+		instance[k] = md[k](instance)
 	}
 }
 

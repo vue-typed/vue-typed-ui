@@ -4,13 +4,14 @@ import * as sets from '../lib/settings'
 import * as formOpt from '../lib/form-options'
 // import { Modal } from '../lib/methods/modal'
 import {VueTypedUIMethods} from '../lib/methods'
+import * as modules from '../lib/modules'
 
 declare namespace VueTypedUI {
 	export type Options = opts.Options
 	export type Settings = sets.Settings
 	export type FormOptions = formOpt.FormOptions
 	export function FormComponent(options: FormOptions): ClassDecorator
-	export function Validate(options): PropertyDecorator
+	export function Validate(options): PropertyDecorator		
 }
 
 declare class VueTypedUI extends VueTypedUIMethods {
@@ -18,6 +19,7 @@ declare class VueTypedUI extends VueTypedUIMethods {
 	$settings: VueTypedUI.Settings
 	
 	createValidationRule(name: string, rule: Function)
+	alert: modules.Alert
 }
 
 declare module "vue/types/vue" {

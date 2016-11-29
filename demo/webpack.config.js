@@ -26,7 +26,7 @@ var config = {
       { test: /\.html$/, loader: 'html-loader' },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
-      { test: /\.css$/, loader: 'style-loader/url!file-loader' },
+      { test: /\.css$/, loader: 'style-loader/url!file-loader?name=assets/[name].[ext]' },
       { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=assets/[name].[ext]' }
     ]
   },

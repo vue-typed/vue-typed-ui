@@ -16,6 +16,7 @@ import { Modal } from './modal';
 import { Tree } from './tree';
 import { Menu } from './menu';
 import { Message } from './message';
+import { Alert } from './alert';
 
 
 // Main routes builder
@@ -37,7 +38,8 @@ const m = [
 	{ text: 'Modal', path: 'modal', component: Modal },
 	{ text: 'Tree', path: 'tree', component: Tree },
 	{ text: 'Menu', path: 'menu', component: Menu },
-	{ text: 'Message', path: 'message', component: Message }
+	{ text: 'Message', path: 'message', component: Message },
+	{ text: 'Alert', path: 'alert', component: Alert }
 ]
 
 // Build router routes
