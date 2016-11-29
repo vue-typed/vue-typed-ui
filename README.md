@@ -26,6 +26,11 @@ Vue.use(VueTypedUI)
 ```
 
 
+## Demo
+
+Quick dirty demo in [here](https://vue-typed.github.io/vue-typed-ui).
+
+
 ## License
 
 MIT

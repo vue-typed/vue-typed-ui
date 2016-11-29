@@ -54,6 +54,10 @@
       "FieldBase": "../../../fields/field-base"
     },
     "props": {
+      "can-clear": {
+        "type": "boolean",
+        "description": "Enable user to clear the value by clicking clear button on the right side of control"
+      },
       "kind": {
         "type": "'default' | 'grouped' | 'inline'",
         "description": "Field layout style"
@@ -190,6 +194,10 @@
       "Calendar": "../calendar"
     },
     "props": {
+      "can-clear": {
+        "type": "boolean",
+        "description": "Enable user to clear the value by clicking clear button on the right side of control"
+      },
       "format": {
         "type": "string",
         "description": "Date format"
@@ -235,6 +243,10 @@
       "Calendar": "../calendar"
     },
     "props": {
+      "can-clear": {
+        "type": "boolean",
+        "description": "Enable user to clear the value by clicking clear button on the right side of control"
+      },
       "format": {
         "type": "string",
         "description": "Date format"
@@ -831,6 +843,10 @@
       "Calendar": "../calendar"
     },
     "props": {
+      "can-clear": {
+        "type": "boolean",
+        "description": "Enable user to clear the value by clicking clear button on the right side of control"
+      },
       "format": {
         "type": "string",
         "description": "Date format"

@@ -747,6 +747,9 @@ __decorate([vueTyped.Prop({
 __decorate([vueTyped.Prop()], _CalendarBase.prototype, "value", void 0);
 __decorate([vueTyped.Prop()], _CalendarBase.prototype, "rangeStart", void 0);
 __decorate([vueTyped.Prop()], _CalendarBase.prototype, "rangeEnd", void 0);
+__decorate([vueTyped.Prop({
+    type: Boolean
+})], _CalendarBase.prototype, "canClear", void 0);
 
 var Calendar = function (_CalendarBase2) {
     inherits(Calendar, _CalendarBase2);
@@ -759,7 +762,22 @@ var Calendar = function (_CalendarBase2) {
     createClass(Calendar, [{
         key: 'createComponent',
         value: function createComponent(ch) {
-            return ch('div', { attrs: { 'class': 'ui calendar' } }, [ch('div', { attrs: { 'class': 'ui input left icon' } }, [ch('i', { attrs: { 'class': this.icon + ' icon' } }), ch('input', { attrs: { type: 'text', name: this.name, placeholder: this.placeholder } })])]);
+            var _this2 = this;
+
+            var children = [ch('i', { attrs: { 'class': this.icon + ' icon' } }), ch('input', { attrs: { type: 'text', name: this.name, placeholder: this.placeholder } })];
+            var css = 'ui input left icon';
+            if (this.canClear) {
+                css += ' action';
+                children.push(ch('div', {
+                    attrs: { 'class': 'ui icon button', 'type': 'button' },
+                    on: {
+                        'click': function click() {
+                            $(_this2.$el)['calendar']('clear');
+                        }
+                    }
+                }, [ch('i', { attrs: { 'class': 'close icon' } })]));
+            }
+            return ch('div', { attrs: { 'class': 'ui calendar' } }, [ch('div', { attrs: { 'class': css } }, children)]);
         }
     }, {
         key: 'mounted',
@@ -775,13 +793,13 @@ var Calendar = function (_CalendarBase2) {
     }, {
         key: 'setupUi',
         value: function setupUi() {
-            var _this2 = this;
+            var _this3 = this;
 
             var sender = this;
             var options = {
                 type: this.type,
                 onChange: function onChange(date, text) {
-                    _this2.$emit('input', date);
+                    _this3.$emit('input', date);
                 }
             };
             if (this.rangeStart) {
@@ -794,6 +812,7 @@ var Calendar = function (_CalendarBase2) {
                     endCalendar: this.rangeEnd
                 });
             }
+            if (this.canClear) {}
             $(this.$el)['calendar'](this.buildOptions(options))['calendar']('set date', this.value, true, false);
         }
     }, {
@@ -2815,18 +2834,21 @@ var m = Object.freeze({
 
 function DateTime$1(instance) {
     return function (value) {
+        if (!value) return null;
         return moment(value).format(instance.$settings.dateFormat + ' ' + instance.$settings.timeFormat);
     };
 }
 
 function Date$1(instance) {
     return function (value) {
+        if (!value) return null;
         return moment(value).format(instance.$settings.dateFormat);
     };
 }
 
 function Time$1(instance) {
     return function (value) {
+        if (!value) return null;
         return moment(value).format(instance.$settings.timeFormat);
     };
 }

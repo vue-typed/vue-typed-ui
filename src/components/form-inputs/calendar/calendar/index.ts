@@ -7,19 +7,34 @@ import { _CalendarBase } from './_base';
 
 @Component()
 export abstract class Calendar extends _CalendarBase {
-	
+
 	abstract type
 	abstract icon
 
 	createComponent(ch) {
 
+		let children = [
+			ch('i', { attrs: { 'class': this.icon + ' icon' } }),
+			ch('input', { attrs: { type: 'text', name: this.name, placeholder: this.placeholder, } })
+		]
+
+		let css = 'ui input left icon'
+
+		if (this.canClear) {
+			css += ' action'
+			children.push(ch('div', {
+				attrs: { 'class': 'ui icon button', 'type': 'button' },
+				on: {
+					'click': () => {
+						$(this.$el)['calendar']('clear')
+					}
+				}
+			}, [ch('i', { attrs: { 'class': 'close icon' } })]))
+		}
+
 		return ch('div', { attrs: { 'class': 'ui calendar' } },
 			[
-				ch('div', { attrs: { 'class': 'ui input left icon' } },
-					[
-						ch('i', { attrs: { 'class': this.icon + ' icon' } }),
-						ch('input', { attrs: { type: 'text', name: this.name, placeholder: this.placeholder, } })
-					])
+				ch('div', { attrs: { 'class': css } }, children)
 			]);
 
 	}
@@ -45,16 +60,20 @@ export abstract class Calendar extends _CalendarBase {
 			}
 		}
 
-		if (this.rangeStart){
+		if (this.rangeStart) {
 			Object.assign(options, {
 				startCalendar: this.rangeStart
 			})
 		}
 
-		if (this.rangeEnd){
+		if (this.rangeEnd) {
 			Object.assign(options, {
 				endCalendar: this.rangeEnd
 			})
+		}
+
+		if (this.canClear) {
+
 		}
 
 		$(this.$el)['calendar'](this.buildOptions(options))['calendar']('set date', this.value, true, false);

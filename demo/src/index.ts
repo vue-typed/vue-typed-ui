@@ -28,6 +28,7 @@ var router = new VueRouter({
 	linkActiveClass: 'active'	
 });
 
+import './styles/index.less'
 
 // --------------------------------------------------------------------------------------
 // Init main demo app
@@ -47,7 +48,7 @@ class App extends Vue {
 
 }
 
-new Vue({
+export default {
 	router,
 	render: h => h(App),
-}).$mount('#app', true);
+}

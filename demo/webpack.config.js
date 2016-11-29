@@ -1,38 +1,20 @@
 var path = require('path')
 var webpack = require('webpack')
+var outputPath = path.resolve(__dirname, '../demo/dist')
 
 var config = {
-
-  target: "web",
-
   context: path.resolve(__dirname, '../demo'),
-
-  entry: './src/index.ts',
 
   output: {
     // output to './demo/dist' folder 
-    path:  path.resolve(__dirname, '../demo/dist'),//'./demo/dist',
-
-    // with filename
-    filename: 'bundle.js',
-
-    // mark /dist/ folder as a public path so index.html can reach it
-    publicPath: '/dist/'
+    path: outputPath,
+    // // with filename
+    filename: '[name].js'
   },
-
-  // webpack-dev-server config, see: https://webpack.github.io/docs/webpack-dev-server.html
-  devServer: {
-    contentBase: './demo',
-    hot: true,
-    inline: true,
-    port: 3030
-  },
-
-  devtool: "#inline-source-map",
 
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.css', '.json'],
-    modulesDirectories: ["node_modules", "bower_components"],
+    modulesDirectories: ['node_modules', 'bower_components'],
     alias: {
       'vue$': 'vue/dist/vue.js'
     }
@@ -41,8 +23,11 @@ var config = {
   module: {
     loaders: [
       { test: /\.js$/, loader: 'source-map-loader' },
-      { test: /\.html$/, loader: 'html' },
-      { test: /\.json$/, loader: 'json' },
+      { test: /\.html$/, loader: 'html-loader' },
+      { test: /\.json$/, loader: 'json-loader' },
+      { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
+      { test: /\.css$/, loader: 'style-loader/url!file-loader' },
+      { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=assets/[name].[ext]' }
     ]
   },
 
@@ -52,17 +37,12 @@ var config = {
     //  THIS IS IMPORTANT, OR '$' WILL NOT INJECTED WITH SEMANTIC-UI
     //  BECAUSE YOU ARE USING YOUR OWN COMPILED JQUERY 
     'jquery': 'jQuery'
-  },
-
-  plugins: [
-    // HMR issue, see: https://github.com/webpack/webpack/issues/1151
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  }
 
 }
 
 if (process.env.NODE_ENV === 'production') {
-  
+  config.entry = { 'bundle': ['./src/index.prod.ts']  }
   // still need babel for production stage since uglifyJs not support es6
   config.module.loaders = (config.module.loaders || []).concat([
     { test: /\.ts(x?)$/, loader: 'babel?presets[]=es2015!ts' },
@@ -86,10 +66,11 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.OccurenceOrderPlugin()
   ])
 } else {
+  config.entry = { 'bundle': ['./src/index.dev.ts']  }
   config.module.loaders = config.module.loaders.concat([
-    { test: /\.ts(x?)$/, loader: 'ts' }
+    { test: /\.ts(x?)$/, loader: 'ts-loader' }
   ])
+  config.devtool = '#inline-source-map'
 }
-
 
 module.exports = config

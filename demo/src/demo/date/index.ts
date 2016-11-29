@@ -10,6 +10,8 @@ export class DateDemo extends Base  {
 	startDate: Date = new Date()
 	endDate: Date = new Date()
 
+	optionalDate?: Date = new Date()
+
 	get dueDateString() {
 		return this.dueDate.toLocaleDateString() + ' at ' + this.dueDate.toLocaleTimeString();
 	}
