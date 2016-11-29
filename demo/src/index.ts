@@ -28,6 +28,7 @@ var router = new VueRouter({
 	linkActiveClass: 'active'	
 });
 
+import './styles/index.less'
 
 // --------------------------------------------------------------------------------------
 // Init main demo app

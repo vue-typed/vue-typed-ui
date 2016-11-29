@@ -1,12 +1,13 @@
 var path = require('path')
 var webpack = require('webpack')
+var outputPath = path.resolve(__dirname, '../demo/dist')
 
 var config = {
   context: path.resolve(__dirname, '../demo'),
 
   output: {
     // output to './demo/dist' folder 
-    path: path.resolve(__dirname, '../demo/dist'),
+    path: outputPath,
     // // with filename
     filename: '[name].js'
   },
@@ -23,7 +24,10 @@ var config = {
     loaders: [
       { test: /\.js$/, loader: 'source-map-loader' },
       { test: /\.html$/, loader: 'html-loader' },
-      { test: /\.json$/, loader: 'json-loader' }
+      { test: /\.json$/, loader: 'json-loader' },
+      { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
+      { test: /\.css$/, loader: 'style-loader/url!file-loader' },
+      { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=assets/[name].[ext]' }
     ]
   },
 
