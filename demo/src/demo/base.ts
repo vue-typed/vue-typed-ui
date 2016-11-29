@@ -4,7 +4,7 @@ import { sources } from './routes';
 var prettyHtml = require('pretty');
 var prettyTs = require('js-beautify').js_beautify;
 var demoAreaTemplate: string = require('./layout.html');
-
+import { ViewSource } from '../view-source';
 
 
 
@@ -17,7 +17,11 @@ var demoAreaTemplate: string = require('./layout.html');
  * @class Demo
  * @extends {Vue}
  */
-@Component()
+@Component({
+	components: {
+		'ui-view-source': ViewSource
+	}
+})
 export abstract class Base extends Vue {
 
 	beforeCreate() {
