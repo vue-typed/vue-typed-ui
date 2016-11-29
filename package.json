@@ -6,7 +6,7 @@
   "main": "dist/vue-typed-ui.js",
   "scripts": {
     "build": "rollup -c",
-    "demo": "npm run build && webpack-dev-server --config demo/webpack.config.js",
+    "dev": "npm run build && node ./demo/dev-server.js",
     "build:demo": "npm run build && cross-env NODE_ENV=production webpack --config demo/webpack.config.js",
     "test": "npm run build && karma start karma.conf.js"
   },

@@ -47,7 +47,7 @@ class App extends Vue {
 
 }
 
-new Vue({
+export default {
 	router,
 	render: h => h(App),
-}).$mount('#app', true);
+}
