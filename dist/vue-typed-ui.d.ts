@@ -2,7 +2,6 @@ import * as Vue from 'vue'
 import * as opts from '../lib/options'
 import * as sets from '../lib/settings'
 import * as formOpt from '../lib/form-options'
-// import { Modal } from '../lib/methods/modal'
 import {VueTypedUIMethods} from '../lib/methods'
 import * as modules from '../lib/modules'
 
@@ -20,6 +19,7 @@ declare class VueTypedUI extends VueTypedUIMethods {
 	
 	createValidationRule(name: string, rule: Function)
 	alert: modules.Alert
+	toast: modules.Toastr
 }
 
 declare module "vue/types/vue" {
@@ -28,4 +28,4 @@ declare module "vue/types/vue" {
 	}
 }
 
-export = VueTypedUI;
+export = VueTypedUI

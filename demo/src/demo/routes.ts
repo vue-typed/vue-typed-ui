@@ -17,6 +17,7 @@ import { Tree } from './tree';
 import { Menu } from './menu';
 import { Message } from './message';
 import { Alert } from './alert';
+import { Toastr } from './toastr';
 
 
 // Main routes builder
@@ -39,7 +40,8 @@ const m = [
 	{ text: 'Tree', path: 'tree', component: Tree },
 	{ text: 'Menu', path: 'menu', component: Menu },
 	{ text: 'Message', path: 'message', component: Message },
-	{ text: 'Alert', path: 'alert', component: Alert }
+	{ text: 'Alert', path: 'alert', component: Alert },
+	{ text: 'Toastr', path: 'toastr', component: Toastr }
 ]
 
 // Build router routes

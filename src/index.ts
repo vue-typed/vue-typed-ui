@@ -2,7 +2,8 @@ import * as Vue from 'vue';
 import { Options } from '../lib/options';
 import { Settings } from '../lib/settings';
 import { DefaultOptions, DefaultSettings } from './defaults';
-
+import * as toastr from 'toastr'
+import * as _ from 'lodash'
 
 import { register_all_components, register_all_filters, register_all_methods } from './register';
 
@@ -53,6 +54,13 @@ class VueTypedUI {
 
 		var instance = new VueTypedUI(vue, options);
 		vue.util.defineReactive(Vue.prototype, '$ui', instance)
+
+		// set toastr default settings
+		if (options.toastr) {
+			_.each(options.toastr, (v, k) => {
+				toastr.options[k] = v
+			})			
+		}
 	}
 }
 

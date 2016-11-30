@@ -1,7 +1,7 @@
 import * as Vue from 'vue';
 import * as VueRouter from 'vue-router';
 import { Component } from 'vue-typed';
-import * as VueTypedUI from '../../src/index';
+import * as VueTypedUI from '../../dist/vue-typed-ui';
 import { SettingsPage } from './settings-page';
 
 
@@ -11,8 +11,14 @@ import { SettingsPage } from './settings-page';
 // OTHERWISE YOU'LL HAVE WEIRD UNREGISTERED COMPONENT WARNING.
 // --------------------------------------------------------------------------------------
 Vue.use(VueRouter);
-Vue.use(VueTypedUI, {
-	prefix: 'ui'
+
+Vue.use(VueTypedUI, <VueTypedUI.Options> {
+	prefix: 'ui',
+	toastr: {
+		showDuration: 300,
+		hideDuration: 300,
+		timeOut: 3000
+	}
 });
 
 
@@ -25,7 +31,7 @@ import { routes } from './routes';
 // --------------------------------------------------------------------------------------
 var router = new VueRouter({
 	routes,
-	linkActiveClass: 'active'	
+	linkActiveClass: 'active'
 });
 
 import './styles/index.less'
