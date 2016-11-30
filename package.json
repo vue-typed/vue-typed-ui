@@ -1,7 +1,7 @@
 {
   "name": "vue-typed-ui",
   "homepage": "https://github.com/vue-typed/vue-typed-ui",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.1-alpha",
   "description": "UI components made with Semantic UI, VueTyped and friends",
   "main": "dist/vue-typed-ui.js",
   "scripts": {
