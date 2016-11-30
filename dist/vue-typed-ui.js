@@ -2562,6 +2562,12 @@ var VueTypedUI$1 = function () {
             settings: DefaultSettings
         };
         options$$1 = vue['util'].extend(defaultOptions, options$$1 || {});
+        // set toastr default settings
+        if (options$$1.toastr) {
+            _.each(options$$1.toastr, function (v, k) {
+                toastr.options[k] = v;
+            });
+        }
         this.$settings = options$$1.settings = vue['util'].extend(DefaultSettings, options$$1.settings || {});
         VueTypedUI.prefix = options$$1.prefix;
         register_all_components(vue, options$$1.prefix);
@@ -2585,12 +2591,6 @@ var VueTypedUI$1 = function () {
             if (this.installed) return;
             var instance = new VueTypedUI(vue, options$$1);
             vue.util.defineReactive(Vue.prototype, '$ui', instance);
-            // set toastr default settings
-            if (options$$1.toastr) {
-                _.each(options$$1.toastr, function (v, k) {
-                    toastr.options[k] = v;
-                });
-            }
         }
     }]);
     return VueTypedUI;
@@ -2909,6 +2909,12 @@ var VueTypedUI = function () {
             settings: DefaultSettings
         };
         options$$1 = vue['util'].extend(defaultOptions, options$$1 || {});
+        // set toastr default settings
+        if (options$$1.toastr) {
+            _.each(options$$1.toastr, function (v, k) {
+                toastr.options[k] = v;
+            });
+        }
         this.$settings = options$$1.settings = vue['util'].extend(DefaultSettings, options$$1.settings || {});
         VueTypedUI.prefix = options$$1.prefix;
         register_all_components(vue, options$$1.prefix);
@@ -2932,12 +2938,6 @@ var VueTypedUI = function () {
             if (this.installed) return;
             var instance = new VueTypedUI(vue, options$$1);
             vue.util.defineReactive(Vue.prototype, '$ui', instance);
-            // set toastr default settings
-            if (options$$1.toastr) {
-                _.each(options$$1.toastr, function (v, k) {
-                    toastr.options[k] = v;
-                });
-            }
         }
     }]);
     return VueTypedUI;

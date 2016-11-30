@@ -29,6 +29,14 @@ class VueTypedUI {
 		}
 
 		options = vue['util'].extend(defaultOptions, options || {})
+
+		// set toastr default settings
+		if (options.toastr) {
+			_.each(options.toastr, (v, k) => {
+				toastr.options[k] = v
+			})			
+		}
+		
 		this.$settings = options.settings = vue['util'].extend(DefaultSettings, options.settings || {})
 		VueTypedUI.prefix = options.prefix
 
@@ -54,13 +62,6 @@ class VueTypedUI {
 
 		var instance = new VueTypedUI(vue, options);
 		vue.util.defineReactive(Vue.prototype, '$ui', instance)
-
-		// set toastr default settings
-		if (options.toastr) {
-			_.each(options.toastr, (v, k) => {
-				toastr.options[k] = v
-			})			
-		}
 	}
 }
 
