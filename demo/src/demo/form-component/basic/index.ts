@@ -9,7 +9,7 @@ import { FormComponent, Validate } from '../../../../../src/index';
 	onSuccess: 'submit',
 	validateInline: true
 })
-export class FormAdvanced extends Base {
+export class FormComponentBasic extends Base {
 
 	constructor() {
 		super()

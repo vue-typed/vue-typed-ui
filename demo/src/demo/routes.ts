@@ -1,5 +1,6 @@
 import { FormBasic } from './form/basic';
-import { FormAdvanced } from './form/form-component';
+import { FormComponentBasic } from './form-component/basic';
+import { FormComponentReplace } from './form-component/replace';
 import { Input } from './input';
 import { Numeric } from './numeric';
 import { Currency } from './currency';
@@ -24,7 +25,8 @@ import { Focus } from './focus';
 // Main routes builder
 const m = [
 	{ group: 'component/form', text: 'Form Basic', path: 'form/basic', component: FormBasic },
-	{ group: 'component/form', text: 'Form Component', path: 'form/form-component', component: FormAdvanced },
+	{ group: 'decorator/form', text: 'Basic', path: 'form-component/basic', component: FormComponentBasic },
+	{ group: 'decorator/form', text: 'Replace', path: 'form-component/replace', component: FormComponentReplace },
 	{ group: 'component/input', text: 'Input', path: 'input', component: Input },
 	{ group: 'component/numeric', text: 'Numeric', path: 'numeric', component: Numeric },
 	{ group: 'component/currency', text: 'Currency', path: 'currency', component: Currency },

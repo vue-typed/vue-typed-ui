@@ -884,7 +884,7 @@ var Date = function (_DateBase2) {
     }, {
         key: 'buildOptions',
         value: function buildOptions(options$$1) {
-            var format = !this.format || this.format == 'default' ? this.$ui.$settings.dateFormat : this.format;
+            var format = !this.format || this.format == 'default' ? this.$UI.$settings.dateFormat : this.format;
             Object.assign(options$$1, {
                 formatter: {
                     date: function date(_date, settings) {
@@ -903,7 +903,7 @@ var Date = function (_DateBase2) {
     }]);
     return Date;
 }(_DateBase);
-__decorate([vueTyped.Watch('$ui.$settings.dateFormat')], Date.prototype, "onSettingsChanged", null);
+__decorate([vueTyped.Watch('$UI.$settings.dateFormat')], Date.prototype, "onSettingsChanged", null);
 Date = __decorate([vueTyped.Component()], Date);
 
 var _TimeBase = function (_Calendar) {
@@ -943,7 +943,7 @@ var Time = function (_TimeBase2) {
     }, {
         key: 'buildOptions',
         value: function buildOptions(options$$1) {
-            var format = !this.format || this.format == 'default' ? this.$ui.$settings.timeFormat : this.format;
+            var format = !this.format || this.format == 'default' ? this.$UI.$settings.timeFormat : this.format;
             Object.assign(options$$1, {
                 formatter: {
                     time: function time(_time, settings) {
@@ -962,7 +962,7 @@ var Time = function (_TimeBase2) {
     }]);
     return Time;
 }(_TimeBase);
-__decorate([vueTyped.Watch('$ui.$settings.timeFormat')], Time.prototype, "onSettingsChanged", null);
+__decorate([vueTyped.Watch('$UI.$settings.timeFormat')], Time.prototype, "onSettingsChanged", null);
 Time = __decorate([vueTyped.Component()], Time);
 
 var _DatetimeBase = function (_Calendar) {
@@ -1003,7 +1003,7 @@ var DateTime = function (_DatetimeBase2) {
     }, {
         key: 'buildOptions',
         value: function buildOptions(options$$1) {
-            var format = !this.format || this.format == 'default' ? this.$ui.$settings.dateFormat + ' ' + this.$ui.$settings.timeFormat : this.format;
+            var format = !this.format || this.format == 'default' ? this.$UI.$settings.dateFormat + ' ' + this.$UI.$settings.timeFormat : this.format;
             Object.assign(options$$1, {
                 formatter: {
                     datetime: function datetime(date, settings) {
@@ -1022,7 +1022,7 @@ var DateTime = function (_DatetimeBase2) {
     }]);
     return DateTime;
 }(_DatetimeBase);
-__decorate([vueTyped.Watch('$ui.$settings')], DateTime.prototype, "onSettingsChanged", null);
+__decorate([vueTyped.Watch('$UI.$settings')], DateTime.prototype, "onSettingsChanged", null);
 DateTime = __decorate([vueTyped.Component()], DateTime);
 
 var _NumericBase = function (_FieldBase) {
@@ -1120,7 +1120,7 @@ var Numeric = function (_NumericBase2) {
         value: function setupUI() {
             var _this2 = this;
 
-            var def = this.$ui.$settings.numeric;
+            var def = this.$UI.$settings.numeric;
             var opt = {
                 aDec: Util.pickNonEmpty(this.decimalSeparator, def.decimalSeparator),
                 aSep: Util.pickNonEmpty(this.groupSeparator, def.groupSeparator),
@@ -1153,7 +1153,7 @@ var Numeric = function (_NumericBase2) {
     return Numeric;
 }(_NumericBase);
 __decorate([vueTyped.Watch('value')], Numeric.prototype, "valueChanged", null);
-__decorate([vueTyped.Watch('$ui.$settings.numeric', true)], Numeric.prototype, "onSettingsChanged", null);
+__decorate([vueTyped.Watch('$UI.$settings.numeric', true)], Numeric.prototype, "onSettingsChanged", null);
 Numeric = __decorate([vueTyped.Component()], Numeric);
 
 var _CurrencyBase = function (_Numeric) {
@@ -1191,8 +1191,8 @@ var Currency = function (_CurrencyBase2) {
     }, {
         key: 'buildOptions',
         value: function buildOptions(options$$1) {
-            var signPos = Util.pickNonEmpty(this.signPos, this.$ui.$settings.numeric.signPos);
-            var sign = Util.pickNonEmpty(this.sign, this.$ui.$settings.numeric.sign);
+            var signPos = Util.pickNonEmpty(this.signPos, this.$UI.$settings.numeric.signPos);
+            var sign = Util.pickNonEmpty(this.sign, this.$UI.$settings.numeric.sign);
             return Object.assign(options$$1, Util.decodeCurrencyProperties(sign, signPos));
         }
     }]);
@@ -2505,20 +2505,45 @@ Modal = __decorate([vueTyped.Component({
 
 function FormComponent(options$$1) {
     if (!options$$1.template) throw 'Template should be defined when using FormComponent.';
-    var args = '';
+    var args = [];
     if (options$$1.onSuccess !== undefined) {
-        args += ' v-on:success="' + options$$1.onSuccess + '"';
+        args.push({ key: 'v-on:success', val: options$$1.onSuccess });
         delete options$$1.onSuccess;
     }
     if (options$$1.onError !== undefined) {
-        args += ' v-on:error="' + options$$1.onError + '"';
+        args.push({ key: 'v-on:error', val: options$$1.onError });
         delete options$$1.onError;
     }
     if (options$$1.validateInline !== undefined) {
-        args += ' :validate-inline="' + options$$1.validateInline + '"';
+        args.push({ key: ':validate-inline', val: options$$1.validateInline });
         delete options$$1.validateInline;
     }
-    options$$1.template = '<ui-form :validator="' + ValidatorPropName + '"' + args + '>' + options$$1.template + '<ui-form>';
+    var argsStr = ' ' + args.map(function (v) {
+        return v.key + '="' + v.val + '"';
+    }).join(' ');
+    if (!options$$1.replace) {
+        options$$1.template = '<ui-form :validator="' + ValidatorPropName + '"' + argsStr + '>' + options$$1.template + '<ui-form>';
+    } else {
+        var htmlToElement = function htmlToElement(html) {
+            var template = document.createElement('template');
+            template.innerHTML = html;
+            return template.content.firstChild;
+        };
+
+        var node = htmlToElement(options$$1.template);
+        var newNode = document.createElement('ui-form');
+        for (var i = 0; i < node.attributes.length; i++) {
+            var attr = node.attributes[i];
+            newNode.setAttribute(attr.name, attr.value);
+        }
+        newNode.setAttribute(':validator', ValidatorPropName);
+        for (var i = 0; i < args.length; i++) {
+            var arg = args[i];
+            newNode.setAttribute(arg['key'], arg['val']);
+        }
+        newNode.innerHTML = node['innerHTML'];
+        options$$1.template = newNode.outerHTML;
+    }
     return function (target) {
         var validators = target.prototype[ValidatorPropNameTmp] || undefined;
         delete target.prototype[ValidatorPropNameTmp];
@@ -2568,11 +2593,20 @@ var VueTypedUI$1 = function () {
                 toastr.options[k] = v;
             });
         }
-        this.$settings = options$$1.settings = vue['util'].extend(DefaultSettings, options$$1.settings || {});
+        var settings = options$$1.settings = vue['util'].extend(DefaultSettings, options$$1.settings || {});
+        var uiRoot = {
+            $settings: settings
+        };
+        vue['util'].defineReactive(Vue.prototype, '$UI', uiRoot);
         VueTypedUI.prefix = options$$1.prefix;
         register_all_components(vue, options$$1.prefix);
-        register_all_filters(vue, options$$1.prefix, this);
+        register_all_filters(vue, options$$1.prefix, uiRoot);
         register_all_methods(vue, this);
+        Object.defineProperty(vue.prototype, '$ui', {
+            get: function get() {
+                return this._ui;
+            }
+        });
     }
 
     createClass(VueTypedUI, null, [{
@@ -2580,11 +2614,6 @@ var VueTypedUI$1 = function () {
         value: function install$1(vue, options$$1) {
             if (this.installed) return;
             var instance = new VueTypedUI(vue, options$$1);
-            Object.defineProperty(Vue.prototype, '$ui', {
-                get: function get() {
-                    return this._ui;
-                }
-            });
         }
     }]);
     return VueTypedUI;
@@ -2906,9 +2935,6 @@ function register_all_methods(vue, instance) {
                 mdls[k] = methods[k](instance, this);
             }
             mdls = _.merge(mdls, instance);
-            mdls['createValidationRule'] = function (name, rule) {
-                $.fn.form.settings.rules[name] = rule;
-            };
             Vue['util'].defineReactive(this, '_ui', mdls);
         }
     });
@@ -2940,11 +2966,20 @@ var VueTypedUI = function () {
                 toastr.options[k] = v;
             });
         }
-        this.$settings = options$$1.settings = vue['util'].extend(DefaultSettings, options$$1.settings || {});
+        var settings = options$$1.settings = vue['util'].extend(DefaultSettings, options$$1.settings || {});
+        var uiRoot = {
+            $settings: settings
+        };
+        vue['util'].defineReactive(Vue.prototype, '$UI', uiRoot);
         VueTypedUI.prefix = options$$1.prefix;
         register_all_components(vue, options$$1.prefix);
-        register_all_filters(vue, options$$1.prefix, this);
+        register_all_filters(vue, options$$1.prefix, uiRoot);
         register_all_methods(vue, this);
+        Object.defineProperty(vue.prototype, '$ui', {
+            get: function get() {
+                return this._ui;
+            }
+        });
     }
 
     createClass(VueTypedUI, null, [{
@@ -2952,11 +2987,6 @@ var VueTypedUI = function () {
         value: function install(vue, options$$1) {
             if (this.installed) return;
             var instance = new VueTypedUI(vue, options$$1);
-            Object.defineProperty(Vue.prototype, '$ui', {
-                get: function get() {
-                    return this._ui;
-                }
-            });
         }
     }]);
     return VueTypedUI;
