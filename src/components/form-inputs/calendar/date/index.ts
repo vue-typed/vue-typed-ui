@@ -11,7 +11,7 @@ export class Date extends _DateBase {
 	type = 'date'
 	icon = 'calendar'
 
-	@Watch('$ui.$settings.dateFormat')
+	@Watch('$UI.$settings.dateFormat')
 	onSettingsChanged(val) {
 		$(this.$el)['calendar']('destroy');
 		this.setupUi();
@@ -19,7 +19,7 @@ export class Date extends _DateBase {
 
 	buildOptions(options) {
 
-		var format = (!this.format || this.format == 'default') ? this.$ui.$settings.dateFormat : this.format
+		var format = (!this.format || this.format == 'default') ? this.$UI.$settings.dateFormat : this.format
 
 		Object.assign(options, {
 			formatter: {

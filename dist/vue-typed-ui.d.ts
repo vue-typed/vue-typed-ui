@@ -15,18 +15,21 @@ declare namespace VueTypedUI {
 
 declare class VueTypedUI extends VueTypedUIMethods {
 	static install: Vue.PluginFunction<VueTypedUI.Options>
-	$settings: VueTypedUI.Settings
 	
 	createValidationRule(name: string, rule: Function)
 	alert: modules.Alert
 	toast: modules.Toastr
 	focus: modules.Focus
+}
 
+declare class VueTypedUIRoot {
+	$settings: VueTypedUI.Settings
 }
 
 declare module "vue/types/vue" {
 	interface Vue {
 		$ui: VueTypedUI
+		$UI: VueTypedUIRoot
 	}
 }
 

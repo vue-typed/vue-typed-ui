@@ -38,10 +38,6 @@ export function register_all_methods(vue: typeof Vue, instance) {
 
 			mdls = _.merge(mdls, instance)
 
-			mdls['createValidationRule'] = (name: string, rule: Function) => {
-				$.fn.form.settings.rules[name] = rule
-			}
-
 			Vue['util'].defineReactive(this, '_ui', mdls)
 		}
 	})

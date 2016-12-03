@@ -12,7 +12,7 @@ export class DateTime extends _DatetimeBase {
 	type = 'datetime'
 	icon = 'calendar'
 
-	@Watch('$ui.$settings')
+	@Watch('$UI.$settings')
 	onSettingsChanged(val: Settings, old: Settings) {
 		if (old.dateFormat === val.dateFormat && old.timeFormat === val.timeFormat)
 			return;
@@ -23,7 +23,7 @@ export class DateTime extends _DatetimeBase {
 
 	buildOptions(options) {
 
-		var format = (!this.format || this.format == 'default') ? this.$ui.$settings.dateFormat + ' ' + this.$ui.$settings.timeFormat : this.format
+		var format = (!this.format || this.format == 'default') ? this.$UI.$settings.dateFormat + ' ' + this.$UI.$settings.timeFormat : this.format
 
 		Object.assign(options, {
 			formatter: {

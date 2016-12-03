@@ -11,7 +11,7 @@ export class Time extends _TimeBase {
 	type = 'time'
 	icon = 'time'
 
-	@Watch('$ui.$settings.timeFormat')
+	@Watch('$UI.$settings.timeFormat')
 	onSettingsChanged(val) {
 		$(this.$el)['calendar']('destroy');
 		this.setupUi();
@@ -19,7 +19,7 @@ export class Time extends _TimeBase {
 
 	buildOptions(options) {
 
-		var format = (!this.format || this.format == 'default') ? this.$ui.$settings.timeFormat : this.format
+		var format = (!this.format || this.format == 'default') ? this.$UI.$settings.timeFormat : this.format
 
 		Object.assign(options, {
 			formatter: {

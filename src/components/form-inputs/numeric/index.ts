@@ -40,7 +40,7 @@ export class Numeric extends _NumericBase {
 		this.setupUI();
 	}
 
-	@Watch('$ui.$settings.numeric', true)
+	@Watch('$UI.$settings.numeric', true)
 	onSettingsChanged(val) {
 		$(this.$el).find('input').autoNumeric('destroy');
 		this.setupUI();
@@ -48,7 +48,7 @@ export class Numeric extends _NumericBase {
 	
 	
 	setupUI() {
-		var def = this.$ui.$settings.numeric
+		var def = this.$UI.$settings.numeric
 
 		var opt = {
 			aDec: Util.pickNonEmpty(this.decimalSeparator, def.decimalSeparator),

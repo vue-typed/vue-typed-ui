@@ -15,8 +15,8 @@ export class Currency extends _CurrencyBase {
 	}
 
 	buildOptions(options) {
-		let signPos : string = Util.pickNonEmpty(this.signPos, this.$ui.$settings.numeric.signPos)		
-		let sign : string = Util.pickNonEmpty(this.sign, this.$ui.$settings.numeric.sign)	
+		let signPos : string = Util.pickNonEmpty(this.signPos, this.$UI.$settings.numeric.signPos)		
+		let sign : string = Util.pickNonEmpty(this.sign, this.$UI.$settings.numeric.sign)	
 		return Object.assign(options, Util.decodeCurrencyProperties(sign, signPos))
 	}
 
