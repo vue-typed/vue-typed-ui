@@ -1,7 +1,8 @@
 import * as Vue from 'vue';
 import * as VueRouter from 'vue-router';
 import { Component } from 'vue-typed';
-import * as VueTypedUI from '../../dist/vue-typed-ui';
+import { Options } from '../../dist/vue-typed-ui';
+import * as VueTypedUI from '../../src/index';
 import { SettingsPage } from './settings-page';
 
 
@@ -12,7 +13,7 @@ import { SettingsPage } from './settings-page';
 // --------------------------------------------------------------------------------------
 Vue.use(VueRouter);
 
-Vue.use(VueTypedUI, <VueTypedUI.Options>{
+Vue.use(VueTypedUI, <Options>{
 	prefix: 'ui',
 	toastr: {
 		showDuration: 300,

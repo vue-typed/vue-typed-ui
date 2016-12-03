@@ -39,29 +39,23 @@ class VueTypedUI {
 		
 		this.$settings = options.settings = vue['util'].extend(DefaultSettings, options.settings || {})
 		VueTypedUI.prefix = options.prefix
-
+		
+		
 		register_all_components(vue, options.prefix)
 		register_all_filters(vue, options.prefix, this)
-		register_all_methods(this)
+		register_all_methods(vue, this)
 
 	}
-
-	showModal(element: string | HTMLElement | JQuery) {
-		$(element)['modal']('show')
-	}
-
-	createValidationRule(name: string, rule: Function) {
-		$.fn.form.settings.rules[name] = rule
-	}
-
 
 	static prefix: string
 	static installed: boolean
 	static install(vue, options?: Options): Vue.PluginFunction<Options> {
 		if (this.installed) return;
-
 		var instance = new VueTypedUI(vue, options);
-		vue.util.defineReactive(Vue.prototype, '$ui', instance)
+
+		Object.defineProperty(Vue.prototype, '$ui', {
+			get() { return this._ui; }
+		})
 	}
 }
 

@@ -1089,7 +1089,7 @@
     "id": "module/focus",
     "module": "focus",
     "type": "module",
-    "readme": false
+    "readme": true
   },
   "module/toastr": {
     "dir": "src/modules/toastr",

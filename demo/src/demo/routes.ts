@@ -18,6 +18,7 @@ import { Menu } from './menu';
 import { Message } from './message';
 import { Alert } from './alert';
 import { Toastr } from './toastr';
+import { Focus } from './focus';
 
 
 // Main routes builder
@@ -41,7 +42,8 @@ const m = [
 	{ group: 'component/menu', text: 'Menu', path: 'menu', component: Menu },
 	{ group: 'component/message', text: 'Message', path: 'message', component: Message },
 	{ group: 'module/alert', text: 'Alert', path: 'alert', component: Alert },
-	{ group: 'module/toastr', text: 'Toastr', path: 'toastr', component: Toastr }
+	{ group: 'module/toastr', text: 'Toastr', path: 'toastr', component: Toastr },
+	{ group: 'module/focus', text: 'Focus', path: 'focus', component: Focus }
 ]
 
 // Build router routes

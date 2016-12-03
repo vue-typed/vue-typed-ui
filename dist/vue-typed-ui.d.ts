@@ -20,6 +20,8 @@ declare class VueTypedUI extends VueTypedUIMethods {
 	createValidationRule(name: string, rule: Function)
 	alert: modules.Alert
 	toast: modules.Toastr
+	focus: modules.Focus
+
 }
 
 declare module "vue/types/vue" {

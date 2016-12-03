@@ -2816,11 +2816,18 @@ function toast(instance) {
     return toastr;
 }
 
+function focus(instance) {
+    return function focus(element) {
+        console.log('focus to', instance, element);
+    };
+}
+
 
 
 var md = Object.freeze({
 	alert: alert,
-	toast: toast
+	toast: toast,
+	focus: focus
 });
 
 function DateTime$1(instance) {
