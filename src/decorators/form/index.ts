@@ -1,6 +1,6 @@
 import { Component } from 'vue-typed';
-import { FormOptions } from '../../lib/form-options';
-import { ValidatorPropName, ValidatorPropNameTmp } from './../consts';
+import { FormOptions } from '../../../lib/form-options';
+import { ValidatorPropName, ValidatorPropNameTmp } from './../../consts';
 
 export function FormComponent(options: FormOptions): ClassDecorator {
 

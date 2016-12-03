@@ -1,4 +1,4 @@
-import { ValidatorPropNameTmp } from './../consts';
+import { ValidatorPropNameTmp } from './../../consts';
 
 export function Validate(options): PropertyDecorator {
 

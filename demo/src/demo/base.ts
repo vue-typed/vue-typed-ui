@@ -28,7 +28,7 @@ export abstract class Base extends Vue {
 		if (!sources) return;
 
 		var html = this.$options.template;
-		var src = sources[this.$route.path];
+		var src = sources[this.$route.meta.id];
 		
 		this['title'] = src.title;
 		this['html'] = prettyHtml(src.html)

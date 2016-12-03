@@ -15,21 +15,17 @@ export class Menu {
 	sidebarToggle: string
 
 	routes: any[] = routes
-	apiRoutes: any[] = []
+	
 
 	constructor() {
-		this.routes = _.sortBy(routes.filter(r => {
-			return r.path.startsWith('/demo')
-		}), 'text')
 
-		this.apiRoutes = _.map(_.keys(_.pickBy(api, function (m) {
-			return !m['isBase'];
-		})), function (v) {
+		this.routes = _.map(_.groupBy(routes, 'type'), (v, k)=>{
 			return {
-				path: '/api/' + v,
-				text: v
-			}
+				group: k,
+				items: _.sortBy(v, 'text')
+			};
 		})
+
 	}
 
 }

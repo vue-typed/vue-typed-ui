@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "node ./demo/dev-server.js",
-    "build:demo": "npm run build && cross-env NODE_ENV=production webpack --config demo/webpack.config.js",
+    "build:demo": "gulp build:all && npm run build && cross-env NODE_ENV=production webpack --config demo/webpack.config.js",
     "test": "npm run build && karma start karma.conf.js"
   },
   "author": "Budi Adiono <budiadiono@gmail.com>",
@@ -46,6 +46,7 @@
     "glob": "^7.1.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
+    "gulp-copy": "^1.0.0",
     "gulp-rename": "^1.2.2",
     "highlight.js": "^9.8.0",
     "html-loader": "^0.4.4",
@@ -63,6 +64,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "lodash": "^4.17.2",
+    "markdown-loader": "^0.1.7",
     "mocha": "^3.1.2",
     "phantomjs-prebuilt": "^2.1.13",
     "pretty": "^1.0.0",

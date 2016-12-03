@@ -1,17 +1,10 @@
 <ui-menu-vertical class="large" :sidebar="sidebar" :sidebar-toggle="sidebarToggle">
 
 	<ui-menu-item icon="home" to="/"><b>Home</b></ui-menu-item>
-	<div class="item">
-		<div class="header">Demo</div>
+	<div class="item" v-for="m in routes" >
+		<div class="header">{{m.group + 's'}}</div>
 		<div class="menu">
-			<ui-menu-item v-for="r in routes" v-bind:to="r.path">{{r.text}}</ui-menu-item>
-			<ui-menu-item>
-		</div>
-	</div>
-	<div class="item">
-		<div class="header">API</div>
-		<div class="menu">
-		<ui-menu-item v-for="r in apiRoutes" v-bind:to="r.path">{{r.text}}</ui-menu-item>
+			<ui-menu-item v-for="r in m.items" v-bind:to="r.path">{{r.text}}</ui-menu-item>			
 		</div>
 	</div>
 

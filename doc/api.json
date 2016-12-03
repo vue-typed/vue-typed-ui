@@ -1,10 +1,14 @@
 {
-  "button": {
+  "component/button": {
+    "dir": "src/components/form-inputs/button",
+    "id": "component/button",
     "module": "button",
     "isBase": false,
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": true,
     "methods": {
       "loading": {
         "description": "Set loading state of the button.",
@@ -47,12 +51,16 @@
       }
     }
   },
-  "calendar": {
+  "component/calendar": {
+    "dir": "src/components/form-inputs/calendar/calendar",
+    "id": "component/calendar",
     "module": "calendar",
     "isBase": "true",
     "base": {
       "FieldBase": "../../../fields/field-base"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "can-clear": {
         "type": "boolean",
@@ -93,11 +101,15 @@
     },
     "methods": {}
   },
-  "checkbox": {
+  "component/checkbox": {
+    "dir": "src/components/form-inputs/checkbox",
+    "id": "component/checkbox",
     "module": "checkbox",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": true,
     "props": {
       "enabled": {
         "type": "'true' | 'false' | boolean",
@@ -122,11 +134,15 @@
     },
     "methods": {}
   },
-  "currency": {
+  "component/currency": {
+    "dir": "src/components/form-inputs/currency",
+    "id": "component/currency",
     "module": "currency",
     "base": {
       "Numeric": "../numeric"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "decimal-places": {
         "type": "number",
@@ -188,11 +204,15 @@
     },
     "methods": {}
   },
-  "date": {
+  "component/date": {
+    "dir": "src/components/form-inputs/calendar/date",
+    "id": "component/date",
     "module": "date",
     "base": {
       "Calendar": "../calendar"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "can-clear": {
         "type": "boolean",
@@ -237,11 +257,15 @@
     },
     "methods": {}
   },
-  "datetime": {
+  "component/datetime": {
+    "dir": "src/components/form-inputs/calendar/datetime",
+    "id": "component/datetime",
     "module": "datetime",
     "base": {
       "Calendar": "../calendar"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "can-clear": {
         "type": "boolean",
@@ -286,11 +310,15 @@
     },
     "methods": {}
   },
-  "dropdown": {
+  "component/dropdown": {
+    "dir": "src/components/form-inputs/dropdown",
+    "id": "component/dropdown",
     "module": "dropdown",
     "base": {
       "FieldBase": "../../fields/field-base"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "kind": {
         "type": "'default' | 'grouped' | 'inline'",
@@ -327,11 +355,15 @@
     },
     "methods": {}
   },
-  "dropdown-item": {
+  "component/dropdown-item": {
+    "dir": "src/components/form-inputs/dropdown-item",
+    "id": "component/dropdown-item",
     "module": "dropdown-item",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "value": {
         "type": "any",
@@ -340,11 +372,15 @@
     },
     "methods": {}
   },
-  "field": {
+  "component/field": {
+    "dir": "src/components/fields/field",
+    "id": "component/field",
     "module": "field",
     "base": {
       "FieldBase": "../field-base"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "kind": {
         "type": "'default' | 'grouped' | 'inline'",
@@ -361,12 +397,16 @@
     },
     "methods": {}
   },
-  "field-base": {
+  "component/field-base": {
+    "dir": "src/components/fields/field-base",
+    "id": "component/field-base",
     "module": "field-base",
     "isBase": "true",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "kind": {
         "type": "'default' | 'grouped' | 'inline'",
@@ -383,11 +423,15 @@
     },
     "methods": {}
   },
-  "fields-group": {
+  "component/fields-group": {
+    "dir": "src/components/fields/fields-group",
+    "id": "component/fields-group",
     "module": "fields-group",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "label": {
         "type": "string",
@@ -400,11 +444,15 @@
     },
     "methods": {}
   },
-  "fields-inline": {
+  "component/fields-inline": {
+    "dir": "src/components/fields/fields-inline",
+    "id": "component/fields-inline",
     "module": "fields-inline",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "label": {
         "type": "string",
@@ -417,11 +465,15 @@
     },
     "methods": {}
   },
-  "form": {
+  "component/form": {
+    "dir": "src/components/form-inputs/form",
+    "id": "component/form",
     "module": "form",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "validateInline": {
         "type": "boolean",
@@ -434,20 +486,28 @@
     },
     "methods": {}
   },
-  "header": {
+  "component/header": {
+    "dir": "src/components/etc/header",
+    "id": "component/header",
     "module": "header",
     "isBase": "true",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {},
     "methods": {}
   },
-  "input": {
+  "component/input": {
+    "dir": "src/components/form-inputs/input",
+    "id": "component/input",
     "module": "input",
     "base": {
       "FieldBase": "../../fields/field-base"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "kind": {
         "type": "'default' | 'grouped' | 'inline'",
@@ -480,12 +540,16 @@
     },
     "methods": {}
   },
-  "menu-base": {
+  "component/menu-base": {
+    "dir": "src/components/menus/menu-base",
+    "id": "component/menu-base",
     "module": "menu-base",
     "isBase": "true",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "sidebar": {
         "type": "'vertical' | 'horizontal'",
@@ -498,11 +562,15 @@
     },
     "methods": {}
   },
-  "menu-dropdown": {
+  "component/menu-dropdown": {
+    "dir": "src/components/menus/menu-dropdown",
+    "id": "component/menu-dropdown",
     "module": "menu-dropdown",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "hover": {
         "type": "boolean",
@@ -515,11 +583,15 @@
     },
     "methods": {}
   },
-  "menu-horizontal": {
+  "component/menu-horizontal": {
+    "dir": "src/components/menus/menu-horizontal",
+    "id": "component/menu-horizontal",
     "module": "menu-horizontal",
     "base": {
       "MenuBase": "../menu-base"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "secondary": {
         "type": "boolean",
@@ -536,11 +608,15 @@
     },
     "methods": {}
   },
-  "menu-item": {
+  "component/menu-item": {
+    "dir": "src/components/menus/menu-item",
+    "id": "component/menu-item",
     "module": "menu-item",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "content": {
         "type": "string",
@@ -561,11 +637,15 @@
     },
     "methods": {}
   },
-  "menu-vertical": {
+  "component/menu-vertical": {
+    "dir": "src/components/menus/menu-vertical",
+    "id": "component/menu-vertical",
     "module": "menu-vertical",
     "base": {
       "MenuBase": "../menu-base"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "sidebar": {
         "type": "'vertical' | 'horizontal'",
@@ -578,11 +658,15 @@
     },
     "methods": {}
   },
-  "message": {
+  "component/message": {
+    "dir": "src/components/etc/message",
+    "id": "component/message",
     "module": "message",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "closable": {
         "type": "boolean",
@@ -605,12 +689,16 @@
     },
     "methods": {}
   },
-  "modal": {
+  "component/modal": {
+    "dir": "src/components/modal",
+    "id": "component/modal",
     "module": "modal",
     "isBase": false,
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "methods": {
       "hide": {
         "description": "Hides the modal"
@@ -676,11 +764,15 @@
       }
     }
   },
-  "numeric": {
+  "component/numeric": {
+    "dir": "src/components/form-inputs/numeric",
+    "id": "component/numeric",
     "module": "numeric",
     "base": {
       "FieldBase": "../../fields/field-base"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "decimal-places": {
         "type": "number",
@@ -734,19 +826,27 @@
     },
     "methods": {}
   },
-  "pusher": {
+  "component/pusher": {
+    "dir": "src/components/containers/pusher",
+    "id": "component/pusher",
     "module": "pusher",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {},
     "methods": {}
   },
-  "radio": {
+  "component/radio": {
+    "dir": "src/components/form-inputs/radio",
+    "id": "component/radio",
     "module": "radio",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "name": {
         "type": "string",
@@ -763,11 +863,15 @@
     },
     "methods": {}
   },
-  "radio-group": {
+  "component/radio-group": {
+    "dir": "src/components/form-inputs/radio-group",
+    "id": "component/radio-group",
     "module": "radio-group",
     "base": {
       "FieldBase": "../../fields/field-base"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "kind": {
         "type": "'default' | 'grouped' | 'inline'",
@@ -788,20 +892,28 @@
     },
     "methods": {}
   },
-  "segment": {
+  "component/segment": {
+    "dir": "src/components/containers/segment",
+    "id": "component/segment",
     "module": "segment",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {},
     "methods": {}
   },
-  "tab": {
+  "component/tab": {
+    "dir": "src/components/containers/tab",
+    "id": "component/tab",
     "module": "tab",
     "isBase": false,
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "methods": {
       "changeTab": {
         "description": "Changes tab to path",
@@ -820,11 +932,15 @@
       }
     }
   },
-  "tab-item": {
+  "component/tab-item": {
+    "dir": "src/components/containers/tab-item",
+    "id": "component/tab-item",
     "module": "tab-item",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "active": {
         "type": "boolean",
@@ -837,11 +953,15 @@
     },
     "methods": {}
   },
-  "time": {
+  "component/time": {
+    "dir": "src/components/form-inputs/calendar/time",
+    "id": "component/time",
     "module": "time",
     "base": {
       "Calendar": "../calendar"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "can-clear": {
         "type": "boolean",
@@ -886,11 +1006,15 @@
     },
     "methods": {}
   },
-  "tree": {
+  "component/tree": {
+    "dir": "src/components/etc/tree",
+    "id": "component/tree",
     "module": "tree",
     "base": {
       "Vue": "vue"
     },
+    "type": "component",
+    "readme": false,
     "props": {
       "childTag": {
         "type": "string",
@@ -924,5 +1048,54 @@
       }
     },
     "methods": {}
+  },
+  "decorator/form": {
+    "dir": "src/decorators/form",
+    "id": "decorator/form",
+    "module": "form",
+    "type": "decorator",
+    "readme": true
+  },
+  "decorator/validate": {
+    "dir": "src/decorators/validate",
+    "id": "decorator/validate",
+    "module": "validate",
+    "type": "decorator",
+    "readme": false
+  },
+  "filter/currency": {
+    "dir": "src/filters/currency",
+    "id": "filter/currency",
+    "module": "currency",
+    "type": "filter",
+    "readme": false
+  },
+  "filter/numeric": {
+    "dir": "src/filters/numeric",
+    "id": "filter/numeric",
+    "module": "numeric",
+    "type": "filter",
+    "readme": false
+  },
+  "module/alert": {
+    "dir": "src/modules/alert",
+    "id": "module/alert",
+    "module": "alert",
+    "type": "module",
+    "readme": true
+  },
+  "module/focus": {
+    "dir": "src/modules/focus",
+    "id": "module/focus",
+    "module": "focus",
+    "type": "module",
+    "readme": false
+  },
+  "module/toastr": {
+    "dir": "src/modules/toastr",
+    "id": "module/toastr",
+    "module": "toastr",
+    "type": "module",
+    "readme": false
   }
 }
