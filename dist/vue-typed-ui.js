@@ -2518,6 +2518,10 @@ function FormComponent(options$$1) {
         args.push({ key: ':validate-inline', val: options$$1.validateInline });
         delete options$$1.validateInline;
     }
+    if (options$$1.class !== undefined) {
+        args.push({ key: 'class', val: options$$1.class });
+        delete options$$1.class;
+    }
     var argsStr = ' ' + args.map(function (v) {
         return v.key + '="' + v.val + '"';
     }).join(' ');
@@ -2532,14 +2536,18 @@ function FormComponent(options$$1) {
 
         var node = htmlToElement(options$$1.template);
         var newNode = document.createElement('ui-form');
+        var classes = [];
         for (var i = 0; i < node.attributes.length; i++) {
             var attr = node.attributes[i];
-            newNode.setAttribute(attr.name, attr.value);
+            if (attr.name == 'class') classes.push(attr.value);else newNode.setAttribute(attr.name, attr.value);
         }
         newNode.setAttribute(':validator', ValidatorPropName);
         for (var i = 0; i < args.length; i++) {
             var arg = args[i];
-            newNode.setAttribute(arg['key'], arg['val']);
+            if (arg.key == 'class') classes.push(arg.val);else newNode.setAttribute(arg.key, arg.val);
+        }
+        if (classes.length) {
+            newNode.setAttribute('class', classes.join(' '));
         }
         newNode.innerHTML = node['innerHTML'];
         options$$1.template = newNode.outerHTML;

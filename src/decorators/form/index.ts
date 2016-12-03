@@ -22,9 +22,14 @@ export function FormComponent(options: FormOptions): ClassDecorator {
 		delete options.validateInline
 	}
 
-	let argsStr = ' ' + args.map((v)=>{
+	if (options.class !== undefined) {
+		args.push({ key: 'class', val: options.class })
+		delete options.class
+	}
+
+	let argsStr = ' ' + args.map((v) => {
 		return v.key + '="' + v.val + '"';
-	}) .join(' ')
+	}).join(' ')
 
 	if (!options.replace) {
 		options.template = `<ui-form :validator="${ValidatorPropName}"${argsStr}>${options.template}<ui-form>`
@@ -37,21 +42,31 @@ export function FormComponent(options: FormOptions): ClassDecorator {
 
 		var node = htmlToElement(options.template)
 		var newNode = document.createElement('ui-form')
+		var classes = []
 		for (var i = 0; i < node.attributes.length; i++) {
 			let attr = node.attributes[i]
-			newNode.setAttribute(attr.name, attr.value)
+			if (attr.name == 'class') 
+				classes.push(attr.value)
+			else
+				newNode.setAttribute(attr.name, attr.value)
 		}
 
 		newNode.setAttribute(':validator', ValidatorPropName)
 		for (var i = 0; i < args.length; i++) {
 			let arg = args[i]
-			newNode.setAttribute(arg['key'], arg['val'])
+			if (arg.key == 'class') 
+				classes.push(arg.val)
+			else
+				newNode.setAttribute(arg.key, arg.val)
 		}
 
+		if (classes.length) {
+			newNode.setAttribute('class', classes.join(' '))
+		}
 
 		newNode.innerHTML = node['innerHTML']
 		options.template = newNode.outerHTML
-		
+
 	}
 
 	return function (target: typeof Function) {
