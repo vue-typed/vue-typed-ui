@@ -1,5 +1,5 @@
 /**
-  * vue-typed-ui 1.0.1-alpha
+  * vue-typed-ui 1.0.1
   * UI components made with Semantic UI, VueTyped and friends
   * https://github.com/vue-typed/vue-typed-ui
   
