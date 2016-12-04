@@ -21,7 +21,7 @@ export abstract class FieldBase extends _FieldBaseBase {
 		}
 		contents.push(slots);
 
-		var style = 'field';
+		var style = this.wide ? 'fields' : 'field';
 		if (this.kind) {
 			style = this.kind + ' fields'
 		}
