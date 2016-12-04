@@ -1,4 +1,5 @@
 import { FormBasic } from './form/basic';
+import { FormInline } from './form/inline';
 import { FormComponentBasic } from './form-component/basic';
 import { FormComponentReplace } from './form-component/replace';
 import { Input } from './input';
@@ -25,6 +26,7 @@ import { Focus } from './focus';
 // Main routes builder
 const m = [
 	{ group: 'component/form', text: 'Form Basic', path: 'form/basic', component: FormBasic },
+	{ group: 'component/form', text: 'Inline Form', path: 'form/inline', component: FormInline },
 	{ group: 'decorator/form', text: 'Basic', path: 'form-component/basic', component: FormComponentBasic },
 	{ group: 'decorator/form', text: 'Replace', path: 'form-component/replace', component: FormComponentReplace },
 	{ group: 'component/input', text: 'Input', path: 'input', component: Input },

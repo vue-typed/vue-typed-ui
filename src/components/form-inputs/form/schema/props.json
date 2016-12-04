@@ -7,9 +7,13 @@
 			"type": "any",
 			"description": "Fields validation object. See: http://semantic-ui.com/behaviors/form.html#specifying-validation-rules"
 		},
-		"validateInline": {
+		"validate-inline": {
 			"type": "boolean",
 			"description": "Show validation message inline"
+		},
+		"label-width": {
+			"type": "string",
+			"description": "Width of fields label when displayed 'inline'."
 		}
 	}
 }

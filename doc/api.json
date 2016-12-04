@@ -475,7 +475,11 @@
     "type": "component",
     "readme": false,
     "props": {
-      "validateInline": {
+      "label-width": {
+        "type": "string",
+        "description": "Width of fields label when displayed 'inline'."
+      },
+      "validate-inline": {
         "type": "boolean",
         "description": "Show validation message inline"
       },

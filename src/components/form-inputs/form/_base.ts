@@ -26,4 +26,14 @@ export abstract class _FormBase extends Vue {
     })
     validateInline: boolean
 
+    /**
+     * Width of fields label when displayed 'inline'.
+     * 
+     * @type {string}
+     */
+    @Prop({
+        type: String
+    })
+    labelWidth: string
+
 }

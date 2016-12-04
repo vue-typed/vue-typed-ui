@@ -31,6 +31,10 @@ export class Form extends _FormBase {
 
 		$(this.$el).form(opt)
 
+		if (this.labelWidth) {
+			$(this.$el).find('.field.inline > label, .fields.inline > label').width(this.labelWidth)
+		}
+
 	}
 
 	destroyed() {

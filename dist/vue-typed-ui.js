@@ -306,6 +306,9 @@ __decorate([vueTyped.Prop()], _FormBase.prototype, "validator", void 0);
 __decorate([vueTyped.Prop({
     type: Boolean
 })], _FormBase.prototype, "validateInline", void 0);
+__decorate([vueTyped.Prop({
+    type: String
+})], _FormBase.prototype, "labelWidth", void 0);
 
 var Form = function (_FormBase2) {
     inherits(Form, _FormBase2);
@@ -338,6 +341,9 @@ var Form = function (_FormBase2) {
                 e.preventDefault();
             });
             $(this.$el).form(opt);
+            if (this.labelWidth) {
+                $(this.$el).find('.field.inline > label, .fields.inline > label').width(this.labelWidth);
+            }
         }
     }, {
         key: 'destroyed',
