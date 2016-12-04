@@ -1,5 +1,6 @@
 import { FormBasic } from './form/basic';
 import { FormInline } from './form/inline';
+import { FormVariations } from './form/variations';
 import { FormComponentBasic } from './form-component/basic';
 import { FormComponentReplace } from './form-component/replace';
 import { InputBasic } from './input/basic';
@@ -28,10 +29,11 @@ import { Focus } from './focus';
 const m = [
 	{ group: 'component/form', text: 'Form Basic', path: 'form/basic', component: FormBasic },
 	{ group: 'component/form', text: 'Inline Form', path: 'form/inline', component: FormInline },
+	{ group: 'component/form', text: 'Variations', path: 'form/variations', component: FormVariations },
 	{ group: 'decorator/form', text: 'Basic', path: 'form-component/basic', component: FormComponentBasic },
-	{ group: 'decorator/form', text: 'Replace', path: 'form-component/replace', component: FormComponentReplace },
+	{ group: 'decorator/form', text: 'Replace', path: 'form-component/replace', component: FormComponentReplace },	
 	{ group: 'component/input', text: 'Basic Input', path: 'input/basic', component: InputBasic },
-	{ group: 'component/input', text: 'Input With Icon', path: 'input/icon', component: InputIcon },
+	{ group: 'component/input', text: 'Input With Icon', path: 'input/icon', component: InputIcon },	
 	{ group: 'component/numeric', text: 'Numeric', path: 'numeric', component: Numeric },
 	{ group: 'component/currency', text: 'Currency', path: 'currency', component: Currency },
 	{ group: 'component/date', text: 'Date', path: 'date', component: DateDemo },

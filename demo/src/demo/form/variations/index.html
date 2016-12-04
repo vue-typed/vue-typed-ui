@@ -1,0 +1,27 @@
+<div>
+
+	<h3>Validation</h3>
+	<ui-form v-on:success="submit" :validator="validator">
+		<ui-field :wide="2">
+			<ui-input label="First Name" v-model="firstName"></ui-input>
+			<ui-input label="Last Name" v-model="lastName"></ui-input>
+		</ui-field>
+		<ui-input label="User Name" v-model="userName"></ui-input>
+		<ui-input label="Password" v-model="password" :password="true"></ui-input>
+		<ui-button class="positive">Submit</ui-button>
+
+		<ui-message class="error"></ui-message>
+	</ui-form>
+
+	<h3>Inline validation</h3>
+	<ui-form v-on:success="submit" v-on:error="error" :validator="validator" :validate-inline="true">
+		<ui-field :wide="2">
+			<ui-input label="First Name" v-model="firstName"></ui-input>
+			<ui-input label="Last Name" v-model="lastName"></ui-input>
+		</ui-field>
+		<ui-input label="User Name" v-model="userName"></ui-input>
+		<ui-input label="Password" v-model="password" :password="true"></ui-input>
+		<ui-button class="positive">Submit</ui-button>
+	</ui-form>
+
+</div>

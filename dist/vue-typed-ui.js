@@ -326,8 +326,8 @@ var Form = function (_FormBase2) {
                 onSuccess: function onSuccess() {
                     self.$emit('success');
                 },
-                onError: function onError() {
-                    self.$emit('error');
+                onFailure: function onFailure(formErrors, fields) {
+                    self.$emit('error', formErrors, fields);
                 }
             };
             if (this.validator) {
@@ -656,7 +656,7 @@ var FieldBase = function (_FieldBaseBase2) {
                 contents.push(ch('label', this.label));
             }
             contents.push(slots);
-            var style = 'field';
+            var style = this.wide ? 'fields' : 'field';
             if (this.kind) {
                 style = this.kind + ' fields';
             }
@@ -817,7 +817,7 @@ var Calendar = function (_CalendarBase2) {
         value: function createComponent(ch) {
             var _this2 = this;
 
-            var children = [ch('i', { attrs: { 'class': this.icon + ' icon' } }), ch('input', { attrs: { type: 'text', name: this.name, placeholder: this.placeholder } })];
+            var children = [ch('i', { attrs: { 'class': this._icon + ' icon' } }), ch('input', { attrs: { type: 'text', name: this.name, placeholder: this.placeholder } })];
             var css = 'ui input left icon';
             if (this.canClear) {
                 css += ' action';
@@ -850,7 +850,7 @@ var Calendar = function (_CalendarBase2) {
 
             var sender = this;
             var options$$1 = {
-                type: this.type,
+                type: this._type,
                 onChange: function onChange(date, text) {
                     _this3.$emit('input', date);
                 }
@@ -907,8 +907,8 @@ var Date = function (_DateBase2) {
 
         var _this = possibleConstructorReturn(this, (Date.__proto__ || Object.getPrototypeOf(Date)).apply(this, arguments));
 
-        _this.type = 'date';
-        _this.icon = 'calendar';
+        _this._type = 'date';
+        _this._icon = 'calendar';
         return _this;
     }
 
@@ -966,8 +966,8 @@ var Time = function (_TimeBase2) {
 
         var _this = possibleConstructorReturn(this, (Time.__proto__ || Object.getPrototypeOf(Time)).apply(this, arguments));
 
-        _this.type = 'time';
-        _this.icon = 'time';
+        _this._type = 'time';
+        _this._icon = 'time';
         return _this;
     }
 
@@ -1025,8 +1025,8 @@ var DateTime = function (_DatetimeBase2) {
 
         var _this = possibleConstructorReturn(this, (DateTime.__proto__ || Object.getPrototypeOf(DateTime)).apply(this, arguments));
 
-        _this.type = 'datetime';
-        _this.icon = 'calendar';
+        _this._type = 'datetime';
+        _this._icon = 'calendar';
         return _this;
     }
 
