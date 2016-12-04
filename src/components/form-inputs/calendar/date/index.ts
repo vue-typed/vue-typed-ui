@@ -8,8 +8,8 @@ import { _DateBase } from './_base';
 @Component()
 export class Date extends _DateBase {
 
-	type = 'date'
-	icon = 'calendar'
+	_type = 'date'
+	_icon = 'calendar'
 
 	@Watch('$UI.$settings.dateFormat')
 	onSettingsChanged(val) {

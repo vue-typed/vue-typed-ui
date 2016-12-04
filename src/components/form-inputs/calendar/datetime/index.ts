@@ -9,8 +9,8 @@ import { _DatetimeBase } from './_base';
 @Component()
 export class DateTime extends _DatetimeBase {
 
-	type = 'datetime'
-	icon = 'calendar'
+	_type = 'datetime'
+	_icon = 'calendar'
 
 	@Watch('$UI.$settings')
 	onSettingsChanged(val: Settings, old: Settings) {

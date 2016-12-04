@@ -8,8 +8,8 @@ import { _TimeBase } from './_base';
 @Component()
 export class Time extends _TimeBase {
 
-	type = 'time'
-	icon = 'time'
+	_type = 'time'
+	_icon = 'time'
 
 	@Watch('$UI.$settings.timeFormat')
 	onSettingsChanged(val) {
