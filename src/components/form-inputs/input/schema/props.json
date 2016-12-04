@@ -2,7 +2,6 @@
 	"base": {
 		"FieldBase": "../../fields/field-base"
 	},
-
 	"props": {
 		"name": {
 			"type": "string",
@@ -19,6 +18,15 @@
 		"password": {
 			"type": "boolean",
 			"description": "Input element is password element"
+		},
+		"icon": {
+			"type": "string",
+			"description": "Name of icon to be displayed"
+		},
+		"icon-pos": {
+			"type": "'left' | 'right' | string",
+			"description": "Icon position",
+			"default": "'left'"
 		}
 	}
 }

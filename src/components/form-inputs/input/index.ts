@@ -19,7 +19,7 @@ export class Input extends _InputBase {
 
 	createComponent(ch) {
 				
-		return ch('input', {
+		let input = ch('input', {
 			attrs: {
 				type: this.password ? 'password' : 'text',
 				name: this.name,
@@ -30,6 +30,29 @@ export class Input extends _InputBase {
 				change: this.emiter('change')
 			}
 		})
+
+		if (!this.icon)
+			return input;
+
+		let icon = ch('i', {
+			class: 'icon ' + this.icon
+		})
+
+		let contents = []
+		let css = 'ui left icon input'
+		if (this.iconPos == 'left') {
+			contents.push(icon)
+			contents.push(input)
+		} else{
+			contents.push(input)
+			contents.push(icon)
+			css = 'ui icon input'
+		}
+
+		return ch('div', {
+			class: css
+		}, contents)
+
 	}
 	
 	mounted() {

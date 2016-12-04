@@ -511,8 +511,17 @@
       "FieldBase": "../../fields/field-base"
     },
     "type": "component",
-    "readme": false,
+    "readme": true,
     "props": {
+      "icon": {
+        "type": "string",
+        "description": "Name of icon to be displayed"
+      },
+      "icon-pos": {
+        "type": "'left' | 'right' | string",
+        "description": "Icon position",
+        "default": "'left'"
+      },
       "kind": {
         "type": "'default' | 'grouped' | 'inline'",
         "description": "Field layout style"

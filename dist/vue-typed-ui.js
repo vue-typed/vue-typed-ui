@@ -688,7 +688,17 @@ var _InputBase = function (_FieldBase) {
 
     function _InputBase() {
         classCallCheck(this, _InputBase);
-        return possibleConstructorReturn(this, (_InputBase.__proto__ || Object.getPrototypeOf(_InputBase)).apply(this, arguments));
+
+        /**
+         * Icon position
+         *
+         * @default 'left'
+         * @type {'left' | 'right' | string}
+         */
+        var _this = possibleConstructorReturn(this, (_InputBase.__proto__ || Object.getPrototypeOf(_InputBase)).apply(this, arguments));
+
+        _this.iconPos = 'left';
+        return _this;
     }
 
     return _InputBase;
@@ -704,6 +714,10 @@ __decorate([vueTyped.Prop()], _InputBase.prototype, "value", void 0);
 __decorate([vueTyped.Prop({
     type: Boolean
 })], _InputBase.prototype, "password", void 0);
+__decorate([vueTyped.Prop({
+    type: String
+})], _InputBase.prototype, "icon", void 0);
+__decorate([vueTyped.Prop()], _InputBase.prototype, "iconPos", void 0);
 
 // ref: http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 var Input = function (_InputBase2) {
@@ -723,7 +737,7 @@ var Input = function (_InputBase2) {
     }, {
         key: 'createComponent',
         value: function createComponent(ch) {
-            return ch('input', {
+            var input = ch('input', {
                 attrs: {
                     type: this.password ? 'password' : 'text',
                     name: this.name,
@@ -734,6 +748,23 @@ var Input = function (_InputBase2) {
                     change: this.emiter('change')
                 }
             });
+            if (!this.icon) return input;
+            var icon = ch('i', {
+                class: 'icon ' + this.icon
+            });
+            var contents = [];
+            var css = 'ui left icon input';
+            if (this.iconPos == 'left') {
+                contents.push(icon);
+                contents.push(input);
+            } else {
+                contents.push(input);
+                contents.push(icon);
+                css = 'ui icon input';
+            }
+            return ch('div', {
+                class: css
+            }, contents);
         }
     }, {
         key: 'mounted',
