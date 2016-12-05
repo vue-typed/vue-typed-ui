@@ -8,13 +8,17 @@ import { _CalendarBase } from './_base';
 @Component()
 export abstract class Calendar extends _CalendarBase {
 
-	abstract _type
-	abstract _icon
+	abstract calendarOptions() : {
+		icon: string,
+		type: string
+	}
 
 	createComponent(ch) {
 
+		let attr = this.calendarOptions()
+
 		let children = [
-			ch('i', { attrs: { 'class': this._icon + ' icon' } }),
+			ch('i', { attrs: { 'class': attr.icon + ' icon' } }),
 			ch('input', { attrs: { type: 'text', name: this.name, placeholder: this.placeholder, } })
 		]
 
@@ -52,9 +56,11 @@ export abstract class Calendar extends _CalendarBase {
 
 	setupUi() {
 
+		let attr = this.calendarOptions()
+
 		var sender = this
 		var options = {
-			type: this._type,
+			type: attr.type,
 			onChange: (date, text) => {
 				this.$emit('input', date);
 			}

@@ -817,7 +817,8 @@ var Calendar = function (_CalendarBase2) {
         value: function createComponent(ch) {
             var _this2 = this;
 
-            var children = [ch('i', { attrs: { 'class': this._icon + ' icon' } }), ch('input', { attrs: { type: 'text', name: this.name, placeholder: this.placeholder } })];
+            var attr = this.calendarOptions();
+            var children = [ch('i', { attrs: { 'class': attr.icon + ' icon' } }), ch('input', { attrs: { type: 'text', name: this.name, placeholder: this.placeholder } })];
             var css = 'ui input left icon';
             if (this.canClear) {
                 css += ' action';
@@ -848,9 +849,10 @@ var Calendar = function (_CalendarBase2) {
         value: function setupUi() {
             var _this3 = this;
 
+            var attr = this.calendarOptions();
             var sender = this;
             var options$$1 = {
-                type: this._type,
+                type: attr.type,
                 onChange: function onChange(date, text) {
                     _this3.$emit('input', date);
                 }
@@ -904,15 +906,18 @@ var Date = function (_DateBase2) {
 
     function Date() {
         classCallCheck(this, Date);
-
-        var _this = possibleConstructorReturn(this, (Date.__proto__ || Object.getPrototypeOf(Date)).apply(this, arguments));
-
-        _this._type = 'date';
-        _this._icon = 'calendar';
-        return _this;
+        return possibleConstructorReturn(this, (Date.__proto__ || Object.getPrototypeOf(Date)).apply(this, arguments));
     }
 
     createClass(Date, [{
+        key: 'calendarOptions',
+        value: function calendarOptions() {
+            return {
+                type: 'date',
+                icon: 'calendar'
+            };
+        }
+    }, {
         key: 'onSettingsChanged',
         value: function onSettingsChanged(val) {
             $(this.$el)['calendar']('destroy');
@@ -963,15 +968,18 @@ var Time = function (_TimeBase2) {
 
     function Time() {
         classCallCheck(this, Time);
-
-        var _this = possibleConstructorReturn(this, (Time.__proto__ || Object.getPrototypeOf(Time)).apply(this, arguments));
-
-        _this._type = 'time';
-        _this._icon = 'time';
-        return _this;
+        return possibleConstructorReturn(this, (Time.__proto__ || Object.getPrototypeOf(Time)).apply(this, arguments));
     }
 
     createClass(Time, [{
+        key: 'calendarOptions',
+        value: function calendarOptions() {
+            return {
+                type: 'time',
+                icon: 'time'
+            };
+        }
+    }, {
         key: 'onSettingsChanged',
         value: function onSettingsChanged(val) {
             $(this.$el)['calendar']('destroy');
@@ -1022,15 +1030,18 @@ var DateTime = function (_DatetimeBase2) {
 
     function DateTime() {
         classCallCheck(this, DateTime);
-
-        var _this = possibleConstructorReturn(this, (DateTime.__proto__ || Object.getPrototypeOf(DateTime)).apply(this, arguments));
-
-        _this._type = 'datetime';
-        _this._icon = 'calendar';
-        return _this;
+        return possibleConstructorReturn(this, (DateTime.__proto__ || Object.getPrototypeOf(DateTime)).apply(this, arguments));
     }
 
     createClass(DateTime, [{
+        key: 'calendarOptions',
+        value: function calendarOptions() {
+            return {
+                type: 'datetime',
+                icon: 'calendar'
+            };
+        }
+    }, {
         key: 'onSettingsChanged',
         value: function onSettingsChanged(val, old) {
             if (old.dateFormat === val.dateFormat && old.timeFormat === val.timeFormat) return;
