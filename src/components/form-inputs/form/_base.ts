@@ -36,4 +36,15 @@ export abstract class _FormBase extends Vue {
     })
     labelWidth: string
 
+    /**
+     * Adds keyboard shortcut for enter key to submit form
+     * 
+     * @default true
+     * @type {boolean}
+     */
+    @Prop({
+        type: Boolean
+    })
+    keyboardShortcuts: boolean = true
+
 }

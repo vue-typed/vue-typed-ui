@@ -296,7 +296,17 @@ var _FormBase = function (_Vue) {
 
     function _FormBase() {
         classCallCheck(this, _FormBase);
-        return possibleConstructorReturn(this, (_FormBase.__proto__ || Object.getPrototypeOf(_FormBase)).apply(this, arguments));
+
+        /**
+         * Adds keyboard shortcut for enter key to submit form
+         *
+         * @default true
+         * @type {boolean}
+         */
+        var _this = possibleConstructorReturn(this, (_FormBase.__proto__ || Object.getPrototypeOf(_FormBase)).apply(this, arguments));
+
+        _this.keyboardShortcuts = true;
+        return _this;
     }
 
     return _FormBase;
@@ -309,6 +319,9 @@ __decorate([vueTyped.Prop({
 __decorate([vueTyped.Prop({
     type: String
 })], _FormBase.prototype, "labelWidth", void 0);
+__decorate([vueTyped.Prop({
+    type: Boolean
+})], _FormBase.prototype, "keyboardShortcuts", void 0);
 
 var Form = function (_FormBase2) {
     inherits(Form, _FormBase2);
@@ -328,7 +341,9 @@ var Form = function (_FormBase2) {
                 },
                 onFailure: function onFailure(formErrors, fields) {
                     self.$emit('error', formErrors, fields);
-                }
+                },
+                // using default form keyboard shortcuts instead 
+                keyboardShortcuts: false
             };
             if (this.validator) {
                 Object.assign(opt, {
@@ -353,7 +368,8 @@ var Form = function (_FormBase2) {
     }, {
         key: 'render',
         value: function render(ch) {
-            return ch('form', {
+            var tag = this.keyboardShortcuts ? 'form' : 'div';
+            return ch(tag, {
                 class: 'ui form',
                 domProps: {
                     onsubmit: function onsubmit(e) {

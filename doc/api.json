@@ -475,6 +475,11 @@
     "type": "component",
     "readme": false,
     "props": {
+      "keyboard-shortcuts": {
+        "type": "boolean",
+        "description": "Adds keyboard shortcut for enter key to submit form",
+        "default": "true"
+      },
       "label-width": {
         "type": "string",
         "description": "Width of fields label when displayed 'inline'."

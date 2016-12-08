@@ -1,6 +1,7 @@
 import { FormBasic } from './form/basic';
 import { FormInline } from './form/inline';
 import { FormVariations } from './form/variations';
+import { FormDisableKeyboardShortcuts } from './form/disable-keyboard-shortcuts';
 import { FormComponentBasic } from './form-component/basic';
 import { FormComponentReplace } from './form-component/replace';
 import { InputBasic } from './input/basic';
@@ -30,6 +31,7 @@ const m = [
 	{ group: 'component/form', text: 'Form Basic', path: 'form/basic', component: FormBasic },
 	{ group: 'component/form', text: 'Inline Form', path: 'form/inline', component: FormInline },
 	{ group: 'component/form', text: 'Variations', path: 'form/variations', component: FormVariations },
+	{ group: 'component/form', text: 'Disable Keyboard Shortcuts', path: 'form/disable-keyboard-shortcuts', component: FormDisableKeyboardShortcuts },
 	{ group: 'decorator/form', text: 'Basic', path: 'form-component/basic', component: FormComponentBasic },
 	{ group: 'decorator/form', text: 'Replace', path: 'form-component/replace', component: FormComponentReplace },	
 	{ group: 'component/input', text: 'Basic Input', path: 'input/basic', component: InputBasic },
