@@ -2972,6 +2972,14 @@ function Currency$1(instance) {
     };
 }
 
+function Int(instance) {
+    return function (value) {
+        var settings = instance.$settings.numeric;
+        var str = Util.numberFormat(Math.round(value), 0, settings.decimalSeparator, settings.groupSeparator);
+        return str;
+    };
+}
+
 
 
 var filters = Object.freeze({
@@ -2979,7 +2987,8 @@ var filters = Object.freeze({
 	Date: Date$1,
 	Time: Time$1,
 	Numeric: Numeric$1,
-	Currency: Currency$1
+	Currency: Currency$1,
+	Int: Int
 });
 
 function register_all_components(vue, prefix) {

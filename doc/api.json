@@ -1088,6 +1088,13 @@
     "type": "filter",
     "readme": false
   },
+  "filter/int": {
+    "dir": "src/filters/int",
+    "id": "filter/int",
+    "module": "int",
+    "type": "filter",
+    "readme": true
+  },
   "filter/numeric": {
     "dir": "src/filters/numeric",
     "id": "filter/numeric",
