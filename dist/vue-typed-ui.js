@@ -734,6 +734,9 @@ __decorate([vueTyped.Prop({
     type: String
 })], _InputBase.prototype, "icon", void 0);
 __decorate([vueTyped.Prop()], _InputBase.prototype, "iconPos", void 0);
+__decorate([vueTyped.Prop({
+    type: String
+})], _InputBase.prototype, "css", void 0);
 
 // ref: http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 var Input = function (_InputBase2) {
@@ -754,6 +757,7 @@ var Input = function (_InputBase2) {
         key: 'createComponent',
         value: function createComponent(ch) {
             var input = ch('input', {
+                class: this.css,
                 attrs: {
                     type: this.password ? 'password' : 'text',
                     name: this.name,
@@ -1491,6 +1495,9 @@ __decorate([vueTyped.Prop({
 __decorate([vueTyped.Prop({
     type: Boolean
 })], _DropdownBase.prototype, "multiple", void 0);
+__decorate([vueTyped.Prop({
+    type: String
+})], _DropdownBase.prototype, "css", void 0);
 
 var Dropdown = function (_DropdownBase2) {
     inherits(Dropdown, _DropdownBase2);
@@ -1507,7 +1514,8 @@ var Dropdown = function (_DropdownBase2) {
     createClass(Dropdown, [{
         key: 'createComponent',
         value: function createComponent(ch) {
-            return ch('div', { 'class': 'ui selection dropdown' }, [ch('input', { attrs: { type: 'hidden', name: this.name } }), ch('i', { 'class': 'dropdown icon' }), ch('div', { 'class': 'default text' }, this.placeholder), ch('div', { 'class': 'menu' }, this.$slots['default'])]);
+            var css = 'ui selection dropdown ' + this.css;
+            return ch('div', { 'class': css }, [ch('input', { attrs: { type: 'hidden', name: this.name } }), ch('i', { 'class': 'dropdown icon' }), ch('div', { 'class': 'default text' }, this.placeholder), ch('div', { 'class': 'menu' }, this.$slots['default'])]);
         }
     }, {
         key: 'mounted',

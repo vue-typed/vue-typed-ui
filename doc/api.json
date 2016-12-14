@@ -320,6 +320,10 @@
     "type": "component",
     "readme": false,
     "props": {
+      "css": {
+        "type": "string",
+        "description": "Css class(es) applied to dropdown component"
+      },
       "kind": {
         "type": "'default' | 'grouped' | 'inline'",
         "description": "Field layout style"
@@ -518,6 +522,10 @@
     "type": "component",
     "readme": true,
     "props": {
+      "css": {
+        "type": "string",
+        "description": "Css class(es) applied to input component"
+      },
       "icon": {
         "type": "string",
         "description": "Name of icon to be displayed"

@@ -22,6 +22,10 @@
 		"multiple": {
 			"type": "boolean",
 			"description": "A selection dropdown can allow multiple selections"
+		},
+		"css": {
+			"type": "string",
+			"description": "Css class(es) applied to dropdown component"
 		}
 	}
 }

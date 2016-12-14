@@ -11,7 +11,8 @@ export class Dropdown extends _DropdownBase {
 	selectedItems = undefined
 
 	createComponent(ch) {
-		return ch('div', { 'class': 'ui selection dropdown' }, [
+		let css = 'ui selection dropdown ' + this.css
+		return ch('div', { 'class': css }, [
 			ch('input', { attrs: { type: 'hidden', name: this.name } }),
 			ch('i', { 'class': 'dropdown icon' }),
 			ch('div', { 'class': 'default text' }, this.placeholder),

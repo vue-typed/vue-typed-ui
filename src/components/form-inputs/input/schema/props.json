@@ -27,6 +27,10 @@
 			"type": "'left' | 'right' | string",
 			"description": "Icon position",
 			"default": "'left'"
+		},
+		"css": {
+			"type": "string",
+			"description": "Css class(es) applied to input component"
 		}
 	}
 }

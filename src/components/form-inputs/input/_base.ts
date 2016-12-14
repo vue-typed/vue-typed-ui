@@ -67,4 +67,14 @@ export abstract class _InputBase extends FieldBase {
     @Prop()
     iconPos: 'left' | 'right' | string = 'left'
 
+    /**
+     * Css class(es) applied to input component
+     * 
+     * @type {string}
+     */
+    @Prop({
+        type: String
+    })
+    css: string
+
 }

@@ -20,6 +20,7 @@ export class Input extends _InputBase {
 	createComponent(ch) {
 				
 		let input = ch('input', {
+			class: this.css,
 			attrs: {
 				type: this.password ? 'password' : 'text',
 				name: this.name,
