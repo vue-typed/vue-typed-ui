@@ -2156,9 +2156,7 @@ var _MenuItemBase = function (_Vue) {
 __decorate([vueTyped.Prop({
     type: String
 })], _MenuItemBase.prototype, "icon", void 0);
-__decorate([vueTyped.Prop({
-    type: String
-})], _MenuItemBase.prototype, "to", void 0);
+__decorate([vueTyped.Prop()], _MenuItemBase.prototype, "to", void 0);
 __decorate([vueTyped.Prop({
     type: Boolean
 })], _MenuItemBase.prototype, "preventRouter", void 0);

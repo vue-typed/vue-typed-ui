@@ -21,12 +21,10 @@ export abstract class _MenuItemBase extends Vue {
     /**
      * Target URL when menu item clicked. If you are using vue-router then this attribute represents `to` attribute of `router-link` tag.
      * 
-     * @type {string}
+     * @type {string | Object}
      */
-    @Prop({
-        type: String
-    })
-    to: string
+    @Prop()
+    to: string | Object
 
     /**
      * If set to `true` then `to` attribute will always represents `href` attribute of `a` tag.
