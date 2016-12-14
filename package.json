@@ -5,9 +5,9 @@
   "description": "UI components made with Semantic UI, VueTyped and friends",
   "main": "dist/vue-typed-ui.js",
   "scripts": {
-    "build": "rollup -c",
+    "build": "gulp build:all && rollup -c",
     "dev": "node ./demo/dev-server.js",
-    "build:demo": "gulp build:all && npm run build && cross-env NODE_ENV=production webpack --config demo/webpack.config.js",
+    "build:demo": "npm run build && cross-env NODE_ENV=production webpack --config demo/webpack.config.js",
     "test": "npm run build && karma start karma.conf.js"
   },
   "author": "Budi Adiono <budiadiono@gmail.com>",
