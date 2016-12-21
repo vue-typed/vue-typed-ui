@@ -1188,6 +1188,13 @@
     "type": "module",
     "readme": true
   },
+  "module/loading": {
+    "dir": "src/modules/loading",
+    "id": "module/loading",
+    "module": "loading",
+    "type": "module",
+    "readme": true
+  },
   "module/toastr": {
     "dir": "src/modules/toastr",
     "id": "module/toastr",

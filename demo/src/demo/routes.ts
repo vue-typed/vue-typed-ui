@@ -26,6 +26,7 @@ import { Alert } from './alert';
 import { Toastr } from './toastr';
 import { Focus } from './focus';
 import { Int } from './filters/int';
+import { Loading } from './loading';
 
 
 // Main routes builder
@@ -57,7 +58,8 @@ const m = [
 	{ group: 'module/alert', text: 'Alert', path: 'alert', component: Alert },
 	{ group: 'module/toastr', text: 'Toastr', path: 'toastr', component: Toastr },
 	{ group: 'module/focus', text: 'Focus', path: 'focus', component: Focus },
-	{ group: 'filter/int', text: 'Int', path: 'filters/int', component: Int }
+	{ group: 'module/loading', text: 'Loading', path: 'loading', component: Loading },
+	{ group: 'filter/int', text: 'Int', path: 'filters/int', component: Int },	
 ]
 
 // Build router routes

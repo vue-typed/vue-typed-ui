@@ -20,6 +20,7 @@ declare class VueTypedUI extends VueTypedUIMethods {
 	alert: modules.Alert
 	toast: modules.Toastr
 	focus: modules.Focus
+	loading: modules.Loading
 }
 
 declare class VueTypedUIRoot {

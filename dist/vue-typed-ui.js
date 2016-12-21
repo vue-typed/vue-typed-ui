@@ -3085,12 +3085,32 @@ function focus(instance, $this) {
     };
 }
 
+function loading$1(instance, $this) {
+    return function loading$1(element) {
+        var auto = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+        var target = $($this.$el).find(element);
+        if (!target || !target.length) return;
+        var module = {
+            start: function start() {
+                target.addClass('loading');
+            },
+            stop: function stop() {
+                target.removeClass('loading');
+            }
+        };
+        if (auto) module.start();
+        return module;
+    };
+}
+
 
 
 var modules = Object.freeze({
 	alert: alert,
 	toast: toast,
-	focus: focus
+	focus: focus,
+	loading: loading$1
 });
 
 function DateTime$1(instance) {
