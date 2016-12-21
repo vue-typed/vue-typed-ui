@@ -1,4 +1,68 @@
 {
+  "component/accordion": {
+    "dir": "src/components/containers/accordion",
+    "id": "component/accordion",
+    "module": "accordion",
+    "base": {
+      "Vue": "vue"
+    },
+    "type": "component",
+    "readme": false,
+    "props": {
+      "animate-children": {
+        "type": "boolean",
+        "default": "true",
+        "description": "Whether child content opacity should be animated (may cause performance issues with many child elements)"
+      },
+      "close-nested": {
+        "type": "boolean",
+        "default": "true",
+        "description": "Close open nested accordion content when an element closes"
+      },
+      "collapsible": {
+        "type": "boolean",
+        "default": "true",
+        "description": "Allow active sections to collapse"
+      },
+      "duration": {
+        "type": "number",
+        "default": "500",
+        "description": "Duration in ms of opening animation"
+      },
+      "exclusive": {
+        "type": "boolean",
+        "default": "true",
+        "description": "Only allow one section open at a time"
+      },
+      "on": {
+        "type": "string",
+        "default": "'click'",
+        "description": "Event on title that will cause accordion to open"
+      }
+    },
+    "methods": {}
+  },
+  "component/accordion-item": {
+    "dir": "src/components/containers/accordion-item",
+    "id": "component/accordion-item",
+    "module": "accordion-item",
+    "base": {
+      "Vue": "vue"
+    },
+    "type": "component",
+    "readme": false,
+    "props": {
+      "active": {
+        "type": "boolean",
+        "description": "Set accordion to active"
+      },
+      "title": {
+        "type": "string",
+        "description": "Accordion title"
+      }
+    },
+    "methods": {}
+  },
   "component/button": {
     "dir": "src/components/form-inputs/button",
     "id": "component/button",

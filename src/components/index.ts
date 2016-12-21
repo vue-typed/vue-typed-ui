@@ -24,6 +24,8 @@ export * from './containers/tab-item';
 
 export * from './containers/pusher';
 export * from './containers/segment';
+export * from './containers/accordion';
+export * from './containers/accordion-item';
 
 
 export * from './menus/menu-vertical';

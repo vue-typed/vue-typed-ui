@@ -7,9 +7,9 @@
   * Released under the MIT license.
   '*/
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue'), require('toastr'), require('lodash'), require('vue-typed'), require('moment'), require('sweetalert')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'vue', 'toastr', 'lodash', 'vue-typed', 'moment', 'sweetalert'], factory) :
-  (factory((global.VueTypedUI = global.VueTypedUI || {}),global.Vue,global.toastr,global._,global.vueTyped,global.moment,global.swal));
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue'), require('toastr'), require('lodash'), require('vue-typed'), require('moment'), require('sweetalert')) :
+	typeof define === 'function' && define.amd ? define(['exports', 'vue', 'toastr', 'lodash', 'vue-typed', 'moment', 'sweetalert'], factory) :
+	(factory((global.VueTypedUI = global.VueTypedUI || {}),global.Vue,global.toastr,global._,global.vueTyped,global.moment,global.swal));
 }(this, (function (exports,Vue,toastr,_,vueTyped,moment,swal) { 'use strict';
 
 function __$styleInject(css, returnValue) {
@@ -2047,6 +2047,162 @@ Segment = __decorate([vueTyped.Component({
     template: '<div class="ui segment"><slot></slot></div>'
 })], Segment);
 
+var _AccordionBase = function (_Vue) {
+    inherits(_AccordionBase, _Vue);
+
+    function _AccordionBase() {
+        classCallCheck(this, _AccordionBase);
+
+        /**
+         * Only allow one section open at a time
+         *
+         * @default true
+         * @type {boolean}
+         */
+        var _this = possibleConstructorReturn(this, (_AccordionBase.__proto__ || Object.getPrototypeOf(_AccordionBase)).apply(this, arguments));
+
+        _this.exclusive = true;
+        /**
+         * Event on title that will cause accordion to open
+         *
+         * @default 'click'
+         * @type {string}
+         */
+        _this.on = 'click';
+        /**
+         * Whether child content opacity should be animated (may cause performance issues with many child elements)
+         *
+         * @default true
+         * @type {boolean}
+         */
+        _this.animateChildren = true;
+        /**
+         * Duration in ms of opening animation
+         *
+         * @default 500
+         * @type {number}
+         */
+        _this.duration = 500;
+        /**
+         * Close open nested accordion content when an element closes
+         *
+         * @default true
+         * @type {boolean}
+         */
+        _this.closeNested = true;
+        /**
+         * Allow active sections to collapse
+         *
+         * @default true
+         * @type {boolean}
+         */
+        _this.collapsible = true;
+        return _this;
+    }
+
+    return _AccordionBase;
+}(Vue);
+
+__decorate([vueTyped.Prop({
+    type: Boolean
+})], _AccordionBase.prototype, "exclusive", void 0);
+__decorate([vueTyped.Prop({
+    type: String
+})], _AccordionBase.prototype, "on", void 0);
+__decorate([vueTyped.Prop({
+    type: Boolean
+})], _AccordionBase.prototype, "animateChildren", void 0);
+__decorate([vueTyped.Prop({
+    type: Number
+})], _AccordionBase.prototype, "duration", void 0);
+__decorate([vueTyped.Prop({
+    type: Boolean
+})], _AccordionBase.prototype, "closeNested", void 0);
+__decorate([vueTyped.Prop({
+    type: Boolean
+})], _AccordionBase.prototype, "collapsible", void 0);
+
+var Accordion = function (_AccordionBase2) {
+    inherits(Accordion, _AccordionBase2);
+
+    function Accordion() {
+        classCallCheck(this, Accordion);
+        return possibleConstructorReturn(this, (Accordion.__proto__ || Object.getPrototypeOf(Accordion)).apply(this, arguments));
+    }
+
+    createClass(Accordion, [{
+        key: 'mounted',
+        value: function mounted() {
+            var self = this;
+            $(this.$el).accordion({
+                exclusive: this.exclusive,
+                on: this.on,
+                animateChildren: this.animateChildren,
+                closeNested: this.closeNested,
+                collapsible: this.collapsible,
+                duration: this.duration,
+                onOpening: function onOpening() {
+                    self.$emit('opening', this);
+                },
+                onOpen: function onOpen() {
+                    self.$emit('open', this);
+                },
+                onClosing: function onClosing() {
+                    self.$emit('closing', this);
+                },
+                onClose: function onClose() {
+                    self.$emit('close', this);
+                },
+                onChange: function onChange() {
+                    self.$emit('change', this);
+                }
+            });
+        }
+    }]);
+    return Accordion;
+}(_AccordionBase);
+Accordion = __decorate([vueTyped.Component({
+    template: '<div class="ui accordion"><slot></slot></div>'
+})], Accordion);
+
+var _AccordionItemBase = function (_Vue) {
+    inherits(_AccordionItemBase, _Vue);
+
+    function _AccordionItemBase() {
+        classCallCheck(this, _AccordionItemBase);
+        return possibleConstructorReturn(this, (_AccordionItemBase.__proto__ || Object.getPrototypeOf(_AccordionItemBase)).apply(this, arguments));
+    }
+
+    return _AccordionItemBase;
+}(Vue);
+
+__decorate([vueTyped.Prop({
+    type: String
+})], _AccordionItemBase.prototype, "title", void 0);
+__decorate([vueTyped.Prop({
+    type: Boolean
+})], _AccordionItemBase.prototype, "active", void 0);
+
+var AccordionItem = function (_AccordionItemBase2) {
+				inherits(AccordionItem, _AccordionItemBase2);
+
+				function AccordionItem() {
+								classCallCheck(this, AccordionItem);
+								return possibleConstructorReturn(this, (AccordionItem.__proto__ || Object.getPrototypeOf(AccordionItem)).apply(this, arguments));
+				}
+
+				createClass(AccordionItem, [{
+								key: 'activeCss',
+								get: function get() {
+												return this.active ? ' active' : '';
+								}
+				}]);
+				return AccordionItem;
+}(_AccordionItemBase);
+AccordionItem = __decorate([vueTyped.Component({
+				template: '<span>\n\t\t<div :class="activeCss + \'title\'">\n\t\t\t<i class="dropdown icon"></i> {{title}}\n\t\t</div>\n\t\t<div :class="activeCss + \'content\'">\n\t\t\t<slot></slot>\n\t\t</div>\n\t</span>'
+})], AccordionItem);
+
 var _MenuBaseBase = function (_Vue) {
     inherits(_MenuBaseBase, _Vue);
 
@@ -2838,6 +2994,8 @@ var components = Object.freeze({
 	get TabItem () { return TabItem; },
 	get Pusher () { return Pusher; },
 	get Segment () { return Segment; },
+	get Accordion () { return Accordion; },
+	get AccordionItem () { return AccordionItem; },
 	get MenuVertical () { return MenuVertical; },
 	get MenuHorizontal () { return MenuHorizontal; },
 	get MenuItem () { return MenuItem; },

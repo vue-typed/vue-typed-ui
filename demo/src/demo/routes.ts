@@ -1,3 +1,4 @@
+import { Accordion } from './accordion';
 import { FormBasic } from './form/basic';
 import { FormInline } from './form/inline';
 import { FormVariations } from './form/variations';
@@ -29,6 +30,7 @@ import { Int } from './filters/int';
 
 // Main routes builder
 const m = [
+	{ group: 'component/accordion', text: 'Accordion', path: 'accordion', component: Accordion },
 	{ group: 'component/form', text: 'Form Basic', path: 'form/basic', component: FormBasic },
 	{ group: 'component/form', text: 'Inline Form', path: 'form/inline', component: FormInline },
 	{ group: 'component/form', text: 'Variations', path: 'form/variations', component: FormVariations },
