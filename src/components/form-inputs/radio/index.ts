@@ -4,9 +4,11 @@ import { _RadioBase } from './_base';
 
 @Component({
 	template: `
-	<div class="ui radio checkbox">
-		<input type="radio" class="hidden" :checked="value==val">
-		<label><slot></slot></label>
+	<div class="field">
+		<div class="ui radio checkbox">
+			<input type="radio" class="hidden" :checked="value==val">
+			<label><slot></slot></label>
+		</div>
 	</div>
 	`
 })
@@ -19,7 +21,6 @@ export class Radio extends _RadioBase {
 
 		if (p.$options.name == 'RadioGroup') {
 			name = name || p['groupName'];
-			$(this.$el).wrap('<div class="field"></div>')	
 		}
 
 		var self = this;
@@ -31,7 +32,7 @@ export class Radio extends _RadioBase {
 			});
 
 		Vue.nextTick(() => {
-			$(this.$el).checkbox()
+			$(this.$el).find('.ui.radio').checkbox()
 		})
 	}
 }

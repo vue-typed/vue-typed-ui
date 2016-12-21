@@ -1302,21 +1302,20 @@ var Radio = function (_RadioBase2) {
             var name = this.name;
             if (p.$options.name == 'RadioGroup') {
                 name = name || p['groupName'];
-                $(this.$el).wrap('<div class="field"></div>');
             }
             var self = this;
             $(this.$el).find('input').attr('name', name).on('change', function () {
                 self.$emit('input', self.val);
             });
             Vue.nextTick(function () {
-                $(_this2.$el).checkbox();
+                $(_this2.$el).find('.ui.radio').checkbox();
             });
         }
     }]);
     return Radio;
 }(_RadioBase);
 Radio = __decorate([vueTyped.Component({
-    template: '\n\t<div class="ui radio checkbox">\n\t\t<input type="radio" class="hidden" :checked="value==val">\n\t\t<label><slot></slot></label>\n\t</div>\n\t'
+    template: '\n\t<div class="field">\n\t\t<div class="ui radio checkbox">\n\t\t\t<input type="radio" class="hidden" :checked="value==val">\n\t\t\t<label><slot></slot></label>\n\t\t</div>\n\t</div>\n\t'
 })], Radio);
 
 var _RadioGroupBase = function (_FieldBase) {
