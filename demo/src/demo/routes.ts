@@ -20,7 +20,9 @@ import { Time } from './time';
 import { DateTime } from './datetime';
 import { Modal } from './modal';
 import { Tree } from './tree';
-import { Menu } from './menu';
+import { MenuDropdown } from './menu/dropdown';
+import { MenuVertical } from './menu/vertical';
+import { MenuHorizontal } from './menu/horizontal';
 import { Message } from './message';
 import { Alert } from './alert';
 import { Toastr } from './toastr';
@@ -53,7 +55,9 @@ const m = [
 	{ group: 'component/dropdown', text: 'Dropdown', path: 'dropdown', component: Dropdown },
 	{ group: 'component/modal', text: 'Modal', path: 'modal', component: Modal },
 	{ group: 'component/tree', text: 'Tree', path: 'tree', component: Tree },
-	{ group: 'component/menu', text: 'Menu', path: 'menu', component: Menu },
+	{ group: 'component/menu-dropdown', text: 'Menu Dropdown', path: 'menu/dropdown', component: MenuDropdown },
+	{ group: 'component/menu-horizontal', text: 'Menu Horizontal', path: 'menu/horizontal', component: MenuHorizontal },
+	{ group: 'component/menu-vertical', text: 'Menu Vertical', path: 'menu/vertical', component: MenuVertical },
 	{ group: 'component/message', text: 'Message', path: 'message', component: Message },
 	{ group: 'module/alert', text: 'Alert', path: 'alert', component: Alert },
 	{ group: 'module/toastr', text: 'Toastr', path: 'toastr', component: Toastr },
