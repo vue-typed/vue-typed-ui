@@ -1558,9 +1558,13 @@ var Dropdown = function (_DropdownBase2) {
     }, {
         key: 'valueChanged',
         value: function valueChanged(val) {
-            if (this.multiple === true && this.selectedItems.toString() != val.toString()) {
-                this.sui('set exactly', val);
-            } else this.sui('set selected', val);
+            if (val === null || val === undefined) {
+                this.sui('clear');
+            } else {
+                if (this.multiple === true && this.selectedItems.toString() != val.toString()) {
+                    this.sui('set exactly', val);
+                } else this.sui('set selected', val);
+            }
         }
     }, {
         key: 'sui',

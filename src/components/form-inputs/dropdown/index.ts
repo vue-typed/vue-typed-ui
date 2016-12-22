@@ -59,10 +59,10 @@ export class Dropdown extends _DropdownBase {
 				self.selectedItems.splice(self.selectedItems.indexOf(val), 1);
 			}
 		});
-		
+
 
 		// make up data validate attr
-		Util.setDataValidateAttr(this,$(this.$el).find('input'))
+		Util.setDataValidateAttr(this, $(this.$el).find('input'))
 
 		// assign selected values
 		this.valueChanged(this.value)
@@ -71,11 +71,14 @@ export class Dropdown extends _DropdownBase {
 
 	@Watch('value')
 	valueChanged(val) {
-
-		if (this.multiple === true && this.selectedItems.toString() != val.toString()) {
-			this.sui('set exactly', val);
-		} else
-			this.sui('set selected', val);
+		if (val === null || val === undefined) {
+			this.sui('clear')
+		} else {
+			if (this.multiple === true && this.selectedItems.toString() != val.toString()) {
+				this.sui('set exactly', val);
+			} else
+				this.sui('set selected', val);
+		}
 	}
 
 	sui(arg1?, arg2?) {
