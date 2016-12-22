@@ -21,8 +21,7 @@ export class Tab extends _TabBase {
 
 	items: any[] = []
 
-	created() {
-		this.activeTab = this._tabName(1);
+	created() {		
 		this.items = [];
 		this.updateStyle();
 	}
@@ -30,6 +29,7 @@ export class Tab extends _TabBase {
 	mounted() {
 		
 		Vue.nextTick(() => {
+			this.activeTab = this.firstTab;
 			this._suiInit();
 		})
 	}
@@ -43,10 +43,13 @@ export class Tab extends _TabBase {
 
 	}
 
+	firstTab = undefined
+
 	createItem(item): string {
 
 		this.items.push(item);
-		var tabName = this._tabName(this.items.length);
+		let tabName = item.path || this._tabName(this.items.length);
+		if (!this.firstTab) this.firstTab = tabName
 
 		if (item.active == true) {
 			this.activeTab = tabName;

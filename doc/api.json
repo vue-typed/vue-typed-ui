@@ -1039,6 +1039,10 @@
       "caption": {
         "type": "string",
         "description": "Tab caption"
+      },
+      "path": {
+        "type": "string",
+        "description": "Name of path"
       }
     },
     "methods": {}

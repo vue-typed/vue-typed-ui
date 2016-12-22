@@ -11,6 +11,7 @@ import { Numeric } from './numeric';
 import { Currency } from './currency';
 import { TabBasic } from './tab/basic';
 import { TabInteractive } from './tab/interactive';
+import { TabPath } from './tab/path';
 import { Button } from './button';
 import { Radio } from './radio';
 import { Checkbox } from './checkbox';
@@ -49,6 +50,7 @@ const m = [
 	{ group: 'component/datetime', text: 'DateTime', path: 'datetime', component: DateTime },
 	{ group: 'component/tab', text: 'Tab', path: 'tab/basic', component: TabBasic },
 	{ group: 'component/tab', text: 'Tab Interactive', path: 'tab/interactive', component: TabInteractive },
+	{ group: 'component/tab', text: 'Tab Path', path: 'tab/path', component: TabPath },
 	{ group: 'component/button', text: 'Buttons', path: 'button', component: Button },
 	{ group: 'component/radio', text: 'Radio', path: 'radio', component: Radio },
 	{ group: 'component/checkbox', text: 'Checkbox', path: 'checkbox', component: Checkbox },

@@ -1852,13 +1852,13 @@ var Tab = function (_TabBase2) {
         var _this = possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).apply(this, arguments));
 
         _this.items = [];
+        _this.firstTab = undefined;
         return _this;
     }
 
     createClass(Tab, [{
         key: 'created',
         value: function created() {
-            this.activeTab = this._tabName(1);
             this.items = [];
             this.updateStyle();
         }
@@ -1868,6 +1868,7 @@ var Tab = function (_TabBase2) {
             var _this2 = this;
 
             Vue.nextTick(function () {
+                _this2.activeTab = _this2.firstTab;
                 _this2._suiInit();
             });
         }
@@ -1885,7 +1886,8 @@ var Tab = function (_TabBase2) {
         key: 'createItem',
         value: function createItem(item) {
             this.items.push(item);
-            var tabName = this._tabName(this.items.length);
+            var tabName = item.path || this._tabName(this.items.length);
+            if (!this.firstTab) this.firstTab = tabName;
             if (item.active == true) {
                 this.activeTab = tabName;
             }
@@ -1955,6 +1957,9 @@ __decorate([vueTyped.Prop({
 __decorate([vueTyped.Prop({
     type: Boolean
 })], _TabItemBase.prototype, "active", void 0);
+__decorate([vueTyped.Prop({
+    type: String
+})], _TabItemBase.prototype, "path", void 0);
 
 var TabItem = function (_TabItemBase2) {
     inherits(TabItem, _TabItemBase2);
@@ -3039,7 +3044,7 @@ function tab(instance, $this) {
     return function (element) {
         return {
             changeTab: function changeTab(path) {
-                return $(element).tab('change tab', path);
+                return $(element).find('.item').tab('change tab', path);
             }
         };
     };

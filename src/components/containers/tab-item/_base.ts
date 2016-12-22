@@ -28,4 +28,14 @@ export abstract class _TabItemBase extends Vue {
     })
     active: boolean
 
+    /**
+     * Name of path
+     * 
+     * @type {string}
+     */
+    @Prop({
+        type: String
+    })
+    path: string
+
 }

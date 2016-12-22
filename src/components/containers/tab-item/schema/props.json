@@ -6,10 +6,14 @@
 		"caption": {
 			"type": "string",
 			"description": "Tab caption"
-		},
+		},		
 		"active": {
 			"type": "boolean",
 			"description": "Set tab to active"
+		},
+		"path": {
+			"type": "string",
+			"description": "Name of path"
 		}
 	}
 }
