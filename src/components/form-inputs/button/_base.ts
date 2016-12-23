@@ -70,4 +70,15 @@ export abstract class _ButtonBase extends Vue {
     })
     color: string
 
+    /**
+     * Button type
+     * 
+     * @default 'button'
+     * @type {string}
+     */
+    @Prop({
+        type: String
+    })
+    type: string = 'button'
+
 }

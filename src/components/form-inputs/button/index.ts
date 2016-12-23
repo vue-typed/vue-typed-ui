@@ -43,6 +43,9 @@ export class Button extends _ButtonBase {
 		}
 
 		var el = ch('button', {
+			attrs: {
+				type: this.type
+			},
 			on: {
 				'click': this.click
 			},

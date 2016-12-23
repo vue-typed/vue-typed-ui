@@ -1614,7 +1614,17 @@ var _ButtonBase = function (_Vue) {
 
     function _ButtonBase() {
         classCallCheck(this, _ButtonBase);
-        return possibleConstructorReturn(this, (_ButtonBase.__proto__ || Object.getPrototypeOf(_ButtonBase)).apply(this, arguments));
+
+        /**
+         * Button type
+         *
+         * @default 'button'
+         * @type {string}
+         */
+        var _this = possibleConstructorReturn(this, (_ButtonBase.__proto__ || Object.getPrototypeOf(_ButtonBase)).apply(this, arguments));
+
+        _this.type = 'button';
+        return _this;
     }
 
     return _ButtonBase;
@@ -1633,6 +1643,9 @@ __decorate([vueTyped.Prop()], _ButtonBase.prototype, "float", void 0);
 __decorate([vueTyped.Prop({
     type: String
 })], _ButtonBase.prototype, "color", void 0);
+__decorate([vueTyped.Prop({
+    type: String
+})], _ButtonBase.prototype, "type", void 0);
 
 var Button = function (_ButtonBase2) {
     inherits(Button, _ButtonBase2);
@@ -1673,6 +1686,9 @@ var Button = function (_ButtonBase2) {
                 css += ' ' + this.color;
             }
             var el = ch('button', {
+                attrs: {
+                    type: this.type
+                },
                 on: {
                     'click': this.click
                 },

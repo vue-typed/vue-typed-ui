@@ -112,6 +112,11 @@
       "size": {
         "type": "'mini' | 'tiny' | 'small' | 'medium' | 'large' | 'big' | 'huge' | 'massive'",
         "description": "Button size"
+      },
+      "type": {
+        "type": "string",
+        "description": "Button type",
+        "default": "'button'"
       }
     }
   },
