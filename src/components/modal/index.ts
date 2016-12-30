@@ -38,7 +38,7 @@ export class Modal extends _ModalBase implements SemanticUI.Modal.Settings {
 				self.$emit(fn, e)
 				return e.result;
 			}
-		} as Function
+		} as Function		
 
 		$(this.$el).modal({
 			onDeny: emit('deny'),
@@ -48,7 +48,9 @@ export class Modal extends _ModalBase implements SemanticUI.Modal.Settings {
 			onHidden: emit('hidden'),
 			onVisible: emit('visible'),
 			closable: this.closable,
-			transition: this.transition				
+			transition: this.transition,
+			allowMultiple: this.allowMultiple,
+			autofocus: this.autofocus
 		})
 
 		if (this.attachShow) $(this.$el).modal('attach events', this.attachShow, 'show')

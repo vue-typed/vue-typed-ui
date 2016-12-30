@@ -50,6 +50,16 @@
 		"transition": {
 			"description": "Named transition to use when animating menu in and out, full list can be found in ui transitions docs.",
 			"type": "SemanticUI.AnimationNames"
+		},
+		"allow-multiple": {
+			"description": "Allow second modal to be opened on top of the first modal.",
+			"type": "boolean",
+			"default": "false"
+		},
+		"autofocus": {
+			"description": "First input in modal will receive focus when shown.",
+			"type": "boolean",
+			"default": "false"
 		}
 	}
 }

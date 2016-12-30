@@ -70,4 +70,26 @@ export abstract class _ModalBase extends Vue {
     @Prop()
     transition: SemanticUI.AnimationNames
 
+    /**
+     * Allow second modal to be opened on top of the first modal.
+     * 
+     * @default false
+     * @type {boolean}
+     */
+    @Prop({
+        type: Boolean
+    })
+    allowMultiple: boolean = false
+
+    /**
+     * First input in modal will receive focus when shown.
+     * 
+     * @default false
+     * @type {boolean}
+     */
+    @Prop({
+        type: Boolean
+    })
+    autofocus: boolean = false
+
 }

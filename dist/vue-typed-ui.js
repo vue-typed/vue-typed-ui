@@ -2675,7 +2675,24 @@ var _ModalBase = function (_Vue) {
 
     function _ModalBase() {
         classCallCheck(this, _ModalBase);
-        return possibleConstructorReturn(this, (_ModalBase.__proto__ || Object.getPrototypeOf(_ModalBase)).apply(this, arguments));
+
+        /**
+         * Allow second modal to be opened on top of the first modal.
+         *
+         * @default false
+         * @type {boolean}
+         */
+        var _this = possibleConstructorReturn(this, (_ModalBase.__proto__ || Object.getPrototypeOf(_ModalBase)).apply(this, arguments));
+
+        _this.allowMultiple = false;
+        /**
+         * First input in modal will receive focus when shown.
+         *
+         * @default false
+         * @type {boolean}
+         */
+        _this.autofocus = false;
+        return _this;
     }
 
     return _ModalBase;
@@ -2697,6 +2714,12 @@ __decorate([vueTyped.Prop({
     type: Boolean
 })], _ModalBase.prototype, "closable", void 0);
 __decorate([vueTyped.Prop()], _ModalBase.prototype, "transition", void 0);
+__decorate([vueTyped.Prop({
+    type: Boolean
+})], _ModalBase.prototype, "allowMultiple", void 0);
+__decorate([vueTyped.Prop({
+    type: Boolean
+})], _ModalBase.prototype, "autofocus", void 0);
 
 var Modal = function (_ModalBase2) {
     inherits(Modal, _ModalBase2);
@@ -2725,7 +2748,9 @@ var Modal = function (_ModalBase2) {
                 onHidden: emit('hidden'),
                 onVisible: emit('visible'),
                 closable: this.closable,
-                transition: this.transition
+                transition: this.transition,
+                allowMultiple: this.allowMultiple,
+                autofocus: this.autofocus
             });
             if (this.attachShow) $(this.$el).modal('attach events', this.attachShow, 'show');
             if (this.attachHide) $(this.$el).modal('attach events', this.attachHide, 'hide');

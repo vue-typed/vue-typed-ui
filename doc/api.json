@@ -809,6 +809,11 @@
       }
     },
     "props": {
+      "allow-multiple": {
+        "description": "Allow second modal to be opened on top of the first modal.",
+        "type": "boolean",
+        "default": "false"
+      },
       "attach-hide": {
         "description": "Attach hide event to another element",
         "type": "string",
@@ -848,6 +853,11 @@
             "description": "Element identifier"
           }
         }
+      },
+      "autofocus": {
+        "description": "First input in modal will receive focus when shown.",
+        "type": "boolean",
+        "default": "false"
       },
       "closable": {
         "description": "Setting to false will not allow you to close the modal by clicking on the dimmer.",

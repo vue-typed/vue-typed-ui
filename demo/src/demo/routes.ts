@@ -20,6 +20,7 @@ import { DateDemo } from './date';
 import { Time } from './time';
 import { DateTime } from './datetime';
 import { Modal } from './modal';
+import { ModalMultiple } from './modal/multiple';
 import { Tree } from './tree';
 import { MenuDropdown } from './menu/dropdown';
 import { MenuVertical } from './menu/vertical';
@@ -56,6 +57,7 @@ const m = [
 	{ group: 'component/checkbox', text: 'Checkbox', path: 'checkbox', component: Checkbox },
 	{ group: 'component/dropdown', text: 'Dropdown', path: 'dropdown', component: Dropdown },
 	{ group: 'component/modal', text: 'Modal', path: 'modal', component: Modal },
+	{ group: 'component/modal', text: 'Multiple Modal', path: 'modal/multiple', component: ModalMultiple },
 	{ group: 'component/tree', text: 'Tree', path: 'tree', component: Tree },
 	{ group: 'component/menu-dropdown', text: 'Menu Dropdown', path: 'menu/dropdown', component: MenuDropdown },
 	{ group: 'component/menu-horizontal', text: 'Menu Horizontal', path: 'menu/horizontal', component: MenuHorizontal },
