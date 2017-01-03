@@ -1,12 +1,14 @@
 <div>
-	<ui-form>
-		<ui-input v-model="firstName" label="First Name" placeholder="Please enter your first name"></ui-input>
-		<ui-input v-model="lastName" label="Last Name" placeholder="Please enter your last name"></ui-input>
-		<ui-input v-model="password" :password="true" label="Password" placeholder="Please enter password"></ui-input>
-		<ui-field label="Your name is">{{fullName}}</ui-field>
-		<ui-button v-on:click="resetFullName">Reset</ui-button>
-		<ui-input v-model.lazy="lazyName" label="Lazy Name" placeholder="Please enter your lazy name"></ui-input>
-		<ui-field label="Your lazy name is">{{lazyName}}</ui-field>
-		<ui-button v-on:click="resetLazyName">Reset</ui-button>
-	</ui-form>
+  <ui-form>
+    <ui-input v-model="firstName" label="First Name" placeholder="Please enter your first name"></ui-input>
+    <ui-input v-model="lastName" label="Last Name" placeholder="Please enter your last name"></ui-input>
+    <ui-input v-model="password" :password="true" label="Password" placeholder="Please enter password"></ui-input>
+    <ui-field label="Your name is">{{fullName}}</ui-field>
+    <ui-button v-on:click="resetFullName">Reset</ui-button>
+    <ui-input v-model.lazy="lazyName" label="Lazy Name" placeholder="Please enter your lazy name"></ui-input>
+    <ui-field label="Your lazy name is">{{lazyName}}</ui-field>
+    <ui-button v-on:click="resetLazyName">Reset</ui-button>
+    <ui-input v-model="address" label="Street Address" placeholder="Please enter your street address" :disabled="!allowEditAddress"></ui-input>
+    <ui-checkbox v-model="allowEditAddress">Allow Edit Address</ui-checkbox>
+  </ui-form>
 </div>

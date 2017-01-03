@@ -135,6 +135,11 @@
         "type": "boolean",
         "description": "Enable user to clear the value by clicking clear button on the right side of control"
       },
+      "disabled": {
+        "type": "boolean",
+        "description": "Disabled field",
+        "default": "false"
+      },
       "kind": {
         "type": "'default' | 'grouped' | 'inline'",
         "description": "Field layout style"
@@ -221,6 +226,11 @@
         "type": "string",
         "description": "Decimal group separator"
       },
+      "disabled": {
+        "type": "boolean",
+        "description": "Disabled field",
+        "default": "false"
+      },
       "group-separator": {
         "type": "string",
         "description": "Thousands group separator"
@@ -287,6 +297,11 @@
         "type": "boolean",
         "description": "Enable user to clear the value by clicking clear button on the right side of control"
       },
+      "disabled": {
+        "type": "boolean",
+        "description": "Disabled field",
+        "default": "false"
+      },
       "format": {
         "type": "string",
         "description": "Date format"
@@ -340,6 +355,11 @@
         "type": "boolean",
         "description": "Enable user to clear the value by clicking clear button on the right side of control"
       },
+      "disabled": {
+        "type": "boolean",
+        "description": "Disabled field",
+        "default": "false"
+      },
       "format": {
         "type": "string",
         "description": "Date format"
@@ -392,6 +412,11 @@
       "css": {
         "type": "string",
         "description": "Css class(es) applied to dropdown component"
+      },
+      "disabled": {
+        "type": "boolean",
+        "description": "Disabled field",
+        "default": "false"
       },
       "kind": {
         "type": "'default' | 'grouped' | 'inline'",
@@ -455,6 +480,11 @@
     "type": "component",
     "readme": false,
     "props": {
+      "disabled": {
+        "type": "boolean",
+        "description": "Disabled field",
+        "default": "false"
+      },
       "kind": {
         "type": "'default' | 'grouped' | 'inline'",
         "description": "Field layout style"
@@ -481,6 +511,11 @@
     "type": "component",
     "readme": false,
     "props": {
+      "disabled": {
+        "type": "boolean",
+        "description": "Disabled field",
+        "default": "false"
+      },
       "kind": {
         "type": "'default' | 'grouped' | 'inline'",
         "description": "Field layout style"
@@ -594,6 +629,11 @@
       "css": {
         "type": "string",
         "description": "Css class(es) applied to input component"
+      },
+      "disabled": {
+        "type": "boolean",
+        "description": "Disabled field",
+        "default": "false"
       },
       "icon": {
         "type": "string",
@@ -887,6 +927,11 @@
         "type": "string",
         "description": "Decimal group separator"
       },
+      "disabled": {
+        "type": "boolean",
+        "description": "Disabled field",
+        "default": "false"
+      },
       "group-separator": {
         "type": "string",
         "description": "Thousands group separator"
@@ -978,6 +1023,11 @@
     "type": "component",
     "readme": false,
     "props": {
+      "disabled": {
+        "type": "boolean",
+        "description": "Disabled field",
+        "default": "false"
+      },
       "kind": {
         "type": "'default' | 'grouped' | 'inline'",
         "description": "Field layout style"
@@ -1075,6 +1125,11 @@
       "can-clear": {
         "type": "boolean",
         "description": "Enable user to clear the value by clicking clear button on the right side of control"
+      },
+      "disabled": {
+        "type": "boolean",
+        "description": "Disabled field",
+        "default": "false"
       },
       "format": {
         "type": "string",

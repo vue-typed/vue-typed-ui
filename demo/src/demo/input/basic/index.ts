@@ -9,6 +9,9 @@ export class InputBasic extends Base  {
 	firstName: string = 'John'
 	lastName: string = 'Doe'
 	password: string = 'supersecretpassword'
+	address: string = ''
+
+	allowEditAddress: boolean = true
 
 	get fullName() {
 		return this.firstName + ' ' + this.lastName;

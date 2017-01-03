@@ -640,7 +640,17 @@ var _FieldBaseBase = function (_Vue) {
 
     function _FieldBaseBase() {
         classCallCheck(this, _FieldBaseBase);
-        return possibleConstructorReturn(this, (_FieldBaseBase.__proto__ || Object.getPrototypeOf(_FieldBaseBase)).apply(this, arguments));
+
+        /**
+         * Disabled field
+         *
+         * @default false
+         * @type {boolean}
+         */
+        var _this = possibleConstructorReturn(this, (_FieldBaseBase.__proto__ || Object.getPrototypeOf(_FieldBaseBase)).apply(this, arguments));
+
+        _this.disabled = false;
+        return _this;
     }
 
     return _FieldBaseBase;
@@ -653,6 +663,9 @@ __decorate([vueTyped.Prop({
     type: Number
 })], _FieldBaseBase.prototype, "wide", void 0);
 __decorate([vueTyped.Prop()], _FieldBaseBase.prototype, "kind", void 0);
+__decorate([vueTyped.Prop({
+    type: Boolean
+})], _FieldBaseBase.prototype, "disabled", void 0);
 
 var FieldBase = function (_FieldBaseBase2) {
     inherits(FieldBase, _FieldBaseBase2);
@@ -675,6 +688,9 @@ var FieldBase = function (_FieldBaseBase2) {
             var style = this.wide ? 'fields' : 'field';
             if (this.kind) {
                 style = this.kind + ' fields';
+            }
+            if (this.disabled) {
+                style += ' disabled';
             }
             var el = ch('div', {
                 'class': Util.buildClassObject(style, Util.parseWide(this.wide))

@@ -26,6 +26,10 @@ export abstract class FieldBase extends _FieldBaseBase {
 			style = this.kind + ' fields'
 		}
 
+		if (this.disabled) {
+			style += ' disabled'
+		}
+
 		var el = ch('div', {
 			'class': Util.buildClassObject(style, Util.parseWide(this.wide))
 		}, contents);

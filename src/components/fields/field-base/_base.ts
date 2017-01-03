@@ -36,4 +36,15 @@ export abstract class _FieldBaseBase extends Vue {
     @Prop()
     kind: 'default' | 'grouped' | 'inline'
 
+    /**
+     * Disabled field
+     * 
+     * @default false
+     * @type {boolean}
+     */
+    @Prop({
+        type: Boolean
+    })
+    disabled: boolean = false
+
 }
