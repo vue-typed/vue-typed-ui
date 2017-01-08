@@ -1,42 +1,49 @@
-<div>	
-	<ui-h4>Dropdown Menu</ui-h4>
-	<ui-menu-vertical>
-		<ui-menu-item>Foo</ui-menu-item>
-		<ui-menu-item>Bar</ui-menu-item>
-		<ui-menu-dropdown label="Sub Menu">
-			<ui-menu-item @click="clicked">Home</ui-menu-item>
-			<ui-menu-item>Messages</ui-menu-item>
-			<ui-menu-item>Friends</ui-menu-item>
-		</ui-menu-dropdown>
-	</ui-menu-vertical>
+<div>
+  <ui-h4>Dropdown Menu</ui-h4>
+  <ui-menu-vertical>
+    <ui-menu-item>Foo</ui-menu-item>
+    <ui-menu-item>Bar</ui-menu-item>
+    <ui-menu-dropdown label="Sub Menu">
+      <ui-menu-item @click="clicked">Home</ui-menu-item>
+      <ui-menu-item>Messages</ui-menu-item>
+      <ui-menu-item>Friends</ui-menu-item>
+    </ui-menu-dropdown>
+  </ui-menu-vertical>
 
-	<ui-h4>Dropdown Menu On Hover</ui-h4>
-	<ui-menu-vertical>
-		<ui-menu-item>Foo</ui-menu-item>
-		<ui-menu-item>Bar</ui-menu-item>
-		<ui-menu-dropdown label="Sub Menu" :hover="true">
-			<ui-menu-item @click="clicked">Home</ui-menu-item>
-			<ui-menu-item>Messages</ui-menu-item>
-			<ui-menu-item>Friends</ui-menu-item>
-		</ui-menu-dropdown>
-	</ui-menu-vertical>
+  <ui-h4>Dropdown Menu On Hover</ui-h4>
+  <ui-menu-vertical>
+    <ui-menu-item>Foo</ui-menu-item>
+    <ui-menu-item>Bar</ui-menu-item>
+    <ui-menu-dropdown label="Sub Menu" :hover="true">
+      <ui-menu-item @click="clicked">Home</ui-menu-item>
+      <ui-menu-item>Messages</ui-menu-item>
+      <ui-menu-item>Friends</ui-menu-item>
+    </ui-menu-dropdown>
+  </ui-menu-vertical>
 
-	<ui-h4>Styles</ui-h4>
-	<ui-menu-horizontal class="secondary pointing">
-		<ui-menu-item>Editorials</ui-menu-item>
-		<ui-menu-item>Reviews</ui-menu-item>
-		<ui-menu-item>Upcoming Events</ui-menu-item>
-	</ui-menu-horizontal>
+  <ui-h4>Dropdown Icon</ui-h4>
+  <ui-menu-dropdown :hover="true" icon="wrench" class="top left icon button">
+    <ui-menu-item @click="clicked">Home</ui-menu-item>
+    <ui-menu-item>Messages</ui-menu-item>
+    <ui-menu-item>Friends</ui-menu-item>
+  </ui-menu-dropdown>
 
-	<ui-menu-vertical class="pointing">
-		<ui-menu-item>Editorials</ui-menu-item>
-		<ui-menu-item>Reviews</ui-menu-item>
-		<ui-menu-item>Upcoming Events</ui-menu-item>
-	</ui-menu-vertical>
+  <ui-h4>Styles</ui-h4>
+  <ui-menu-horizontal class="secondary pointing">
+    <ui-menu-item>Editorials</ui-menu-item>
+    <ui-menu-item>Reviews</ui-menu-item>
+    <ui-menu-item>Upcoming Events</ui-menu-item>
+  </ui-menu-horizontal>
 
-	<ui-menu-vertical class="secondary pointing">
-		<ui-menu-item>Editorials</ui-menu-item>
-		<ui-menu-item>Reviews</ui-menu-item>
-		<ui-menu-item>Upcoming Events</ui-menu-item>
-	</ui-menu-vertical>
+  <ui-menu-vertical class="pointing">
+    <ui-menu-item>Editorials</ui-menu-item>
+    <ui-menu-item>Reviews</ui-menu-item>
+    <ui-menu-item>Upcoming Events</ui-menu-item>
+  </ui-menu-vertical>
+
+  <ui-menu-vertical class="secondary pointing">
+    <ui-menu-item>Editorials</ui-menu-item>
+    <ui-menu-item>Reviews</ui-menu-item>
+    <ui-menu-item>Upcoming Events</ui-menu-item>
+  </ui-menu-vertical>
 </div>

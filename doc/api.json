@@ -711,6 +711,11 @@
         "type": "boolean",
         "description": "Trigger dropdown on hover."
       },
+      "icon": {
+        "type": "string",
+        "description": "Dropdown icon",
+        "default": "'dropdown'"
+      },
       "label": {
         "type": "string",
         "description": "Dropdown title/label."

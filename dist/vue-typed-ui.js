@@ -2424,7 +2424,17 @@ var _MenuDropdownBase = function (_Vue) {
 
     function _MenuDropdownBase() {
         classCallCheck(this, _MenuDropdownBase);
-        return possibleConstructorReturn(this, (_MenuDropdownBase.__proto__ || Object.getPrototypeOf(_MenuDropdownBase)).apply(this, arguments));
+
+        /**
+         * Dropdown icon
+         *
+         * @default 'dropdown'
+         * @type {string}
+         */
+        var _this = possibleConstructorReturn(this, (_MenuDropdownBase.__proto__ || Object.getPrototypeOf(_MenuDropdownBase)).apply(this, arguments));
+
+        _this.icon = 'dropdown';
+        return _this;
     }
 
     return _MenuDropdownBase;
@@ -2436,6 +2446,9 @@ __decorate([vueTyped.Prop({
 __decorate([vueTyped.Prop({
     type: Boolean
 })], _MenuDropdownBase.prototype, "hover", void 0);
+__decorate([vueTyped.Prop({
+    type: String
+})], _MenuDropdownBase.prototype, "icon", void 0);
 
 var MenuDropdown = function (_MenuDropdownBase2) {
     inherits(MenuDropdown, _MenuDropdownBase2);
@@ -2463,7 +2476,7 @@ var MenuDropdown = function (_MenuDropdownBase2) {
     return MenuDropdown;
 }(_MenuDropdownBase);
 MenuDropdown = __decorate([vueTyped.Component({
-    template: '<div class="ui dropdown item">\n    {{label}}\n    <i class="dropdown icon"></i>\n    <div class="menu">\n\t\t\t<slot></slot>\n    </div>\n  </div>'
+    template: '<div class="ui dropdown item">\n    {{label}}\n    <i :class="icon + \' icon\'"></i>\n    <div class="menu">\n\t\t\t<slot></slot>\n    </div>\n  </div>'
 })], MenuDropdown);
 
 var _HeaderBase = function (_Vue) {

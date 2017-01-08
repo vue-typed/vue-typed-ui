@@ -7,7 +7,7 @@ import { _MenuDropdownBase } from './_base';
 @Component({
 	template: `<div class="ui dropdown item">
     {{label}}
-    <i class="dropdown icon"></i>
+    <i :class="icon + ' icon'"></i>
     <div class="menu">
 			<slot></slot>
     </div>

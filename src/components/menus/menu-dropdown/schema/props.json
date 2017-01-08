@@ -1,15 +1,20 @@
 {
-	"base": {
-		"Vue": "vue"
-	},
-	"props": {
-		"label": {
-			"type": "string",
-			"description": "Dropdown title/label."
-		},
-		"hover": {
-			"type": "boolean",
-			"description": "Trigger dropdown on hover."
-		}
-	}
+  "base": {
+    "Vue": "vue"
+  },
+  "props": {
+    "label": {
+      "type": "string",
+      "description": "Dropdown title/label."
+    },
+    "hover": {
+      "type": "boolean",
+      "description": "Trigger dropdown on hover."
+    },
+    "icon": {
+      "type": "string",
+      "description": "Dropdown icon",
+      "default": "'dropdown'"
+    }
+  }
 }

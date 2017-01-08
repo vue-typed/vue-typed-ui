@@ -28,4 +28,15 @@ export abstract class _MenuDropdownBase extends Vue {
     })
     hover: boolean
 
+    /**
+     * Dropdown icon
+     * 
+     * @default 'dropdown'
+     * @type {string}
+     */
+    @Prop({
+        type: String
+    })
+    icon: string = 'dropdown'
+
 }
