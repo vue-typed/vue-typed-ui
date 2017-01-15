@@ -1,5 +1,5 @@
 /**
-  * vue-typed-ui 1.4.5
+  * vue-typed-ui 1.4.6
   * UI components made with Semantic UI, VueTyped and friends
   * https://github.com/vue-typed/vue-typed-ui
   
@@ -891,6 +891,9 @@ var Calendar = function (_CalendarBase2) {
                 type: attr.type,
                 onChange: function onChange(date, text) {
                     _this3.$emit('input', date);
+                },
+                popupOptions: {
+                    observeChanges: false
                 }
             };
             if (this.rangeStart) {
