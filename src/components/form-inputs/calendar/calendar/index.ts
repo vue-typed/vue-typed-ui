@@ -8,7 +8,7 @@ import { _CalendarBase } from './_base';
 @Component()
 export abstract class Calendar extends _CalendarBase {
 
-	abstract calendarOptions() : {
+	abstract calendarOptions(): {
 		icon: string,
 		type: string
 	}
@@ -63,6 +63,9 @@ export abstract class Calendar extends _CalendarBase {
 			type: attr.type,
 			onChange: (date, text) => {
 				this.$emit('input', date);
+			},
+			popupOptions: {
+				observeChanges: false
 			}
 		}
 
