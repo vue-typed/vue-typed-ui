@@ -1,65 +1,69 @@
 {
-	"base": {
-		"Vue": "vue"
-	},
-	"props": {
-		"attach-show": {
-			"description": "Attach show event to another element",
-			"type": "string",
-			"params": {
-				"selector": {
-					"type": "HTMLElement | JQuery | string",
-					"description": "Element identifier"
-				}
-			}
-		},
-		"attach-hide": {
-			"description": "Attach hide event to another element",
-			"type": "string",
-			"params": {
-				"selector": {
-					"type": "HTMLElement | JQuery | string",
-					"description": "Element identifier"
-				}
-			}
-		},
-		"attach-toggle": {
-			"description": "Attach toggle event to another element",
-			"type": "string",
-			"params": {
-				"selector": {
-					"type": "HTMLElement | JQuery | string",
-					"description": "Element identifier"
-				}
-			}
-		},
-		"attach-refresh": {
-			"description": "Attach refresh event to another element",
-			"type": "string",
-			"params": {
-				"selector": {
-					"type": "HTMLElement | JQuery | string",
-					"description": "Element identifier"
-				}
-			}
-		},
-		"closable": {
-			"description": "Setting to false will not allow you to close the modal by clicking on the dimmer.",
-			"type": "boolean"
-		},
-		"transition": {
-			"description": "Named transition to use when animating menu in and out, full list can be found in ui transitions docs.",
-			"type": "SemanticUI.AnimationNames"
-		},
-		"allow-multiple": {
-			"description": "Allow second modal to be opened on top of the first modal.",
-			"type": "boolean",
-			"default": "false"
-		},
-		"autofocus": {
-			"description": "First input in modal will receive focus when shown.",
-			"type": "boolean",
-			"default": "false"
-		}
-	}
+  "base": {
+    "Vue": "vue"
+  },
+  "props": {
+    "attach-show": {
+      "description": "Attach show event to another element",
+      "type": "string",
+      "params": {
+        "selector": {
+          "type": "HTMLElement | JQuery | string",
+          "description": "Element identifier"
+        }
+      }
+    },
+    "attach-hide": {
+      "description": "Attach hide event to another element",
+      "type": "string",
+      "params": {
+        "selector": {
+          "type": "HTMLElement | JQuery | string",
+          "description": "Element identifier"
+        }
+      }
+    },
+    "attach-toggle": {
+      "description": "Attach toggle event to another element",
+      "type": "string",
+      "params": {
+        "selector": {
+          "type": "HTMLElement | JQuery | string",
+          "description": "Element identifier"
+        }
+      }
+    },
+    "attach-refresh": {
+      "description": "Attach refresh event to another element",
+      "type": "string",
+      "params": {
+        "selector": {
+          "type": "HTMLElement | JQuery | string",
+          "description": "Element identifier"
+        }
+      }
+    },
+    "closable": {
+      "description": "Setting to false will not allow you to close the modal by clicking on the dimmer.",
+      "type": "boolean"
+    },
+    "transition": {
+      "description": "Named transition to use when animating menu in and out, full list can be found in ui transitions docs.",
+      "type": "SemanticUI.AnimationNames"
+    },
+    "allow-multiple": {
+      "description": "Allow second modal to be opened on top of the first modal.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "autofocus": {
+      "description": "First input in modal will receive focus when shown.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "icon": {
+      "description": "Header icon.",
+      "type": "string"
+    }
+  }
 }

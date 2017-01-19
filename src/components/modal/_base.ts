@@ -92,4 +92,14 @@ export abstract class _ModalBase extends Vue {
     })
     autofocus: boolean = false
 
+    /**
+     * Header icon.
+     * 
+     * @type {string}
+     */
+    @Prop({
+        type: String
+    })
+    icon: string
+
 }

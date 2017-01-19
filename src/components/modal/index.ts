@@ -8,7 +8,8 @@ import { _ModalBase } from './_base';
 @Component({
 	template: `<div class="ui modal">
   <i v-if="closable" class="close icon"></i>
-  <div class="header" v-if="hasHeader">
+  <div :class="headerCss" v-if="hasHeader">
+		<i :class="icon + ' icon'" v-if="icon"></i>
     <slot name="header"></slot>
   </div>
   <div class="content">
@@ -26,6 +27,15 @@ export class Modal extends _ModalBase implements SemanticUI.Modal.Settings {
 
 	get hasHeader() {
 		return this.$slots['header'] != undefined;
+	}
+
+	get headerCss() {
+		if (!this.hasHeader) return '';
+
+		if (this.icon)
+			return 'ui header icon';
+
+		return 'header';
 	}
 
 	mounted() {
