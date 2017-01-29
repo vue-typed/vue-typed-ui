@@ -1,0 +1,35 @@
+div
+  ui-h4 Dropdown Menu
+  ui-menu-vertical
+    ui-menu-item Foo
+    ui-menu-item Bar
+    ui-menu-dropdown(label='Sub Menu')
+      ui-menu-item(@click='clicked') Home
+      ui-menu-item Messages
+      ui-menu-item Friends
+  ui-h4 Dropdown Menu On Hover
+  ui-menu-vertical
+    ui-menu-item Foo
+    ui-menu-item Bar
+    ui-menu-dropdown(label='Sub Menu', :hover='true')
+      ui-menu-item(@click='clicked') Home
+      ui-menu-item Messages
+      ui-menu-item Friends
+  ui-h4 Dropdown Icon
+  ui-menu-dropdown.top.left.icon.button(:hover='true', icon='wrench')
+    ui-menu-item(@click='clicked') Home
+    ui-menu-item Messages
+    ui-menu-item Friends
+  ui-h4 Styles
+  ui-menu-horizontal.secondary.pointing
+    ui-menu-item Editorials
+    ui-menu-item Reviews
+    ui-menu-item Upcoming Events
+  ui-menu-vertical.pointing
+    ui-menu-item Editorials
+    ui-menu-item Reviews
+    ui-menu-item Upcoming Events
+  ui-menu-vertical.secondary.pointing
+    ui-menu-item Editorials
+    ui-menu-item Reviews
+    ui-menu-item Upcoming Events

@@ -1,0 +1,9 @@
+div
+  ui-form
+    ui-numeric(label='Standard', v-model='amount')
+    ui-numeric(label='Custom separators', v-model='amount', group-separator='^', decimal-separator='*')
+    ui-numeric(label='No group separator', v-model='amount', group-separator='')
+    ui-numeric(label='Sign should be ignored, use currency instead', v-model='amount', sign='Rp ')
+    ui-numeric(label='Integer', v-model='amount', :integer='true')
+    ui-field(label='Result') {{amount}}
+    ui-field(label='Formatted result') {{amount | ui-numeric}}

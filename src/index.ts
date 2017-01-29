@@ -1,9 +1,11 @@
 import * as Vue from 'vue';
+import { PluginObject } from 'vue';
 import { Options } from '../lib/options';
 import { Settings } from '../lib/settings';
 import { DefaultOptions, DefaultSettings } from './defaults';
 import * as toastr from 'toastr'
 import * as _ from 'lodash'
+import { Virtual } from 'vue-typed';
 
 import { register_all_components, register_all_filters, register_all_methods } from './register';
 
@@ -17,21 +19,18 @@ class VueTypedUI {
 
 	constructor(vue: typeof Vue, options?: Options) {
 
-		const defaultOptions = <Options>{
-			prefix: 'ui',
-			settings: DefaultSettings
-		}
+		options = vue['util'].extend(DefaultOptions, options || {})
 
-		options = vue['util'].extend(defaultOptions, options || {})
+		var settings = options.settings = vue['util'].extend(DefaultSettings, options.settings || {})		
 
 		// set toastr default settings
-		if (options.toastr) {
-			_.each(options.toastr, (v, k) => {
+		if (options.settings.toastr) {
+			_.each(options.settings.toastr, (v, k) => {
 				toastr.options[k] = v
 			})
 		}
 
-		var settings = options.settings = vue['util'].extend(DefaultSettings, options.settings || {})		
+
 		var uiRoot = {
 			$settings: settings
 		}

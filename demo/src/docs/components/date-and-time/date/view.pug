@@ -1,0 +1,14 @@
+div
+  ui-form
+    ui-h3 Basic
+    ui-date(label='Due Date', placeholder='Please enter due date', v-model='dueDate')
+    ui-field(label='Due Date Result') {{dueDateString}}
+    ui-h3 Can Clear
+    ui-date(label='Due Date', placeholder='Please enter another date', v-model='optionalDate', :can-clear='true')
+    ui-field(label='Due Date Result') {{optionalDate | ui-date}}
+    ui-h3 Range
+    ui-field(kind='inline')
+      ui-date#start-date(label='From', placeholder='Start', v-model='startDate', rangeend='#end-date')
+      ui-date#end-date(label='To', placeholder='End', v-model='endDate', rangestart='#start-date')
+    ui-field(label='Result')
+      | From {{startDate | ui-date}} To {{endDate | ui-date}}

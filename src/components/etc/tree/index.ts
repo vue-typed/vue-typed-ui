@@ -1,11 +1,11 @@
 import * as Vue from 'vue'
-import { Component, Prop } from 'vue-typed';
+import { Options, Prop } from 'vue-typed';
 import { Util } from '../../../utils';
 import { VueTypedUI } from '../../../index'
 import { _TreeBase } from './_base';
 
 
-@Component()
+@Options()
 export class Tree extends _TreeBase {
 
 	render(ch) {

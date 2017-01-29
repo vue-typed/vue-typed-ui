@@ -1,0 +1,12 @@
+ui-menu-vertical.sidebar.inverted#sidebar
+	.item
+		a.ui.logo.icon.image(href="#/")
+			img(src=require("../../assets/logo-full.png"))
+
+	a.item.header(href="#/doc/") Getting Started
+
+	.item
+		app-menus(:items="components", header="Components")
+		app-menus(:items="decorators", header="Decorators")
+		app-menus(:items="filters", header="Filters")
+		app-menus(:items="modules", header="Modules")

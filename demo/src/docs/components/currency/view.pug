@@ -1,0 +1,8 @@
+div
+  ui-form
+    ui-currency(v-model='amount')
+    ui-currency(v-model='amount', group-separator='^', decimal-separator='*')
+    ui-currency(v-model='amount', group-separator='')
+    ui-currency(v-model='amount', sign='Rp', sign-pos='left')
+    ui-field(label='Result') {{amount}}
+    ui-field(label='Formatted result') {{amount | ui-currency}}

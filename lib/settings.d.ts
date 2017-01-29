@@ -4,6 +4,7 @@ export interface Settings {
   dateFormat?: DateFormat
   timeFormat?: TimeFormat
   numeric?: NumericSettings
+  toastr?: ToastrOptions
 }
 
 export interface NumericSettings {

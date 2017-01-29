@@ -4,3 +4,4 @@ npm-debug.log
 demo/dist/bundle.*
 .vscode/
 debug.log
+npm-debug.log.*

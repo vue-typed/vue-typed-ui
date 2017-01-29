@@ -1,14 +1,14 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6",
-        "noImplicitAny": false,
-        "allowSyntheticDefaultImports": true,
-        "sourceMap": true,
-        "experimentalDecorators": true,
-        "types": ["node", "jquery", "mocha", "chai", "chai-dom", "moment", "autonumeric", "lodash"]       
-    },
-    "exclude": [
-        "node_modules", "bower_components"
-    ]
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "types": ["node", "jquery", "mocha", "chai", "chai-dom", "moment", "autonumeric", "lodash", "webpack", "webpack-env"]
+  },
+  "exclude": [
+    "node_modules", "bower_components"
+  ]
 }

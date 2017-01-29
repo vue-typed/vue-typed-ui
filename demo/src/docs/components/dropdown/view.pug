@@ -1,0 +1,26 @@
+div
+  ui-form
+    ui-fields-inline(label='Default')
+      ui-dropdown(v-model='choosen', name='chooser', default-text='Please make a choice!')
+        ui-dropdown-item(value='first') First Choice
+        ui-dropdown-item(value='two') Second Choice
+        ui-dropdown-item(value='three') Third Choice
+      ui-field(label='Choosen:')
+        | {{choosen}}
+    ui-fields-inline(label='Search')
+      ui-dropdown(:search='true', v-model='choosen', name='chooser', default-text='Please make a choice!')
+        ui-dropdown-item(value='first') First Choice
+        ui-dropdown-item(value='two') Second Choice
+        ui-dropdown-item(value='three') Third Choice
+      ui-field(label='Choosen:')
+        | {{choosen}}
+    ui-fields-inline(label='Multiple')
+      ui-dropdown(:multiple='true', v-model='selection', name='chooser', default-text='Please select your favorite fruits')
+        ui-dropdown-item(v-for='f in fruits', :value='f') {{f}}
+      ui-field(:label="'Choosen (' + selection.length + '):'")
+        | {{selection}}
+    ui-fields-inline(label='Multiple Search')
+      ui-dropdown(:search='true', :multiple='true', v-model='selection', name='chooser', default-text='Please select your favorite fruits')
+        ui-dropdown-item(v-for='f in fruits', :value='f') {{f}}
+      ui-field(:label="'Choosen (' + selection.length + '):'")
+        | {{selection}}

@@ -1,0 +1,5 @@
+ui-form(v-on:success='submit', label-width='100px', :validator='validator')
+  ui-input(kind='inline', label='First Name', placeholder='Please enter first name', v-model='firstName')
+  ui-input(kind='inline', label='Last Name', placeholder='Please enter last name', v-model='lastName')
+  ui-button.positive(type="submit") Submit
+  ui-message.error

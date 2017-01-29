@@ -1,0 +1,9 @@
+div
+  ui-tab#my-tab(:kind='style')
+    ui-tab-item(caption='Tab 1') Contents of Tab 1
+    ui-tab-item(caption='Tab 2') Contents of Tab 2
+  ui-radio(name='style', val='standard', v-model='style') Standard
+  br
+  ui-radio(name='style', val='pointing', v-model='style') Pointing
+  br
+  ui-radio(name='style', val='menu', v-model='style') Menu

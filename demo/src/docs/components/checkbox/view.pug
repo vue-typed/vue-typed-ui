@@ -1,0 +1,24 @@
+div
+  ui-form
+    ui-segment
+      ui-h3 Standard
+      ui-checkbox(v-model='checked') {{checkedStatus}}
+      ui-checkbox(kind='toggle', v-model='checked') {{checkedStatus}}
+      ui-checkbox(kind='slider', v-model='checked') {{checkedStatus}}
+      ui-field(kind='inline')
+        ui-checkbox(v-model='checked', :enabled='enabledToggle') {{enabledToggleStatus}}
+        ui-checkbox(v-model='enabledToggle') {{enabledToggleText}}
+      ui-field(label='Checked value:')
+        | {{checked}}
+    ui-segment
+      ui-h3 Value
+      ui-checkbox(v-model='checkedVal', val='yes') Yes/No
+      ui-field(label='Value: ') {{checkedVal}}
+    ui-segment
+      ui-h3 Array Value
+      ui-checkbox(v-model='checkedNames', val='Jack') Jack
+      ui-checkbox(v-model='checkedNames', val='John') John
+      ui-checkbox(v-model='checkedNames', val='Mike') Mike
+      ui-field(label='Value: ') {{checkedNames}}
+      ui-button(v-on:click='checkAllNames') Select All
+      ui-button(v-on:click='clearAllNames') Clear All

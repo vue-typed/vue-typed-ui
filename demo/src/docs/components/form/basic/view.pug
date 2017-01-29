@@ -1,0 +1,8 @@
+ui-form(v-on:success='submit')
+  ui-input(label='First Name', placeholder='Please enter first name', v-model='firstName')
+  ui-input(label='Last Name', placeholder='Please enter last name', v-model='lastName')
+  ui-button.submit Submit
+  ui-modal#message
+    ui-h4 Success!
+    ui-field(label='First Name') {{firstName}}
+    ui-field(label='Last Name') {{lastName}}

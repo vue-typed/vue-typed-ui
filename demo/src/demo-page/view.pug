@@ -1,0 +1,51 @@
+div#demo
+  h2.ui.header {{title}}
+    .sub.header {{subTitle}}
+
+  .ui.top.attached.header
+    | Demo
+  .ui.attached.segment.example
+    app-example
+
+  //- suppress readme until it's ready
+  //- div(v-if="readme", v-html="readme").ui.segment.readme
+
+  ui-accordion.bottom.attached.segment
+    ui-accordion-item(title='Source Code', :active="true")
+      .source-code
+        ui-tab
+          ui-tab-item(caption='Html')
+            ui-source(lang='html') {{html}}
+          ui-tab-item(caption='Typescript (VueTyped)')
+            ui-source(lang='typescript') {{ts}}
+    ui-accordion-item(title='API')
+      .api
+        div(v-for='a in api')
+          ui-source {{a.apiInfo}}
+          .props.ui.segment(v-if='a.hasProp')
+            h4 Props
+            table.ui.table
+              thead
+                tr
+                  th Name
+                  th Type
+                  th Default
+                  th Description
+              tr(v-for='(p, n) in a.props')
+                td {{n}}
+                td {{p.type}}
+                td {{p.default}}
+                td {{p.description}}
+          .methods.ui.segment(v-if='a.hasMethod')
+            h4 Methods
+            table.ui.table
+              thead
+                tr
+                  th Name
+                  th Parameters
+                  th Description
+              tr(v-for='(p, n) in a.methods')
+                td {{n}}
+                td {{p.params}}
+                td {{p.description}}
+          .ui.divider.hidden

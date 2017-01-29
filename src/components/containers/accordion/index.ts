@@ -1,7 +1,7 @@
 import { _AccordionBase } from './_base';
-import { Component } from 'vue-typed';
+import { Options } from 'vue-typed';
 
-@Component({
+@Options({
 	template: '<div class="ui accordion"><slot></slot></div>'
 })
 export class Accordion extends _AccordionBase { 

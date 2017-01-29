@@ -1,8 +1,8 @@
 import * as Vue from 'vue'
-import { Component } from 'vue-typed'
+import { Options } from 'vue-typed'
 import { _MessageBase } from './_base'
 
-@Component({
+@Options({
 	template: `
 	<div class="ui message">
   	<i v-if="closable" class="close icon"></i>

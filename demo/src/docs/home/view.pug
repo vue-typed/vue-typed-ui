@@ -1,0 +1,130 @@
+#doc-home
+	h1 VueTypedUI
+	span
+		p
+			| Is sets of UI components made with 
+			a(href='http://semantic-ui.com/') Semantic UI
+			| , 
+			a(href='https://vue-typed.github.io/vue-typed') VueTyped
+			|  and friends
+
+	h3 Install
+	ui-source(lang="bash") npm install vue-typed-ui --save-dev
+
+	h3 Usage
+	ui-source(lang="typescript")
+		| import * as Vue from 'vue'
+		| import * as VueTypedUI from 'VueTypedUI'
+		| Vue.use(VueTypedUI /* optional */ ,{
+		|	prefix: 'ui',
+		|	settings: { /* see settings section */ }
+		| })
+
+	h3 Options
+	h4 prefix
+	| Components tag prefix. Default is 'ui'
+	h4 settings
+	| Some components may have some individual settings
+	table.ui.table
+		thead
+			tr
+				th Name
+				th Default
+				th Description
+		tbody
+			tr
+				td(colspan="3")
+					.ui.header.small Date / Time
+			tr
+				td dateFormat
+				td 'MM/DD/YYYY'
+				td Date / DateTime format. You can change this format by follow 
+					a(href="https://momentjs.com/") momentjs 
+					| formats.
+			tr
+				td timeFormat
+				td 'HH:mm'
+				td Time format. You can change this format by follow 
+					a(href="https://momentjs.com/") momentjs 
+					| formats.
+			tr
+				td(colspan="3")
+					.ui.header.small Numeric
+			tr
+				td decimalPlaces
+				td 2
+				td Decimal places
+			tr
+				td decimalSeparator
+				td '.'
+				td Decimal separator
+			tr
+				td groupSeparator
+				td ','
+				td Group separator
+			tr
+				td max
+				td 9999999999999.99
+				td Maximum number that component can handle
+			tr
+				td min
+				td -9999999999999.99
+				td Minimum number that component can handle
+			tr
+				td(colspan="3")
+					.ui.header.small Currency
+			tr
+				td sign
+				td 'USD'
+				td Currency sign
+			tr
+				td signPos
+				td 'right'
+				td Currency symbol position
+			tr
+				td(colspan="3")
+					.ui.header.small Toastr
+			tr
+				td toastr
+				td Official toastr default settings
+				td Settings for toastr component to get more detail see: 
+					a(href="http://codeseven.github.io/toastr/") http://codeseven.github.io/toastr/
+	
+	h3 Requirements
+	ul
+		li
+			a(href='https://github.com/jquery/jquery') JQuery
+		li
+			a(href='https://github.com/Semantic-Org/Semantic-UI') Semantic UI
+		li
+			a(href='https://github.com/mdehoog/Semantic-UI-Calendar') Semantic UI Calendar
+
+	| These requirements must be referenced in your main HTML file. For example:
+
+	ui-source(lang="html")
+		| {{htmlExample}}
+
+
+
+	h3 Credits
+	ul
+		li
+			a(href='https://github.com/BobKnothe/autoNumeric') autoNumeric
+		li
+			a(href='https://github.com/jquery/jquery') JQuery
+		li
+			a(href='https://lodash.com/') Lodash
+		li
+			a(href='http://momentjs.com/') Moment.js
+		li
+			a(href='https://github.com/Semantic-Org/Semantic-UI') Semantic UI
+		li
+			a(href='https://github.com/mdehoog/Semantic-UI-Calendar') Semantic UI Calendar
+		li
+			a(href='http://t4t5.github.io/sweetalert/') SweetAlert
+		li
+			a(href='http://codeseven.github.io/toastr/') Toastr
+	h3
+		a#License_44
+		| License
+	p MIT

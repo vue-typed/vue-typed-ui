@@ -1,0 +1,10 @@
+div
+  ui-modal#basic-modal.basic(attach-show='.show-modal', :allow-multiple='true', icon='archive')
+    div(slot='header')
+      | Archive Old Messages
+    p(style='text-align: center')
+      | Your inbox is getting full, would you like us to enable automatic archiving of old messages?
+    span(slot='actions')
+      ui-button.red.cancel.inverted No
+      ui-button.green.ok.inverted Yes
+  ui-button.show-modal Show Modal

@@ -1,0 +1,12 @@
+div
+  ui-form
+    ui-input(v-model='firstName', label='First Name', placeholder='Please enter your first name')
+    ui-input(v-model='lastName', label='Last Name', placeholder='Please enter your last name')
+    ui-input(v-model='password', :password='true', label='Password', placeholder='Please enter password')
+    ui-field(label='Your name is') {{fullName}}
+    ui-button(v-on:click='resetFullName') Reset
+    ui-input(v-model.lazy='lazyName', label='Lazy Name', placeholder='Please enter your lazy name')
+    ui-field(label='Your lazy name is') {{lazyName}}
+    ui-button(v-on:click='resetLazyName') Reset
+    ui-input(v-model='address', label='Street Address', placeholder='Please enter your street address', :disabled='!allowEditAddress')
+    ui-checkbox(v-model='allowEditAddress') Allow Edit Address

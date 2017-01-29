@@ -1,0 +1,23 @@
+ui-modal(v-on:approve='save', v-on:deny='reset', :closable='false')
+  span(slot='header')
+    i.icon.setting
+    |  Settings
+  ui-form
+    ui-dropdown(v-model='dateFormat', label='Date Format', kind='inline')
+      ui-dropdown-item(v-for='f in dateFormats', :value='f') {{f}}
+    ui-dropdown(v-model='timeFormat', label='Time Format', kind='inline')
+      ui-dropdown-item(v-for='f in timeFormats', :value='f') {{f}}
+    ui-segment
+      ui-h4 Numeric Settings
+      ui-fields-group(:wide='2')
+        ui-field
+          ui-input(kind='inline', label='Group Separator', v-model='groupSeparator')
+          ui-input(kind='inline', label='Decimal Separator', v-model='decimalSeparator')
+          ui-input(kind='inline', label='Decimal Places', v-model='decimalPlaces')
+        ui-field
+          ui-input(kind='inline', label='Sign', v-model='sign')
+          ui-input(kind='inline', label='Min', v-model='min')
+          ui-input(kind='inline', label='Max', v-model='max')
+  span(slot='actions')
+    ui-button.positive(@click='save') Apply
+    ui-button.deny Cancel

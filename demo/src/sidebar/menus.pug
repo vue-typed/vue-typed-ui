@@ -1,0 +1,9 @@
+div
+	.ui.small.header.inverted {{header}}
+	template(v-for="m in items")
+		template(v-if="m.path")
+			router-link(:to="m.path").item {{m.title}}
+		template(v-else)
+			.item {{m.title}}
+				.menu
+					router-link(v-for="sm in m.menus", :to="sm.path").item {{sm.title}}

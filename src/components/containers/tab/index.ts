@@ -1,9 +1,9 @@
 import * as Vue from 'vue'
-import { Component, Prop, Watch } from 'vue-typed';
+import { Options, Prop, Watch } from 'vue-typed';
 import { _TabBase } from './_base';
 
 
-@Component({
+@Options({
 	template: `<div>
 		<div :class="css">
 			<a v-for="i in items" class="item" v-bind:data-tab="i.dataTab">

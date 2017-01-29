@@ -1,0 +1,46 @@
+div
+  h4 Click event
+  ui-button(v-on:click="updateStatus('Default button clicked')") Default
+  p {{status}}
+  h4 Icons
+  ui-button(icon='cloud') Button with icon
+  ui-button(icon='cloud', icon-pos='right') Button with icon
+  h4 Animations
+  ui-button
+    | Hello
+    div(slot='hidden') There!
+  ui-button(animation='fade')
+    | Hello
+    div(slot='hidden') There!
+  h4 Enable/disable
+  ui-button(:disabled='disabled', v-on:click='setDisable') Click to disable
+  ui-checkbox(v-model='disabled') Uncheck to enable
+  h4 Sizes
+  ui-button(size='mini') Mini
+  ui-button(size='tiny') Tiny
+  ui-button(size='small') Small
+  ui-button(size='medium') Medium
+  ui-button(size='large') Large
+  ui-button(size='big') Big
+  ui-button(size='huge') Huge
+  ui-button(size='massive') Massive
+  h4 Float
+  .clearfix
+    ui-button(float='left') Left
+    ui-button(float='right') Right
+  h4 Color
+  ui-button(color='red') Red
+  ui-button(color='orange') Orange
+  ui-button(color='yellow') Yellow
+  ui-button(color='olive') Olive
+  ui-button(color='green') Green
+  ui-button(color='teal') Teal
+  ui-button(color='blue') Blue
+  ui-button(color='violet') Violet
+  ui-button(color='purple') Purple
+  ui-button(color='pink') Pink
+  ui-button(color='brown') Brown
+  ui-button(color='grey') Grey
+  ui-button(color='black') Black
+  h4 Loading
+  ui-button#btn-loading(@click='loading') Click me

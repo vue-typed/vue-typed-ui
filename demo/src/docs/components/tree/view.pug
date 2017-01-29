@@ -1,0 +1,7 @@
+div
+  ui-h3 Basic
+  ui-tree(:model='dummy')
+  ui-h3 Property content
+  ui-tree(:model='example', content='fullName', children='sub', @node-click='addChild')
+  ui-h3 Property content is HTML
+  ui-tree(:model='example', :html='true', content='html', children='sub', @node-click='addChild')

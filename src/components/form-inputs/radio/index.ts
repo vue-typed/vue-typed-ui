@@ -1,8 +1,8 @@
 import * as Vue from 'vue'
-import { Component, Prop } from 'vue-typed';
+import { Options, Prop } from 'vue-typed';
 import { _RadioBase } from './_base';
 
-@Component({
+@Options({
 	template: `
 	<div class="field">
 		<div class="ui radio checkbox">

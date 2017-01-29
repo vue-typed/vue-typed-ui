@@ -1,0 +1,28 @@
+div#app
+	app-sidebar
+	.pusher
+		ui-menu-horizontal#top-menu.top.pointing.borderless.inverted
+			
+			ui-menu-item(icon="sidebar large", @click="sidebarToggle")
+			.item
+				a.ui.logo.icon.image(href="#/")
+					img(src=require("../../assets/logo-full.png"))
+			.right.menu
+				a.item(@click="showAppSettings")
+					i.icon.wrench.large
+					| Settings
+				a.item(href="https://github.com/vue-typed/vue-typed-ui")
+					i.icon.github.large
+					| Fork
+
+		.ui.container#app-container
+			transition(name="fade" mode="out-in")
+				router-view
+		#footer.ui.footer.segment.inverted.grid.middle.aligned.center.aligned
+			.column
+				div
+					| Released under the 
+					a(href="https://opensource.org/licenses/MIT") MIT License
+				div Copyright © 2016-{{year}} Budi Adiono
+		
+		app-settings#app-settings

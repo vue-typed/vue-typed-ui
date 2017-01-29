@@ -1,9 +1,9 @@
 import * as Vue from 'vue'
-import { Component, Prop } from 'vue-typed';
+import { Options, Prop } from 'vue-typed';
 import { Util } from '../../../utils';
 import { _FieldsGroupBase } from './_base';
 
-@Component()
+@Options()
 export class FieldsGroup extends _FieldsGroupBase {
 
 	render(ch) {

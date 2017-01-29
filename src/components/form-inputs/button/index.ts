@@ -1,9 +1,9 @@
 import * as Vue from 'vue'
-import { Component, Watch } from 'vue-typed';
+import { Options, Watch } from 'vue-typed';
 import { _ButtonBase } from './_base';
 
 
-@Component({
+@Options({
 	// template: '<button @click="click" class="ui button" type="button"><slot></slot></button>'
 })
 export class Button extends _ButtonBase {

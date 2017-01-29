@@ -1,0 +1,29 @@
+div
+  ui-message
+    div(slot='header')
+      | Changes in Service
+    | 		We just updated our privacy policy here to better service our customers. We recommend reviewing the changes.
+  ui-message(icon='inbox')
+    div(slot='header') Have you heard about our mailing list?
+    | 		Get the best news in your e-mail every day.
+  ui-message(icon='notched circle loading', :closable='true')
+    div(slot='header') Just one second
+    | 		We're fetching that content for you.
+  ui-message
+    div(slot='header')
+      | New Site Features
+    ul.list
+      li You can now have cover images on blog pages
+      li Drafts will now auto-save while writing
+  ui-message(kind='floating')
+    | Way to go!
+  ui-message(kind='compact')
+    | Get all the best inventions in your e-mail every day. Sign up now!
+  ui-message.warning
+    | Warning
+  ui-message.info
+    | Info
+  ui-message.error
+    | Error
+  ui-message.success
+    | Success

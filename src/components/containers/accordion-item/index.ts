@@ -1,19 +1,19 @@
 import { _AccordionItemBase } from './_base';
-import { Component } from 'vue-typed';
+import { Options } from 'vue-typed';
 
-@Component({
+@Options({
 	template: 
-	`<span>
+	`<div>
 		<div :class="activeCss + 'title'">
 			<i class="dropdown icon"></i> {{title}}
 		</div>
 		<div :class="activeCss + 'content'">
 			<slot></slot>
 		</div>
-	</span>`
+	</div>`
 })
 export class AccordionItem extends _AccordionItemBase { 
 	get activeCss() {
-		return this.active ? ' active' : '';
+		return this.active ? 'active ' : '';
 	}
 }

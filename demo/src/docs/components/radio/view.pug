@@ -1,0 +1,22 @@
+div
+  ui-form
+    ui-h4
+      | Standard radio
+      ui-sub-header That you must define element name for each radio
+    ui-field(kind='inline', label='Select foo')
+      ui-field
+        ui-radio(name='foo', :val='0', v-model='foo') 0
+      ui-field
+        ui-radio(name='foo', :val='1', v-model='foo') 1
+      ui-field
+        ui-radio(name='foo', :val='2', v-model='foo') 2
+    ui-field(label='Selected foo') {{foo}}
+    ui-field(kind='grouped', label='Select fruit')
+      ui-field(v-for='f in fruits')
+        ui-radio(name='fruit', :val='f', v-model='fruit') {{f}}
+    ui-h4
+      | Grouped radio
+      ui-sub-header You don't need to define element name for each radio
+    ui-radio-group(kind='grouped', label='Another select fruit')
+      ui-radio(v-for='f in fruits', :val='f', v-model='fruit') {{f}}
+    ui-field(label='Selected fruit') {{fruit}}

@@ -1,9 +1,9 @@
 import * as Vue from 'vue'
-import { Component, Prop, Watch } from 'vue-typed';
+import { Options, Prop, Watch } from 'vue-typed';
 import { _TabItemBase } from './_base';
 
 
-@Component({
+@Options({
 	template: '<div :class="css" v-bind:data-tab="dataTab"><slot></slot></div>'
 })
 export class TabItem extends _TabItemBase {
