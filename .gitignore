@@ -1,7 +1,7 @@
 node_modules/
 bower_components/
 npm-debug.log
-demo/dist/bundle.*
+demo/dist
 .vscode/
 debug.log
 npm-debug.log.*
