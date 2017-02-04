@@ -1,9 +1,9 @@
-import * as _ from 'lodash';
 import { MenuDropdown } from './';
 import { base } from '../_map.base';
+import { Util } from '../../../../init/utils';
 
 
-export = _.extend({
+export = Util.merge({
 	title: 'Dropdown',
 	path: '/component/menu/dropdown',
 	component: MenuDropdown,

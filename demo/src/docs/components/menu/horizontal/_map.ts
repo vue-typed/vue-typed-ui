@@ -1,9 +1,9 @@
-import * as _ from 'lodash';
+import { Util } from '../../../../init/utils';
 import { MenuHorizontal } from './';
 import { base } from '../_map.base';
 
 
-export = _.extend({
+export = Util.merge({
 	title: 'Horizontal',
 	path: '/component/menu/horizontal',
 	component: MenuHorizontal,

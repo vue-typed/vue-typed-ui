@@ -44,4 +44,12 @@ export class Util {
 		return _.upperFirst(str);
 	}
 
+	static merge(obj: Object, src: Object) {
+		return _.mergeWith(obj, src, function(objVal, srcVal) {
+			if (_.isArray(objVal)) {
+				return objVal.concat(srcVal);
+			}
+		})
+	}
+
 }
