@@ -48,6 +48,7 @@ export class Dropdown extends _DropdownBase {
 
 		// init semantic-ui dropdown
 		this.sui({
+			forceSelection: false,
 			'onChange': function (arg) {
 				if (!self.multiple) self.selectedItems = arg;
 				self.$emit('input', self.selectedItems);

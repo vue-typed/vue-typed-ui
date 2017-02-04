@@ -1490,6 +1490,7 @@ var Dropdown = function (_DropdownBase2) {
             }
             // init semantic-ui dropdown
             this.sui({
+                forceSelection: false,
                 'onChange': function onChange(arg) {
                     if (!self.multiple) self.selectedItems = arg;
                     self.$emit('input', self.selectedItems);
