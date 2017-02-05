@@ -7,7 +7,7 @@ export function focus(instance, $this: Vue) {
 		if (!target || !target.length) return 
 
 		if (!target.is('input')) {
-			target = target.find('> input')
+			target = target.find('input').first()
 		}
 
 		target.focus()
