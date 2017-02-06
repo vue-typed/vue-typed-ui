@@ -7,4 +7,5 @@ import * as Vue from 'vue'
 export class InputIcon  {
 	userName: string = 'superuser'
 	password: string = 'supersecretpassword'
+	allowEditPassword: boolean = true
 }

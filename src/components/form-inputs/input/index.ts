@@ -8,7 +8,7 @@ import { _InputBase } from './_base';
 
 @Component()
 export class Input extends _InputBase {
-	
+
 	@Watch('value')
 	valueChanged(val) {
 		if (this.$el.querySelector('input') == document.activeElement)
@@ -17,34 +17,48 @@ export class Input extends _InputBase {
 		$(this.$el).find('input').val(val)
 	}
 
+
+
 	createComponent(ch) {
-				
+
+		let attrs = {
+			type: this.password ? 'password' : 'text',
+			name: this.name,
+			placeholder: this.placeholder
+		}
+
+		let css = 'ui input'
+		if (this.disabled) {
+			css += ' disabled'
+			attrs['disabled'] = true
+		}
+
 		let input = ch('input', {
 			class: this.css,
-			attrs: {
-				type: this.password ? 'password' : 'text',
-				name: this.name,
-				placeholder: this.placeholder
-			},
+			attrs,
 			on: {
 				input: this.emiter('input'),
 				change: this.emiter('change')
 			}
 		})
 
+
+
 		if (!this.icon)
-			return input;
+			return ch('div', {
+				class: css
+			}, [input])
 
 		let icon = ch('i', {
 			class: 'icon ' + this.icon
 		})
 
 		let contents = []
-		let css = 'ui left icon input'
+		css = 'ui left icon input'
 		if (this.iconPos == 'left') {
 			contents.push(icon)
 			contents.push(input)
-		} else{
+		} else {
 			contents.push(input)
 			contents.push(icon)
 			css = 'ui icon input'
@@ -55,7 +69,7 @@ export class Input extends _InputBase {
 		}, contents)
 
 	}
-	
+
 	mounted() {
 		// initiate value
 		var target = $(this.$el).find('input').val(this.value)

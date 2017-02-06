@@ -674,24 +674,32 @@ var Input = function (_InputBase2) {
     }, {
         key: 'createComponent',
         value: function createComponent(ch) {
+            var attrs = {
+                type: this.password ? 'password' : 'text',
+                name: this.name,
+                placeholder: this.placeholder
+            };
+            var css = 'ui input';
+            if (this.disabled) {
+                css += ' disabled';
+                attrs['disabled'] = true;
+            }
             var input = ch('input', {
                 class: this.css,
-                attrs: {
-                    type: this.password ? 'password' : 'text',
-                    name: this.name,
-                    placeholder: this.placeholder
-                },
+                attrs: attrs,
                 on: {
                     input: this.emiter('input'),
                     change: this.emiter('change')
                 }
             });
-            if (!this.icon) return input;
+            if (!this.icon) return ch('div', {
+                class: css
+            }, [input]);
             var icon = ch('i', {
                 class: 'icon ' + this.icon
             });
             var contents = [];
-            var css = 'ui left icon input';
+            css = 'ui left icon input';
             if (this.iconPos == 'left') {
                 contents.push(icon);
                 contents.push(input);
@@ -3156,7 +3164,7 @@ function focus(instance, $this) {
         var target = $($this.$el).find(element);
         if (!target || !target.length) return;
         if (!target.is('input')) {
-            target = target.find('> input');
+            target = target.find('input').first();
         }
         target.focus();
     };
