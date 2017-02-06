@@ -11,7 +11,11 @@ export class Dropdown extends _DropdownBase {
 	selectedItems = undefined
 
 	createComponent(ch) {
-		let css = 'ui selection dropdown ' + this.css
+		let css = 'ui selection dropdown'
+
+		if (this.css)
+			css += ' ' + this.css
+		
 		return ch('div', { 'class': css }, [
 			ch('input', { attrs: { type: 'hidden', name: this.name } }),
 			ch('i', { 'class': 'dropdown icon' }),
@@ -68,6 +72,17 @@ export class Dropdown extends _DropdownBase {
 		// assign selected values
 		this.valueChanged(this.value)
 
+	}
+
+	@Watch('disabled')
+	disabledChanged(val) {
+		let el = $(this.$el.querySelector('.ui.dropdown'))
+		if (val)
+			el.addClass('disabled')
+		else
+			el.removeClass('disabled')
+		
+		this.sui('refresh')
 	}
 
 	@Watch('value')

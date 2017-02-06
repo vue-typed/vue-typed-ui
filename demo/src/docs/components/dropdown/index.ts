@@ -12,4 +12,6 @@ export class Dropdown {
 
 	fruits = ['Mango', 'Durian', 'Apple', 'Orange']
 
+	allowEdit = true
+
 }

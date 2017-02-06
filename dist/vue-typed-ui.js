@@ -1472,7 +1472,8 @@ var Dropdown = function (_DropdownBase2) {
     createClass(Dropdown, [{
         key: 'createComponent',
         value: function createComponent(ch) {
-            var css = 'ui selection dropdown ' + this.css;
+            var css = 'ui selection dropdown';
+            if (this.css) css += ' ' + this.css;
             return ch('div', { 'class': css }, [ch('input', { attrs: { type: 'hidden', name: this.name } }), ch('i', { 'class': 'dropdown icon' }), ch('div', { 'class': 'default text' }, this.placeholder), ch('div', { 'class': 'menu' }, this.$slots['default'])]);
         }
     }, {
@@ -1516,6 +1517,13 @@ var Dropdown = function (_DropdownBase2) {
             this.valueChanged(this.value);
         }
     }, {
+        key: 'disabledChanged',
+        value: function disabledChanged(val) {
+            var el = $(this.$el.querySelector('.ui.dropdown'));
+            if (val) el.addClass('disabled');else el.removeClass('disabled');
+            this.sui('refresh');
+        }
+    }, {
         key: 'valueChanged',
         value: function valueChanged(val) {
             if (val === null || val === undefined) {
@@ -1539,6 +1547,7 @@ var Dropdown = function (_DropdownBase2) {
     }]);
     return Dropdown;
 }(_DropdownBase);
+__decorate([vueTyped.Watch('disabled')], Dropdown.prototype, "disabledChanged", null);
 __decorate([vueTyped.Watch('value')], Dropdown.prototype, "valueChanged", null);
 Dropdown = __decorate([vueTyped.Component()], Dropdown);
 
