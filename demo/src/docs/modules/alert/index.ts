@@ -26,11 +26,9 @@ export class Alert extends Virtual<Vue>() {
 			showCancelButton: true,
 			confirmButtonColor: "#DD6B55",
 			confirmButtonText: "Yes, delete it!",
-			closeOnConfirm: false
-		},
-			function () {
-				swal("Deleted!", "Your imaginary file has been deleted.", "success");
-			})
+		}).then(() => {
+			this.$ui.alert("Deleted!", "Your imaginary file has been deleted.", "success");
+		})
 	}
 
 	sample5() {
@@ -41,17 +39,20 @@ export class Alert extends Virtual<Vue>() {
 			showCancelButton: true,
 			confirmButtonColor: "#DD6B55",
 			confirmButtonText: "Yes, delete it!",
-			cancelButtonText: "No, cancel plx!",
-			closeOnConfirm: false,
-			closeOnCancel: false
-		},
-			function (isConfirm) {
-				if (isConfirm) {
-					swal("Deleted!", "Your imaginary file has been deleted.", "success");
-				} else {
-					swal("Cancelled", "Your imaginary file is safe :)", "error");
-				}
-			})
+			cancelButtonText: "No, cancel plx!"
+		}).then(() => {
+			this.$ui.alert("Deleted!", "Your imaginary file has been deleted.", "success");
+		}, (dismiss) => {
+			// dismiss can be 'cancel', 'overlay',
+			// 'close', and 'timer'
+			if (dismiss === 'cancel') {
+				this.$ui.alert(
+					'Cancelled',
+					'Your imaginary file is safe :)',
+					'error'
+				)
+			}
+		})
 	}
 
 	sample6() {
@@ -65,8 +66,7 @@ export class Alert extends Virtual<Vue>() {
 	sample7() {
 		this.$ui.alert({
 			title: "HTML <small>Title</small>!",
-			text: "A custom <span style=\"color: #F8BB86\">html<span> message.",
-			html: true
+			html: "A custom <span style=\"color: #F8BB86\">html<span> message."
 		})
 	}
 
@@ -84,38 +84,45 @@ export class Alert extends Virtual<Vue>() {
 		this.$ui.alert({
 			title: "An input!",
 			text: "Write something interesting:",
-			type: "input",
+			input: 'text',
 			showCancelButton: true,
-			closeOnConfirm: false,
-			animation: "slide-from-top",
-			inputPlaceholder: "Write something"
-		},
-			function (inputValue) {
-				if (inputValue === false) return false;
-
-				if (inputValue === "") {
-					swal.showInputError("You need to write something!");
-					return false
-				}
-
-				swal("Nice!", "You wrote: " + inputValue, "success");
-			})
+			animation: true,
+			inputPlaceholder: "Write something",
+			inputValidator: (value) => {
+				return new Promise((resolve, reject) => {
+					if (value) {
+						resolve()
+					} else {
+						reject('You need to write something!')
+					}
+				}) as any
+			}
+		}).then((inputValue) => {
+			this.$ui.alert("Nice!", "You wrote: " + inputValue, "success");
+		})
 	}
 
 	sample10() {
 		this.$ui.alert({
 			title: "Ajax request example",
-			text: "Submit to run ajax request",
-			type: "info",
+			input: 'email',
 			showCancelButton: true,
-			closeOnConfirm: false,
-			showLoaderOnConfirm: true,
-		},
-			function () {
-				setTimeout(function () {
-					swal("Ajax request finished!");
-				}, 2000);
-			})
+			showLoaderOnConfirm: true,			
+			preConfirm: function (email) {
+				return new Promise(function (resolve, reject) {
+					setTimeout(function () {
+						if (email === 'taken@example.com') {
+							reject('This email is already taken.')
+						} else {
+							resolve()
+						}
+					}, 2000)
+				})
+			},
+			allowOutsideClick: false
+		}).then((email) => {
+			this.$ui.alert("Email submitted to '" + email + "'!");
+		})
 	}
 
 

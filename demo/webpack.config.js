@@ -10,7 +10,7 @@ module.exports = {
 
   entry: {
     bundle: ['./src/index.ts'],
-    vendor: ['vue', 'vue-router', 'vue-typed', 'moment', 'lodash', 'autonumeric', 'js-beautify', 'sweetalert', 'toastr']
+    vendor: ['vue', 'vue-router', 'vue-typed', 'moment', 'lodash', 'autonumeric', 'js-beautify', 'sweetalert2', 'toastr']
   },
 
   output: {

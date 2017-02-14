@@ -145,7 +145,7 @@ These requirements must be referenced in your main HTML file. For example:
 *   [Moment.js](http://momentjs.com/)
 *   [Semantic UI](https://github.com/Semantic-Org/Semantic-UI)
 *   [Semantic UI Calendar](https://github.com/mdehoog/Semantic-UI-Calendar)
-*   [SweetAlert](http://t4t5.github.io/sweetalert/)
+*   [SweetAlert2](https://limonte.github.io/sweetalert2/)
 *   [Toastr](http://codeseven.github.io/toastr/)
 
 ### <a id="License_44"></a>License
