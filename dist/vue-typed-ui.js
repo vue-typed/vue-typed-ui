@@ -1459,6 +1459,8 @@ var Dropdown = function (_DropdownBase2) {
     }, {
         key: 'mounted',
         value: function mounted() {
+            var _this2 = this;
+
             var self = this;
             var el = this.$el.querySelector('.ui.dropdown');
             // search ?
@@ -1489,6 +1491,21 @@ var Dropdown = function (_DropdownBase2) {
                 },
                 'onRemove': function onRemove(val) {
                     self.selectedItems.splice(self.selectedItems.indexOf(val), 1);
+                }
+            });
+            // manual force selection
+            $(this.$el).find('input.search').on('blur', function (e) {
+                var text = $(e.target).val();
+                if (text) {
+                    text = text.trim().toUpperCase();
+                    var val = _this2.sui('get value');
+                    $(_this2.$el).find('.menu').children('.item').each(function (i, el) {
+                        if (el.textContent.trim().toUpperCase().startsWith(text)) {
+                            val = $(el).data('value');
+                        }
+                    });
+                    _this2.sui('set selected', val);
+                    $(e.target).val('');
                 }
             });
             // make up data validate attr

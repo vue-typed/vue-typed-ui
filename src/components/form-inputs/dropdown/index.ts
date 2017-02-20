@@ -15,7 +15,7 @@ export class Dropdown extends _DropdownBase {
 
 		if (this.css)
 			css += ' ' + this.css
-		
+
 		return ch('div', { 'class': css }, [
 			ch('input', { attrs: { type: 'hidden', name: this.name } }),
 			ch('i', { 'class': 'dropdown icon' }),
@@ -66,6 +66,24 @@ export class Dropdown extends _DropdownBase {
 		});
 
 
+		// manual force selection
+		$(this.$el).find('input.search').on('blur', (e) => {
+			let text = $(e.target).val()
+			if (text) {
+				text = text.trim().toUpperCase()
+				let val = this.sui('get value')
+
+				$(this.$el).find('.menu').children('.item').each(function (i, el) {
+					if (el.textContent.trim().toUpperCase().startsWith(text)) {
+						val = $(el).data('value')
+					}
+				})
+
+				this.sui('set selected', val)
+				$(e.target).val('')
+			}
+		})
+
 		// make up data validate attr
 		Util.setDataValidateAttr(this, $(this.$el).find('input'))
 
@@ -81,7 +99,7 @@ export class Dropdown extends _DropdownBase {
 			el.addClass('disabled')
 		else
 			el.removeClass('disabled')
-		
+
 		this.sui('refresh')
 	}
 
