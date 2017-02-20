@@ -240,19 +240,21 @@ function parseProp(module, json) {
   _.each(props, (v, k) => {
     strProps += '\r\n' + comment(v)
     strProps += '\r\n@Prop('
-    if (v.type && v.type !== 'any' && v.type.indexOf('|') <= -1 && v.type.indexOf('.') <= -1) {
-      strProps += '{ '
-      strProps += 'type: ' + pascalCase(v.type)
-      strProps += ' }'
-    }
+
+    let prms = []
+
+    if (v.type && v.type !== 'any' && v.type.indexOf('|') <= -1 && v.type.indexOf('.') <= -1) prms.push('type: ' + pascalCase(v.type))
+    if (typeof(v.default) !== 'undefined') prms.push('default: ' + v.default)
+
+    if (prms.length)
+      strProps += '{ ' + prms.join() + ' }'
+
     strProps += ')'
     strProps += '\r\n' + _.camelCase(k)
     if (v.type) {
       strProps += ': ' + v.type
     }
-    if (typeof(v.default) !== 'undefined') {
-      strProps += ' = ' + v.default
-    }
+
   })
   strProps += '\r\n\r\n}'
   return beautify(strProps)

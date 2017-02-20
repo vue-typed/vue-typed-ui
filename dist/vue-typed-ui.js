@@ -193,17 +193,7 @@ var _FormBase = function (_Virtual) {
 
     function _FormBase() {
         classCallCheck(this, _FormBase);
-
-        /**
-         * Adds keyboard shortcut for enter key to submit form
-         *
-         * @default true
-         * @type {boolean}
-         */
-        var _this = possibleConstructorReturn(this, (_FormBase.__proto__ || Object.getPrototypeOf(_FormBase)).apply(this, arguments));
-
-        _this.keyboardShortcuts = true;
-        return _this;
+        return possibleConstructorReturn(this, (_FormBase.__proto__ || Object.getPrototypeOf(_FormBase)).apply(this, arguments));
     }
 
     return _FormBase;
@@ -217,7 +207,8 @@ __decorate([vueTyped.Prop({
     type: String
 })], _FormBase.prototype, "labelWidth", void 0);
 __decorate([vueTyped.Prop({
-    type: Boolean
+    type: Boolean,
+    default: true
 })], _FormBase.prototype, "keyboardShortcuts", void 0);
 
 var Form = function (_FormBase2) {
@@ -540,17 +531,7 @@ var _FieldBaseBase = function (_Virtual) {
 
     function _FieldBaseBase() {
         classCallCheck(this, _FieldBaseBase);
-
-        /**
-         * Disabled field
-         *
-         * @default false
-         * @type {boolean}
-         */
-        var _this = possibleConstructorReturn(this, (_FieldBaseBase.__proto__ || Object.getPrototypeOf(_FieldBaseBase)).apply(this, arguments));
-
-        _this.disabled = false;
-        return _this;
+        return possibleConstructorReturn(this, (_FieldBaseBase.__proto__ || Object.getPrototypeOf(_FieldBaseBase)).apply(this, arguments));
     }
 
     return _FieldBaseBase;
@@ -564,7 +545,8 @@ __decorate([vueTyped.Prop({
 })], _FieldBaseBase.prototype, "wide", void 0);
 __decorate([vueTyped.Prop()], _FieldBaseBase.prototype, "kind", void 0);
 __decorate([vueTyped.Prop({
-    type: Boolean
+    type: Boolean,
+    default: false
 })], _FieldBaseBase.prototype, "disabled", void 0);
 
 var FieldBase = function (_FieldBaseBase2) {
@@ -623,17 +605,7 @@ var _InputBase = function (_FieldBase) {
 
     function _InputBase() {
         classCallCheck(this, _InputBase);
-
-        /**
-         * Icon position
-         *
-         * @default 'left'
-         * @type {'left' | 'right' | string}
-         */
-        var _this = possibleConstructorReturn(this, (_InputBase.__proto__ || Object.getPrototypeOf(_InputBase)).apply(this, arguments));
-
-        _this.iconPos = 'left';
-        return _this;
+        return possibleConstructorReturn(this, (_InputBase.__proto__ || Object.getPrototypeOf(_InputBase)).apply(this, arguments));
     }
 
     return _InputBase;
@@ -652,10 +624,16 @@ __decorate([vueTyped.Prop({
 __decorate([vueTyped.Prop({
     type: String
 })], _InputBase.prototype, "icon", void 0);
-__decorate([vueTyped.Prop()], _InputBase.prototype, "iconPos", void 0);
+__decorate([vueTyped.Prop({
+    default: 'left'
+})], _InputBase.prototype, "iconPos", void 0);
 __decorate([vueTyped.Prop({
     type: String
 })], _InputBase.prototype, "css", void 0);
+__decorate([vueTyped.Prop({
+    type: Boolean,
+    default: true
+})], _InputBase.prototype, "selectOnFocus", void 0);
 
 // ref: http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 var Input = function (_InputBase2) {
@@ -718,6 +696,9 @@ var Input = function (_InputBase2) {
         value: function mounted() {
             // initiate value
             var target = $(this.$el).find('input').val(this.value);
+            if (this.selectOnFocus) target.on('focus', function () {
+                $(this).select();
+            });
             // make up for validation
             Util.setDataValidateAttr(this, target);
         }
@@ -1043,17 +1024,7 @@ var _NumericBase = function (_FieldBase) {
 
     function _NumericBase() {
         classCallCheck(this, _NumericBase);
-
-        /**
-         * Take only integer value
-         *
-         * @default false
-         * @type {boolean}
-         */
-        var _this = possibleConstructorReturn(this, (_NumericBase.__proto__ || Object.getPrototypeOf(_NumericBase)).apply(this, arguments));
-
-        _this.integer = false;
-        return _this;
+        return possibleConstructorReturn(this, (_NumericBase.__proto__ || Object.getPrototypeOf(_NumericBase)).apply(this, arguments));
     }
 
     return _NumericBase;
@@ -1082,8 +1053,13 @@ __decorate([vueTyped.Prop({
     type: Number
 })], _NumericBase.prototype, "max", void 0);
 __decorate([vueTyped.Prop({
-    type: Boolean
+    type: Boolean,
+    default: false
 })], _NumericBase.prototype, "integer", void 0);
+__decorate([vueTyped.Prop({
+    type: Boolean,
+    default: true
+})], _NumericBase.prototype, "selectOnFocus", void 0);
 
 // ref: http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 // ref: https://github.com/BobKnothe/autoNumeric
@@ -1149,6 +1125,9 @@ var Numeric = function (_NumericBase2) {
                 var value = $(v.target).autoNumeric('get');
                 _this2.$emit('input', value);
                 _this2.$emit('change', value);
+            });
+            if (this.selectOnFocus) target.on('focus', function () {
+                $(this).select();
             });
             Util.setDataValidateAttr(this, target);
         }
@@ -1590,17 +1569,7 @@ var _ButtonBase = function (_Virtual) {
 
     function _ButtonBase() {
         classCallCheck(this, _ButtonBase);
-
-        /**
-         * Button type
-         *
-         * @default 'button'
-         * @type {string}
-         */
-        var _this = possibleConstructorReturn(this, (_ButtonBase.__proto__ || Object.getPrototypeOf(_ButtonBase)).apply(this, arguments));
-
-        _this.type = 'button';
-        return _this;
+        return possibleConstructorReturn(this, (_ButtonBase.__proto__ || Object.getPrototypeOf(_ButtonBase)).apply(this, arguments));
     }
 
     return _ButtonBase;
@@ -1620,7 +1589,8 @@ __decorate([vueTyped.Prop({
     type: String
 })], _ButtonBase.prototype, "color", void 0);
 __decorate([vueTyped.Prop({
-    type: String
+    type: String,
+    default: 'button'
 })], _ButtonBase.prototype, "type", void 0);
 
 var Button = function (_ButtonBase2) {
@@ -2074,74 +2044,35 @@ var _AccordionBase = function (_Virtual) {
 
     function _AccordionBase() {
         classCallCheck(this, _AccordionBase);
-
-        /**
-         * Only allow one section open at a time
-         *
-         * @default true
-         * @type {boolean}
-         */
-        var _this = possibleConstructorReturn(this, (_AccordionBase.__proto__ || Object.getPrototypeOf(_AccordionBase)).apply(this, arguments));
-
-        _this.exclusive = true;
-        /**
-         * Event on title that will cause accordion to open
-         *
-         * @default 'click'
-         * @type {string}
-         */
-        _this.on = 'click';
-        /**
-         * Whether child content opacity should be animated (may cause performance issues with many child elements)
-         *
-         * @default true
-         * @type {boolean}
-         */
-        _this.animateChildren = true;
-        /**
-         * Duration in ms of opening animation
-         *
-         * @default 500
-         * @type {number}
-         */
-        _this.duration = 500;
-        /**
-         * Close open nested accordion content when an element closes
-         *
-         * @default true
-         * @type {boolean}
-         */
-        _this.closeNested = true;
-        /**
-         * Allow active sections to collapse
-         *
-         * @default true
-         * @type {boolean}
-         */
-        _this.collapsible = true;
-        return _this;
+        return possibleConstructorReturn(this, (_AccordionBase.__proto__ || Object.getPrototypeOf(_AccordionBase)).apply(this, arguments));
     }
 
     return _AccordionBase;
 }(vueTyped.Virtual());
 
 __decorate([vueTyped.Prop({
-    type: Boolean
+    type: Boolean,
+    default: true
 })], _AccordionBase.prototype, "exclusive", void 0);
 __decorate([vueTyped.Prop({
-    type: String
+    type: String,
+    default: 'click'
 })], _AccordionBase.prototype, "on", void 0);
 __decorate([vueTyped.Prop({
-    type: Boolean
+    type: Boolean,
+    default: true
 })], _AccordionBase.prototype, "animateChildren", void 0);
 __decorate([vueTyped.Prop({
-    type: Number
+    type: Number,
+    default: 500
 })], _AccordionBase.prototype, "duration", void 0);
 __decorate([vueTyped.Prop({
-    type: Boolean
+    type: Boolean,
+    default: true
 })], _AccordionBase.prototype, "closeNested", void 0);
 __decorate([vueTyped.Prop({
-    type: Boolean
+    type: Boolean,
+    default: true
 })], _AccordionBase.prototype, "collapsible", void 0);
 
 var Accordion = function (_AccordionBase2) {
@@ -2420,17 +2351,7 @@ var _MenuDropdownBase = function (_Virtual) {
 
     function _MenuDropdownBase() {
         classCallCheck(this, _MenuDropdownBase);
-
-        /**
-         * Dropdown icon
-         *
-         * @default 'dropdown'
-         * @type {string}
-         */
-        var _this = possibleConstructorReturn(this, (_MenuDropdownBase.__proto__ || Object.getPrototypeOf(_MenuDropdownBase)).apply(this, arguments));
-
-        _this.icon = 'dropdown';
-        return _this;
+        return possibleConstructorReturn(this, (_MenuDropdownBase.__proto__ || Object.getPrototypeOf(_MenuDropdownBase)).apply(this, arguments));
     }
 
     return _MenuDropdownBase;
@@ -2443,7 +2364,8 @@ __decorate([vueTyped.Prop({
     type: Boolean
 })], _MenuDropdownBase.prototype, "hover", void 0);
 __decorate([vueTyped.Prop({
-    type: String
+    type: String,
+    default: 'dropdown'
 })], _MenuDropdownBase.prototype, "icon", void 0);
 
 var MenuDropdown = function (_MenuDropdownBase2) {
@@ -2637,34 +2559,19 @@ var _MessageBase = function (_Virtual) {
 
     function _MessageBase() {
         classCallCheck(this, _MessageBase);
-
-        /**
-         * Add close icon choose to hide message.
-         *
-         * @default false
-         * @type {boolean}
-         */
-        var _this = possibleConstructorReturn(this, (_MessageBase.__proto__ || Object.getPrototypeOf(_MessageBase)).apply(this, arguments));
-
-        _this.closable = false;
-        /**
-         * Semantic UI transition on closing message.
-         *
-         * @default 'fade'
-         * @type {string}
-         */
-        _this.transition = 'fade';
-        return _this;
+        return possibleConstructorReturn(this, (_MessageBase.__proto__ || Object.getPrototypeOf(_MessageBase)).apply(this, arguments));
     }
 
     return _MessageBase;
 }(vueTyped.Virtual());
 
 __decorate([vueTyped.Prop({
-    type: Boolean
+    type: Boolean,
+    default: false
 })], _MessageBase.prototype, "closable", void 0);
 __decorate([vueTyped.Prop({
-    type: String
+    type: String,
+    default: 'fade'
 })], _MessageBase.prototype, "transition", void 0);
 __decorate([vueTyped.Prop()], _MessageBase.prototype, "kind", void 0);
 __decorate([vueTyped.Prop({
@@ -2710,24 +2617,7 @@ var _ModalBase = function (_Virtual) {
 
     function _ModalBase() {
         classCallCheck(this, _ModalBase);
-
-        /**
-         * Allow second modal to be opened on top of the first modal.
-         *
-         * @default false
-         * @type {boolean}
-         */
-        var _this = possibleConstructorReturn(this, (_ModalBase.__proto__ || Object.getPrototypeOf(_ModalBase)).apply(this, arguments));
-
-        _this.allowMultiple = false;
-        /**
-         * First input in modal will receive focus when shown.
-         *
-         * @default false
-         * @type {boolean}
-         */
-        _this.autofocus = false;
-        return _this;
+        return possibleConstructorReturn(this, (_ModalBase.__proto__ || Object.getPrototypeOf(_ModalBase)).apply(this, arguments));
     }
 
     return _ModalBase;
@@ -2750,10 +2640,12 @@ __decorate([vueTyped.Prop({
 })], _ModalBase.prototype, "closable", void 0);
 __decorate([vueTyped.Prop()], _ModalBase.prototype, "transition", void 0);
 __decorate([vueTyped.Prop({
-    type: Boolean
+    type: Boolean,
+    default: false
 })], _ModalBase.prototype, "allowMultiple", void 0);
 __decorate([vueTyped.Prop({
-    type: Boolean
+    type: Boolean,
+    default: false
 })], _ModalBase.prototype, "autofocus", void 0);
 __decorate([vueTyped.Prop({
     type: String
@@ -2954,24 +2846,7 @@ var _TreeBase = function (_Virtual) {
 
     function _TreeBase() {
         classCallCheck(this, _TreeBase);
-
-        /**
-         * HTML parent tag name. Default is `ul`.
-         *
-         * @default 'ul'
-         * @type {string}
-         */
-        var _this = possibleConstructorReturn(this, (_TreeBase.__proto__ || Object.getPrototypeOf(_TreeBase)).apply(this, arguments));
-
-        _this.parentTag = 'ul';
-        /**
-         * HTML child tag name. Default is `li`.
-         *
-         * @default 'li'
-         * @type {string}
-         */
-        _this.childTag = 'li';
-        return _this;
+        return possibleConstructorReturn(this, (_TreeBase.__proto__ || Object.getPrototypeOf(_TreeBase)).apply(this, arguments));
     }
 
     return _TreeBase;
@@ -2991,10 +2866,12 @@ __decorate([vueTyped.Prop({
     type: String
 })], _TreeBase.prototype, "children", void 0);
 __decorate([vueTyped.Prop({
-    type: String
+    type: String,
+    default: 'ul'
 })], _TreeBase.prototype, "parentTag", void 0);
 __decorate([vueTyped.Prop({
-    type: String
+    type: String,
+    default: 'li'
 })], _TreeBase.prototype, "childTag", void 0);
 
 var Tree = function (_TreeBase2) {

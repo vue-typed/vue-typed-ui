@@ -78,9 +78,10 @@ export abstract class _ModalBase extends Virtual < Vue > () {
      * @type {boolean}
      */
     @Prop({
-        type: Boolean
+        type: Boolean,
+        default: false
     })
-    allowMultiple: boolean = false
+    allowMultiple: boolean
 
     /**
      * First input in modal will receive focus when shown.
@@ -89,9 +90,10 @@ export abstract class _ModalBase extends Virtual < Vue > () {
      * @type {boolean}
      */
     @Prop({
-        type: Boolean
+        type: Boolean,
+        default: false
     })
-    autofocus: boolean = false
+    autofocus: boolean
 
     /**
      * Header icon.

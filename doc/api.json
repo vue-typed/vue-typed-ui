@@ -264,6 +264,11 @@
         "type": "string",
         "description": "Input element placeholder"
       },
+      "select-on-focus": {
+        "type": "boolean",
+        "default": "true",
+        "description": "Select text when receive focus"
+      },
       "sign": {
         "type": "string",
         "description": "Currency sign"
@@ -664,6 +669,11 @@
         "type": "string",
         "description": "Input element placeholder"
       },
+      "select-on-focus": {
+        "type": "boolean",
+        "default": "true",
+        "description": "Select text when receive focus"
+      },
       "value": {
         "type": "any",
         "description": "v-model binding"
@@ -973,6 +983,11 @@
       "placeholder": {
         "type": "string",
         "description": "Input element placeholder"
+      },
+      "select-on-focus": {
+        "type": "boolean",
+        "default": "true",
+        "description": "Select text when receive focus"
       },
       "value": {
         "type": "any",

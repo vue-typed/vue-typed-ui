@@ -16,9 +16,10 @@ export abstract class _MessageBase extends Virtual < Vue > () {
      * @type {boolean}
      */
     @Prop({
-        type: Boolean
+        type: Boolean,
+        default: false
     })
-    closable: boolean = false
+    closable: boolean
 
     /**
      * Semantic UI transition on closing message.
@@ -27,9 +28,10 @@ export abstract class _MessageBase extends Virtual < Vue > () {
      * @type {string}
      */
     @Prop({
-        type: String
+        type: String,
+        default: 'fade'
     })
-    transition: string = 'fade'
+    transition: string
 
     /**
      * Message variations.

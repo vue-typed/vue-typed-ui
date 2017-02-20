@@ -16,9 +16,10 @@ export abstract class _AccordionBase extends Virtual < Vue > () {
      * @type {boolean}
      */
     @Prop({
-        type: Boolean
+        type: Boolean,
+        default: true
     })
-    exclusive: boolean = true
+    exclusive: boolean
 
     /**
      * Event on title that will cause accordion to open
@@ -27,9 +28,10 @@ export abstract class _AccordionBase extends Virtual < Vue > () {
      * @type {string}
      */
     @Prop({
-        type: String
+        type: String,
+        default: 'click'
     })
-    on: string = 'click'
+    on: string
 
     /**
      * Whether child content opacity should be animated (may cause performance issues with many child elements)
@@ -38,9 +40,10 @@ export abstract class _AccordionBase extends Virtual < Vue > () {
      * @type {boolean}
      */
     @Prop({
-        type: Boolean
+        type: Boolean,
+        default: true
     })
-    animateChildren: boolean = true
+    animateChildren: boolean
 
     /**
      * Duration in ms of opening animation
@@ -49,9 +52,10 @@ export abstract class _AccordionBase extends Virtual < Vue > () {
      * @type {number}
      */
     @Prop({
-        type: Number
+        type: Number,
+        default: 500
     })
-    duration: number = 500
+    duration: number
 
     /**
      * Close open nested accordion content when an element closes
@@ -60,9 +64,10 @@ export abstract class _AccordionBase extends Virtual < Vue > () {
      * @type {boolean}
      */
     @Prop({
-        type: Boolean
+        type: Boolean,
+        default: true
     })
-    closeNested: boolean = true
+    closeNested: boolean
 
     /**
      * Allow active sections to collapse
@@ -71,8 +76,9 @@ export abstract class _AccordionBase extends Virtual < Vue > () {
      * @type {boolean}
      */
     @Prop({
-        type: Boolean
+        type: Boolean,
+        default: true
     })
-    collapsible: boolean = true
+    collapsible: boolean
 
 }

@@ -44,8 +44,9 @@ export abstract class _FieldBaseBase extends Virtual < Vue > () {
      * @type {boolean}
      */
     @Prop({
-        type: Boolean
+        type: Boolean,
+        default: false
     })
-    disabled: boolean = false
+    disabled: boolean
 
 }

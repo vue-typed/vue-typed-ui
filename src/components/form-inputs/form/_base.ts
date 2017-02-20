@@ -44,8 +44,9 @@ export abstract class _FormBase extends Virtual < Vue > () {
      * @type {boolean}
      */
     @Prop({
-        type: Boolean
+        type: Boolean,
+        default: true
     })
-    keyboardShortcuts: boolean = true
+    keyboardShortcuts: boolean
 
 }

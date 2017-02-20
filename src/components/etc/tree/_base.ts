@@ -64,9 +64,10 @@ export abstract class _TreeBase extends Virtual < Vue > () {
      * @type {string}
      */
     @Prop({
-        type: String
+        type: String,
+        default: 'ul'
     })
-    parentTag: string = 'ul'
+    parentTag: string
 
     /**
      * HTML child tag name. Default is `li`.
@@ -75,8 +76,9 @@ export abstract class _TreeBase extends Virtual < Vue > () {
      * @type {string}
      */
     @Prop({
-        type: String
+        type: String,
+        default: 'li'
     })
-    childTag: string = 'li'
+    childTag: string
 
 }

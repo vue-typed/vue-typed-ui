@@ -36,8 +36,9 @@ export abstract class _MenuDropdownBase extends Virtual < Vue > () {
      * @type {string}
      */
     @Prop({
-        type: String
+        type: String,
+        default: 'dropdown'
     })
-    icon: string = 'dropdown'
+    icon: string
 
 }

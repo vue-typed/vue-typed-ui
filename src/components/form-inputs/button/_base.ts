@@ -78,8 +78,9 @@ export abstract class _ButtonBase extends Virtual < Vue > () {
      * @type {string}
      */
     @Prop({
-        type: String
+        type: String,
+        default: 'button'
     })
-    type: string = 'button'
+    type: string
 
 }
