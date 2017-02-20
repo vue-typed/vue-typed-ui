@@ -1497,15 +1497,19 @@ var Dropdown = function (_DropdownBase2) {
             $(this.$el).find('input.search').on('blur', function (e) {
                 var text = $(e.target).val();
                 if (text) {
-                    text = text.trim().toUpperCase();
-                    var val = _this2.sui('get value');
-                    $(_this2.$el).find('.menu').children('.item').each(function (i, el) {
-                        if (el.textContent.trim().toUpperCase().startsWith(text)) {
-                            val = $(el).data('value');
-                        }
-                    });
-                    _this2.sui('set selected', val);
-                    $(e.target).val('');
+                    (function () {
+                        text = text.trim().toUpperCase();
+                        var val = _this2.sui('get value');
+                        var foundFirstMatch = false;
+                        $(_this2.$el).find('.menu').children('.item').each(function (i, el) {
+                            if (!foundFirstMatch && el.textContent.trim().toUpperCase().startsWith(text)) {
+                                val = $(el).data('value');
+                                foundFirstMatch = true;
+                            }
+                        });
+                        _this2.sui('set selected', val);
+                        $(e.target).val('');
+                    })();
                 }
             });
             // make up data validate attr

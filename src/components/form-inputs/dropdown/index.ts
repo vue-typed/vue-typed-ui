@@ -72,10 +72,11 @@ export class Dropdown extends _DropdownBase {
 			if (text) {
 				text = text.trim().toUpperCase()
 				let val = this.sui('get value')
-
+				let foundFirstMatch = false
 				$(this.$el).find('.menu').children('.item').each(function (i, el) {
-					if (el.textContent.trim().toUpperCase().startsWith(text)) {
+					if (!foundFirstMatch && el.textContent.trim().toUpperCase().startsWith(text)) {
 						val = $(el).data('value')
+						foundFirstMatch = true
 					}
 				})
 
