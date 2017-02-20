@@ -96,8 +96,21 @@ export abstract class _NumericBase extends FieldBase {
      * @type {boolean}
      */
     @Prop({
-        type: Boolean
+        type: Boolean,
+        default: false
     })
-    integer: boolean = false
+    integer: boolean
+
+    /**
+     * Select text when receive focus
+     * 
+     * @default true
+     * @type {boolean}
+     */
+    @Prop({
+        type: Boolean,
+        default: true
+    })
+    selectOnFocus: boolean
 
 }

@@ -65,8 +65,10 @@ export abstract class _InputBase extends FieldBase {
      * @default 'left'
      * @type {'left' | 'right' | string}
      */
-    @Prop()
-    iconPos: 'left' | 'right' | string = 'left'
+    @Prop({
+        default: 'left'
+    })
+    iconPos: 'left' | 'right' | string
 
     /**
      * Css class(es) applied to input component
@@ -77,5 +79,17 @@ export abstract class _InputBase extends FieldBase {
         type: String
     })
     css: string
+
+    /**
+     * Select text when receive focus
+     * 
+     * @default true
+     * @type {boolean}
+     */
+    @Prop({
+        type: Boolean,
+        default: true
+    })
+    selectOnFocus: boolean
 
 }

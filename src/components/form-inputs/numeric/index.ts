@@ -45,14 +45,14 @@ export class Numeric extends _NumericBase {
 		$(this.$el).find('input').autoNumeric('destroy');
 		this.setupUI();
 	}
-	
-	
+
+
 	setupUI() {
 		var def = this.$UI.$settings.numeric
 
 		var opt = {
 			aDec: Util.pickNonEmpty(this.decimalSeparator, def.decimalSeparator),
-			aSep: Util.pickNonEmpty(this.groupSeparator, def.groupSeparator),			
+			aSep: Util.pickNonEmpty(this.groupSeparator, def.groupSeparator),
 			mDec: Util.pickNonEmpty(this.decimalPlaces, def.decimalPlaces),
 			vMin: Util.pickNonEmpty(this.min, def.min),
 			vMax: Util.pickNonEmpty(this.max, def.max)
@@ -64,12 +64,15 @@ export class Numeric extends _NumericBase {
 		}
 
 		var target = $(this.$el).find('input')
-		.autoNumeric('init', this.buildOptions(opt))
-		.autoNumeric('set', this.value || 0).on('keyup change paste propertychange', (v) => {
-			var value = $(v.target).autoNumeric('get')
-			this.$emit('input', value)
-			this.$emit('change', value)
-		})
+			.autoNumeric('init', this.buildOptions(opt))
+			.autoNumeric('set', this.value || 0).on('keyup change paste propertychange', (v) => {
+				var value = $(v.target).autoNumeric('get')
+				this.$emit('input', value)
+				this.$emit('change', value)
+			})
+
+		if (this.selectOnFocus)
+			target.on('focus', function () { $(this).select() })
 
 		Util.setDataValidateAttr(this, target)
 	}

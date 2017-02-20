@@ -74,6 +74,9 @@ export class Input extends _InputBase {
 		// initiate value
 		var target = $(this.$el).find('input').val(this.value)
 
+		if (this.selectOnFocus)
+			target.on('focus', function () { $(this).select() })
+
 		// make up for validation
 		Util.setDataValidateAttr(this, target)
 	}

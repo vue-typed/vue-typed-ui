@@ -31,6 +31,11 @@
     "css": {
       "type": "string",
       "description": "Css class(es) applied to input component"
+    },
+    "select-on-focus": {
+      "type": "boolean",
+      "default": "true",
+      "description": "Select text when receive focus"
     }
   }
 }
