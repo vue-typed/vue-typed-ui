@@ -4,15 +4,19 @@
   },
   "methods": {
     "show": {
+      "type": "JQuery",
       "description": "Shows the modal"
     },
     "hide": {
+      "type": "JQuery",
       "description": "Hides the modal"
     },
     "toggle": {
+      "type": "JQuery",
       "description": "Toggles the modal"
     },
     "refresh": {
+      "type": "JQuery",
       "description": "Refreshes centering of modal on page"
     }
   },

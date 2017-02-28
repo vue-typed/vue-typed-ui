@@ -751,22 +751,22 @@ export interface IModal {
     /**
      * Hides the modal
      */
-    hide()
+    hide(): JQuery
 
     /**
      * Refreshes centering of modal on page
      */
-    refresh()
+    refresh(): JQuery
 
     /**
      * Shows the modal
      */
-    show()
+    show(): JQuery
 
     /**
      * Toggles the modal
      */
-    toggle()
+    toggle(): JQuery
 }
 
 export interface INumeric {

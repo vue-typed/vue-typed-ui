@@ -914,15 +914,19 @@
     },
     "methods": {
       "hide": {
+        "type": "JQuery",
         "description": "Hides the modal"
       },
       "refresh": {
+        "type": "JQuery",
         "description": "Refreshes centering of modal on page"
       },
       "show": {
+        "type": "JQuery",
         "description": "Shows the modal"
       },
       "toggle": {
+        "type": "JQuery",
         "description": "Toggles the modal"
       }
     }

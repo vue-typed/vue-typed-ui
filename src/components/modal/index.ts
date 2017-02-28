@@ -22,13 +22,13 @@ import { IModal } from '../../../lib/interface'
 </div>`})
 export class Modal extends _ModalBase implements SemanticUI.Modal.Settings, IModal {
 
-	show() { return $(this.$el).modal('show') }
+	show(): JQuery { return $(this.$el).modal('show') }
 
-	hide() { return $(this.$el).modal('hide') }
+	hide(): JQuery { return $(this.$el).modal('hide') }
 
-	toggle() { return $(this.$el).modal('toggle') }
-	
-	refresh() { return $(this.$el).modal('refresh') }
+	toggle(): JQuery { return $(this.$el).modal('toggle') }
+
+	refresh(): JQuery { return $(this.$el).modal('refresh') }
 
 
 	get hasActions() {
