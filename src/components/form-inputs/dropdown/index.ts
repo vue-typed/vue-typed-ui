@@ -9,6 +9,7 @@ import { _DropdownBase } from './_base';
 export class Dropdown extends _DropdownBase {
 
 	selectedItems = undefined
+	_htmlItems = ''
 
 	createComponent(ch) {
 		let css = 'ui selection dropdown'
@@ -20,8 +21,21 @@ export class Dropdown extends _DropdownBase {
 			ch('input', { attrs: { type: 'hidden', name: this.name } }),
 			ch('i', { 'class': 'dropdown icon' }),
 			ch('div', { 'class': 'default text' }, this.placeholder),
-			ch('div', { 'class': 'menu' }, this.$slots['default'])
+			ch('div', { 'class': 'menu', 'ref': 'menu' }, this.$slots['default'])
 		])
+	}
+
+
+	beforeUpdate() {
+		// store dropdown items state
+		this._htmlItems = (this.$refs['menu'] as HTMLDivElement).innerHTML
+	}
+
+	updated() {
+		// refresh dropdown when items has been changed
+		if (this._htmlItems !== (this.$refs['menu'] as HTMLDivElement).innerHTML) {
+			this.sui('refresh')
+		}
 	}
 
 
