@@ -35,6 +35,7 @@ module.exports = {
 
   module: {
     loaders: [
+      { test: /\.ts(x?)$/, loader: 'ts-loader' },
       { test: /\.js$/, loader: 'source-map-loader' },
       { test: /\.pug$/, loader: 'pug-loader' },
       { test: /\.html$/, loader: 'html-loader' },

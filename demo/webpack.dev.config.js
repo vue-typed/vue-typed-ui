@@ -7,10 +7,6 @@ var FriendlyErrors = require('friendly-errors-webpack-plugin')
 baseWebpackConfig.entry.bundle = ['./dev-client'].concat(baseWebpackConfig.entry.bundle)
 
 module.exports = merge(baseWebpackConfig, {
-  module: {
-    // loaders: utils.styleLoaders({ sourceMap: false })
-    loaders: [{ test: /\.ts(x?)$/, loader: 'ts-loader' }]
-  },
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.js'
