@@ -4,6 +4,6 @@ export = {
 	title: 'Message',
 	path: '/component/message',
 	component: Message,
-	source: require('!raw!./index.ts'),
+	source: require('!raw-loader!./index.ts'),
 	api: ["component/message"]
 }

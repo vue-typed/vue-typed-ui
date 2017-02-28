@@ -2,17 +2,17 @@ div
   h3 Validation
   ui-form(v-on:success='submit', :validator='validator')
     ui-field(:wide='2')
-      ui-input(label='First Name', v-model='firstName')
-      ui-input(label='Last Name', v-model='lastName')
-    ui-input(label='User Name', v-model='userName')
-    ui-input(label='Password', v-model='password', :password='true')
+      ui-input(label='First Name', v-model='firstName', name="firstName")
+      ui-input(label='Last Name', v-model='lastName', name="lastName")
+    ui-input(label='User Name', v-model='userName', name="userName")
+    ui-input(label='Password', v-model='password', :password='true', name="password")
     ui-button.positive(type="submit") Submit
     ui-message.error
   h3 Inline validation
   ui-form(v-on:success='submit', v-on:error='error', :validator='validator', :validate-inline='true')
     ui-field(:wide='2')
-      ui-input(label='First Name', v-model='firstName')
-      ui-input(label='Last Name', v-model='lastName')
-    ui-input(label='User Name', v-model='userName')
-    ui-input(label='Password', v-model='password', :password='true')
+      ui-input(label='First Name', v-model='firstName', name="firstName")
+      ui-input(label='Last Name', v-model='lastName', name="lastName")
+    ui-input(label='User Name', v-model='userName', name="userName")
+    ui-input(label='Password', v-model='password', :password='true', name="password")
     ui-button.positive(type="submit") Submit

@@ -1,7 +1,7 @@
 import * as Vue from 'vue'
 import { Options, Prop, Watch } from 'vue-typed';
 import { _TabBase } from './_base';
-
+import { ITab } from '../../../../lib/interface'
 
 @Options({
 	template: `<div>
@@ -13,8 +13,12 @@ import { _TabBase } from './_base';
 		<slot></slot>
 	</div>`
 })
-export class Tab extends _TabBase {
-	
+export class Tab extends _TabBase implements ITab {
+		
+	changeTab(path: string) {
+		return $(this.$el).find('.item').tab('change tab', path);
+	}
+
 	activeTab
 
 	css: string

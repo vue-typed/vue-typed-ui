@@ -1,5 +1,5 @@
 .large
-  ui-input(label='User Name', v-model='userName')
+  ui-input(name='userName', label='User Name', v-model='userName')
   ui-input(name='password', label='Password', v-model='password', :password='true')
-  ui-input(label='Confirm Password', v-model='passwordConfirm', :password='true')
+  ui-input(name="passwordConfirm" label='Confirm Password', v-model='passwordConfirm', :password='true')
   ui-button.submit.positive Submit

@@ -6,5 +6,5 @@ export = _.defaults({
 	title: 'Form Basic',
 	path: '/component/form/basic',
 	component: FormBasic,
-	source: require('!raw!./index.ts')
+	source: require('!raw-loader!./index.ts')
 }, base)

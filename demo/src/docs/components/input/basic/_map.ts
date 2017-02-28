@@ -6,5 +6,5 @@ export = _.defaults({
 	title: 'Basic',
 	path: '/component/input/basic',
 	component: InputBasic,
-	source: require('!raw!./index.ts')
+	source: require('!raw-loader!./index.ts')
 }, base)

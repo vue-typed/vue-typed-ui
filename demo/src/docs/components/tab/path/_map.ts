@@ -7,5 +7,5 @@ export = _.extend({
 	title: 'Path',
 	path: '/component/tab/path',
 	component: TabPath,
-	source: require('!raw!./index.ts')
+	source: require('!raw-loader!./index.ts')
 }, base)

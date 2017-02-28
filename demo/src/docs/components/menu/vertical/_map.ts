@@ -7,6 +7,6 @@ export = Util.merge({
 	title: 'Vertical',
 	path: '/component/menu/vertical',
 	component: MenuVertical,
-	source: require('!raw!./index.ts'),
+	source: require('!raw-loader!./index.ts'),
 	api: ["component/menu-vertical"]
 }, base)

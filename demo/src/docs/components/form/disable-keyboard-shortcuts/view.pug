@@ -3,7 +3,7 @@ ui-form(v-on:success='submit', label-width='100px', :validator='validator', :key
     | Form not submitted until you press 
     strong Submit
     |  button
-  ui-input(kind='inline', label='First Name', placeholder='Please enter first name', v-model='firstName')
-  ui-input(kind='inline', label='Last Name', placeholder='Please enter last name', v-model='lastName')
+  ui-input(kind='inline', name="firstName", label='First Name', placeholder='Please enter first name', v-model='firstName')
+  ui-input(kind='inline', name="lastName", label='Last Name', placeholder='Please enter last name', v-model='lastName')
   ui-button.submit.positive Submit
   ui-message.error

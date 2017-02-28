@@ -67,23 +67,11 @@
     "dir": "src/components/form-inputs/button",
     "id": "component/button",
     "module": "button",
-    "isBase": false,
     "base": {
       "Vue": "vue"
     },
     "type": "component",
     "readme": true,
-    "methods": {
-      "loading": {
-        "description": "Set loading state of the button.",
-        "params": {
-          "state": {
-            "type": "boolean",
-            "description": "State of loading (true | false)"
-          }
-        }
-      }
-    },
     "props": {
       "animation": {
         "type": "string",
@@ -117,6 +105,17 @@
         "type": "string",
         "description": "Button type",
         "default": "'button'"
+      }
+    },
+    "methods": {
+      "loading": {
+        "description": "Set loading state of the button.",
+        "params": {
+          "state": {
+            "type": "boolean",
+            "description": "State of loading (true | false)"
+          }
+        }
       }
     }
   },
@@ -843,26 +842,11 @@
     "dir": "src/components/modal",
     "id": "component/modal",
     "module": "modal",
-    "isBase": false,
     "base": {
       "Vue": "vue"
     },
     "type": "component",
     "readme": false,
-    "methods": {
-      "hide": {
-        "description": "Hides the modal"
-      },
-      "refresh": {
-        "description": "Refreshes centering of modal on page"
-      },
-      "show": {
-        "description": "Shows the modal"
-      },
-      "toggle": {
-        "description": "Toggles the modal"
-      }
-    },
     "props": {
       "allow-multiple": {
         "description": "Allow second modal to be opened on top of the first modal.",
@@ -925,6 +909,20 @@
       "transition": {
         "description": "Named transition to use when animating menu in and out, full list can be found in ui transitions docs.",
         "type": "SemanticUI.AnimationNames"
+      }
+    },
+    "methods": {
+      "hide": {
+        "description": "Hides the modal"
+      },
+      "refresh": {
+        "description": "Refreshes centering of modal on page"
+      },
+      "show": {
+        "description": "Shows the modal"
+      },
+      "toggle": {
+        "description": "Toggles the modal"
       }
     }
   },
@@ -1087,12 +1085,17 @@
     "dir": "src/components/containers/tab",
     "id": "component/tab",
     "module": "tab",
-    "isBase": false,
     "base": {
       "Vue": "vue"
     },
     "type": "component",
     "readme": false,
+    "props": {
+      "kind": {
+        "type": "'standard' | 'menu' | 'pointing'",
+        "description": "Tab style"
+      }
+    },
     "methods": {
       "changeTab": {
         "description": "Changes tab to path",
@@ -1102,12 +1105,6 @@
             "type": "string"
           }
         }
-      }
-    },
-    "props": {
-      "kind": {
-        "type": "'standard' | 'menu' | 'pointing'",
-        "description": "Tab style"
       }
     }
   },

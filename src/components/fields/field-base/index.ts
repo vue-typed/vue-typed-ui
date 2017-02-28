@@ -5,12 +5,12 @@ import { _FieldBaseBase } from './_base';
 
 
 @Component()
-export abstract class FieldBase extends _FieldBaseBase {
+export class FieldBase extends _FieldBaseBase {
 
-	abstract createComponent(ch);
+	createComponent(ch): any { };
 
 	render(ch) {
-		
+
 		var slots = this.createComponent(ch) || this.$slots['default'];
 
 		var contents = [];
@@ -40,12 +40,13 @@ export abstract class FieldBase extends _FieldBaseBase {
 	postRender(ch, el) {
 		return el
 	}
-
+	
 	emiter(type) {
 		var self = this;
-		return function(e) {
-			self.$emit(type, e['target'].value);	
+		return function (e) {
+			self.$emit(type, e['target'].value);
 		}
 	}
+
 
 }

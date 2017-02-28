@@ -4,6 +4,6 @@ export = {
 	title: 'Accordion',
 	path: '/component/accordion',
 	component: Accordion,
-	source: require('!raw!./index.ts'),
+	source: require('!raw-loader!./index.ts'),
 	api: ["component/accordion", "component/accordion-item"]
 }

@@ -17,8 +17,8 @@ module.exports = merge(baseWebpackConfig, {
     }
   },
   // https://webpack.github.io/docs/build-performance.html#sourcemaps
-  devtool: '#eval-cheap-module-source-map',
-  // devtool: '#inline-source-map',
+  // devtool: '#eval-cheap-module-source-map',
+  devtool: 'source-map',
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -28,10 +28,10 @@ module.exports = merge(baseWebpackConfig, {
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new FriendlyErrors(),
 
     // https: //webpack.js.org/plugins/commons-chunk-plugin/
-    new webpack.optimize.CommonsChunkPlugin( /* chunkName= */ 'vendor', /* filename= */ 'vendor.bundle.js')
+    new webpack.optimize.CommonsChunkPlugin({ /* chunkName= */ name: 'vendor', /* filename= */ filename: 'vendor.bundle.js' })
   ]
 })

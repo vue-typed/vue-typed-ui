@@ -18,16 +18,20 @@ module.exports = {
     path: outputPath,
     // // with filename
     filename: '[name].js'
+
   },
 
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.css', '.json'],
-    modulesDirectories: ['node_modules', 'bower_components']
+    extensions: ['.webpack.js', '.web.js', '.ts', '.js', '.css', '.json'],
+    // modulesDirectories: ['node_modules', 'bower_components'],
+    alias: {
+      'vue$': 'vue/dist/vue.common.js'
+    }
   },
 
-  resolveLoader: {
-    fallback: [path.join(__dirname, '../node_modules')]
-  },
+  // resolveLoader: {
+  //   fallback: [path.join(__dirname, '../node_modules')]
+  // },
 
   module: {
     loaders: [

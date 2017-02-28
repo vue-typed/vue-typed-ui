@@ -5,7 +5,7 @@ import { _MenuBaseBase } from './_base';
 
 
 @Component()
-export abstract class MenuBase extends _MenuBaseBase {
+export class MenuBase extends _MenuBaseBase {
 
 	@Prop()
 	sidebar: any

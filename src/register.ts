@@ -1,13 +1,20 @@
 import * as components from './components'
-import * as methods from './components/methods'
 import * as modules from './modules'
 import * as filters from './filters'
 import * as Vue from 'vue'
 import * as _ from 'lodash'
 
+const hyphenateRE = /([^-])([A-Z])/g
+const hyphenate = ((str: string): string => {
+  return str
+    .replace(hyphenateRE, '$1-$2')
+    .replace(hyphenateRE, '$1-$2')
+    .toLowerCase()
+})
+
 export function register_all_components(vue: typeof Vue, prefix: string) {
 	for (var k in components) {
-		vue.component(prefix + '-' + Vue['util'].hyphenate(k), components[k])
+		vue.component(prefix + '-' + hyphenate(k), components[k])
 	}
 }
 
@@ -32,8 +39,8 @@ export function register_all_methods(vue: typeof Vue, instance) {
 			for (var k in modules) {
 				mdls[k] = modules[k](instance, this)
 			}
-			for (var k in methods) {
-				mdls[k] = methods[k](instance, this)
+			for (var k in components) {
+				mdls[_.camelCase(k)] = (ref) => { return this.$refs[ref] }
 			}
 
 			mdls = _.merge(mdls, instance)
@@ -47,7 +54,7 @@ export function register_all_methods(vue: typeof Vue, instance) {
 
 export function register_all_filters(vue: typeof Vue, prefix: string, instance) {
 	for (var k in filters) {
-		vue.filter(prefix + '-' + Vue['util'].hyphenate(k), filters[k](instance))
+		vue.filter(prefix + '-' + hyphenate(k), filters[k](instance))
 	}
 }
 

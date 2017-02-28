@@ -3,11 +3,11 @@
  */
 import {
     Prop,
-    Virtual
+    Virtual,
+    Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-
-export abstract class _ModalBase extends Virtual < Vue > () {
+export class _ModalBase extends Virtual < Vue > () {
 
     /**
      * Attach show event to another element

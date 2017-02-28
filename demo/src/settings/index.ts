@@ -43,7 +43,7 @@ export class AppSettings extends Virtual<Vue>() {
 	max = undefined
 
 	created() {
-		this.reset()
+		this.reset()				
 	}
 
 	save(e) {

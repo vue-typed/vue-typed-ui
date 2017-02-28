@@ -4,6 +4,6 @@ export = {
 	title: 'Focus',
 	path: '/module/focus',
 	component: Focus,
-	source: require('!raw!./index.ts'),
+	source: require('!raw-loader!./index.ts'),
 	api: ["module/focus"]
 }

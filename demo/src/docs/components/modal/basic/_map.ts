@@ -7,5 +7,5 @@ export = _.defaults({
 	title: 'Modal Basic',
 	path: '/component/modal/basic',
 	component: ModalBasic,
-	source: require('!raw!./index.ts')
+	source: require('!raw-loader!./index.ts')
 }, base)

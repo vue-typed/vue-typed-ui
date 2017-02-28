@@ -6,12 +6,12 @@ import * as Vue from 'vue'
 })
 export class TabPath extends Virtual<Vue>()  {
 	tab1() {
-		this.$ui.tab('#tab-path-example').changeTab('one')
+		this.$ui.tab('tab-path-example').changeTab('one')
 	}
 	tab2() {
-		this.$ui.tab('#tab-path-example').changeTab('two')
+		this.$ui.tab('tab-path-example').changeTab('two')
 	}
 	tab3() {
-		this.$ui.tab('#tab-path-example').changeTab('three')
+		this.$ui.tab('tab-path-example').changeTab('three')
 	}
 }

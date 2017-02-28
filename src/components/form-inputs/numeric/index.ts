@@ -2,7 +2,7 @@
 // ref: https://github.com/BobKnothe/autoNumeric
 
 import * as Vue from 'vue'
-import { Component, Prop, Watch } from 'vue-typed';
+import { Component, Prop, Watch, Mixins } from 'vue-typed';
 import { FieldBase } from '../../fields/field-base';
 import { Util } from '../../../utils';
 import { _NumericBase } from './_base';
@@ -11,7 +11,7 @@ require('autonumeric')
 
 
 @Component()
-export class Numeric extends _NumericBase {
+export class Numeric extends _NumericBase  {
 
 	@Watch('value')
 	valueChanged(val, old) {

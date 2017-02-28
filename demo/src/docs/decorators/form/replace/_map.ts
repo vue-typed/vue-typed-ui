@@ -8,5 +8,5 @@ export = _.extend({
 	path: '/decorator/form/replace',
 	html: require('./view.pug')(),
 	component: FormComponentReplace,
-	source: require('!raw!./index.ts')
+	source: require('!raw-loader!./index.ts')
 }, base)

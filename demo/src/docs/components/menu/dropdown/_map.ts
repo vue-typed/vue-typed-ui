@@ -7,6 +7,6 @@ export = Util.merge({
 	title: 'Dropdown',
 	path: '/component/menu/dropdown',
 	component: MenuDropdown,
-	source: require('!raw!./index.ts'),
+	source: require('!raw-loader!./index.ts'),
 	api: ["component/menu-dropdown"]
 }, base)

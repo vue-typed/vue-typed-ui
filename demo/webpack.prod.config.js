@@ -11,11 +11,11 @@ module.exports = merge(baseWebpackConfig, {
       { test: /\.js$/, loader: 'babel', query: { presets: ['es2015'] } }
     ]
   },
-  resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.min.js'
-    }
-  },
+  // resolve: {
+  //   alias: {
+  //     'vue$': 'vue/dist/vue.min.js'
+  //   }
+  // },
   // devtool: '#source-map',
   plugins: [
     new webpack.DefinePlugin({

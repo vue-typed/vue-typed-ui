@@ -32,7 +32,7 @@ export function FormComponent(options: FormOptions): ClassDecorator {
 	}).join(' ')
 
 	if (!options.replace) {
-		options.template = `<ui-form :validator="${ValidatorPropName}"${argsStr}>${options.template}<ui-form>`
+		options.template = `<ui-form :validator="${ValidatorPropName}"${argsStr}>${options.template}</ui-form>`
 	} else {
 		function htmlToElement(html) {
 			var template = document.createElement('template');

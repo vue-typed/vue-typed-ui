@@ -18,7 +18,6 @@ export class Input extends _InputBase {
 	}
 
 
-
 	createComponent(ch) {
 
 		let attrs = {

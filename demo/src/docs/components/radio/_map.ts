@@ -4,6 +4,6 @@ export = {
 	title: 'Radio',
 	path: '/component/radio',
 	component: Radio,
-	source: require('!raw!./index.ts'),
+	source: require('!raw-loader!./index.ts'),
 	api: ["component/radio"]
 }

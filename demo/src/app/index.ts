@@ -28,10 +28,24 @@ export class App extends Vue {
 
 		}).trigger('resize')
 
+		let launchBtn = $(this.$el).find('#launch-btn')
+		// launchBtn.hide()
+
+		$(this.$el).find('#top-menu').visibility({
+			once: false,
+			offset: $('#top-menu').height() * -1,
+			onTopPassed: ()=>{				
+				launchBtn.transition('show')
+			},
+			onTopPassedReverse: () => {
+				launchBtn.transition('hide')
+			}
+		})
+
 	}
 
 	showAppSettings() {
-		this.$ui.modal('#app-settings').show()
+		this.$ui.modal('app-settings').show()
 	}
 
 	get year() {

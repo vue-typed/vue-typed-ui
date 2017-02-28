@@ -4,6 +4,6 @@ export = {
 	title: 'Numeric',
 	path: '/component/numeric',
 	component: Numeric,
-	source: require('!raw!./index.ts'),
+	source: require('!raw-loader!./index.ts'),
 	api: ["component/numeric"]
 }

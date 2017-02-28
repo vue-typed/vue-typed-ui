@@ -6,5 +6,5 @@ export = _.defaults({
 	title: 'Form Disable Keyboard Shortcuts',
 	path: '/component/form/disable-shortcuts',
 	component: FormDisableKeyboardShortcuts,
-	source: require('!raw!./index.ts')
+	source: require('!raw-loader!./index.ts')
 }, base)

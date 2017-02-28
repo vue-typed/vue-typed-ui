@@ -4,6 +4,6 @@ export = {
 	title: 'Button',
 	path: '/component/button',
 	component: Button,
-	source: require('!raw!./index.ts'),
+	source: require('!raw-loader!./index.ts'),
 	api: ["component/button"]
 }

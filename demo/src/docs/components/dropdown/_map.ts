@@ -4,6 +4,6 @@ export = {
 	title: 'Dropdown',
 	path: '/component/dropdown',
 	component: Dropdown,
-	source: require('!raw!./index.ts'),
+	source: require('!raw-loader!./index.ts'),
 	api: ["component/dropdown"]
 }

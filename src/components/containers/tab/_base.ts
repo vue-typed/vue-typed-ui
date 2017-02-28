@@ -3,11 +3,11 @@
  */
 import {
     Prop,
-    Virtual
+    Virtual,
+    Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-
-export abstract class _TabBase extends Virtual < Vue > () {
+export class _TabBase extends Virtual < Vue > () {
 
     /**
      * Tab style

@@ -6,5 +6,5 @@ export = _.defaults({
 	title: 'Form Inline',
 	path: '/component/form/inline',
 	component: FormInline,
-	source: require('!raw!./index.ts')
+	source: require('!raw-loader!./index.ts')
 }, base)

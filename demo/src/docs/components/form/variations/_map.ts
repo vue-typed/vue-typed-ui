@@ -6,5 +6,5 @@ export = _.defaults({
 	title: 'Form Variations',
 	path: '/component/form/variations',
 	component: FormVariations,
-	source: require('!raw!./index.ts')
+	source: require('!raw-loader!./index.ts')
 }, base)

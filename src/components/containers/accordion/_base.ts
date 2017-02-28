@@ -3,11 +3,11 @@
  */
 import {
     Prop,
-    Virtual
+    Virtual,
+    Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-
-export abstract class _AccordionBase extends Virtual < Vue > () {
+export class _AccordionBase extends Virtual < Vue > () {
 
     /**
      * Only allow one section open at a time

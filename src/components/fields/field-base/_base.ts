@@ -3,11 +3,11 @@
  */
 import {
     Prop,
-    Virtual
+    Virtual,
+    Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-
-export abstract class _FieldBaseBase extends Virtual < Vue > () {
+export class _FieldBaseBase extends Virtual < Vue > () {
 
     /**
      * Field label text

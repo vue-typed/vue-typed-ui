@@ -1,4 +1,6 @@
 div#app
+	#launch-btn.ui.black.big.launch.right.attached.fixed.button(@click="sidebarToggle")
+		i.content.icon
 	app-sidebar
 	.pusher
 		ui-menu-horizontal#top-menu.top.pointing.borderless.inverted
@@ -25,4 +27,4 @@ div#app
 					a(href="https://opensource.org/licenses/MIT") MIT License
 				div Copyright © 2016-{{year}} Budi Adiono
 		
-		app-settings#app-settings
+		app-settings(ref="app-settings")

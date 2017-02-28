@@ -7,5 +7,5 @@ export = _.extend({
 	title: 'Interactive',
 	path: '/component/tab/interactive',
 	component: TabInteractive,
-	source: require('!raw!./index.ts')
+	source: require('!raw-loader!./index.ts')
 }, base)

@@ -63,7 +63,7 @@ export class FormComponentBasic extends Vue {
 	salary: number = 0
 
 	submit() {		
-		this.$ui.modal('#message').show()
+		this.$ui.modal('message').show()
 	}
 
 }

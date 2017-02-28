@@ -2,6 +2,20 @@
   "base": {
     "Vue": "vue"
   },
+  "methods": {
+    "show": {
+      "description": "Shows the modal"
+    },
+    "hide": {
+      "description": "Hides the modal"
+    },
+    "toggle": {
+      "description": "Toggles the modal"
+    },
+    "refresh": {
+      "description": "Refreshes centering of modal on page"
+    }
+  },
   "props": {
     "attach-show": {
       "description": "Attach show event to another element",

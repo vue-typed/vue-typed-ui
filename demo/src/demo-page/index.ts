@@ -25,7 +25,7 @@ export class DemoPage extends Virtual<Vue>() {
         let api = Api[a];       
 
         if (api.readme) {
-          this.readme = require('!html!markdown!../readme/' + api.dir + '/README.md')
+          this.readme = require('!html-loader!markdown-loader!../readme/' + api.dir + '/README.md')
         }
 
         this.api.push({

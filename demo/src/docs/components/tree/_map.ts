@@ -4,6 +4,6 @@ export = {
 	title: 'Tree (Experimental)',
 	path: '/component/tree',
 	component: Tree,
-	source: require('!raw!./index.ts'),
+	source: require('!raw-loader!./index.ts'),
 	api: ["component/tree"]
 }

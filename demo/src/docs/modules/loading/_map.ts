@@ -4,6 +4,6 @@ export = {
 	title: 'Loading',
 	path: '/module/loading',
 	component: Loading,
-	source: require('!raw!./index.ts'),
+	source: require('!raw-loader!./index.ts'),
 	api: ["module/loading"]
 }

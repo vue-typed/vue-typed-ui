@@ -96,30 +96,7 @@ export class Util {
 		return val1;
 	}
 
-	/**
-	 * Get expression/value/name given in [dataName] property
-	 * 
-	 * @static
-	 * @param {any} component
-	 * @param {any} dataName
-	 * @returns
-	 * 
-	 * @memberOf Util
-	 */
-	static getExpressionData(component, dataName) {
-		var id = undefined
-		var directives = component.$vnode.data.directives		
-		for (var i=0; i<directives.length; i++) {
-			var d = directives[i]
-			if (d.name === dataName) {				
-				id = d.expression
-				break
-			}
-		}
-		return id
-	}
 	
-
 	/**
 	 * Find model name from element and use it as data-validate attribute
 	 * 
@@ -130,10 +107,8 @@ export class Util {
 	 * @memberOf Util
 	 */
 	static setDataValidateAttr(component, element: JQuery) {
-		var id = Util.getExpressionData(component, 'model')
-		if (id) {
-			element.attr(DataValidateAttr, id)
-		}
+		let id = component.$props.name
+		if (id) element.attr(DataValidateAttr, id)
 	}
 
 	/**

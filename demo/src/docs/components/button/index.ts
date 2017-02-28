@@ -21,9 +21,9 @@ export class Button extends Virtual<Vue>() {
 	}
 
 	loading() {
-		this.$ui.button('#btn-loading').loading(true)
+		this.$ui.button('btn-loading').loading(true)
 		setTimeout(() => {
-			this.$ui.button('#btn-loading').loading(false)
+			this.$ui.button('btn-loading').loading(false)
 		}, 1500);
 	}
 

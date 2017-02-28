@@ -1,6 +1,6 @@
 import * as Vue from 'vue'
 import * as VueTypedUI from '../../src/index';
-import * as VueRouter from 'vue-router';
+import VueRouter from 'vue-router';
 import { AppSettingStore } from './settings';
 
 Vue.use(VueRouter)

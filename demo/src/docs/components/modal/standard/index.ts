@@ -6,20 +6,15 @@ import * as Vue from 'vue'
 })
 export class Modal extends Virtual<Vue>()  {
 	show() {
-		this.$ui.modal('#modal').show()
+		this.$ui.modal('modal').show()
 	}
 
 	approved(e) {
-		console.log('approved', e, this);
-
 		alert('Yes! Approved!');
 	}
 
 	denied(e) {
-		console.log('denied', e, this);
-		
 		alert('Oh no! Don\'t deny me please...');
-		
 		e.result= false;
 		return false;
 	}

@@ -3,11 +3,11 @@
  */
 import {
     Prop,
-    Virtual
+    Virtual,
+    Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-
-export abstract class _FormBase extends Virtual < Vue > () {
+export class _FormBase extends Virtual < Vue > () {
 
     /**
      * Fields validation object. See: http://semantic-ui.com/behaviors/form.html#specifying-validation-rules

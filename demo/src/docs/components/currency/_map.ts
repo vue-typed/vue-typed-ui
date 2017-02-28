@@ -4,6 +4,6 @@ export = {
 	title: 'Currency',
 	path: '/component/currency',
 	component: Currency,
-	source: require('!raw!./index.ts'),
+	source: require('!raw-loader!./index.ts'),
 	api: ["component/currency"]
 }

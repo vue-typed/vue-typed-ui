@@ -3,11 +3,11 @@
  */
 import {
     Prop,
-    Virtual
+    Virtual,
+    Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-
-export abstract class _RadioBase extends Virtual < Vue > () {
+export class _RadioBase extends Virtual < Vue > () {
 
     /**
      * Input element name

@@ -3,11 +3,11 @@
  */
 import {
     Prop,
-    Virtual
+    Virtual,
+    Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-
-export abstract class _CheckboxBase extends Virtual < Vue > () {
+export class _CheckboxBase extends Virtual < Vue > () {
 
     /**
      * Input element name

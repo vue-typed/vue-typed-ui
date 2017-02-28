@@ -6,6 +6,6 @@ export = _.defaults({
 	title: 'Time',
 	path: '/component/date-time/time',
 	component: Time,
-	source: require('!raw!./index.ts'),
+	source: require('!raw-loader!./index.ts'),
 	api: ["component/time"]
 }, base)

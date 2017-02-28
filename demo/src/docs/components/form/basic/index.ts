@@ -7,6 +7,6 @@ export class FormBasic extends Virtual<Vue>() {
 	lastName: string = 'Adiono'
 
 	submit() {
-		this.$ui.modal('#message').show()
+		this.$ui.modal('message').show()
 	}
 }

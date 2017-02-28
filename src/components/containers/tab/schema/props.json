@@ -1,11 +1,22 @@
 {
-	"base": {
-		"Vue": "vue"
-	},
-	"props": {
-		"kind": {
-			"type": "'standard' | 'menu' | 'pointing'",
-			"description": "Tab style"
-		}
-	}
+  "base": {
+    "Vue": "vue"
+  },
+  "methods": {
+    "changeTab": {
+      "description": "Changes tab to path",
+      "params": {
+        "path": {
+          "description": "Tab path name",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "props": {
+    "kind": {
+      "type": "'standard' | 'menu' | 'pointing'",
+      "description": "Tab style"
+    }
+  }
 }

@@ -20,15 +20,14 @@ export default {
   format: 'umd',
   dest: 'dist/vue-typed-ui.js',
   moduleName: 'VueTypedUI',
-  plugins: [
-    {
+  plugins: [{
       name: 'replace moment imports',
       transform: code => ({
         code: code.replace(/import\s*\*\s*as\s*moment/g, 'import moment'),
         map: { mappings: '' }
       })
     },
-    typescript({    typescript: require('typescript')  }),    
+    typescript({ typescript: require('typescript') }),
     postcss(),
     babel({
       'presets': [

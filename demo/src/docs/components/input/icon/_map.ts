@@ -6,5 +6,5 @@ export = _.defaults({
 	title: 'Icon',
 	path: '/component/input/icon',
 	component: InputIcon,
-	source: require('!raw!./index.ts')
+	source: require('!raw-loader!./index.ts')
 }, base)

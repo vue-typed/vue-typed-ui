@@ -7,5 +7,5 @@ export = _.extend({
 	title: 'Modal Standard',
 	path: '/component/modal/standard',
 	component: Modal,
-	source: require('!raw!./index.ts')
+	source: require('!raw-loader!./index.ts')
 }, base)

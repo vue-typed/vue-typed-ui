@@ -1,5 +1,5 @@
 import * as Vue from 'vue'
-import * as VueRouter from 'vue-router';
+import VueRouter from 'vue-router';
 import { App } from '../app';
 import { AppHome } from '../home';
 import { AppDocHome } from '../docs/home';

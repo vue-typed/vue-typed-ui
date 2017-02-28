@@ -6,14 +6,16 @@ import { _CalendarBase } from './_base';
 
 
 @Component()
-export abstract class Calendar extends _CalendarBase {
+export class Calendar extends _CalendarBase {
 
-	abstract calendarOptions(): {
+	 calendarOptions(): {
 		icon: string,
 		type: string
+	} {
+		return null
 	}
 
-	createComponent(ch) {
+	createComponent(ch) : any {
 
 		let attr = this.calendarOptions()
 

@@ -3,6 +3,7 @@ import { Component, Prop } from 'vue-typed';
 import { Util } from '../../utils';
 import * as _ from 'lodash'
 import { _ModalBase } from './_base';
+import { IModal } from '../../../lib/interface'
 
 
 @Component({
@@ -19,7 +20,16 @@ import { _ModalBase } from './_base';
 		<slot name="actions"></slot>
   </div>
 </div>`})
-export class Modal extends _ModalBase implements SemanticUI.Modal.Settings {
+export class Modal extends _ModalBase implements SemanticUI.Modal.Settings, IModal {
+
+	show() { return $(this.$el).modal('show') }
+
+	hide() { return $(this.$el).modal('hide') }
+
+	toggle() { return $(this.$el).modal('toggle') }
+	
+	refresh() { return $(this.$el).modal('refresh') }
+
 
 	get hasActions() {
 		return this.$slots['actions'] != undefined;
@@ -48,7 +58,7 @@ export class Modal extends _ModalBase implements SemanticUI.Modal.Settings {
 				self.$emit(fn, e)
 				return e.result;
 			}
-		} as Function		
+		} as Function
 
 		$(this.$el).modal({
 			onDeny: emit('deny'),
