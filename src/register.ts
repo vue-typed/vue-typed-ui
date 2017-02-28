@@ -6,10 +6,10 @@ import * as _ from 'lodash'
 
 const hyphenateRE = /([^-])([A-Z])/g
 const hyphenate = ((str: string): string => {
-  return str
-    .replace(hyphenateRE, '$1-$2')
-    .replace(hyphenateRE, '$1-$2')
-    .toLowerCase()
+	return str
+		.replace(hyphenateRE, '$1-$2')
+		.replace(hyphenateRE, '$1-$2')
+		.toLowerCase()
 })
 
 export function register_all_components(vue: typeof Vue, prefix: string) {
@@ -40,7 +40,16 @@ export function register_all_methods(vue: typeof Vue, instance) {
 				mdls[k] = modules[k](instance, this)
 			}
 			for (var k in components) {
-				mdls[_.camelCase(k)] = (ref) => { return this.$refs[ref] }
+				mdls[_.camelCase(k)] = (ref) => {
+					if (typeof ref !== 'string')
+						throw new Error('ref must be string represents the ref name of component')
+
+					let component = this.$refs[ref]
+					if (!component)
+						throw new Error(`Could not resolve ui component in '${this.$options.name}' referenced by '${ref}'.`)
+
+					return component
+				}
 			}
 
 			mdls = _.merge(mdls, instance)
