@@ -103,6 +103,6 @@ module.exports = function(done) {
       cb(null, file)
     }))
     .pipe(gulp.dest('./doc'))
+    .on('end', done)
 
-  done()
 }

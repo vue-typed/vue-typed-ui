@@ -30,8 +30,7 @@ module.exports = function(done) {
     }))
     .pipe(rename('interface.d.ts'))
     .pipe(gulp.dest('./lib'))
-
-  done()
+    .on('end', done)
 }
 
 function parseComponent(obj) {

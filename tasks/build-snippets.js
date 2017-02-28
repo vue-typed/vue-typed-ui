@@ -24,4 +24,5 @@ module.exports = function(done) {
     }))
     .pipe(rename('snippets.json'))
     .pipe(gulp.dest('./doc'))
+    .on('end', done)
 }
