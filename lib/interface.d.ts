@@ -89,7 +89,7 @@ export interface IButton {
     /**
      * Set loading state of the button.
      */
-    loading(state: boolean)
+    loading(state: boolean): JQuery
 }
 
 export interface ICalendar {

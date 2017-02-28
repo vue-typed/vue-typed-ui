@@ -5,6 +5,7 @@
   "methods": {
     "loading": {
       "description": "Set loading state of the button.",
+      "type": "JQuery",
       "params": {
         "state": {
           "type": "boolean",

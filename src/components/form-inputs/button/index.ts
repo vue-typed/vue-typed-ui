@@ -8,7 +8,7 @@ import { IButton } from '../../../../lib/interface'
 })
 export class Button extends _ButtonBase implements IButton {
 
-	loading(state: boolean) {
+	loading(state: boolean): JQuery {
 		let element = $(this.$el)
 		if (state)
 			return element.addClass('loading')
