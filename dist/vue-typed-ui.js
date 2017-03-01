@@ -1,5 +1,5 @@
 /**
-  * vue-typed-ui 1.6.0
+  * vue-typed-ui 1.6.1
   * UI components made with Semantic UI, VueTyped and friends
   * https://github.com/vue-typed/vue-typed-ui
   
@@ -1427,6 +1427,7 @@ var Dropdown = function (_DropdownBase2) {
         var _this = possibleConstructorReturn(this, (Dropdown.__proto__ || Object.getPrototypeOf(Dropdown)).apply(this, arguments));
 
         _this.selectedItems = undefined;
+        _this._htmlItems = '';
         return _this;
     }
 
@@ -1435,7 +1436,21 @@ var Dropdown = function (_DropdownBase2) {
         value: function createComponent(ch) {
             var css = 'ui selection dropdown';
             if (this.css) css += ' ' + this.css;
-            return ch('div', { 'class': css }, [ch('input', { attrs: { type: 'hidden', name: this.name } }), ch('i', { 'class': 'dropdown icon' }), ch('div', { 'class': 'default text' }, this.placeholder), ch('div', { 'class': 'menu' }, this.$slots['default'])]);
+            return ch('div', { 'class': css }, [ch('input', { attrs: { type: 'hidden', name: this.name } }), ch('i', { 'class': 'dropdown icon' }), ch('div', { 'class': 'default text' }, this.placeholder), ch('div', { 'class': 'menu', 'ref': 'menu' }, this.$slots['default'])]);
+        }
+    }, {
+        key: 'beforeUpdate',
+        value: function beforeUpdate() {
+            // store dropdown items state
+            this._htmlItems = this.$refs['menu'].innerHTML;
+        }
+    }, {
+        key: 'updated',
+        value: function updated() {
+            // refresh dropdown when items has been changed
+            if (this._htmlItems !== this.$refs['menu'].innerHTML) {
+                this.sui('refresh');
+            }
         }
     }, {
         key: 'mounted',
