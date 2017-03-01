@@ -8,7 +8,7 @@ import { _TabItemBase } from './_base';
 })
 export class TabItem extends _TabItemBase {
 
-	dataTab: string
+	dataTab: string = ''
 
 	css: string = "ui tab segment"
 

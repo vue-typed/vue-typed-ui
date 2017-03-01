@@ -19,9 +19,9 @@ export class Tab extends _TabBase implements ITab {
 		return $(this.$el).find('.item').tab('change tab', path);
 	}
 
-	activeTab
+	activeTab = undefined
 
-	css: string
+	css: string = ''
 
 	items: any[] = []
 
