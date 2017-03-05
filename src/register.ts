@@ -14,7 +14,15 @@ const hyphenate = ((str: string): string => {
 
 export function register_all_components(vue: typeof Vue, prefix: string) {
 	for (var k in components) {
-		vue.component(prefix + '-' + hyphenate(k), components[k])
+		let opt = components[k]
+		if (typeof opt === 'function')
+			opt = opt.options
+
+		// clear components so it will have new names
+		delete opt.components
+
+		opt.name = prefix + '-' + hyphenate(k)
+		vue.component(opt.name, vue.extend(opt))
 	}
 }
 
