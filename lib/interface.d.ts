@@ -1,3 +1,5 @@
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IAccordion {
 
     /**
