@@ -29,6 +29,11 @@ export interface IAccordion {
      * Event on title that will cause accordion to open
      */
     on: string
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IAccordionItem {
@@ -42,6 +47,11 @@ export interface IAccordionItem {
      * Accordion title
      */
     title: string
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IButton {
@@ -90,6 +100,11 @@ export interface IButton {
      * Set loading state of the button.
      */
     loading(state: boolean): JQuery
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface ICalendar {
@@ -171,6 +186,11 @@ export interface ICheckbox {
      * v-model binding
      */
     value: any
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface ICurrency {
@@ -312,6 +332,11 @@ export interface IDate {
      * Size of field
      */
     wide: number
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IDatetime {
@@ -370,6 +395,11 @@ export interface IDatetime {
      * Size of field
      */
     wide: number
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IDropdown {
@@ -423,6 +453,11 @@ export interface IDropdown {
      * Size of field
      */
     wide: number
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IDropdownItem {
@@ -431,6 +466,11 @@ export interface IDropdownItem {
      * Dropdown item value
      */
     value: any
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IField {
@@ -454,6 +494,11 @@ export interface IField {
      * Size of field
      */
     wide: number
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IFieldBase {
@@ -490,6 +535,11 @@ export interface IFieldsGroup {
      * Size of field
      */
     wide: number
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IFieldsInline {
@@ -503,6 +553,11 @@ export interface IFieldsInline {
      * Size of field
      */
     wide: number
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IForm {
@@ -526,9 +581,20 @@ export interface IForm {
      * Fields validation object. See: http://semantic-ui.com/behaviors/form.html#specifying-validation-rules
      */
     validator: any
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
-export interface IHeader {}
+export interface IHeader {
+
+    /**
+     * Target element
+     */
+    target(): JQuery
+}
 
 export interface IInput {
 
@@ -591,6 +657,11 @@ export interface IInput {
      * Size of field
      */
     wide: number
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IMenuBase {
@@ -622,6 +693,11 @@ export interface IMenuDropdown {
      * Dropdown title/label.
      */
     label: string
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IMenuHorizontal {
@@ -640,6 +716,11 @@ export interface IMenuHorizontal {
      * JQuery object or selector to be attached as sidebar toggle
      */
     sidebarToggle: HTMLElement | JQuery | string
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IMenuItem {
@@ -663,6 +744,11 @@ export interface IMenuItem {
      * Target URL when menu item clicked. If you are using vue-router then this attribute represents `to` attribute of `router-link` tag.
      */
     to: string | Object
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IMenuVertical {
@@ -676,6 +762,11 @@ export interface IMenuVertical {
      * JQuery object or selector to be attached as sidebar toggle
      */
     sidebarToggle: HTMLElement | JQuery | string
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IMessage {
@@ -699,6 +790,11 @@ export interface IMessage {
      * Semantic UI transition on closing message.
      */
     transition: string
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IModal {
@@ -762,6 +858,11 @@ export interface IModal {
      * Shows the modal
      */
     show(): JQuery
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 
     /**
      * Toggles the modal
@@ -840,9 +941,20 @@ export interface INumeric {
      * Size of field
      */
     wide: number
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
-export interface IPusher {}
+export interface IPusher {
+
+    /**
+     * Target element
+     */
+    target(): JQuery
+}
 
 export interface IRadio {
 
@@ -860,6 +972,11 @@ export interface IRadio {
      * v-model binding
      */
     value: any
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface IRadioGroup {
@@ -888,9 +1005,20 @@ export interface IRadioGroup {
      * Size of field
      */
     wide: number
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
-export interface ISegment {}
+export interface ISegment {
+
+    /**
+     * Target element
+     */
+    target(): JQuery
+}
 
 export interface ITab {
 
@@ -903,6 +1031,11 @@ export interface ITab {
      * Changes tab to path
      */
     changeTab(path: string)
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface ITabItem {
@@ -921,6 +1054,11 @@ export interface ITabItem {
      * Name of path
      */
     path: string
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface ITime {
@@ -979,6 +1117,11 @@ export interface ITime {
      * Size of field
      */
     wide: number
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 export interface ITree {
@@ -1017,6 +1160,11 @@ export interface ITree {
      * HTML parent tag name. Default is `ul`.
      */
     parentTag: string
+
+    /**
+     * Target element
+     */
+    target(): JQuery
 }
 
 

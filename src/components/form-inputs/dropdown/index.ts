@@ -3,13 +3,17 @@ import { Component, Prop, Watch } from 'vue-typed';
 import { FieldBase } from '../../fields/field-base';
 import { Util } from '../../../utils';
 import { _DropdownBase } from './_base';
-
+import { IDropdown } from '../../../../lib/interface';
 
 @Component()
-export class Dropdown extends _DropdownBase {
+export class Dropdown extends _DropdownBase implements IDropdown {
 
 	selectedItems = undefined
 	_htmlItems = ''
+
+	target() : JQuery {
+		return $(this.$el.querySelector('.ui.dropdown'))
+	}
 
 	createComponent(ch) {
 		let css = 'ui selection dropdown'
@@ -43,16 +47,16 @@ export class Dropdown extends _DropdownBase {
 
 		var self = this;
 
-		var el = this.$el.querySelector('.ui.dropdown')
+		var el = this.target()
 
 		// search ?
 		if (this.search === true) {
-			$(el).addClass('search')
+			el.addClass('search')
 		}
 
 		// multiple ?
 		if (this.multiple === true) {
-			$(el).addClass('multiple')
+			el.addClass('multiple')
 			this.selectedItems = [];
 			if (this.value) {
 				if (typeof this.value.length === "undefined")
@@ -109,7 +113,7 @@ export class Dropdown extends _DropdownBase {
 
 	@Watch('disabled')
 	disabledChanged(val) {
-		let el = $(this.$el.querySelector('.ui.dropdown'))
+		let el = this.target()
 		if (val)
 			el.addClass('disabled')
 		else
@@ -131,11 +135,11 @@ export class Dropdown extends _DropdownBase {
 	}
 
 	sui(arg1?, arg2?) {
-		return $(this.$el.querySelector('.ui.dropdown')).dropdown(arg1, arg2)
+		return this.target().dropdown(arg1, arg2)
 	}
 
 	destroyed() {
-		$(this.$el.querySelector('.ui.dropdown')).dropdown('destroy')
+		this.target().dropdown('destroy')
 	}
 
 }

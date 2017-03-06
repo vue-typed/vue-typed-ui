@@ -1,37 +1,43 @@
 {
-	"base": {
-		"Vue": "vue"
-	},
-	"props": {
-		"model": {
-			"type": "any",
-			"description": "Data model to populate."
-		},
-		"content": {
-			"type": "string",
-			"description": "A property name of data model represents content of tree view."
-		},
-		"html": {
-			"type": "boolean",
-			"description": "Indicate that the content is in HTML format. If set true then `content` property will be ignored, you'll need to supply `htmlContent` property instead."
-		},
-		"htmlContent": {
-			"type": "string",
-			"description": "Html content that displayed on tree content area. You must set `html` property to `true` to use this property."
-		},
-		"children": {
-			"type": "string",
-			"description": "A property name of data model represents children property. Children property must be in array type contains list of `model`."
-		},
-		"parentTag": {
-			"type": "string",
-			"description": "HTML parent tag name. Default is `ul`.",
-			"default": "'ul'"
-		},
-		"childTag": {
-			"type": "string",
-			"description": "HTML child tag name. Default is `li`.",
-			"default": "'li'"
-		} 
-	}
+  "base": {
+    "Vue": "vue"
+  },
+  "props": {
+    "model": {
+      "type": "any",
+      "description": "Data model to populate."
+    },
+    "content": {
+      "type": "string",
+      "description": "A property name of data model represents content of tree view."
+    },
+    "html": {
+      "type": "boolean",
+      "description": "Indicate that the content is in HTML format. If set true then `content` property will be ignored, you'll need to supply `htmlContent` property instead."
+    },
+    "htmlContent": {
+      "type": "string",
+      "description": "Html content that displayed on tree content area. You must set `html` property to `true` to use this property."
+    },
+    "children": {
+      "type": "string",
+      "description": "A property name of data model represents children property. Children property must be in array type contains list of `model`."
+    },
+    "parentTag": {
+      "type": "string",
+      "description": "HTML parent tag name. Default is `ul`.",
+      "default": "'ul'"
+    },
+    "childTag": {
+      "type": "string",
+      "description": "HTML child tag name. Default is `li`.",
+      "default": "'li'"
+    }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

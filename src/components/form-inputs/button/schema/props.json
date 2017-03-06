@@ -12,6 +12,10 @@
           "description": "State of loading (true | false)"
         }
       }
+    },
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
     }
   },
   "props": {

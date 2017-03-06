@@ -1,5 +1,6 @@
 import { _AccordionItemBase } from './_base';
 import { Options } from 'vue-typed';
+import { IAccordionItem } from '../../../../lib/interface';
 
 @Options({
 	template: 
@@ -12,7 +13,12 @@ import { Options } from 'vue-typed';
 		</div>
 	</div>`
 })
-export class AccordionItem extends _AccordionItemBase { 
+export class AccordionItem extends _AccordionItemBase implements IAccordionItem { 
+
+	target() : JQuery {
+		return $(this.$el)
+	}
+	
 	get activeCss() {
 		return this.active ? 'active ' : '';
 	}

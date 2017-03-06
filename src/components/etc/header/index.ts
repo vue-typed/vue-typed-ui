@@ -1,12 +1,17 @@
 import { _HeaderBase } from './_base';
 import { Options, Prop } from 'vue-typed';
+import { IHeader } from '../../../../lib/interface';
 
-abstract class HeaderBase extends _HeaderBase {
+abstract class HeaderBase extends _HeaderBase implements IHeader {
 	preRender(ch, tag, sub?) {
 		var css = sub ? 'sub' : 'ui';
 		return ch(tag, {
 			'class': css + ' header'
 		}, this.$slots['default']);
+	}
+
+	target(): JQuery {
+		return $(this.$el)
 	}
 }
 

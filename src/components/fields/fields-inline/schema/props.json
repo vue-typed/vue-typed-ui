@@ -1,15 +1,21 @@
 {
-	"base": {
-		"Vue": "vue"
-	},
-	"props": {		
-		"label": {
-			"type": "string",
-			"description": "Field label text"
-		},
-		"wide": {
-			"type": "number",
-			"description": "Size of field"
-		}
-	}
+  "base": {
+    "Vue": "vue"
+  },
+  "props": {
+    "label": {
+      "type": "string",
+      "description": "Field label text"
+    },
+    "wide": {
+      "type": "number",
+      "description": "Size of field"
+    }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

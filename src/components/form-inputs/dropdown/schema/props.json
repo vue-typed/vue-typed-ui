@@ -1,31 +1,37 @@
 {
-	"base": {
-		"FieldBase": "../../fields/field-base"
-	},
-	"props": {
-		"name": {
-			"type": "string",
-			"description": "Input element name"
-		},
-		"placeholder": {
-			"type": "string",
-			"description": "Input element placeholder"
-		},
-		"value": {
-			"type": "any",
-			"description": "v-model binding"
-		},
-		"search": {
-			"type": "boolean",
-			"description": "A selection dropdown can allow a user to search through a large list of choices."
-		},
-		"multiple": {
-			"type": "boolean",
-			"description": "A selection dropdown can allow multiple selections"
-		},
-		"css": {
-			"type": "string",
-			"description": "Css class(es) applied to dropdown component"
-		}
-	}
+  "base": {
+    "FieldBase": "../../fields/field-base"
+  },
+  "props": {
+    "name": {
+      "type": "string",
+      "description": "Input element name"
+    },
+    "placeholder": {
+      "type": "string",
+      "description": "Input element placeholder"
+    },
+    "value": {
+      "type": "any",
+      "description": "v-model binding"
+    },
+    "search": {
+      "type": "boolean",
+      "description": "A selection dropdown can allow a user to search through a large list of choices."
+    },
+    "multiple": {
+      "type": "boolean",
+      "description": "A selection dropdown can allow multiple selections"
+    },
+    "css": {
+      "type": "string",
+      "description": "Css class(es) applied to dropdown component"
+    }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

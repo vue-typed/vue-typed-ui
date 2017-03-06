@@ -1,8 +1,14 @@
 {
-	"base": {
-		"Vue": "vue"
-	},
-	"props": {
-		
-	}
+  "base": {
+    "Vue": "vue"
+  },
+  "props": {
+
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

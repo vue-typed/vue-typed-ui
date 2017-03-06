@@ -1,13 +1,19 @@
 import { _AccordionBase } from './_base';
 import { Options } from 'vue-typed';
+import { IAccordion } from '../../../../lib/interface';
 
 @Options({
 	template: '<div class="ui accordion"><slot></slot></div>'
 })
-export class Accordion extends _AccordionBase { 
+export class Accordion extends _AccordionBase implements IAccordion { 
+
+	target() : JQuery {
+		return $(this.$el)
+	}
+
 	mounted() {
 		let self = this
-		$(this.$el).accordion({
+		this.target().accordion({
 			exclusive: this.exclusive,
 			on: this.on,
 			animateChildren: this.animateChildren,

@@ -1,6 +1,7 @@
 import * as Vue from 'vue'
 import { Component, Prop, Watch } from 'vue-typed';
 import { _RadioGroupBase } from './_base';
+import { IRadioGroup } from '../../../../lib/interface';
 
 @Component({
 	template: `
@@ -10,7 +11,11 @@ import { _RadioGroupBase } from './_base';
 	</div>
 	`
 })
-export class RadioGroup extends _RadioGroupBase {
+export class RadioGroup extends _RadioGroupBase implements IRadioGroup {
+
+	target(): JQuery {
+		return $(this.$el)
+	}
 	
 	groupName
 

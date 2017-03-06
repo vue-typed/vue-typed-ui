@@ -1,9 +1,15 @@
 {
-	"base": {
-		"Vue": "vue"
-	},
-	"isBase": "true",
-	"props": {
-		
-	}
+  "base": {
+    "Vue": "vue"
+  },
+  "isBase": "true",
+  "props": {
+
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

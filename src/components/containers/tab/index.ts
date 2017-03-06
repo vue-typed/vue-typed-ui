@@ -30,6 +30,10 @@ export class Tab extends _TabBase implements ITab {
 		this.updateStyle();
 	}
 
+	target(): JQuery {
+		return $(this.$el).find('.menu .item')
+	}
+
 	mounted() {
 		
 		Vue.nextTick(() => {
@@ -94,7 +98,7 @@ export class Tab extends _TabBase implements ITab {
 	}
 
 	destroyed() {
-		$(this.$el).find('.menu .item').tab('destroy')
+		this.target().tab('destroy')
 	}
 
 }

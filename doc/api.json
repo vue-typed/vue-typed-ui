@@ -40,7 +40,12 @@
         "description": "Event on title that will cause accordion to open"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/accordion-item": {
     "dir": "src/components/containers/accordion-item",
@@ -61,7 +66,12 @@
         "description": "Accordion title"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/button": {
     "dir": "src/components/form-inputs/button",
@@ -117,6 +127,10 @@
             "description": "State of loading (true | false)"
           }
         }
+      },
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
       }
     }
   },
@@ -206,7 +220,12 @@
         "description": "v-model binding"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/currency": {
     "dir": "src/components/form-inputs/currency",
@@ -344,7 +363,12 @@
         "description": "Size of field"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/datetime": {
     "dir": "src/components/form-inputs/calendar/datetime",
@@ -402,7 +426,12 @@
         "description": "Size of field"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/dropdown": {
     "dir": "src/components/form-inputs/dropdown",
@@ -456,7 +485,12 @@
         "description": "Size of field"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/dropdown-item": {
     "dir": "src/components/form-inputs/dropdown-item",
@@ -473,7 +507,12 @@
         "description": "Dropdown item value"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/field": {
     "dir": "src/components/fields/field",
@@ -503,7 +542,12 @@
         "description": "Size of field"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/field-base": {
     "dir": "src/components/fields/field-base",
@@ -555,7 +599,12 @@
         "description": "Size of field"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/fields-inline": {
     "dir": "src/components/fields/fields-inline",
@@ -576,7 +625,12 @@
         "description": "Size of field"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/form": {
     "dir": "src/components/form-inputs/form",
@@ -606,7 +660,12 @@
         "description": "Fields validation object. See: http://semantic-ui.com/behaviors/form.html#specifying-validation-rules"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/header": {
     "dir": "src/components/etc/header",
@@ -619,7 +678,12 @@
     "type": "component",
     "readme": false,
     "props": {},
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/input": {
     "dir": "src/components/form-inputs/input",
@@ -683,7 +747,12 @@
         "description": "Size of field"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/menu-base": {
     "dir": "src/components/menus/menu-base",
@@ -731,7 +800,12 @@
         "description": "Dropdown title/label."
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/menu-horizontal": {
     "dir": "src/components/menus/menu-horizontal",
@@ -756,7 +830,12 @@
         "description": "JQuery object or selector to be attached as sidebar toggle"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/menu-item": {
     "dir": "src/components/menus/menu-item",
@@ -785,7 +864,12 @@
         "description": "Target URL when menu item clicked. If you are using vue-router then this attribute represents `to` attribute of `router-link` tag."
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/menu-vertical": {
     "dir": "src/components/menus/menu-vertical",
@@ -806,7 +890,12 @@
         "description": "JQuery object or selector to be attached as sidebar toggle"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/message": {
     "dir": "src/components/etc/message",
@@ -837,7 +926,12 @@
         "default": "'fade'"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/modal": {
     "dir": "src/components/modal",
@@ -925,6 +1019,10 @@
         "type": "JQuery",
         "description": "Shows the modal"
       },
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      },
       "toggle": {
         "type": "JQuery",
         "description": "Toggles the modal"
@@ -1001,7 +1099,12 @@
         "description": "Size of field"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/pusher": {
     "dir": "src/components/containers/pusher",
@@ -1013,7 +1116,12 @@
     "type": "component",
     "readme": false,
     "props": {},
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/radio": {
     "dir": "src/components/form-inputs/radio",
@@ -1038,7 +1146,12 @@
         "description": "v-model binding"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/radio-group": {
     "dir": "src/components/form-inputs/radio-group",
@@ -1072,7 +1185,12 @@
         "description": "Size of field"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/segment": {
     "dir": "src/components/containers/segment",
@@ -1084,7 +1202,12 @@
     "type": "component",
     "readme": false,
     "props": {},
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/tab": {
     "dir": "src/components/containers/tab",
@@ -1110,6 +1233,10 @@
             "type": "string"
           }
         }
+      },
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
       }
     }
   },
@@ -1136,7 +1263,12 @@
         "description": "Name of path"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/time": {
     "dir": "src/components/form-inputs/calendar/time",
@@ -1194,7 +1326,12 @@
         "description": "Size of field"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "component/tree": {
     "dir": "src/components/etc/tree",
@@ -1237,7 +1374,12 @@
         "default": "'ul'"
       }
     },
-    "methods": {}
+    "methods": {
+      "target": {
+        "type": "JQuery",
+        "description": "Target element"
+      }
+    }
   },
   "decorator/form": {
     "dir": "src/decorators/form",

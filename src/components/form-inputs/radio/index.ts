@@ -1,6 +1,7 @@
 import * as Vue from 'vue'
 import { Options, Prop } from 'vue-typed';
 import { _RadioBase } from './_base';
+import { IRadio } from '../../../../lib/interface';
 
 @Options({
 	template: `
@@ -12,7 +13,11 @@ import { _RadioBase } from './_base';
 	</div>
 	`
 })
-export class Radio extends _RadioBase {
+export class Radio extends _RadioBase implements IRadio {
+
+	target(): JQuery {
+		return $(this.$el).find('.ui.radio')
+	}
 
 	mounted() {
 
@@ -32,7 +37,7 @@ export class Radio extends _RadioBase {
 			});
 
 		Vue.nextTick(() => {
-			$(this.$el).find('.ui.radio').checkbox()
+			this.target().checkbox()
 		})
 	}
 }

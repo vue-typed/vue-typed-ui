@@ -2,6 +2,7 @@ import * as Vue from 'vue'
 import { Component, Prop, Watch } from 'vue-typed';
 import { Util } from '../../../utils';
 import { _CheckboxBase } from './_base';
+import { ICheckbox } from '../../../../lib/interface';
 
 
 @Component({
@@ -14,7 +15,11 @@ import { _CheckboxBase } from './_base';
   </div>
 	`
 })
-export class Checkbox extends _CheckboxBase {
+export class Checkbox extends _CheckboxBase implements ICheckbox {
+
+	target(): JQuery {
+		return $(this.$el).find('.ui.checkbox')
+	}
 
 	get checkedValue() {
 		return this.val || true
@@ -88,7 +93,7 @@ export class Checkbox extends _CheckboxBase {
 	}
 
 	sui(arg1?, arg2?) {
-		return $(this.$el).find('.ui.checkbox').checkbox(arg1, arg2);
+		return this.target().checkbox(arg1, arg2);
 	}
 
 	_updateCss() {

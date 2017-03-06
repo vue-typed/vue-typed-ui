@@ -1,8 +1,14 @@
 {
-	"base": {
-		"FieldBase" : "../field-base"
-	},
-	"props": {
-		
-	}
+  "base": {
+    "FieldBase": "../field-base"
+  },
+  "props": {
+
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

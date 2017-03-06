@@ -1,37 +1,43 @@
 {
-	"base": {
-		"Vue": "vue"
-	},
-	"props": {
-		"exclusive": {
-			"type": "boolean",
-			"default": "true",
-			"description": "Only allow one section open at a time"
-		},
-		"on": {
-			"type": "string",
-			"default": "'click'",
-			"description": "Event on title that will cause accordion to open"
-		},
-		"animate-children": {
-			"type": "boolean",
-			"default": "true",
-			"description": "Whether child content opacity should be animated (may cause performance issues with many child elements)"
-		},
-		"duration": {
-			"type": "number",
-			"default": "500",
-			"description": "Duration in ms of opening animation"
-		},
-		"close-nested": {
-			"type": "boolean",
-			"default": "true",
-			"description": "Close open nested accordion content when an element closes"
-		},
-		"collapsible": {
-			"type": "boolean",
-			"default": "true",
-			"description": "Allow active sections to collapse"
-		}
-	}
+  "base": {
+    "Vue": "vue"
+  },
+  "props": {
+    "exclusive": {
+      "type": "boolean",
+      "default": "true",
+      "description": "Only allow one section open at a time"
+    },
+    "on": {
+      "type": "string",
+      "default": "'click'",
+      "description": "Event on title that will cause accordion to open"
+    },
+    "animate-children": {
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether child content opacity should be animated (may cause performance issues with many child elements)"
+    },
+    "duration": {
+      "type": "number",
+      "default": "500",
+      "description": "Duration in ms of opening animation"
+    },
+    "close-nested": {
+      "type": "boolean",
+      "default": "true",
+      "description": "Close open nested accordion content when an element closes"
+    },
+    "collapsible": {
+      "type": "boolean",
+      "default": "true",
+      "description": "Allow active sections to collapse"
+    }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

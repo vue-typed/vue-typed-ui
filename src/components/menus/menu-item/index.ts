@@ -2,10 +2,15 @@ import * as Vue from 'vue'
 import { Component, Prop } from 'vue-typed';
 import { Util } from '../../../utils';
 import { _MenuItemBase } from './_base';
+import { IMenuItem } from '../../../../lib/interface';
 
 
 @Component()
-export class MenuItem extends _MenuItemBase {
+export class MenuItem extends _MenuItemBase implements IMenuItem {
+
+	target(): JQuery {
+		return $(this.$el)
+	}
 
 	render(createElement) {
 

@@ -1,11 +1,17 @@
 {
-	"base": {
-		"Calendar": "../calendar"
-	},
-	"props": {
-		"format": {
-			"type": "string",
-			"description": "Date format"
-		}
-	}
+  "base": {
+    "Calendar": "../calendar"
+  },
+  "props": {
+    "format": {
+      "type": "string",
+      "description": "Date format"
+    }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

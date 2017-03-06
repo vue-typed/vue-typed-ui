@@ -1,6 +1,7 @@
 import * as Vue from 'vue'
 import { Options } from 'vue-typed'
 import { _MessageBase } from './_base'
+import { IMessage } from '../../../../lib/interface'
 
 @Options({
 	template: `
@@ -19,21 +20,27 @@ import { _MessageBase } from './_base'
   	</div>
 	</div>
 	`  })
-export class Message extends _MessageBase {
+export class Message extends _MessageBase implements IMessage {
+
+	target(): JQuery {
+		return $(this.$el)
+	}
+
 	mounted() {
 
 		let self = this
+		let target = this.target()
 
 		if (this.icon) {
-			$(this.$el).addClass('icon')
+			target.addClass('icon')
 		}
 
 		if (this.kind && this.kind !== 'default') {
-			$(this.$el).addClass(this.kind)
+			target.addClass(this.kind)
 		}
 
 		if (this.closable) {
-			$(this.$el).find('.close.icon')
+			target.find('.close.icon')
 				.on('click', function () {
 					$(this)
 						.closest('.message')

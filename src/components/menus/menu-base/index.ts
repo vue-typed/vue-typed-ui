@@ -2,10 +2,11 @@ import * as Vue from 'vue'
 import { Component, Prop } from 'vue-typed';
 import { Util } from '../../../utils';
 import { _MenuBaseBase } from './_base';
+import { IMenuBase } from '../../../../lib/interface';
 
 
 @Component()
-export class MenuBase extends _MenuBaseBase {
+export class MenuBase extends _MenuBaseBase implements IMenuBase {
 
 	@Prop()
 	sidebar: any

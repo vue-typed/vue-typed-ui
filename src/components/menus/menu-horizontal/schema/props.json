@@ -1,11 +1,17 @@
 {
-	"base": {
-		"MenuBase": "../menu-base"
-	},
-	"props": {
-		"secondary": {
-			"type": "boolean",
-			"description": "Display as secondary menu. See: http://semantic-ui.com/collections/menu.html#secondary-menu"
-		}	
-	}
+  "base": {
+    "MenuBase": "../menu-base"
+  },
+  "props": {
+    "secondary": {
+      "type": "boolean",
+      "description": "Display as secondary menu. See: http://semantic-ui.com/collections/menu.html#secondary-menu"
+    }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

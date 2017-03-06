@@ -1,23 +1,29 @@
 {
-	"base": {
-		"Vue": "vue"
-	}, 
-	"props": {
-		"icon": {
-			"type": "string",
-			"description": "Name of icon to be displayed"
-		},
-		"to": {
-			"type": "string | Object",
-			"description": "Target URL when menu item clicked. If you are using vue-router then this attribute represents `to` attribute of `router-link` tag."
-		},
-		"preventRouter": {
-			"type": "boolean",
-			"description": "If set to `true` then `to` attribute will always represents `href` attribute of `a` tag."
-		},
-		"content": {
-			"type": "string",
-			"description": "Replace slot with this content"
-		}
-	}
+  "base": {
+    "Vue": "vue"
+  },
+  "props": {
+    "icon": {
+      "type": "string",
+      "description": "Name of icon to be displayed"
+    },
+    "to": {
+      "type": "string | Object",
+      "description": "Target URL when menu item clicked. If you are using vue-router then this attribute represents `to` attribute of `router-link` tag."
+    },
+    "preventRouter": {
+      "type": "boolean",
+      "description": "If set to `true` then `to` attribute will always represents `href` attribute of `a` tag."
+    },
+    "content": {
+      "type": "string",
+      "description": "Replace slot with this content"
+    }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

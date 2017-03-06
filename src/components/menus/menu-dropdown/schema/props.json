@@ -16,5 +16,11 @@
       "description": "Dropdown icon",
       "default": "'dropdown'"
     }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
   }
 }

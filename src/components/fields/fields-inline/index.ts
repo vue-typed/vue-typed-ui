@@ -2,9 +2,14 @@ import * as Vue from 'vue'
 import { Options, Prop } from 'vue-typed';
 import { Util } from '../../../utils';
 import { _FieldsInlineBase } from './_base';
+import { IFieldsInline } from '../../../../lib/interface';
 
 @Options()
-export class FieldsInline extends _FieldsInlineBase {
+export class FieldsInline extends _FieldsInlineBase implements IFieldsInline {
+
+	target(): JQuery {
+		return $(this.$el)
+	}
 
 	render(ch) {
 

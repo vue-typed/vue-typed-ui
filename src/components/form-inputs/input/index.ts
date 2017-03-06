@@ -1,19 +1,23 @@
 // ref: http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 
 import * as Vue from 'vue'
-import { Component, Prop, Watch } from 'vue-typed';
-import { FieldBase } from '../../fields/field-base';
-import { Util } from '../../../utils';
-import { _InputBase } from './_base';
+import { Component, Prop, Watch } from 'vue-typed'
+import { FieldBase } from '../../fields/field-base'
+import { Util } from '../../../utils'
+import { _InputBase } from './_base'
+import { IInput } from '../../../../lib/interface';
 
 @Component()
-export class Input extends _InputBase {
+export class Input extends _InputBase implements IInput {
 
 	@Watch('value')
 	valueChanged(val) {
-		$(this.$el).find('input').val(val)
+		this.target().val(val)
 	}
 
+	target() : JQuery {
+		return $(this.$el).find('input')
+	}
 
 	createComponent(ch) {
 

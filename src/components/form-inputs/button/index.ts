@@ -8,12 +8,15 @@ import { IButton } from '../../../../lib/interface'
 })
 export class Button extends _ButtonBase implements IButton {
 
-	loading(state: boolean): JQuery {
-		let element = $(this.$el)
-		if (state)
-			return element.addClass('loading')
+	target(): JQuery {
+		return $(this.$el)
+	}
 
-		return element.removeClass('loading')
+	loading(state: boolean): JQuery {
+		let target = this.target()
+		if (state)
+			return target.addClass('loading')
+		return target.removeClass('loading')
 	}
 
 
@@ -66,11 +69,12 @@ export class Button extends _ButtonBase implements IButton {
 
 	mounted() {
 		if (this.icon) {
-			var iconEl = '<i class="' + this.icon + ' icon"></i>'
+			let iconEl = '<i class="' + this.icon + ' icon"></i>'
+			let target = this.target()
 			if (this.iconPos === 'right')
-				$(this.$el).addClass('icon').append(' ').append(iconEl)
+				target.addClass('icon').append(' ').append(iconEl)
 			else
-				$(this.$el).addClass('icon').prepend(' ').prepend(iconEl)
+				target.addClass('icon').prepend(' ').prepend(iconEl)
 		}
 	}
 
@@ -79,10 +83,11 @@ export class Button extends _ButtonBase implements IButton {
 	}
 
 	setDisabled(disabled) {
+		let target = this.target()
 		if (disabled) {
-			$(this.$el).addClass('disabled')
+			target.addClass('disabled')
 		} else {
-			$(this.$el).removeClass('disabled')
+			target.removeClass('disabled')
 		}
 	}
 

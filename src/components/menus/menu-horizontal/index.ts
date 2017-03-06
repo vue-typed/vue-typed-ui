@@ -1,30 +1,14 @@
 import { _MenuHorizontalBase } from './_base';
 import { Component } from 'vue-typed';
+import { IMenuHorizontal } from '../../../../lib/interface';
 
 @Component({
 	template: '<div class="ui menu"><slot></slot></div>'
 })
-export class MenuHorizontal extends _MenuHorizontalBase {
+export class MenuHorizontal extends _MenuHorizontalBase implements IMenuHorizontal {
 
-	// render(ch) {
-
-	// 	var children = [ this.$slots['default'] ]
-
-	// 	if (this.$slots['right']) {
-	// 		var contents = []
-
-	// 		for (var vnode in this.$slots['right']) {
-	// 			contents.push(ch('div', { 'class': 'item' }, [this.$slots['right'][vnode]]))
-	// 		}
-
-	// 		var rightMenu = ch('div', {
-	// 			'class': 'right menu'
-	// 		}, this.$slots['right']['children'])
-	// 		children.push(contents)
-	// 	}
-
-	// 	return ch('div', { 'class': 'ui menu' }, children);
-
-	// }
+	target(): JQuery {
+		return $(this.$el)
+	}
 
 }

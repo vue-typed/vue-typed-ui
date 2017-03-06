@@ -1,12 +1,13 @@
 import * as Vue from 'vue'
 import { Options, Prop, Watch } from 'vue-typed';
 import { _TabItemBase } from './_base';
+import { ITabItem } from '../../../../lib/interface';
 
 
 @Options({
 	template: '<div :class="css" v-bind:data-tab="dataTab"><slot></slot></div>'
 })
-export class TabItem extends _TabItemBase {
+export class TabItem extends _TabItemBase implements ITabItem {
 
 	dataTab: string = ''
 
@@ -20,6 +21,11 @@ export class TabItem extends _TabItemBase {
 	created() {
 		this.updateStyle();
 		this.dataTab = this.$parent['createItem'](this);
+	}
+
+
+	target(): JQuery {
+		return $(this.$el)
 	}
 
 

@@ -3,10 +3,14 @@ import { Component, Prop, Watch } from 'vue-typed';
 import { Calendar } from '../calendar';
 import * as moment from 'moment'
 import { _DateBase } from './_base';
-
+import { IDate } from '../../../../../lib/interface'
 
 @Component()
-export class Date extends _DateBase {
+export class Date extends _DateBase implements IDate {
+
+	target(): JQuery {
+		return $(this.$el)
+	}
 
 	calendarOptions() {
 		return {

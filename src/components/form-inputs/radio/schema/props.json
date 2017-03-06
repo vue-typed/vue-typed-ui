@@ -1,19 +1,25 @@
 {
-	"base": {
-		"Vue" : "vue"
-	},
-	"props": {
-		"name": {
-			"type": "string",
-			"description": "Input element name"
-		},
-		"val": {
-			"type": "any",
-			"description": "Checked value"
-		},
-		"value": {
-			"type": "any",
-			"description": "v-model binding"
-		}
-	}
+  "base": {
+    "Vue": "vue"
+  },
+  "props": {
+    "name": {
+      "type": "string",
+      "description": "Input element name"
+    },
+    "val": {
+      "type": "any",
+      "description": "Checked value"
+    },
+    "value": {
+      "type": "any",
+      "description": "v-model binding"
+    }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

@@ -1,24 +1,30 @@
 {
-	"base": {
-		"Vue": "vue"
-	},
-	"props": {
-		"validator": {
-			"type": "any",
-			"description": "Fields validation object. See: http://semantic-ui.com/behaviors/form.html#specifying-validation-rules"
-		},
-		"validate-inline": {
-			"type": "boolean",
-			"description": "Show validation message inline"
-		},
-		"label-width": {
-			"type": "string",
-			"description": "Width of fields label when displayed 'inline'."
-		},
-		"keyboard-shortcuts": {
-			"type": "boolean",
-			"description": "Adds keyboard shortcut for enter key to submit form",
-			"default": "true"
-		}
-	}
+  "base": {
+    "Vue": "vue"
+  },
+  "props": {
+    "validator": {
+      "type": "any",
+      "description": "Fields validation object. See: http://semantic-ui.com/behaviors/form.html#specifying-validation-rules"
+    },
+    "validate-inline": {
+      "type": "boolean",
+      "description": "Show validation message inline"
+    },
+    "label-width": {
+      "type": "string",
+      "description": "Width of fields label when displayed 'inline'."
+    },
+    "keyboard-shortcuts": {
+      "type": "boolean",
+      "description": "Adds keyboard shortcut for enter key to submit form",
+      "default": "true"
+    }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

@@ -45,5 +45,11 @@
       "default": "true",
       "description": "Select text when receive focus"
     }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
   }
 }

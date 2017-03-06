@@ -1,11 +1,17 @@
 {
-	"base": {
-		"FieldBase" : "../../fields/field-base"
-	},
-	"props": {
-		"name": {
-			"type": "string",
-			"description": "Name of radio group"
-		}
-	}
+  "base": {
+    "FieldBase": "../../fields/field-base"
+  },
+  "props": {
+    "name": {
+      "type": "string",
+      "description": "Name of radio group"
+    }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

@@ -1,8 +1,14 @@
 {
-	"base": {
-		"MenuBase": "../menu-base"
-	},
-	"props": {
-		
-	}
+  "base": {
+    "MenuBase": "../menu-base"
+  },
+  "props": {
+
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

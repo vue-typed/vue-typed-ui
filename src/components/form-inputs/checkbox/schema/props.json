@@ -1,28 +1,35 @@
 {
-	"base": {
-		"Vue": "vue"
-	},
+  "base": {
+    "Vue": "vue"
+  },
 
-	"props": {
-		"name": {
-			"type": "string",
-			"description": "Input element name"
-		},
-		"value": {
-			"type": "any",
-			"description": "v-model binding"
-		},
-		"enabled": {
-			"type": "'true' | 'false' | boolean",
-			"description": "Enable interaction with a checkbox"
-		},
-		"kind": {
-			"type": "'default' | 'slider' | 'toggle'",
-			"description": "Checkbox style"
-		},
-		"val": {
-			"type": "any",
-			"description": "Checked value"
-		}
-	}
+  "props": {
+    "name": {
+      "type": "string",
+      "description": "Input element name"
+    },
+    "value": {
+      "type": "any",
+      "description": "v-model binding"
+    },
+    "enabled": {
+      "type": "'true' | 'false' | boolean",
+      "description": "Enable interaction with a checkbox"
+    },
+    "kind": {
+      "type": "'default' | 'slider' | 'toggle'",
+      "description": "Checkbox style"
+    },
+    "val": {
+      "type": "any",
+      "description": "Checked value"
+    }
+  },
+
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

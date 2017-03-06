@@ -3,12 +3,12 @@ import { Component, Prop } from 'vue-typed';
 import { Util } from '../../../utils';
 import { Numeric } from '../numeric';
 import { _CurrencyBase } from './_base';
+import { ICurrency } from '../../../../lib/interface';
 
 require('autonumeric')
 
-
 @Component()
-export class Currency extends _CurrencyBase {
+export class Currency extends _CurrencyBase implements ICurrency {
 
 	beforeCreate() {
 		this.$options.props['signPos'].validator = function(val) {	return val === ('left' || 'right') }		

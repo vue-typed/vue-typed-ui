@@ -1,11 +1,17 @@
 {
-	"base": {
-		"Vue": "vue"
-	},
-	"props": {
-		"value": {
-			"type": "any",
-			"description": "Dropdown item value"
-		}
-	}
+  "base": {
+    "Vue": "vue"
+  },
+  "props": {
+    "value": {
+      "type": "any",
+      "description": "Dropdown item value"
+    }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

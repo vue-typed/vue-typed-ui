@@ -22,13 +22,15 @@ import { IModal } from '../../../lib/interface'
 </div>`})
 export class Modal extends _ModalBase implements SemanticUI.Modal.Settings, IModal {
 
-	show(): JQuery { return $(this.$el).modal('show') }
+	target(): JQuery { return $(this.$el) }
 
-	hide(): JQuery { return $(this.$el).modal('hide') }
+	show(): JQuery { return this.target().modal('show') }
 
-	toggle(): JQuery { return $(this.$el).modal('toggle') }
+	hide(): JQuery { return this.target().modal('hide') }
 
-	refresh(): JQuery { return $(this.$el).modal('refresh') }
+	toggle(): JQuery { return this.target().modal('toggle') }
+
+	refresh(): JQuery { return this.target().modal('refresh') }
 
 
 	get hasActions() {
@@ -60,7 +62,9 @@ export class Modal extends _ModalBase implements SemanticUI.Modal.Settings, IMod
 			}
 		} as Function
 
-		$(this.$el).modal({
+		let target = this.target()
+
+		target.modal({
 			onDeny: emit('deny'),
 			onApprove: emit('approve'),
 			onShow: emit('show'),
@@ -73,17 +77,15 @@ export class Modal extends _ModalBase implements SemanticUI.Modal.Settings, IMod
 			autofocus: this.autofocus
 		})
 
-		if (this.attachShow) $(this.$el).modal('attach events', this.attachShow, 'show')
-		if (this.attachHide) $(this.$el).modal('attach events', this.attachHide, 'hide')
-		if (this.attachToggle) $(this.$el).modal('attach events', this.attachToggle, 'toggle')
-		if (this.attachRefresh) $(this.$el).modal('attach events', this.attachRefresh, 'refresh')
-
-
+		if (this.attachShow) target.modal('attach events', this.attachShow, 'show')
+		if (this.attachHide) target.modal('attach events', this.attachHide, 'hide')
+		if (this.attachToggle) target.modal('attach events', this.attachToggle, 'toggle')
+		if (this.attachRefresh) target.modal('attach events', this.attachRefresh, 'refresh')
 
 	}
 
 	destroyed() {
-		$(this.$el).modal('destroy')
+		this.target().modal('destroy')
 	}
 
 }

@@ -1,25 +1,31 @@
 {
-	"base": {
-		"Vue": "vue"
-	},
-	"props": {
-		"closable": {
-			"type": "boolean",
-			"description": "Add close icon choose to hide message.",
-			"default": "false"
-		},
-		"transition": {
-			"type": "string",
-			"description": "Semantic UI transition on closing message.",
-			"default": "'fade'"
-		},
-		"kind": {
-			"type": "'default' | 'compact' | 'floating'",
-			"description": "Message variations."
-		},
-		"icon": {
-			"type": "string",
-			"description": "Icon appears on the left of message contens."
-		}
-	}	
+  "base": {
+    "Vue": "vue"
+  },
+  "props": {
+    "closable": {
+      "type": "boolean",
+      "description": "Add close icon choose to hide message.",
+      "default": "false"
+    },
+    "transition": {
+      "type": "string",
+      "description": "Semantic UI transition on closing message.",
+      "default": "'fade'"
+    },
+    "kind": {
+      "type": "'default' | 'compact' | 'floating'",
+      "description": "Message variations."
+    },
+    "icon": {
+      "type": "string",
+      "description": "Icon appears on the left of message contens."
+    }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }

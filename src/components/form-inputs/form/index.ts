@@ -1,9 +1,14 @@
 import * as Vue from 'vue'
 import { Options, Prop } from 'vue-typed'
 import { _FormBase } from './_base';
+import { IForm } from '../../../../lib/interface';
 
 @Options()
-export class Form extends _FormBase {
+export class Form extends _FormBase implements IForm {
+
+	target() : JQuery {
+		return $(this.$el)
+	}
 
 	mounted() {
 

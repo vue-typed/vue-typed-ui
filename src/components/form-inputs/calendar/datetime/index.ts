@@ -4,10 +4,15 @@ import { Calendar } from '../calendar';
 import { Settings } from '../../../../../lib/settings';
 import * as moment from 'moment'
 import { _DatetimeBase } from './_base';
+import { IDatetime } from '../../../../../lib/interface'
 
 
 @Component()
-export class DateTime extends _DatetimeBase {
+export class DateTime extends _DatetimeBase implements IDatetime {
+
+	target(): JQuery {
+		return $(this.$el)
+	}
 
 	calendarOptions() {
 		return {

@@ -6,12 +6,17 @@ import { Component, Prop, Watch, Mixins } from 'vue-typed';
 import { FieldBase } from '../../fields/field-base';
 import { Util } from '../../../utils';
 import { _NumericBase } from './_base';
+import { INumeric } from '../../../../lib/interface';
 
 require('autonumeric')
 
 
 @Component()
-export class Numeric extends _NumericBase  {
+export class Numeric extends _NumericBase implements INumeric  {
+
+	target() : JQuery {
+		return $(this.$el)
+	}
 
 	@Watch('value')
 	valueChanged(val, old) {

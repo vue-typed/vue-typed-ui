@@ -18,6 +18,10 @@
     "refresh": {
       "type": "JQuery",
       "description": "Refreshes centering of modal on page"
+    },
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
     }
   },
   "props": {

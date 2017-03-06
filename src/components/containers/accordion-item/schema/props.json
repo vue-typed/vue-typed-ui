@@ -1,15 +1,21 @@
 {
-	"base": {
-		"Vue": "vue"
-	},
-	"props": {
-		"title": {
-			"type": "string",
-			"description": "Accordion title"
-		},
-		"active": {
-			"type": "boolean",
-			"description": "Set accordion to active"
-		}
-	}
+  "base": {
+    "Vue": "vue"
+  },
+  "props": {
+    "title": {
+      "type": "string",
+      "description": "Accordion title"
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Set accordion to active"
+    }
+  },
+  "methods": {
+    "target": {
+      "type": "JQuery",
+      "description": "Target element"
+    }
+  }
 }
