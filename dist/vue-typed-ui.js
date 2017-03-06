@@ -1,5 +1,5 @@
 /**
-  * vue-typed-ui 1.6.1
+  * vue-typed-ui 1.6.2
   * UI components made with Semantic UI, VueTyped and friends
   * https://github.com/vue-typed/vue-typed-ui
   
@@ -7,9 +7,9 @@
   * Released under the MIT license.
   '*/
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue'), require('toastr'), require('lodash'), require('vue-typed'), require('moment'), require('sweetalert2')) :
-	typeof define === 'function' && define.amd ? define(['exports', 'vue', 'toastr', 'lodash', 'vue-typed', 'moment', 'sweetalert2'], factory) :
-	(factory((global.VueTypedUI = global.VueTypedUI || {}),global.Vue,global.toastr,global._,global.vueTyped,global.moment,global.swal));
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue'), require('toastr'), require('lodash'), require('vue-typed'), require('moment'), require('sweetalert2')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'vue', 'toastr', 'lodash', 'vue-typed', 'moment', 'sweetalert2'], factory) :
+  (factory((global.VueTypedUI = global.VueTypedUI || {}),global.Vue,global.toastr,global._,global.vueTyped,global.moment,global.swal));
 }(this, (function (exports,Vue,toastr,_,vueTyped,moment,swal) { 'use strict';
 
 function __$styleInject(css, returnValue) {
@@ -220,6 +220,11 @@ var Form = function (_FormBase2) {
     }
 
     createClass(Form, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'mounted',
         value: function mounted() {
             var self = this;
@@ -623,8 +628,12 @@ var Input = function (_InputBase2) {
     createClass(Input, [{
         key: 'valueChanged',
         value: function valueChanged(val) {
-            if (this.$el.querySelector('input') == document.activeElement) return;
-            $(this.$el).find('input').val(val);
+            this.target().val(val);
+        }
+    }, {
+        key: 'target',
+        value: function target() {
+            return $(this.$el).find('input');
         }
     }, {
         key: 'createComponent',
@@ -828,6 +837,11 @@ var Date = function (_DateBase2) {
     }
 
     createClass(Date, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'calendarOptions',
         value: function calendarOptions() {
             return {
@@ -893,6 +907,11 @@ var Time = function (_TimeBase2) {
     }
 
     createClass(Time, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'calendarOptions',
         value: function calendarOptions() {
             return {
@@ -958,6 +977,11 @@ var DateTime = function (_DatetimeBase2) {
     }
 
     createClass(DateTime, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'calendarOptions',
         value: function calendarOptions() {
             return {
@@ -1054,6 +1078,11 @@ var Numeric = function (_NumericBase2) {
     }
 
     createClass(Numeric, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'valueChanged',
         value: function valueChanged(val, old) {
             if (this.$el.querySelector('input') == document.activeElement) return;
@@ -1205,6 +1234,11 @@ var Radio = function (_RadioBase2) {
     }
 
     createClass(Radio, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el).find('.ui.radio');
+        }
+    }, {
         key: 'mounted',
         value: function mounted() {
             var _this2 = this;
@@ -1219,7 +1253,7 @@ var Radio = function (_RadioBase2) {
                 self.$emit('input', self.val);
             });
             Vue.nextTick(function () {
-                $(_this2.$el).find('.ui.radio').checkbox();
+                _this2.target().checkbox();
             });
         }
     }]);
@@ -1256,6 +1290,11 @@ var RadioGroup = function (_RadioGroupBase2) {
     }
 
     createClass(RadioGroup, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'createComponent',
         value: function createComponent(ch) {
             this.groupName = this.name || 'radio-group-' + this['_uid'];
@@ -1305,6 +1344,11 @@ var Checkbox = function (_CheckboxBase2) {
     }
 
     createClass(Checkbox, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el).find('.ui.checkbox');
+        }
+    }, {
         key: 'valueChanged',
         value: function valueChanged(val) {
             if (this._isArray) {
@@ -1358,7 +1402,7 @@ var Checkbox = function (_CheckboxBase2) {
     }, {
         key: 'sui',
         value: function sui(arg1, arg2) {
-            return $(this.$el).find('.ui.checkbox').checkbox(arg1, arg2);
+            return this.target().checkbox(arg1, arg2);
         }
     }, {
         key: '_updateCss',
@@ -1432,6 +1476,11 @@ var Dropdown = function (_DropdownBase2) {
     }
 
     createClass(Dropdown, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el.querySelector('.ui.dropdown'));
+        }
+    }, {
         key: 'createComponent',
         value: function createComponent(ch) {
             var css = 'ui selection dropdown';
@@ -1458,14 +1507,14 @@ var Dropdown = function (_DropdownBase2) {
             var _this2 = this;
 
             var self = this;
-            var el = this.$el.querySelector('.ui.dropdown');
+            var el = this.target();
             // search ?
             if (this.search === true) {
-                $(el).addClass('search');
+                el.addClass('search');
             }
             // multiple ?
             if (this.multiple === true) {
-                $(el).addClass('multiple');
+                el.addClass('multiple');
                 this.selectedItems = [];
                 if (this.value) {
                     if (typeof this.value.length === "undefined") throw "v-model must be array for dropdown with multiple option!";
@@ -1516,7 +1565,7 @@ var Dropdown = function (_DropdownBase2) {
     }, {
         key: 'disabledChanged',
         value: function disabledChanged(val) {
-            var el = $(this.$el.querySelector('.ui.dropdown'));
+            var el = this.target();
             if (val) el.addClass('disabled');else el.removeClass('disabled');
             this.sui('refresh');
         }
@@ -1534,12 +1583,12 @@ var Dropdown = function (_DropdownBase2) {
     }, {
         key: 'sui',
         value: function sui(arg1, arg2) {
-            return $(this.$el.querySelector('.ui.dropdown')).dropdown(arg1, arg2);
+            return this.target().dropdown(arg1, arg2);
         }
     }, {
         key: 'destroyed',
         value: function destroyed() {
-            $(this.$el.querySelector('.ui.dropdown')).dropdown('destroy');
+            this.target().dropdown('destroy');
         }
     }]);
     return Dropdown;
@@ -1572,6 +1621,12 @@ var DropdownItem = function (_DropdownItemBase2) {
         return possibleConstructorReturn(this, (DropdownItem.__proto__ || Object.getPrototypeOf(DropdownItem)).apply(this, arguments));
     }
 
+    createClass(DropdownItem, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }]);
     return DropdownItem;
 }(_DropdownItemBase);
 DropdownItem = __decorate([vueTyped.Component({
@@ -1619,11 +1674,16 @@ var Button = function (_ButtonBase2) {
     }
 
     createClass(Button, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'loading',
         value: function loading(state) {
-            var element = $(this.$el);
-            if (state) return element.addClass('loading');
-            return element.removeClass('loading');
+            var target = this.target();
+            if (state) return target.addClass('loading');
+            return target.removeClass('loading');
         }
     }, {
         key: 'render',
@@ -1671,7 +1731,8 @@ var Button = function (_ButtonBase2) {
         value: function mounted() {
             if (this.icon) {
                 var iconEl = '<i class="' + this.icon + ' icon"></i>';
-                if (this.iconPos === 'right') $(this.$el).addClass('icon').append(' ').append(iconEl);else $(this.$el).addClass('icon').prepend(' ').prepend(iconEl);
+                var target = this.target();
+                if (this.iconPos === 'right') target.addClass('icon').append(' ').append(iconEl);else target.addClass('icon').prepend(' ').prepend(iconEl);
             }
         }
     }, {
@@ -1682,10 +1743,11 @@ var Button = function (_ButtonBase2) {
     }, {
         key: 'setDisabled',
         value: function setDisabled(disabled) {
+            var target = this.target();
             if (disabled) {
-                $(this.$el).addClass('disabled');
+                target.addClass('disabled');
             } else {
-                $(this.$el).removeClass('disabled');
+                target.removeClass('disabled');
             }
         }
     }, {
@@ -1722,6 +1784,11 @@ var Field = function (_FieldBase2) {
     }
 
     createClass(Field, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'createComponent',
         value: function createComponent(ch) {
             return null;
@@ -1761,6 +1828,11 @@ var FieldsInline = function (_FieldsInlineBase2) {
     }
 
     createClass(FieldsInline, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'render',
         value: function render(ch) {
             var contents = [];
@@ -1808,6 +1880,11 @@ var FieldsGroup = function (_FieldsGroupBase2) {
     }
 
     createClass(FieldsGroup, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'render',
         value: function render(ch) {
             var contents = [];
@@ -1849,6 +1926,8 @@ var Tab = function (_TabBase2) {
 
         var _this = possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).apply(this, arguments));
 
+        _this.activeTab = undefined;
+        _this.css = '';
         _this.items = [];
         _this.firstTab = undefined;
         return _this;
@@ -1864,6 +1943,11 @@ var Tab = function (_TabBase2) {
         value: function created() {
             this.items = [];
             this.updateStyle();
+        }
+    }, {
+        key: 'target',
+        value: function target() {
+            return $(this.$el).find('.menu .item');
         }
     }, {
         key: 'mounted',
@@ -1933,7 +2017,7 @@ var Tab = function (_TabBase2) {
     }, {
         key: 'destroyed',
         value: function destroyed() {
-            $(this.$el).find('.menu .item').tab('destroy');
+            this.target().tab('destroy');
         }
     }]);
     return Tab;
@@ -1975,6 +2059,7 @@ var TabItem = function (_TabItemBase2) {
 
         var _this = possibleConstructorReturn(this, (TabItem.__proto__ || Object.getPrototypeOf(TabItem)).apply(this, arguments));
 
+        _this.dataTab = '';
         _this.css = "ui tab segment";
         return _this;
     }
@@ -1989,6 +2074,11 @@ var TabItem = function (_TabItemBase2) {
         value: function created() {
             this.updateStyle();
             this.dataTab = this.$parent['createItem'](this);
+        }
+    }, {
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
         }
     }, {
         key: 'updateStyle',
@@ -2034,6 +2124,12 @@ var Pusher = function (_PusherBase2) {
         return possibleConstructorReturn(this, (Pusher.__proto__ || Object.getPrototypeOf(Pusher)).apply(this, arguments));
     }
 
+    createClass(Pusher, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }]);
     return Pusher;
 }(_PusherBase);
 Pusher = __decorate([vueTyped.Options({
@@ -2062,6 +2158,12 @@ var Segment = function (_SegmentBase2) {
         return possibleConstructorReturn(this, (Segment.__proto__ || Object.getPrototypeOf(Segment)).apply(this, arguments));
     }
 
+    createClass(Segment, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }]);
     return Segment;
 }(_SegmentBase);
 Segment = __decorate([vueTyped.Options({
@@ -2116,10 +2218,15 @@ var Accordion = function (_AccordionBase2) {
     }
 
     createClass(Accordion, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'mounted',
         value: function mounted() {
             var self = this;
-            $(this.$el).accordion({
+            this.target().accordion({
                 exclusive: this.exclusive,
                 on: this.on,
                 animateChildren: this.animateChildren,
@@ -2172,23 +2279,28 @@ __decorate([vueTyped.Prop({
 })], _AccordionItemBase.prototype, "active", void 0);
 
 var AccordionItem = function (_AccordionItemBase2) {
-				inherits(AccordionItem, _AccordionItemBase2);
+    inherits(AccordionItem, _AccordionItemBase2);
 
-				function AccordionItem() {
-								classCallCheck(this, AccordionItem);
-								return possibleConstructorReturn(this, (AccordionItem.__proto__ || Object.getPrototypeOf(AccordionItem)).apply(this, arguments));
-				}
+    function AccordionItem() {
+        classCallCheck(this, AccordionItem);
+        return possibleConstructorReturn(this, (AccordionItem.__proto__ || Object.getPrototypeOf(AccordionItem)).apply(this, arguments));
+    }
 
-				createClass(AccordionItem, [{
-								key: 'activeCss',
-								get: function get() {
-												return this.active ? 'active ' : '';
-								}
-				}]);
-				return AccordionItem;
+    createClass(AccordionItem, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
+        key: 'activeCss',
+        get: function get() {
+            return this.active ? 'active ' : '';
+        }
+    }]);
+    return AccordionItem;
 }(_AccordionItemBase);
 AccordionItem = __decorate([vueTyped.Options({
-				template: '<div>\n\t\t<div :class="activeCss + \'title\'">\n\t\t\t<i class="dropdown icon"></i> {{title}}\n\t\t</div>\n\t\t<div :class="activeCss + \'content\'">\n\t\t\t<slot></slot>\n\t\t</div>\n\t</div>'
+    template: '<div>\n\t\t<div :class="activeCss + \'title\'">\n\t\t\t<i class="dropdown icon"></i> {{title}}\n\t\t</div>\n\t\t<div :class="activeCss + \'content\'">\n\t\t\t<slot></slot>\n\t\t</div>\n\t</div>'
 })], AccordionItem);
 
 /**
@@ -2264,6 +2376,12 @@ var MenuVertical = function (_MenuVerticalBase2) {
         return possibleConstructorReturn(this, (MenuVertical.__proto__ || Object.getPrototypeOf(MenuVertical)).apply(this, arguments));
     }
 
+    createClass(MenuVertical, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }]);
     return MenuVertical;
 }(_MenuVerticalBase);
 MenuVertical = __decorate([vueTyped.Component({
@@ -2296,6 +2414,12 @@ var MenuHorizontal = function (_MenuHorizontalBase2) {
         return possibleConstructorReturn(this, (MenuHorizontal.__proto__ || Object.getPrototypeOf(MenuHorizontal)).apply(this, arguments));
     }
 
+    createClass(MenuHorizontal, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }]);
     return MenuHorizontal;
 }(_MenuHorizontalBase);
 MenuHorizontal = __decorate([vueTyped.Component({
@@ -2336,6 +2460,11 @@ var MenuItem = function (_MenuItemBase2) {
     }
 
     createClass(MenuItem, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'render',
         value: function render(createElement) {
             var _this2 = this;
@@ -2412,6 +2541,11 @@ var MenuDropdown = function (_MenuDropdownBase2) {
     }
 
     createClass(MenuDropdown, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'mounted',
         value: function mounted() {
             var opt = {};
@@ -2461,6 +2595,11 @@ var HeaderBase = function (_HeaderBase2) {
             return ch(tag, {
                 'class': css + ' header'
             }, this.$slots['default']);
+        }
+    }, {
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
         }
     }]);
     return HeaderBase;
@@ -2622,17 +2761,23 @@ var Message = function (_MessageBase2) {
     }
 
     createClass(Message, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'mounted',
         value: function mounted() {
             var self = this;
+            var target = this.target();
             if (this.icon) {
-                $(this.$el).addClass('icon');
+                target.addClass('icon');
             }
             if (this.kind && this.kind !== 'default') {
-                $(this.$el).addClass(this.kind);
+                target.addClass(this.kind);
             }
             if (this.closable) {
-                $(this.$el).find('.close.icon').on('click', function () {
+                target.find('.close.icon').on('click', function () {
                     $(this).closest('.message').transition(self.transition);
                 });
             }
@@ -2695,24 +2840,29 @@ var Modal = function (_ModalBase2) {
     }
 
     createClass(Modal, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'show',
         value: function show() {
-            return $(this.$el).modal('show');
+            return this.target().modal('show');
         }
     }, {
         key: 'hide',
         value: function hide() {
-            return $(this.$el).modal('hide');
+            return this.target().modal('hide');
         }
     }, {
         key: 'toggle',
         value: function toggle() {
-            return $(this.$el).modal('toggle');
+            return this.target().modal('toggle');
         }
     }, {
         key: 'refresh',
         value: function refresh() {
-            return $(this.$el).modal('refresh');
+            return this.target().modal('refresh');
         }
     }, {
         key: 'mounted',
@@ -2725,7 +2875,8 @@ var Modal = function (_ModalBase2) {
                     return e.result;
                 };
             };
-            $(this.$el).modal({
+            var target = this.target();
+            target.modal({
                 onDeny: emit('deny'),
                 onApprove: emit('approve'),
                 onShow: emit('show'),
@@ -2737,15 +2888,15 @@ var Modal = function (_ModalBase2) {
                 allowMultiple: this.allowMultiple,
                 autofocus: this.autofocus
             });
-            if (this.attachShow) $(this.$el).modal('attach events', this.attachShow, 'show');
-            if (this.attachHide) $(this.$el).modal('attach events', this.attachHide, 'hide');
-            if (this.attachToggle) $(this.$el).modal('attach events', this.attachToggle, 'toggle');
-            if (this.attachRefresh) $(this.$el).modal('attach events', this.attachRefresh, 'refresh');
+            if (this.attachShow) target.modal('attach events', this.attachShow, 'show');
+            if (this.attachHide) target.modal('attach events', this.attachHide, 'hide');
+            if (this.attachToggle) target.modal('attach events', this.attachToggle, 'toggle');
+            if (this.attachRefresh) target.modal('attach events', this.attachRefresh, 'refresh');
         }
     }, {
         key: 'destroyed',
         value: function destroyed() {
-            $(this.$el).modal('destroy');
+            this.target().modal('destroy');
         }
     }, {
         key: 'hasActions',
@@ -2938,6 +3089,11 @@ var Tree = function (_TreeBase2) {
     }
 
     createClass(Tree, [{
+        key: 'target',
+        value: function target() {
+            return $(this.$el);
+        }
+    }, {
         key: 'render',
         value: function render(ch) {
             var self = this;
@@ -3159,7 +3315,12 @@ var hyphenate = function hyphenate(str) {
 };
 function register_all_components(vue, prefix) {
     for (var k in components) {
-        vue.component(prefix + '-' + hyphenate(k), components[k]);
+        var opt = components[k];
+        if (typeof opt === 'function') opt = opt.options;
+        // clear components so it will have new names
+        delete opt.components;
+        opt.name = prefix + '-' + hyphenate(k);
+        vue.component(opt.name, vue.extend(opt));
     }
 }
 function register_all_methods(vue, instance) {
