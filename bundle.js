@@ -42005,6 +42005,9 @@ const utils_1 = __webpack_require__(4);
 const _base_1 = __webpack_require__(259);
 __webpack_require__(13);
 let Numeric = class Numeric extends _base_1._NumericBase {
+    target() {
+        return $(this.$el);
+    }
     valueChanged(val, old) {
         if (this.$el.querySelector('input') == document.activeElement)
             return;
@@ -42487,7 +42490,12 @@ module.exports = {
 				"description": "Event on title that will cause accordion to open"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/accordion-item": {
 		"dir": "src/components/containers/accordion-item",
@@ -42508,7 +42516,12 @@ module.exports = {
 				"description": "Accordion title"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/button": {
 		"dir": "src/components/form-inputs/button",
@@ -42557,12 +42570,17 @@ module.exports = {
 		"methods": {
 			"loading": {
 				"description": "Set loading state of the button.",
+				"type": "JQuery",
 				"params": {
 					"state": {
 						"type": "boolean",
 						"description": "State of loading (true | false)"
 					}
 				}
+			},
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
 			}
 		}
 	},
@@ -42652,7 +42670,12 @@ module.exports = {
 				"description": "v-model binding"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/currency": {
 		"dir": "src/components/form-inputs/currency",
@@ -42790,7 +42813,12 @@ module.exports = {
 				"description": "Size of field"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/datetime": {
 		"dir": "src/components/form-inputs/calendar/datetime",
@@ -42848,7 +42876,12 @@ module.exports = {
 				"description": "Size of field"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/dropdown": {
 		"dir": "src/components/form-inputs/dropdown",
@@ -42902,7 +42935,12 @@ module.exports = {
 				"description": "Size of field"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/dropdown-item": {
 		"dir": "src/components/form-inputs/dropdown-item",
@@ -42919,7 +42957,12 @@ module.exports = {
 				"description": "Dropdown item value"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/field": {
 		"dir": "src/components/fields/field",
@@ -42949,7 +42992,12 @@ module.exports = {
 				"description": "Size of field"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/field-base": {
 		"dir": "src/components/fields/field-base",
@@ -43001,7 +43049,12 @@ module.exports = {
 				"description": "Size of field"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/fields-inline": {
 		"dir": "src/components/fields/fields-inline",
@@ -43022,7 +43075,12 @@ module.exports = {
 				"description": "Size of field"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/form": {
 		"dir": "src/components/form-inputs/form",
@@ -43052,7 +43110,12 @@ module.exports = {
 				"description": "Fields validation object. See: http://semantic-ui.com/behaviors/form.html#specifying-validation-rules"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/header": {
 		"dir": "src/components/etc/header",
@@ -43065,7 +43128,12 @@ module.exports = {
 		"type": "component",
 		"readme": false,
 		"props": {},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/input": {
 		"dir": "src/components/form-inputs/input",
@@ -43129,7 +43197,12 @@ module.exports = {
 				"description": "Size of field"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/menu-base": {
 		"dir": "src/components/menus/menu-base",
@@ -43177,7 +43250,12 @@ module.exports = {
 				"description": "Dropdown title/label."
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/menu-horizontal": {
 		"dir": "src/components/menus/menu-horizontal",
@@ -43202,7 +43280,12 @@ module.exports = {
 				"description": "JQuery object or selector to be attached as sidebar toggle"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/menu-item": {
 		"dir": "src/components/menus/menu-item",
@@ -43231,7 +43314,12 @@ module.exports = {
 				"description": "Target URL when menu item clicked. If you are using vue-router then this attribute represents `to` attribute of `router-link` tag."
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/menu-vertical": {
 		"dir": "src/components/menus/menu-vertical",
@@ -43252,7 +43340,12 @@ module.exports = {
 				"description": "JQuery object or selector to be attached as sidebar toggle"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/message": {
 		"dir": "src/components/etc/message",
@@ -43283,7 +43376,12 @@ module.exports = {
 				"default": "'fade'"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/modal": {
 		"dir": "src/components/modal",
@@ -43360,15 +43458,23 @@ module.exports = {
 		},
 		"methods": {
 			"hide": {
+				"type": "JQuery",
 				"description": "Hides the modal"
 			},
 			"refresh": {
+				"type": "JQuery",
 				"description": "Refreshes centering of modal on page"
 			},
 			"show": {
+				"type": "JQuery",
 				"description": "Shows the modal"
 			},
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			},
 			"toggle": {
+				"type": "JQuery",
 				"description": "Toggles the modal"
 			}
 		}
@@ -43443,7 +43549,12 @@ module.exports = {
 				"description": "Size of field"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/pusher": {
 		"dir": "src/components/containers/pusher",
@@ -43455,7 +43566,12 @@ module.exports = {
 		"type": "component",
 		"readme": false,
 		"props": {},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/radio": {
 		"dir": "src/components/form-inputs/radio",
@@ -43480,7 +43596,12 @@ module.exports = {
 				"description": "v-model binding"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/radio-group": {
 		"dir": "src/components/form-inputs/radio-group",
@@ -43514,7 +43635,12 @@ module.exports = {
 				"description": "Size of field"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/segment": {
 		"dir": "src/components/containers/segment",
@@ -43526,7 +43652,12 @@ module.exports = {
 		"type": "component",
 		"readme": false,
 		"props": {},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/tab": {
 		"dir": "src/components/containers/tab",
@@ -43552,6 +43683,10 @@ module.exports = {
 						"type": "string"
 					}
 				}
+			},
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
 			}
 		}
 	},
@@ -43578,7 +43713,12 @@ module.exports = {
 				"description": "Name of path"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/time": {
 		"dir": "src/components/form-inputs/calendar/time",
@@ -43636,7 +43776,12 @@ module.exports = {
 				"description": "Size of field"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"component/tree": {
 		"dir": "src/components/etc/tree",
@@ -43679,7 +43824,12 @@ module.exports = {
 				"default": "'ul'"
 			}
 		},
-		"methods": {}
+		"methods": {
+			"target": {
+				"type": "JQuery",
+				"description": "Target element"
+			}
+		}
 	},
 	"decorator/form": {
 		"dir": "src/decorators/form",
@@ -47089,6 +47239,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const _base_1 = __webpack_require__(213);
 const vue_typed_1 = __webpack_require__(0);
 let AccordionItem = class AccordionItem extends _base_1._AccordionItemBase {
+    target() {
+        return $(this.$el);
+    }
     get activeCss() {
         return this.active ? 'active ' : '';
     }
@@ -47182,9 +47335,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const _base_1 = __webpack_require__(215);
 const vue_typed_1 = __webpack_require__(0);
 let Accordion = class Accordion extends _base_1._AccordionBase {
+    target() {
+        return $(this.$el);
+    }
     mounted() {
         let self = this;
-        $(this.$el).accordion({
+        this.target().accordion({
             exclusive: this.exclusive,
             on: this.on,
             animateChildren: this.animateChildren,
@@ -47249,6 +47405,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const _base_1 = __webpack_require__(217);
 const vue_typed_1 = __webpack_require__(0);
 let Pusher = class Pusher extends _base_1._PusherBase {
+    target() {
+        return $(this.$el);
+    }
 };
 Pusher = __decorate([
     vue_typed_1.Options({
@@ -47290,6 +47449,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const _base_1 = __webpack_require__(219);
 const vue_typed_1 = __webpack_require__(0);
 let Segment = class Segment extends _base_1._SegmentBase {
+    target() {
+        return $(this.$el);
+    }
 };
 Segment = __decorate([
     vue_typed_1.Options({
@@ -47354,6 +47516,7 @@ const _base_1 = __webpack_require__(221);
 let TabItem = class TabItem extends _base_1._TabItemBase {
     constructor() {
         super(...arguments);
+        this.dataTab = '';
         this.css = "ui tab segment";
     }
     onKindChanged(style) {
@@ -47362,6 +47525,9 @@ let TabItem = class TabItem extends _base_1._TabItemBase {
     created() {
         this.updateStyle();
         this.dataTab = this.$parent['createItem'](this);
+    }
+    target() {
+        return $(this.$el);
     }
     updateStyle(style) {
         style = style || this.$parent['kind'];
@@ -47431,6 +47597,8 @@ const _base_1 = __webpack_require__(223);
 let Tab = class Tab extends _base_1._TabBase {
     constructor() {
         super(...arguments);
+        this.activeTab = undefined;
+        this.css = '';
         this.items = [];
         this.firstTab = undefined;
     }
@@ -47440,6 +47608,9 @@ let Tab = class Tab extends _base_1._TabBase {
     created() {
         this.items = [];
         this.updateStyle();
+    }
+    target() {
+        return $(this.$el).find('.menu .item');
     }
     mounted() {
         Vue.nextTick(() => {
@@ -47491,7 +47662,7 @@ let Tab = class Tab extends _base_1._TabBase {
         }
     }
     destroyed() {
-        $(this.$el).find('.menu .item').tab('destroy');
+        this.target().tab('destroy');
     }
 };
 __decorate([
@@ -47549,6 +47720,9 @@ class HeaderBase extends _base_1._HeaderBase {
         return ch(tag, {
             'class': css + ' header'
         }, this.$slots['default']);
+    }
+    target() {
+        return $(this.$el);
     }
 }
 let Header = class Header extends HeaderBase {
@@ -47674,16 +47848,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const _base_1 = __webpack_require__(227);
 let Message = class Message extends _base_1._MessageBase {
+    target() {
+        return $(this.$el);
+    }
     mounted() {
         let self = this;
+        let target = this.target();
         if (this.icon) {
-            $(this.$el).addClass('icon');
+            target.addClass('icon');
         }
         if (this.kind && this.kind !== 'default') {
-            $(this.$el).addClass(this.kind);
+            target.addClass(this.kind);
         }
         if (this.closable) {
-            $(this.$el).find('.close.icon')
+            target.find('.close.icon')
                 .on('click', function () {
                 $(this)
                     .closest('.message')
@@ -47790,6 +47968,9 @@ const vue_typed_1 = __webpack_require__(0);
 const index_1 = __webpack_require__(18);
 const _base_1 = __webpack_require__(229);
 let Tree = class Tree extends _base_1._TreeBase {
+    target() {
+        return $(this.$el);
+    }
     render(ch) {
         let self = this;
         let content_prop = this.content;
@@ -47924,6 +48105,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const _base_1 = __webpack_require__(232);
 let Field = class Field extends _base_1._FieldBase {
+    target() {
+        return $(this.$el);
+    }
     createComponent(ch) {
         return null;
     }
@@ -47983,6 +48167,9 @@ const vue_typed_1 = __webpack_require__(0);
 const utils_1 = __webpack_require__(4);
 const _base_1 = __webpack_require__(234);
 let FieldsGroup = class FieldsGroup extends _base_1._FieldsGroupBase {
+    target() {
+        return $(this.$el);
+    }
     render(ch) {
         var contents = [];
         // require label?
@@ -48050,6 +48237,9 @@ const vue_typed_1 = __webpack_require__(0);
 const utils_1 = __webpack_require__(4);
 const _base_1 = __webpack_require__(236);
 let FieldsInline = class FieldsInline extends _base_1._FieldsInlineBase {
+    target() {
+        return $(this.$el);
+    }
     render(ch) {
         var contents = [];
         // require label?
@@ -48139,11 +48329,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const _base_1 = __webpack_require__(238);
 let Button = class Button extends _base_1._ButtonBase {
+    target() {
+        return $(this.$el);
+    }
     loading(state) {
-        let element = $(this.$el);
+        let target = this.target();
         if (state)
-            return element.addClass('loading');
-        return element.removeClass('loading');
+            return target.addClass('loading');
+        return target.removeClass('loading');
     }
     render(ch) {
         var css = 'ui button';
@@ -48188,22 +48381,24 @@ let Button = class Button extends _base_1._ButtonBase {
     }
     mounted() {
         if (this.icon) {
-            var iconEl = '<i class="' + this.icon + ' icon"></i>';
+            let iconEl = '<i class="' + this.icon + ' icon"></i>';
+            let target = this.target();
             if (this.iconPos === 'right')
-                $(this.$el).addClass('icon').append(' ').append(iconEl);
+                target.addClass('icon').append(' ').append(iconEl);
             else
-                $(this.$el).addClass('icon').prepend(' ').prepend(iconEl);
+                target.addClass('icon').prepend(' ').prepend(iconEl);
         }
     }
     click(e) {
         this.$emit('click', e);
     }
     setDisabled(disabled) {
+        let target = this.target();
         if (disabled) {
-            $(this.$el).addClass('disabled');
+            target.addClass('disabled');
         }
         else {
-            $(this.$el).removeClass('disabled');
+            target.removeClass('disabled');
         }
     }
     onDisabledChanged(v) {
@@ -48311,6 +48506,9 @@ const vue_typed_1 = __webpack_require__(0);
 const moment = __webpack_require__(5);
 const _base_1 = __webpack_require__(241);
 let Date = class Date extends _base_1._DateBase {
+    target() {
+        return $(this.$el);
+    }
     calendarOptions() {
         return {
             type: 'date',
@@ -48393,6 +48591,9 @@ const vue_typed_1 = __webpack_require__(0);
 const moment = __webpack_require__(5);
 const _base_1 = __webpack_require__(243);
 let DateTime = class DateTime extends _base_1._DatetimeBase {
+    target() {
+        return $(this.$el);
+    }
     calendarOptions() {
         return {
             type: 'datetime',
@@ -48477,6 +48678,9 @@ const vue_typed_1 = __webpack_require__(0);
 const moment = __webpack_require__(5);
 const _base_1 = __webpack_require__(245);
 let Time = class Time extends _base_1._TimeBase {
+    target() {
+        return $(this.$el);
+    }
     calendarOptions() {
         return {
             type: 'time',
@@ -48577,6 +48781,9 @@ let Checkbox = class Checkbox extends _base_1._CheckboxBase {
         this.checked = false;
         this._isArray = false;
     }
+    target() {
+        return $(this.$el).find('.ui.checkbox');
+    }
     get checkedValue() {
         return this.val || true;
     }
@@ -48631,7 +48838,7 @@ let Checkbox = class Checkbox extends _base_1._CheckboxBase {
         });
     }
     sui(arg1, arg2) {
-        return $(this.$el).find('.ui.checkbox').checkbox(arg1, arg2);
+        return this.target().checkbox(arg1, arg2);
     }
     _updateCss() {
         this.css = "ui checkbox";
@@ -48769,6 +48976,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const _base_1 = __webpack_require__(251);
 let DropdownItem = class DropdownItem extends _base_1._DropdownItemBase {
+    target() {
+        return $(this.$el);
+    }
 };
 DropdownItem = __decorate([
     vue_typed_1.Component({
@@ -48849,6 +49059,10 @@ let Dropdown = class Dropdown extends _base_1._DropdownBase {
     constructor() {
         super(...arguments);
         this.selectedItems = undefined;
+        this._htmlItems = '';
+    }
+    target() {
+        return $(this.$el.querySelector('.ui.dropdown'));
     }
     createComponent(ch) {
         let css = 'ui selection dropdown';
@@ -48858,19 +49072,29 @@ let Dropdown = class Dropdown extends _base_1._DropdownBase {
             ch('input', { attrs: { type: 'hidden', name: this.name } }),
             ch('i', { 'class': 'dropdown icon' }),
             ch('div', { 'class': 'default text' }, this.placeholder),
-            ch('div', { 'class': 'menu' }, this.$slots['default'])
+            ch('div', { 'class': 'menu', 'ref': 'menu' }, this.$slots['default'])
         ]);
+    }
+    beforeUpdate() {
+        // store dropdown items state
+        this._htmlItems = this.$refs['menu'].innerHTML;
+    }
+    updated() {
+        // refresh dropdown when items has been changed
+        if (this._htmlItems !== this.$refs['menu'].innerHTML) {
+            this.sui('refresh');
+        }
     }
     mounted() {
         var self = this;
-        var el = this.$el.querySelector('.ui.dropdown');
+        var el = this.target();
         // search ?
         if (this.search === true) {
-            $(el).addClass('search');
+            el.addClass('search');
         }
         // multiple ?
         if (this.multiple === true) {
-            $(el).addClass('multiple');
+            el.addClass('multiple');
             this.selectedItems = [];
             if (this.value) {
                 if (typeof this.value.length === "undefined")
@@ -48921,7 +49145,7 @@ let Dropdown = class Dropdown extends _base_1._DropdownBase {
         this.valueChanged(this.value);
     }
     disabledChanged(val) {
-        let el = $(this.$el.querySelector('.ui.dropdown'));
+        let el = this.target();
         if (val)
             el.addClass('disabled');
         else
@@ -48941,10 +49165,10 @@ let Dropdown = class Dropdown extends _base_1._DropdownBase {
         }
     }
     sui(arg1, arg2) {
-        return $(this.$el.querySelector('.ui.dropdown')).dropdown(arg1, arg2);
+        return this.target().dropdown(arg1, arg2);
     }
     destroyed() {
-        $(this.$el.querySelector('.ui.dropdown')).dropdown('destroy');
+        this.target().dropdown('destroy');
     }
 };
 __decorate([
@@ -49016,6 +49240,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const _base_1 = __webpack_require__(255);
 let Form = class Form extends _base_1._FormBase {
+    target() {
+        return $(this.$el);
+    }
     mounted() {
         var self = this;
         var opt = {
@@ -49146,9 +49373,10 @@ const utils_1 = __webpack_require__(4);
 const _base_1 = __webpack_require__(257);
 let Input = class Input extends _base_1._InputBase {
     valueChanged(val) {
-        if (this.$el.querySelector('input') == document.activeElement)
-            return;
-        $(this.$el).find('input').val(val);
+        this.target().val(val);
+    }
+    target() {
+        return $(this.$el).find('input');
     }
     createComponent(ch) {
         let attrs = {
@@ -49326,6 +49554,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const _base_1 = __webpack_require__(260);
 let RadioGroup = class RadioGroup extends _base_1._RadioGroupBase {
+    target() {
+        return $(this.$el);
+    }
     createComponent(ch) {
         this.groupName = this.name || 'radio-group-' + this['_uid'];
         return null;
@@ -49394,6 +49625,9 @@ const Vue = __webpack_require__(3);
 const vue_typed_1 = __webpack_require__(0);
 const _base_1 = __webpack_require__(262);
 let Radio = class Radio extends _base_1._RadioBase {
+    target() {
+        return $(this.$el).find('.ui.radio');
+    }
     mounted() {
         var p = this.$parent;
         var name = this.name;
@@ -49407,7 +49641,7 @@ let Radio = class Radio extends _base_1._RadioBase {
             self.$emit('input', self.val);
         });
         Vue.nextTick(() => {
-            $(this.$el).find('.ui.radio').checkbox();
+            this.target().checkbox();
         });
     }
 };
@@ -49550,6 +49784,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const _base_1 = __webpack_require__(266);
 let MenuDropdown = class MenuDropdown extends _base_1._MenuDropdownBase {
+    target() {
+        return $(this.$el);
+    }
     mounted() {
         var opt = {};
         if (this.hover) {
@@ -49619,6 +49856,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const _base_1 = __webpack_require__(268);
 const vue_typed_1 = __webpack_require__(0);
 let MenuHorizontal = class MenuHorizontal extends _base_1._MenuHorizontalBase {
+    target() {
+        return $(this.$el);
+    }
 };
 MenuHorizontal = __decorate([
     vue_typed_1.Component({
@@ -49684,6 +49924,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const _base_1 = __webpack_require__(270);
 let MenuItem = class MenuItem extends _base_1._MenuItemBase {
+    target() {
+        return $(this.$el);
+    }
     render(createElement) {
         var contents = [];
         if (this.icon) {
@@ -49758,6 +50001,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const _base_1 = __webpack_require__(272);
 const vue_typed_1 = __webpack_require__(0);
 let MenuVertical = class MenuVertical extends _base_1._MenuVerticalBase {
+    target() {
+        return $(this.$el);
+    }
 };
 MenuVertical = __decorate([
     vue_typed_1.Component({
@@ -49850,10 +50096,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const _base_1 = __webpack_require__(274);
 let Modal = class Modal extends _base_1._ModalBase {
-    show() { return $(this.$el).modal('show'); }
-    hide() { return $(this.$el).modal('hide'); }
-    toggle() { return $(this.$el).modal('toggle'); }
-    refresh() { return $(this.$el).modal('refresh'); }
+    target() { return $(this.$el); }
+    show() { return this.target().modal('show'); }
+    hide() { return this.target().modal('hide'); }
+    toggle() { return this.target().modal('toggle'); }
+    refresh() { return this.target().modal('refresh'); }
     get hasActions() {
         return this.$slots['actions'] != undefined;
     }
@@ -49876,7 +50123,8 @@ let Modal = class Modal extends _base_1._ModalBase {
                 return e.result;
             };
         };
-        $(this.$el).modal({
+        let target = this.target();
+        target.modal({
             onDeny: emit('deny'),
             onApprove: emit('approve'),
             onShow: emit('show'),
@@ -49889,16 +50137,16 @@ let Modal = class Modal extends _base_1._ModalBase {
             autofocus: this.autofocus
         });
         if (this.attachShow)
-            $(this.$el).modal('attach events', this.attachShow, 'show');
+            target.modal('attach events', this.attachShow, 'show');
         if (this.attachHide)
-            $(this.$el).modal('attach events', this.attachHide, 'hide');
+            target.modal('attach events', this.attachHide, 'hide');
         if (this.attachToggle)
-            $(this.$el).modal('attach events', this.attachToggle, 'toggle');
+            target.modal('attach events', this.attachToggle, 'toggle');
         if (this.attachRefresh)
-            $(this.$el).modal('attach events', this.attachRefresh, 'refresh');
+            target.modal('attach events', this.attachRefresh, 'refresh');
     }
     destroyed() {
-        $(this.$el).modal('destroy');
+        this.target().modal('destroy');
     }
 };
 Modal = __decorate([
@@ -50280,7 +50528,13 @@ const hyphenate = ((str) => {
 });
 function register_all_components(vue, prefix) {
     for (var k in components) {
-        vue.component(prefix + '-' + hyphenate(k), components[k]);
+        let opt = components[k];
+        if (typeof opt === 'function')
+            opt = opt.options;
+        // clear components so it will have new names
+        delete opt.components;
+        opt.name = prefix + '-' + hyphenate(k);
+        vue.component(opt.name, vue.extend(opt));
     }
 }
 exports.register_all_components = register_all_components;
