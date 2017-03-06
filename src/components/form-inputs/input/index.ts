@@ -11,9 +11,6 @@ export class Input extends _InputBase {
 
 	@Watch('value')
 	valueChanged(val) {
-		if (this.$el.querySelector('input') == document.activeElement)
-			return
-
 		$(this.$el).find('input').val(val)
 	}
 
