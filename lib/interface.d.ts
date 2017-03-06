@@ -1,3 +1,5 @@
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IAccordion {
 
     /**
@@ -36,6 +38,8 @@ export interface IAccordion {
     target(): JQuery
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IAccordionItem {
 
     /**
@@ -53,6 +57,8 @@ export interface IAccordionItem {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface IButton {
 
@@ -107,6 +113,8 @@ export interface IButton {
     target(): JQuery
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface ICalendar {
 
     /**
@@ -160,6 +168,8 @@ export interface ICalendar {
     wide: number
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface ICheckbox {
 
     /**
@@ -192,6 +202,8 @@ export interface ICheckbox {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface ICurrency {
 
@@ -276,6 +288,8 @@ export interface ICurrency {
     wide: number
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IDate {
 
     /**
@@ -338,6 +352,8 @@ export interface IDate {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface IDatetime {
 
@@ -402,6 +418,8 @@ export interface IDatetime {
     target(): JQuery
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IDropdown {
 
     /**
@@ -460,6 +478,8 @@ export interface IDropdown {
     target(): JQuery
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IDropdownItem {
 
     /**
@@ -472,6 +492,8 @@ export interface IDropdownItem {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface IField {
 
@@ -501,6 +523,8 @@ export interface IField {
     target(): JQuery
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IFieldBase {
 
     /**
@@ -524,6 +548,8 @@ export interface IFieldBase {
     wide: number
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IFieldsGroup {
 
     /**
@@ -542,6 +568,8 @@ export interface IFieldsGroup {
     target(): JQuery
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IFieldsInline {
 
     /**
@@ -559,6 +587,8 @@ export interface IFieldsInline {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface IForm {
 
@@ -588,6 +618,8 @@ export interface IForm {
     target(): JQuery
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IHeader {
 
     /**
@@ -595,6 +627,8 @@ export interface IHeader {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface IInput {
 
@@ -664,6 +698,8 @@ export interface IInput {
     target(): JQuery
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IMenuBase {
 
     /**
@@ -676,6 +712,8 @@ export interface IMenuBase {
      */
     sidebarToggle: HTMLElement | JQuery | string
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface IMenuDropdown {
 
@@ -700,6 +738,8 @@ export interface IMenuDropdown {
     target(): JQuery
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IMenuHorizontal {
 
     /**
@@ -722,6 +762,8 @@ export interface IMenuHorizontal {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface IMenuItem {
 
@@ -751,6 +793,8 @@ export interface IMenuItem {
     target(): JQuery
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IMenuVertical {
 
     /**
@@ -768,6 +812,8 @@ export interface IMenuVertical {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface IMessage {
 
@@ -796,6 +842,8 @@ export interface IMessage {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface IModal {
 
@@ -869,6 +917,8 @@ export interface IModal {
      */
     toggle(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface INumeric {
 
@@ -948,6 +998,8 @@ export interface INumeric {
     target(): JQuery
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface IPusher {
 
     /**
@@ -955,6 +1007,8 @@ export interface IPusher {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface IRadio {
 
@@ -978,6 +1032,8 @@ export interface IRadio {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface IRadioGroup {
 
@@ -1012,6 +1068,8 @@ export interface IRadioGroup {
     target(): JQuery
 }
 
+/// <reference path="./semantic-ui.d.ts" />
+
 export interface ISegment {
 
     /**
@@ -1019,6 +1077,8 @@ export interface ISegment {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface ITab {
 
@@ -1037,6 +1097,8 @@ export interface ITab {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface ITabItem {
 
@@ -1060,6 +1122,8 @@ export interface ITabItem {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface ITime {
 
@@ -1123,6 +1187,8 @@ export interface ITime {
      */
     target(): JQuery
 }
+
+/// <reference path="./semantic-ui.d.ts" />
 
 export interface ITree {
 

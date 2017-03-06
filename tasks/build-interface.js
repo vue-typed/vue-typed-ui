@@ -34,7 +34,8 @@ module.exports = function(done) {
 }
 
 function parseComponent(obj) {
-  var str = `export interface I${utils.pascalCase(obj.module)}`
+  var str = `/// <reference path="./semantic-ui.d.ts" />\r\n\r\n`
+  str += `export interface I${utils.pascalCase(obj.module)}`
     // if (!obj.base.Vue) {
     //   let k = _.keys(obj.base)[0]
     //   str += ` extends ${utils.pascalCase(k)}`
