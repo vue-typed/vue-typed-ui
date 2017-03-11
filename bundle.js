@@ -49143,6 +49143,8 @@ let Dropdown = class Dropdown extends _base_1._DropdownBase {
         utils_1.Util.setDataValidateAttr(this, $(this.$el).find('input'));
         // assign selected values
         this.valueChanged(this.value);
+        // set disabled state
+        this.disabledChanged(this.disabled);
     }
     disabledChanged(val) {
         let el = this.target();
