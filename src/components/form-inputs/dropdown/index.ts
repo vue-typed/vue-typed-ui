@@ -109,6 +109,9 @@ export class Dropdown extends _DropdownBase implements IDropdown {
 		// assign selected values
 		this.valueChanged(this.value)
 
+		// set disabled state
+		this.disabledChanged(this.disabled)
+
 	}
 
 	@Watch('disabled')

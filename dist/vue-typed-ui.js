@@ -1561,6 +1561,8 @@ var Dropdown = function (_DropdownBase2) {
             Util.setDataValidateAttr(this, $(this.$el).find('input'));
             // assign selected values
             this.valueChanged(this.value);
+            // set disabled state
+            this.disabledChanged(this.disabled);
         }
     }, {
         key: 'disabledChanged',
