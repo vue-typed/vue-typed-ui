@@ -60,4 +60,14 @@ export class _DropdownBase extends Mixin(FieldBase) {
     })
     multiple: boolean
 
+    /**
+     * Semantic UI dropdown settings. See: https://semantic-ui.com/modules/dropdown.html#/settings
+     * 
+     * @type {object}
+     */
+    @Prop({
+        type: Object
+    })
+    settings: object
+
 }

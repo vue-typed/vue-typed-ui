@@ -458,6 +458,11 @@ export interface IDropdown {
     search: boolean
 
     /**
+     * Semantic UI dropdown settings. See: https://semantic-ui.com/modules/dropdown.html#/settings
+     */
+    settings: object
+
+    /**
      * v-model binding
      */
     value: any

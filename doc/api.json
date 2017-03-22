@@ -472,6 +472,10 @@
         "type": "boolean",
         "description": "A selection dropdown can allow a user to search through a large list of choices."
       },
+      "settings": {
+        "type": "object",
+        "description": "Semantic UI dropdown settings. See: https://semantic-ui.com/modules/dropdown.html#/settings"
+      },
       "value": {
         "type": "any",
         "description": "v-model binding"

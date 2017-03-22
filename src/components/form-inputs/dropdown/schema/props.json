@@ -22,6 +22,10 @@
     "multiple": {
       "type": "boolean",
       "description": "A selection dropdown can allow multiple selections"
+    },
+    "settings": {
+      "type": "object",
+      "description": "Semantic UI dropdown settings. See: https://semantic-ui.com/modules/dropdown.html#/settings"
     }
   },
   "methods": {

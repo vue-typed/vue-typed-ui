@@ -1459,8 +1459,8 @@ __decorate([vueTyped.Prop({
     type: Boolean
 })], _DropdownBase.prototype, "multiple", void 0);
 __decorate([vueTyped.Prop({
-    type: String
-})], _DropdownBase.prototype, "css", void 0);
+    type: Object
+})], _DropdownBase.prototype, "settings", void 0);
 
 var Dropdown = function (_DropdownBase2) {
     inherits(Dropdown, _DropdownBase2);
@@ -1483,9 +1483,7 @@ var Dropdown = function (_DropdownBase2) {
     }, {
         key: 'createComponent',
         value: function createComponent(ch) {
-            var css = 'ui selection dropdown';
-            if (this.css) css += ' ' + this.css;
-            return ch('div', { 'class': css }, [ch('input', { attrs: { type: 'hidden', name: this.name } }), ch('i', { 'class': 'dropdown icon' }), ch('div', { 'class': 'default text' }, this.placeholder), ch('div', { 'class': 'menu', 'ref': 'menu' }, this.$slots['default'])]);
+            return ch('div', { 'class': 'ui selection dropdown' }, [ch('input', { attrs: { type: 'hidden', name: this.name } }), ch('i', { 'class': 'dropdown icon' }), ch('div', { 'class': 'default text' }, this.placeholder), ch('div', { 'class': 'menu', 'ref': 'menu' }, this.$slots['default'])]);
         }
     }, {
         key: 'beforeUpdate',
@@ -1524,8 +1522,7 @@ var Dropdown = function (_DropdownBase2) {
             } else {
                 this.selectedItems = this.value;
             }
-            // init semantic-ui dropdown
-            this.sui({
+            var settings = _.merge({
                 forceSelection: false,
                 'onChange': function onChange(arg) {
                     if (!self.multiple) self.selectedItems = arg;
@@ -1537,7 +1534,9 @@ var Dropdown = function (_DropdownBase2) {
                 'onRemove': function onRemove(val) {
                     self.selectedItems.splice(self.selectedItems.indexOf(val), 1);
                 }
-            });
+            }, this.$UI.$settings.dropdown, this.settings || {});
+            // init semantic-ui dropdown
+            this.sui(settings);
             // manual force selection
             $(this.$el).find('input.search').on('blur', function (e) {
                 var text = $(e.target).val();

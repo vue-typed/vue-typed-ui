@@ -4,6 +4,8 @@ import { FieldBase } from '../../fields/field-base';
 import { Util } from '../../../utils';
 import { _DropdownBase } from './_base';
 import { IDropdown } from '../../../../lib/interface';
+import * as _ from 'lodash';
+
 
 @Component()
 export class Dropdown extends _DropdownBase implements IDropdown {
@@ -63,8 +65,8 @@ export class Dropdown extends _DropdownBase implements IDropdown {
 			this.selectedItems = this.value;
 		}
 
-		// init semantic-ui dropdown
-		this.sui({
+
+		let settings = _.merge({
 			forceSelection: false,
 			'onChange': function (arg) {
 				if (!self.multiple) self.selectedItems = arg;
@@ -76,8 +78,10 @@ export class Dropdown extends _DropdownBase implements IDropdown {
 			'onRemove': function (val) {
 				self.selectedItems.splice(self.selectedItems.indexOf(val), 1);
 			}
-		});
+		}, this.$UI.$settings.dropdown, this.settings || {})
 
+		// init semantic-ui dropdown
+		this.sui(settings);
 
 		// manual force selection
 		$(this.$el).find('input.search').on('blur', (e) => {
