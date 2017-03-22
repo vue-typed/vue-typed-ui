@@ -15,13 +15,8 @@ export class Dropdown extends _DropdownBase implements IDropdown {
 		return $(this.$el.querySelector('.ui.dropdown'))
 	}
 
-	createComponent(ch) {
-		let css = 'ui selection dropdown'
-
-		if (this.css)
-			css += ' ' + this.css
-
-		return ch('div', { 'class': css }, [
+	createComponent(ch) {		
+		return ch('div', { 'class': 'ui selection dropdown' }, [
 			ch('input', { attrs: { type: 'hidden', name: this.name } }),
 			ch('i', { 'class': 'dropdown icon' }),
 			ch('div', { 'class': 'default text' }, this.placeholder),

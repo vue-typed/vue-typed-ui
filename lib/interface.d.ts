@@ -423,11 +423,6 @@ export interface IDatetime {
 export interface IDropdown {
 
     /**
-     * Css class(es) applied to dropdown component
-     */
-    css: string
-
-    /**
      * Disabled field
      */
     disabled: boolean

@@ -443,10 +443,6 @@
     "type": "component",
     "readme": false,
     "props": {
-      "css": {
-        "type": "string",
-        "description": "Css class(es) applied to dropdown component"
-      },
       "disabled": {
         "type": "boolean",
         "description": "Disabled field",

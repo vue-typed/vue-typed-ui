@@ -60,14 +60,4 @@ export class _DropdownBase extends Mixin(FieldBase) {
     })
     multiple: boolean
 
-    /**
-     * Css class(es) applied to dropdown component
-     * 
-     * @type {string}
-     */
-    @Prop({
-        type: String
-    })
-    css: string
-
 }
