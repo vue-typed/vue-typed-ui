@@ -10,12 +10,8 @@ import { IInput } from '../../../../lib/interface';
 @Component()
 export class Input extends _InputBase implements IInput {
 
-	@Watch('value')
-	valueChanged(val) {
-		this.target().val(val)
-	}
 
-	target() : JQuery {
+	target(): JQuery {
 		return $(this.$el).find('input')
 	}
 
@@ -33,9 +29,12 @@ export class Input extends _InputBase implements IInput {
 			attrs['disabled'] = true
 		}
 
-		let input = ch('input', {
+		let input = ch('input', {			
 			class: this.css,
 			attrs,
+			domProps: {
+				value: this.value
+			},
 			on: {
 				input: this.emiter('input'),
 				change: this.emiter('change')

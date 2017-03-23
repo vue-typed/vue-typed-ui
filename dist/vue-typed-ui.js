@@ -626,12 +626,12 @@ var Input = function (_InputBase2) {
     }
 
     createClass(Input, [{
-        key: 'valueChanged',
-        value: function valueChanged(val) {
-            this.target().val(val);
-        }
-    }, {
         key: 'target',
+
+        // @Watch('value')
+        // valueChanged(val) {
+        // 	this.target().val(val)
+        // }
         value: function target() {
             return $(this.$el).find('input');
         }
@@ -651,6 +651,9 @@ var Input = function (_InputBase2) {
             var input = ch('input', {
                 class: this.css,
                 attrs: attrs,
+                domProps: {
+                    value: this.value
+                },
                 on: {
                     input: this.emiter('input'),
                     change: this.emiter('change')
@@ -690,7 +693,6 @@ var Input = function (_InputBase2) {
     }]);
     return Input;
 }(_InputBase);
-__decorate([vueTyped.Watch('value')], Input.prototype, "valueChanged", null);
 Input = __decorate([vueTyped.Component()], Input);
 
 /**
