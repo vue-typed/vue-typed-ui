@@ -1,23 +1,21 @@
-import * as Vue from 'vue'
-import { Component, Prop, Watch } from 'vue-typed';
-import { FieldBase } from '../../fields/field-base';
+import { Options, Watch } from 'vue-typed';
 import { Util } from '../../../utils';
 import { _DropdownBase } from './_base';
 import { IDropdown } from '../../../../lib/interface';
 import * as _ from 'lodash';
 
 
-@Component()
+@Options()
 export class Dropdown extends _DropdownBase implements IDropdown {
 
 	selectedItems = undefined
 	_htmlItems = ''
 
-	target() : JQuery {
+	target(): JQuery {
 		return $(this.$el.querySelector('.ui.dropdown'))
 	}
 
-	createComponent(ch) {		
+	createComponent(ch) {
 		return ch('div', { 'class': 'ui selection dropdown' }, [
 			ch('input', { attrs: { type: 'hidden', name: this.name } }),
 			ch('i', { 'class': 'dropdown icon' }),
@@ -25,7 +23,6 @@ export class Dropdown extends _DropdownBase implements IDropdown {
 			ch('div', { 'class': 'menu', 'ref': 'menu' }, this.$slots['default'])
 		])
 	}
-
 
 	beforeUpdate() {
 		// store dropdown items state

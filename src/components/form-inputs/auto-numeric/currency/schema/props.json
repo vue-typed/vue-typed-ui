@@ -1,0 +1,15 @@
+{
+  "base": {
+    "NumericBase": "../numeric-base"
+  },
+  "props": {
+    "sign": {
+      "type": "string",
+      "description": "Currency sign"
+    },
+    "sign-pos": {
+      "type": "'left' | 'right'",
+      "description": "Currency sign position"
+    }
+  }
+}

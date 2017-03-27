@@ -1,20 +1,11 @@
-// ref: http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
-// ref: https://github.com/BobKnothe/autoNumeric
-
-import * as Vue from 'vue'
-import { Component, Prop, Watch, Mixins } from 'vue-typed';
-import { FieldBase } from '../../fields/field-base';
-import { Util } from '../../../utils';
-import { _NumericBase } from './_base';
-import { INumeric } from '../../../../lib/interface';
+import { Watch } from 'vue-typed';
+import { Util } from '../../../../utils';
+import { _NumericBaseBase } from './_base';
 
 require('autonumeric')
 
-
-@Component()
-export class Numeric extends _NumericBase implements INumeric  {
-
-	target() : JQuery {
+export abstract class NumericBase extends _NumericBaseBase {
+	target(): JQuery {
 		return $(this.$el)
 	}
 
@@ -42,6 +33,7 @@ export class Numeric extends _NumericBase implements INumeric  {
 	}
 
 	mounted() {
+		console.log('called mounted');
 		this.setupUI();
 	}
 
@@ -82,12 +74,9 @@ export class Numeric extends _NumericBase implements INumeric  {
 		Util.setDataValidateAttr(this, target)
 	}
 
-	buildOptions(options) {
-		return options
-	}
+	abstract buildOptions(options)
 
 	destroyed() {
 		$(this.$el).find('input').autoNumeric('destroy');
 	}
-
 }

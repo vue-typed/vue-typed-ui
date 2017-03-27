@@ -920,7 +920,11 @@ export interface IModal {
 
 /// <reference path="./semantic-ui.d.ts" />
 
-export interface INumeric {
+export interface INumeric {}
+
+/// <reference path="./semantic-ui.d.ts" />
+
+export interface INumericBase {
 
     /**
      * Number of decimal places
@@ -1360,6 +1364,11 @@ export class Components {
      * Get instance of Numeric from [ref]
      */
     numeric(ref: string): INumeric
+
+    /**
+     * Get instance of NumericBase from [ref]
+     */
+    numericBase(ref: string): INumericBase
 
     /**
      * Get instance of Pusher from [ref]

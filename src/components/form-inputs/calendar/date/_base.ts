@@ -10,7 +10,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _DateBase extends Mixin(Calendar) {
+export abstract class _DateBase extends Calendar {
 
     /**
      * Date format

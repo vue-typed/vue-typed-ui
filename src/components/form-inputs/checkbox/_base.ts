@@ -7,7 +7,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _CheckboxBase extends Virtual < Vue > () {
+export abstract class _CheckboxBase extends Virtual < Vue > () {
 
     /**
      * Input element name

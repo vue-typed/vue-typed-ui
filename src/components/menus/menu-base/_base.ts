@@ -7,7 +7,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _MenuBaseBase extends Virtual < Vue > () {
+export abstract class _MenuBaseBase extends Virtual < Vue > () {
 
     /**
      * Display menu as sidebar

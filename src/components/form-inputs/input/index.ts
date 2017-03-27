@@ -1,13 +1,9 @@
-// ref: http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
-
-import * as Vue from 'vue'
-import { Component, Prop, Watch } from 'vue-typed'
-import { FieldBase } from '../../fields/field-base'
-import { Util } from '../../../utils'
+import { Options } from 'vue-typed'
 import { _InputBase } from './_base'
 import { IInput } from '../../../../lib/interface';
+import { Util } from '../../../utils';
 
-@Component()
+@Options()
 export class Input extends _InputBase implements IInput {
 
 
@@ -16,7 +12,6 @@ export class Input extends _InputBase implements IInput {
 	}
 
 	createComponent(ch) {
-
 		let attrs = {
 			type: this.password ? 'password' : 'text',
 			name: this.name,
@@ -29,7 +24,7 @@ export class Input extends _InputBase implements IInput {
 			attrs['disabled'] = true
 		}
 
-		let input = ch('input', {			
+		let input = ch('input', {
 			class: this.css,
 			attrs,
 			domProps: {
@@ -66,7 +61,6 @@ export class Input extends _InputBase implements IInput {
 		return ch('div', {
 			class: css
 		}, contents)
-
 	}
 
 	mounted() {

@@ -7,7 +7,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _MessageBase extends Virtual < Vue > () {
+export abstract class _MessageBase extends Virtual < Vue > () {
 
     /**
      * Add close icon choose to hide message.

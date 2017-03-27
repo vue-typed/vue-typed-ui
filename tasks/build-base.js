@@ -58,10 +58,11 @@ function parseProp(module, json) {
 
   let extender = 'Virtual<Vue>()'
   if (mixins) {
-    extender = `Mixin(${mixins})`
+    // extender = `Mixin(${mixins})`
+    extender = mixins
   }
 
-  strProps += `\r\nexport class _${utils.pascalCase(module)}Base extends ${extender} { `
+  strProps += `\r\nexport abstract class _${utils.pascalCase(module)}Base extends ${extender} { `
 
   var props = schema.props
   _.each(props, (v, k) => {

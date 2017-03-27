@@ -7,6 +7,6 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _PusherBase extends Virtual < Vue > () {
+export abstract class _PusherBase extends Virtual < Vue > () {
 
 }

@@ -228,11 +228,11 @@
     }
   },
   "component/currency": {
-    "dir": "src/components/form-inputs/currency",
+    "dir": "src/components/form-inputs/auto-numeric/currency",
     "id": "component/currency",
     "module": "currency",
     "base": {
-      "Numeric": "../numeric"
+      "NumericBase": "../numeric-base"
     },
     "type": "component",
     "readme": false,
@@ -1030,11 +1030,24 @@
     }
   },
   "component/numeric": {
-    "dir": "src/components/form-inputs/numeric",
+    "dir": "src/components/form-inputs/auto-numeric/numeric",
     "id": "component/numeric",
     "module": "numeric",
     "base": {
-      "FieldBase": "../../fields/field-base"
+      "NumericBase": "../numeric-base"
+    },
+    "type": "component",
+    "readme": false,
+    "props": {},
+    "methods": {}
+  },
+  "component/numeric-base": {
+    "dir": "src/components/form-inputs/auto-numeric/numeric-base",
+    "id": "component/numeric-base",
+    "module": "numeric-base",
+    "isBase": "true",
+    "base": {
+      "FieldBase": "../../../fields/field-base"
     },
     "type": "component",
     "readme": false,

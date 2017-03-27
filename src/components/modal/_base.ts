@@ -7,7 +7,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _ModalBase extends Virtual < Vue > () {
+export abstract class _ModalBase extends Virtual < Vue > () {
 
     /**
      * Attach show event to another element

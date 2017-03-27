@@ -10,7 +10,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _CalendarBase extends Mixin(FieldBase) {
+export abstract class _CalendarBase extends FieldBase {
 
     /**
      * Input element name
