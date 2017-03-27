@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 293);
+/******/ 	return __webpack_require__(__webpack_require__.s = 295);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -78,231 +78,234 @@
   * Copyright 2016, Budi Adiono
   * Released under the MIT license.
   '*/
-(function (global, factory) {
-     true ? factory(exports, __webpack_require__(3)) :
+(function(global, factory) {
+   true ? factory(exports, __webpack_require__(3)) :
     typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :
-    (factory((global.VueTyped = global.VueTyped || {}),global.Vue));
-}(this, (function (exports,Vue) { 'use strict';
+    (factory((global.VueTyped = global.VueTyped || {}), global.Vue));
+}(this, (function(exports, Vue) {
+  'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(obj) { return typeof obj; } : function(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var vueInternalPropNames = Object.getOwnPropertyNames(new Vue());
-var vueInternalHooks = ['data', 'props', 'watch', 'beforeCreate', 'created', 'beforeMount', 'mounted', 'beforeUpdate', 'updated', 'activated', 'deactivated', 'beforeDestroy', 'destroyed', 'render'];
-function BuildOptions(Component, options) {
+  var vueInternalPropNames = Object.getOwnPropertyNames(new Vue());
+  var vueInternalHooks = ['data', 'props', 'watch', 'beforeCreate', 'created', 'beforeMount', 'mounted', 'beforeUpdate', 'updated', 'activated', 'deactivated', 'beforeDestroy', 'destroyed', 'render', 'model'];
+
+  function BuildOptions(Component, options) {
     if (!options) {
-        options = {};
+      options = {};
     }
     options.name = options.name || Component.name;
     var proto = Component.prototype;
-    if (Object.getPrototypeOf(proto) instanceof Vue) Object.setPrototypeOf(proto.constructor, function () {});
+    if (Object.getPrototypeOf(proto) instanceof Vue) Object.setPrototypeOf(proto.constructor, function() {});
     var constructor = new proto.constructor();
     var vueKeys = [];
     if (proto.vuex) {
-        var protoVue = proto.vuex;
-        if (protoVue['getters']) {
-            Object.getOwnPropertyNames(protoVue['getters']).forEach(function (k) {
-                vueKeys.push(k);
-            });
-        }
-        if (protoVue['actions']) {
-            Object.getOwnPropertyNames(protoVue['actions']).forEach(function (k) {
-                vueKeys.push(k);
-            });
-        }
+      var protoVue = proto.vuex;
+      if (protoVue['getters']) {
+        Object.getOwnPropertyNames(protoVue['getters']).forEach(function(k) {
+          vueKeys.push(k);
+        });
+      }
+      if (protoVue['actions']) {
+        Object.getOwnPropertyNames(protoVue['actions']).forEach(function(k) {
+          vueKeys.push(k);
+        });
+      }
     }
     var propAttrs = proto['$_vt_props'];
     var propNames = undefined;
     delete proto['$_vt_props'];
     if (propAttrs) {
-        var key = 'props';
-        var props = {};
-        propNames = Object.getOwnPropertyNames(propAttrs);
-        for (var i = 0; i < propNames.length; i++) {
-            var prop = propNames[i];
-            var propVal = undefined;
-            var descriptor = Object.getOwnPropertyDescriptor(propAttrs, prop);
-            var constructorDefault = constructor[prop];
-            if (_typeof(descriptor.value) === 'object') {
-                propVal = descriptor.value;
-                if (!propVal.default) propVal.default = constructorDefault;
-            } else if (constructorDefault) {
-                propVal = {
-                    default: constructorDefault
-                };
-            }
-            if (typeof propVal === 'undefined') {
-                propVal = true;
-            }
-            props[prop] = propVal;
+      var key = 'props';
+      var props = {};
+      propNames = Object.getOwnPropertyNames(propAttrs);
+      for (var i = 0; i < propNames.length; i++) {
+        var prop = propNames[i];
+        var propVal = undefined;
+        var descriptor = Object.getOwnPropertyDescriptor(propAttrs, prop);
+        var constructorDefault = constructor[prop];
+        if (_typeof(descriptor.value) === 'object') {
+          propVal = descriptor.value;
+          if (!propVal.default) propVal.default = constructorDefault;
+        } else if (constructorDefault) {
+          propVal = {
+            default: constructorDefault
+          };
         }
-        if (!options.props) {
-            options.props = {};
+        if (typeof propVal === 'undefined') {
+          propVal = true;
         }
-        for (var p in props) {
-            options.props[p] = props[p];
-        }
+        props[prop] = propVal;
+      }
+      if (!options.props) {
+        options.props = {};
+      }
+      for (var p in props) {
+        options.props[p] = props[p];
+      }
     }
-    Object.getOwnPropertyNames(proto).forEach(function (key) {
-        if (key === 'constructor') {
-            return;
-        }
-        if (vueInternalHooks.indexOf(key) > -1) {
-            options[key] = proto[key];
-            return;
-        }
-        var descriptor = Object.getOwnPropertyDescriptor(proto, key);
-        if (typeof descriptor.value === 'function') {
-            if (vueKeys.indexOf(key) > -1) return;
-            (options.methods || (options.methods = {}))[key] = descriptor.value;
-        } else if (descriptor.get || descriptor.set) {
-            (options.computed || (options.computed = {}))[key] = {
-                get: descriptor.get,
-                set: descriptor.set
-            };
-        }
+    Object.getOwnPropertyNames(proto).forEach(function(key) {
+      if (key === 'constructor') {
+        return;
+      }
+      if (vueInternalHooks.indexOf(key) > -1) {
+        options[key] = proto[key];
+        return;
+      }
+      var descriptor = Object.getOwnPropertyDescriptor(proto, key);
+      if (typeof descriptor.value === 'function') {
+        if (vueKeys.indexOf(key) > -1) return;
+        (options.methods || (options.methods = {}))[key] = descriptor.value;
+      } else if (descriptor.get || descriptor.set) {
+        (options.computed || (options.computed = {}))[key] = {
+          get: descriptor.get,
+          set: descriptor.set
+        };
+      }
     });
     var dataNames = [];
     var restrictedNames = vueInternalPropNames;
     if (propNames) restrictedNames = restrictedNames.concat(propNames);
     if (vueKeys && vueKeys.length) restrictedNames = restrictedNames.concat(vueKeys);
-    Object.getOwnPropertyNames(constructor).forEach(function (key) {
-        if (restrictedNames.indexOf(key) === -1) {
-            dataNames.push(key);
-        }
+    Object.getOwnPropertyNames(constructor).forEach(function(key) {
+      if (restrictedNames.indexOf(key) === -1) {
+        dataNames.push(key);
+      }
     });
     if (dataNames.length > 0) {
-        var parentData = undefined;
-        var parentDataType = _typeof(options['data']);
-        if (parentDataType === 'function') {
-            parentData = options['data']();
-        } else if (parentDataType === 'object') {
-            parentData = options['data'];
-        }
-        options['data'] = function () {
-            var data_obj = parentData || {};
-            dataNames.forEach(function (prop) {
-                var descriptor = Object.getOwnPropertyDescriptor(constructor, prop);
-                if (!descriptor.get && !descriptor.set && typeof descriptor.value !== 'function') {
-                    data_obj[prop] = constructor[prop];
-                }
-            });
-            return data_obj;
-        };
+      var parentData = undefined;
+      var parentDataType = _typeof(options['data']);
+      if (parentDataType === 'function') {
+        parentData = options['data']();
+      } else if (parentDataType === 'object') {
+        parentData = options['data'];
+      }
+      options['data'] = function() {
+        var data_obj = parentData || {};
+        dataNames.forEach(function(prop) {
+          var descriptor = Object.getOwnPropertyDescriptor(constructor, prop);
+          if (!descriptor.get && !descriptor.set && typeof descriptor.value !== 'function') {
+            data_obj[prop] = constructor[prop];
+          }
+        });
+        return data_obj;
+      };
     }
     return options;
-}
-function Virtual() {
-    return function () {};
-}
+  }
 
-function Component(options) {
+  function Virtual() {
+    return function() {};
+  }
+
+  function Component(options) {
     var factory = function factory(Component, options) {
-        var superProto = Object.getPrototypeOf(Component.prototype);
-        var Super = superProto instanceof Vue ? superProto.constructor : Vue;
-        return Super['extend'](BuildOptions(Component, options));
+      var superProto = Object.getPrototypeOf(Component.prototype);
+      var Super = superProto instanceof Vue ? superProto.constructor : Vue;
+      return Super['extend'](BuildOptions(Component, options));
     };
     if (options instanceof Function) {
-        return factory(options);
+      return factory(options);
     }
-    return function (Component) {
-        return factory(Component, options);
+    return function(Component) {
+      return factory(Component, options);
     };
-}
+  }
 
-function Options(options) {
-    return function (Component) {
-        function chainUp(component) {
-            var Super = Object.getPrototypeOf(component);
-            if (Super instanceof Object && Super.prototype) {
-                var keys = Object.getOwnPropertyNames(Super.prototype);
-                for (var i = 0; i < keys.length; i++) {
-                    var key = keys[i];
-                    var descriptor = Object.getOwnPropertyDescriptor(Super.prototype, key);
-                    if (!Component.prototype.hasOwnProperty(key)) Object.defineProperty(Component.prototype, key, descriptor);
-                }
-                chainUp(Super);
-            }
+  function Options(options) {
+    return function(Component) {
+      function chainUp(component) {
+        var Super = Object.getPrototypeOf(component);
+        if (Super instanceof Object && Super.prototype) {
+          var keys = Object.getOwnPropertyNames(Super.prototype);
+          for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            var descriptor = Object.getOwnPropertyDescriptor(Super.prototype, key);
+            if (!Component.prototype.hasOwnProperty(key)) Object.defineProperty(Component.prototype, key, descriptor);
+          }
+          chainUp(Super);
         }
-        chainUp(Component);
-        return BuildOptions(Component, options);
+      }
+      chainUp(Component);
+      return BuildOptions(Component, options);
     };
-}
+  }
 
-function Prop(options) {
-    return function (target, key) {
-        var id = '$_vt_props';
-        if (!target[id]) {
-            target[id] = {};
+  function Prop(options) {
+    return function(target, key) {
+      var id = '$_vt_props';
+      if (!target[id]) {
+        target[id] = {};
+      }
+      if (!target[id][key]) {
+        if (options) {
+          target[id][key] = options;
+        } else {
+          target[id][key] = true;
         }
-        if (!target[id][key]) {
-            if (options) {
-                target[id][key] = options;
-            } else {
-                target[id][key] = true;
-            }
-        }
+      }
     };
-}
+  }
 
-var _typeof$1 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+  var _typeof$1 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(obj) { return typeof obj; } : function(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-function Watch(property, deep) {
-    return function (target, key) {
-        if (_typeof$1(target['watch']) !== 'object') {
-            target['watch'] = {};
+  function Watch(property, deep) {
+    return function(target, key) {
+      if (_typeof$1(target['watch']) !== 'object') {
+        target['watch'] = {};
+      }
+      if (!target['watch'][property]) {
+        var watcher;
+        if (deep !== undefined) {
+          watcher = {
+            handler: target[key],
+            deep: deep
+          };
+        } else {
+          watcher = target[key];
         }
-        if (!target['watch'][property]) {
-            var watcher;
-            if (deep !== undefined) {
-                watcher = {
-                    handler: target[key],
-                    deep: deep
-                };
-            } else {
-                watcher = target[key];
-            }
-            target['watch'][property] = watcher;
-        }
+        target['watch'][property] = watcher;
+      }
     };
-}
+  }
 
-function Mixin(component) {
+  function Mixin(component) {
     return Vue.extend({
-        mixins: [component]
+      mixins: [component]
     });
-}
-function Mixins() {
+  }
+
+  function Mixins() {
     for (var _len = arguments.length, components = Array(_len), _key = 0; _key < _len; _key++) {
-        components[_key] = arguments[_key];
+      components[_key] = arguments[_key];
     }
 
     return Vue.extend({
-        mixins: components
+      mixins: components
     });
-}
+  }
 
-function GlobalMixin(options) {
+  function GlobalMixin(options) {
     var factory = function factory(Component, options) {
-        Vue.mixin(BuildOptions(Component, options));
+      Vue.mixin(BuildOptions(Component, options));
     };
-    return function (Component) {
-        return factory(Component, options);
+    return function(Component) {
+      return factory(Component, options);
     };
-}
+  }
 
-exports.Component = Component;
-exports.Options = Options;
-exports.Prop = Prop;
-exports.Watch = Watch;
-exports.Mixin = Mixin;
-exports.Mixins = Mixins;
-exports.GlobalMixin = GlobalMixin;
-exports.Virtual = Virtual;
+  exports.Component = Component;
+  exports.Options = Options;
+  exports.Prop = Prop;
+  exports.Watch = Watch;
+  exports.Mixin = Mixin;
+  exports.Mixins = Mixins;
+  exports.GlobalMixin = GlobalMixin;
+  exports.Virtual = Virtual;
 
-Object.defineProperty(exports, '__esModule', { value: true });
+  Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
-
 
 /***/ }),
 /* 1 */
@@ -539,7 +542,7 @@ function pug_rethrow(err, filename, lineno, str){
     throw err;
   }
   try {
-    str = str || __webpack_require__(292).readFileSync(filename, 'utf8')
+    str = str || __webpack_require__(294).readFileSync(filename, 'utf8')
   } catch (ex) {
     pug_rethrow(err, null, lineno)
   }
@@ -34391,19 +34394,10 @@ if (!Object.values) {
 
 "use strict";
 
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const vue_typed_1 = __webpack_require__(0);
 const utils_1 = __webpack_require__(4);
 const _base_1 = __webpack_require__(231);
-let FieldBase = class FieldBase extends _base_1._FieldBaseBase {
-    createComponent(ch) { }
-    ;
+class FieldBase extends _base_1._FieldBaseBase {
     render(ch) {
         var slots = this.createComponent(ch) || this.$slots['default'];
         var contents = [];
@@ -34419,24 +34413,21 @@ let FieldBase = class FieldBase extends _base_1._FieldBaseBase {
         if (this.disabled) {
             style += ' disabled';
         }
-        var el = ch('div', {
+        return ch('div', {
             'class': utils_1.Util.buildClassObject(style, utils_1.Util.parseWide(this.wide))
         }, contents);
-        return this.postRender(ch, el);
+        // return this.postRender(ch, el);
     }
-    postRender(ch, el) {
-        return el;
-    }
+    // postRender(ch, el) {
+    // 	return el
+    // }
     emiter(type) {
         var self = this;
         return function (e) {
             self.$emit(type, e['target'].value);
         };
     }
-};
-FieldBase = __decorate([
-    vue_typed_1.Component()
-], FieldBase);
+}
 exports.FieldBase = FieldBase;
 
 
@@ -38911,7 +38902,7 @@ const Vue = __webpack_require__(3);
 const defaults_1 = __webpack_require__(38);
 const toastr = __webpack_require__(14);
 const _ = __webpack_require__(2);
-const register_1 = __webpack_require__(290);
+const register_1 = __webpack_require__(292);
 /**
  * Main VueTypedUI Plugin Class
  *
@@ -38948,9 +38939,9 @@ class VueTypedUI {
 exports.VueTypedUI = VueTypedUI;
 var install = VueTypedUI.install;
 exports.install = install;
-var form_1 = __webpack_require__(276);
+var form_1 = __webpack_require__(278);
 exports.FormComponent = form_1.FormComponent;
-var validate_1 = __webpack_require__(277);
+var validate_1 = __webpack_require__(279);
 exports.Validate = validate_1.Validate;
 
 
@@ -41708,8 +41699,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const utils_1 = __webpack_require__(4);
-const _base_1 = __webpack_require__(240);
-let Calendar = class Calendar extends _base_1._CalendarBase {
+const _base_1 = __webpack_require__(245);
+class Calendar extends _base_1._CalendarBase {
     calendarOptions() {
         return null;
     }
@@ -41775,13 +41766,10 @@ let Calendar = class Calendar extends _base_1._CalendarBase {
     destroyed() {
         $(this.$el)['calendar']('destroy');
     }
-};
+}
 __decorate([
     vue_typed_1.Watch('value')
 ], Calendar.prototype, "onValueChanged", null);
-Calendar = __decorate([
-    vue_typed_1.Component()
-], Calendar);
 exports.Calendar = Calendar;
 
 
@@ -41990,8 +41978,6 @@ exports.AppSettings = AppSettings;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-// ref: http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
-// ref: https://github.com/BobKnothe/autoNumeric
 
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -42002,9 +41988,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const utils_1 = __webpack_require__(4);
-const _base_1 = __webpack_require__(259);
+const _base_1 = __webpack_require__(240);
 __webpack_require__(13);
-let Numeric = class Numeric extends _base_1._NumericBase {
+class NumericBase extends _base_1._NumericBaseBase {
     target() {
         return $(this.$el);
     }
@@ -42027,6 +42013,7 @@ let Numeric = class Numeric extends _base_1._NumericBase {
         });
     }
     mounted() {
+        console.log('called mounted');
         this.setupUI();
     }
     onSettingsChanged(val) {
@@ -42057,23 +42044,17 @@ let Numeric = class Numeric extends _base_1._NumericBase {
             target.on('focus', function () { $(this).select(); });
         utils_1.Util.setDataValidateAttr(this, target);
     }
-    buildOptions(options) {
-        return options;
-    }
     destroyed() {
         $(this.$el).find('input').autoNumeric('destroy');
     }
-};
+}
 __decorate([
     vue_typed_1.Watch('value')
-], Numeric.prototype, "valueChanged", null);
+], NumericBase.prototype, "valueChanged", null);
 __decorate([
     vue_typed_1.Watch('$UI.$settings.numeric', true)
-], Numeric.prototype, "onSettingsChanged", null);
-Numeric = __decorate([
-    vue_typed_1.Component()
-], Numeric);
-exports.Numeric = Numeric;
+], NumericBase.prototype, "onSettingsChanged", null);
+exports.NumericBase = NumericBase;
 
 
 /***/ }),
@@ -42090,7 +42071,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
-const _base_1 = __webpack_require__(265);
+const _base_1 = __webpack_require__(267);
 let MenuBase = class MenuBase extends _base_1._MenuBaseBase {
     mounted() {
         if (this.sidebar) {
@@ -42678,11 +42659,11 @@ module.exports = {
 		}
 	},
 	"component/currency": {
-		"dir": "src/components/form-inputs/currency",
+		"dir": "src/components/form-inputs/auto-numeric/currency",
 		"id": "component/currency",
 		"module": "currency",
 		"base": {
-			"Numeric": "../numeric"
+			"NumericBase": "../numeric-base"
 		},
 		"type": "component",
 		"readme": false,
@@ -42893,10 +42874,6 @@ module.exports = {
 		"type": "component",
 		"readme": false,
 		"props": {
-			"css": {
-				"type": "string",
-				"description": "Css class(es) applied to dropdown component"
-			},
 			"disabled": {
 				"type": "boolean",
 				"description": "Disabled field",
@@ -42925,6 +42902,10 @@ module.exports = {
 			"search": {
 				"type": "boolean",
 				"description": "A selection dropdown can allow a user to search through a large list of choices."
+			},
+			"settings": {
+				"type": "object",
+				"description": "Semantic UI dropdown settings. See: https://semantic-ui.com/modules/dropdown.html#/settings"
 			},
 			"value": {
 				"type": "any",
@@ -43480,11 +43461,24 @@ module.exports = {
 		}
 	},
 	"component/numeric": {
-		"dir": "src/components/form-inputs/numeric",
+		"dir": "src/components/form-inputs/auto-numeric/numeric",
 		"id": "component/numeric",
 		"module": "numeric",
 		"base": {
-			"FieldBase": "../../fields/field-base"
+			"NumericBase": "../numeric-base"
+		},
+		"type": "component",
+		"readme": false,
+		"props": {},
+		"methods": {}
+	},
+	"component/numeric-base": {
+		"dir": "src/components/form-inputs/auto-numeric/numeric-base",
+		"id": "component/numeric-base",
+		"module": "numeric-base",
+		"isBase": "true",
+		"base": {
+			"FieldBase": "../../../fields/field-base"
 		},
 		"type": "component",
 		"readme": false,
@@ -47075,7 +47069,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const Vue = __webpack_require__(3);
-var Prism = __webpack_require__(291);
+var Prism = __webpack_require__(293);
 let ViewSource = class ViewSource extends Vue {
     constructor() {
         super(...arguments);
@@ -48083,8 +48077,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * PLEASE DO NOT EDIT THIS FILE (automatically generated from ./schema/props.json)
  */
 const field_base_1 = __webpack_require__(8);
-const vue_typed_1 = __webpack_require__(0);
-class _FieldBase extends vue_typed_1.Mixin(field_base_1.FieldBase) {
+class _FieldBase extends field_base_1.FieldBase {
 }
 exports._FieldBase = _FieldBase;
 
@@ -48113,7 +48106,7 @@ let Field = class Field extends _base_1._FieldBase {
     }
 };
 Field = __decorate([
-    vue_typed_1.Component()
+    vue_typed_1.Options()
 ], Field);
 exports.Field = Field;
 
@@ -48274,6 +48267,187 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * PLEASE DO NOT EDIT THIS FILE (automatically generated from ./schema/props.json)
  */
+const numeric_base_1 = __webpack_require__(36);
+const vue_typed_1 = __webpack_require__(0);
+class _CurrencyBase extends numeric_base_1.NumericBase {
+}
+__decorate([
+    vue_typed_1.Prop({
+        type: String
+    })
+], _CurrencyBase.prototype, "sign", void 0);
+__decorate([
+    vue_typed_1.Prop()
+], _CurrencyBase.prototype, "signPos", void 0);
+exports._CurrencyBase = _CurrencyBase;
+
+
+/***/ }),
+/* 239 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const vue_typed_1 = __webpack_require__(0);
+const utils_1 = __webpack_require__(4);
+const _base_1 = __webpack_require__(238);
+__webpack_require__(13);
+let Currency = class Currency extends _base_1._CurrencyBase {
+    beforeCreate() {
+        this.$options.props['signPos'].validator = function (val) { return val === ('left' || 'right'); };
+    }
+    buildOptions(options) {
+        let signPos = utils_1.Util.pickNonEmpty(this.signPos, this.$UI.$settings.numeric.signPos);
+        let sign = utils_1.Util.pickNonEmpty(this.sign, this.$UI.$settings.numeric.sign);
+        return Object.assign(options, utils_1.Util.decodeCurrencyProperties(sign, signPos));
+    }
+};
+Currency = __decorate([
+    vue_typed_1.Options()
+], Currency);
+exports.Currency = Currency;
+
+
+/***/ }),
+/* 240 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * PLEASE DO NOT EDIT THIS FILE (automatically generated from ./schema/props.json)
+ */
+const field_base_1 = __webpack_require__(8);
+const vue_typed_1 = __webpack_require__(0);
+class _NumericBaseBase extends field_base_1.FieldBase {
+}
+__decorate([
+    vue_typed_1.Prop({
+        type: String
+    })
+], _NumericBaseBase.prototype, "name", void 0);
+__decorate([
+    vue_typed_1.Prop({
+        type: String
+    })
+], _NumericBaseBase.prototype, "placeholder", void 0);
+__decorate([
+    vue_typed_1.Prop()
+], _NumericBaseBase.prototype, "value", void 0);
+__decorate([
+    vue_typed_1.Prop({
+        type: String
+    })
+], _NumericBaseBase.prototype, "groupSeparator", void 0);
+__decorate([
+    vue_typed_1.Prop({
+        type: String
+    })
+], _NumericBaseBase.prototype, "decimalSeparator", void 0);
+__decorate([
+    vue_typed_1.Prop({
+        type: Number
+    })
+], _NumericBaseBase.prototype, "decimalPlaces", void 0);
+__decorate([
+    vue_typed_1.Prop({
+        type: Number
+    })
+], _NumericBaseBase.prototype, "min", void 0);
+__decorate([
+    vue_typed_1.Prop({
+        type: Number
+    })
+], _NumericBaseBase.prototype, "max", void 0);
+__decorate([
+    vue_typed_1.Prop({
+        type: Boolean,
+        default: false
+    })
+], _NumericBaseBase.prototype, "integer", void 0);
+__decorate([
+    vue_typed_1.Prop({
+        type: Boolean,
+        default: true
+    })
+], _NumericBaseBase.prototype, "selectOnFocus", void 0);
+exports._NumericBaseBase = _NumericBaseBase;
+
+
+/***/ }),
+/* 241 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * PLEASE DO NOT EDIT THIS FILE (automatically generated from ./schema/props.json)
+ */
+const numeric_base_1 = __webpack_require__(36);
+class _NumericBase extends numeric_base_1.NumericBase {
+}
+exports._NumericBase = _NumericBase;
+
+
+/***/ }),
+/* 242 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// ref: http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
+// ref: https://github.com/BobKnothe/autoNumeric
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const vue_typed_1 = __webpack_require__(0);
+const _base_1 = __webpack_require__(241);
+let Numeric = class Numeric extends _base_1._NumericBase {
+    buildOptions(options) {
+        return options;
+    }
+};
+Numeric = __decorate([
+    vue_typed_1.Options()
+], Numeric);
+exports.Numeric = Numeric;
+
+
+/***/ }),
+/* 243 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * PLEASE DO NOT EDIT THIS FILE (automatically generated from ./schema/props.json)
+ */
 const vue_typed_1 = __webpack_require__(0);
 class _ButtonBase extends vue_typed_1.Virtual() {
 }
@@ -48314,7 +48488,7 @@ exports._ButtonBase = _ButtonBase;
 
 
 /***/ }),
-/* 239 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48327,7 +48501,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
-const _base_1 = __webpack_require__(238);
+const _base_1 = __webpack_require__(243);
 let Button = class Button extends _base_1._ButtonBase {
     target() {
         return $(this.$el);
@@ -48415,7 +48589,7 @@ exports.Button = Button;
 
 
 /***/ }),
-/* 240 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48432,7 +48606,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const field_base_1 = __webpack_require__(8);
 const vue_typed_1 = __webpack_require__(0);
-class _CalendarBase extends vue_typed_1.Mixin(field_base_1.FieldBase) {
+class _CalendarBase extends field_base_1.FieldBase {
 }
 __decorate([
     vue_typed_1.Prop({
@@ -48462,7 +48636,7 @@ exports._CalendarBase = _CalendarBase;
 
 
 /***/ }),
-/* 241 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48479,7 +48653,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const calendar_1 = __webpack_require__(25);
 const vue_typed_1 = __webpack_require__(0);
-class _DateBase extends vue_typed_1.Mixin(calendar_1.Calendar) {
+class _DateBase extends calendar_1.Calendar {
 }
 __decorate([
     vue_typed_1.Prop({
@@ -48490,7 +48664,7 @@ exports._DateBase = _DateBase;
 
 
 /***/ }),
-/* 242 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48504,7 +48678,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const moment = __webpack_require__(5);
-const _base_1 = __webpack_require__(241);
+const _base_1 = __webpack_require__(246);
 let Date = class Date extends _base_1._DateBase {
     target() {
         return $(this.$el);
@@ -48541,13 +48715,13 @@ __decorate([
     vue_typed_1.Watch('$UI.$settings.dateFormat')
 ], Date.prototype, "onSettingsChanged", null);
 Date = __decorate([
-    vue_typed_1.Component()
+    vue_typed_1.Options()
 ], Date);
 exports.Date = Date;
 
 
 /***/ }),
-/* 243 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48564,7 +48738,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const calendar_1 = __webpack_require__(25);
 const vue_typed_1 = __webpack_require__(0);
-class _DatetimeBase extends vue_typed_1.Mixin(calendar_1.Calendar) {
+class _DatetimeBase extends calendar_1.Calendar {
 }
 __decorate([
     vue_typed_1.Prop({
@@ -48575,7 +48749,7 @@ exports._DatetimeBase = _DatetimeBase;
 
 
 /***/ }),
-/* 244 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48589,7 +48763,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const moment = __webpack_require__(5);
-const _base_1 = __webpack_require__(243);
+const _base_1 = __webpack_require__(248);
 let DateTime = class DateTime extends _base_1._DatetimeBase {
     target() {
         return $(this.$el);
@@ -48628,13 +48802,13 @@ __decorate([
     vue_typed_1.Watch('$UI.$settings')
 ], DateTime.prototype, "onSettingsChanged", null);
 DateTime = __decorate([
-    vue_typed_1.Component()
+    vue_typed_1.Options()
 ], DateTime);
 exports.DateTime = DateTime;
 
 
 /***/ }),
-/* 245 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48651,7 +48825,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const calendar_1 = __webpack_require__(25);
 const vue_typed_1 = __webpack_require__(0);
-class _TimeBase extends vue_typed_1.Mixin(calendar_1.Calendar) {
+class _TimeBase extends calendar_1.Calendar {
 }
 __decorate([
     vue_typed_1.Prop({
@@ -48662,7 +48836,7 @@ exports._TimeBase = _TimeBase;
 
 
 /***/ }),
-/* 246 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48676,7 +48850,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const moment = __webpack_require__(5);
-const _base_1 = __webpack_require__(245);
+const _base_1 = __webpack_require__(250);
 let Time = class Time extends _base_1._TimeBase {
     target() {
         return $(this.$el);
@@ -48713,13 +48887,13 @@ __decorate([
     vue_typed_1.Watch('$UI.$settings.timeFormat')
 ], Time.prototype, "onSettingsChanged", null);
 Time = __decorate([
-    vue_typed_1.Component()
+    vue_typed_1.Options()
 ], Time);
 exports.Time = Time;
 
 
 /***/ }),
-/* 247 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48758,7 +48932,7 @@ exports._CheckboxBase = _CheckboxBase;
 
 
 /***/ }),
-/* 248 */
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48773,7 +48947,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Vue = __webpack_require__(3);
 const vue_typed_1 = __webpack_require__(0);
 const utils_1 = __webpack_require__(4);
-const _base_1 = __webpack_require__(247);
+const _base_1 = __webpack_require__(252);
 let Checkbox = class Checkbox extends _base_1._CheckboxBase {
     constructor() {
         super(...arguments);
@@ -48872,71 +49046,7 @@ exports.Checkbox = Checkbox;
 
 
 /***/ }),
-/* 249 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * PLEASE DO NOT EDIT THIS FILE (automatically generated from ./schema/props.json)
- */
-const numeric_1 = __webpack_require__(36);
-const vue_typed_1 = __webpack_require__(0);
-class _CurrencyBase extends vue_typed_1.Mixin(numeric_1.Numeric) {
-}
-__decorate([
-    vue_typed_1.Prop({
-        type: String
-    })
-], _CurrencyBase.prototype, "sign", void 0);
-__decorate([
-    vue_typed_1.Prop()
-], _CurrencyBase.prototype, "signPos", void 0);
-exports._CurrencyBase = _CurrencyBase;
-
-
-/***/ }),
-/* 250 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const vue_typed_1 = __webpack_require__(0);
-const utils_1 = __webpack_require__(4);
-const _base_1 = __webpack_require__(249);
-__webpack_require__(13);
-let Currency = class Currency extends _base_1._CurrencyBase {
-    beforeCreate() {
-        this.$options.props['signPos'].validator = function (val) { return val === ('left' || 'right'); };
-    }
-    buildOptions(options) {
-        let signPos = utils_1.Util.pickNonEmpty(this.signPos, this.$UI.$settings.numeric.signPos);
-        let sign = utils_1.Util.pickNonEmpty(this.sign, this.$UI.$settings.numeric.sign);
-        return Object.assign(options, utils_1.Util.decodeCurrencyProperties(sign, signPos));
-    }
-};
-Currency = __decorate([
-    vue_typed_1.Component()
-], Currency);
-exports.Currency = Currency;
-
-
-/***/ }),
-/* 251 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48961,7 +49071,7 @@ exports._DropdownItemBase = _DropdownItemBase;
 
 
 /***/ }),
-/* 252 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48974,7 +49084,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
-const _base_1 = __webpack_require__(251);
+const _base_1 = __webpack_require__(254);
 let DropdownItem = class DropdownItem extends _base_1._DropdownItemBase {
     target() {
         return $(this.$el);
@@ -48989,7 +49099,7 @@ exports.DropdownItem = DropdownItem;
 
 
 /***/ }),
-/* 253 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49006,7 +49116,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const field_base_1 = __webpack_require__(8);
 const vue_typed_1 = __webpack_require__(0);
-class _DropdownBase extends vue_typed_1.Mixin(field_base_1.FieldBase) {
+class _DropdownBase extends field_base_1.FieldBase {
 }
 __decorate([
     vue_typed_1.Prop({
@@ -49033,14 +49143,14 @@ __decorate([
 ], _DropdownBase.prototype, "multiple", void 0);
 __decorate([
     vue_typed_1.Prop({
-        type: String
+        type: Object
     })
-], _DropdownBase.prototype, "css", void 0);
+], _DropdownBase.prototype, "settings", void 0);
 exports._DropdownBase = _DropdownBase;
 
 
 /***/ }),
-/* 254 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49054,7 +49164,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const utils_1 = __webpack_require__(4);
-const _base_1 = __webpack_require__(253);
+const _base_1 = __webpack_require__(256);
+const _ = __webpack_require__(2);
 let Dropdown = class Dropdown extends _base_1._DropdownBase {
     constructor() {
         super(...arguments);
@@ -49065,10 +49176,7 @@ let Dropdown = class Dropdown extends _base_1._DropdownBase {
         return $(this.$el.querySelector('.ui.dropdown'));
     }
     createComponent(ch) {
-        let css = 'ui selection dropdown';
-        if (this.css)
-            css += ' ' + this.css;
-        return ch('div', { 'class': css }, [
+        return ch('div', { 'class': 'ui selection dropdown' }, [
             ch('input', { attrs: { type: 'hidden', name: this.name } }),
             ch('i', { 'class': 'dropdown icon' }),
             ch('div', { 'class': 'default text' }, this.placeholder),
@@ -49107,8 +49215,7 @@ let Dropdown = class Dropdown extends _base_1._DropdownBase {
         else {
             this.selectedItems = this.value;
         }
-        // init semantic-ui dropdown
-        this.sui({
+        let settings = _.merge({
             forceSelection: false,
             'onChange': function (arg) {
                 if (!self.multiple)
@@ -49121,7 +49228,9 @@ let Dropdown = class Dropdown extends _base_1._DropdownBase {
             'onRemove': function (val) {
                 self.selectedItems.splice(self.selectedItems.indexOf(val), 1);
             }
-        });
+        }, this.$UI.$settings.dropdown, this.settings || {});
+        // init semantic-ui dropdown
+        this.sui(settings);
         // manual force selection
         $(this.$el).find('input.search').on('blur', (e) => {
             let text = $(e.target).val();
@@ -49180,13 +49289,13 @@ __decorate([
     vue_typed_1.Watch('value')
 ], Dropdown.prototype, "valueChanged", null);
 Dropdown = __decorate([
-    vue_typed_1.Component()
+    vue_typed_1.Options()
 ], Dropdown);
 exports.Dropdown = Dropdown;
 
 
 /***/ }),
-/* 255 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49227,7 +49336,7 @@ exports._FormBase = _FormBase;
 
 
 /***/ }),
-/* 256 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49240,7 +49349,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
-const _base_1 = __webpack_require__(255);
+const _base_1 = __webpack_require__(258);
 let Form = class Form extends _base_1._FormBase {
     target() {
         return $(this.$el);
@@ -49295,7 +49404,7 @@ exports.Form = Form;
 
 
 /***/ }),
-/* 257 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49312,7 +49421,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const field_base_1 = __webpack_require__(8);
 const vue_typed_1 = __webpack_require__(0);
-class _InputBase extends vue_typed_1.Mixin(field_base_1.FieldBase) {
+class _InputBase extends field_base_1.FieldBase {
 }
 __decorate([
     vue_typed_1.Prop({
@@ -49357,11 +49466,10 @@ exports._InputBase = _InputBase;
 
 
 /***/ }),
-/* 258 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-// ref: http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -49371,12 +49479,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
+const _base_1 = __webpack_require__(260);
 const utils_1 = __webpack_require__(4);
-const _base_1 = __webpack_require__(257);
 let Input = class Input extends _base_1._InputBase {
-    valueChanged(val) {
-        this.target().val(val);
-    }
     target() {
         return $(this.$el).find('input');
     }
@@ -49394,6 +49499,9 @@ let Input = class Input extends _base_1._InputBase {
         let input = ch('input', {
             class: this.css,
             attrs,
+            domProps: {
+                value: this.value
+            },
             on: {
                 input: this.emiter('input'),
                 change: this.emiter('change')
@@ -49430,17 +49538,14 @@ let Input = class Input extends _base_1._InputBase {
         utils_1.Util.setDataValidateAttr(this, target);
     }
 };
-__decorate([
-    vue_typed_1.Watch('value')
-], Input.prototype, "valueChanged", null);
 Input = __decorate([
-    vue_typed_1.Component()
+    vue_typed_1.Options()
 ], Input);
 exports.Input = Input;
 
 
 /***/ }),
-/* 259 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49457,80 +49562,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const field_base_1 = __webpack_require__(8);
 const vue_typed_1 = __webpack_require__(0);
-class _NumericBase extends vue_typed_1.Mixin(field_base_1.FieldBase) {
-}
-__decorate([
-    vue_typed_1.Prop({
-        type: String
-    })
-], _NumericBase.prototype, "name", void 0);
-__decorate([
-    vue_typed_1.Prop({
-        type: String
-    })
-], _NumericBase.prototype, "placeholder", void 0);
-__decorate([
-    vue_typed_1.Prop()
-], _NumericBase.prototype, "value", void 0);
-__decorate([
-    vue_typed_1.Prop({
-        type: String
-    })
-], _NumericBase.prototype, "groupSeparator", void 0);
-__decorate([
-    vue_typed_1.Prop({
-        type: String
-    })
-], _NumericBase.prototype, "decimalSeparator", void 0);
-__decorate([
-    vue_typed_1.Prop({
-        type: Number
-    })
-], _NumericBase.prototype, "decimalPlaces", void 0);
-__decorate([
-    vue_typed_1.Prop({
-        type: Number
-    })
-], _NumericBase.prototype, "min", void 0);
-__decorate([
-    vue_typed_1.Prop({
-        type: Number
-    })
-], _NumericBase.prototype, "max", void 0);
-__decorate([
-    vue_typed_1.Prop({
-        type: Boolean,
-        default: false
-    })
-], _NumericBase.prototype, "integer", void 0);
-__decorate([
-    vue_typed_1.Prop({
-        type: Boolean,
-        default: true
-    })
-], _NumericBase.prototype, "selectOnFocus", void 0);
-exports._NumericBase = _NumericBase;
-
-
-/***/ }),
-/* 260 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * PLEASE DO NOT EDIT THIS FILE (automatically generated from ./schema/props.json)
- */
-const field_base_1 = __webpack_require__(8);
-const vue_typed_1 = __webpack_require__(0);
-class _RadioGroupBase extends vue_typed_1.Mixin(field_base_1.FieldBase) {
+class _RadioGroupBase extends field_base_1.FieldBase {
 }
 __decorate([
     vue_typed_1.Prop({
@@ -49541,7 +49573,7 @@ exports._RadioGroupBase = _RadioGroupBase;
 
 
 /***/ }),
-/* 261 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49554,7 +49586,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
-const _base_1 = __webpack_require__(260);
+const _base_1 = __webpack_require__(262);
 let RadioGroup = class RadioGroup extends _base_1._RadioGroupBase {
     target() {
         return $(this.$el);
@@ -49565,7 +49597,7 @@ let RadioGroup = class RadioGroup extends _base_1._RadioGroupBase {
     }
 };
 RadioGroup = __decorate([
-    vue_typed_1.Component({
+    vue_typed_1.Options({
         template: `
 	<div class="ui radio checkbox">
 		<input type="radio" class="hidden" :checked="value==val">
@@ -49578,7 +49610,7 @@ exports.RadioGroup = RadioGroup;
 
 
 /***/ }),
-/* 262 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49611,7 +49643,7 @@ exports._RadioBase = _RadioBase;
 
 
 /***/ }),
-/* 263 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49625,7 +49657,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const Vue = __webpack_require__(3);
 const vue_typed_1 = __webpack_require__(0);
-const _base_1 = __webpack_require__(262);
+const _base_1 = __webpack_require__(264);
 let Radio = class Radio extends _base_1._RadioBase {
     target() {
         return $(this.$el).find('.ui.radio');
@@ -49663,7 +49695,7 @@ exports.Radio = Radio;
 
 
 /***/ }),
-/* 264 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49672,19 +49704,19 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(256));
-__export(__webpack_require__(258));
-__export(__webpack_require__(242));
-__export(__webpack_require__(246));
-__export(__webpack_require__(244));
-__export(__webpack_require__(36));
-__export(__webpack_require__(250));
-__export(__webpack_require__(263));
+__export(__webpack_require__(259));
 __export(__webpack_require__(261));
-__export(__webpack_require__(248));
-__export(__webpack_require__(254));
-__export(__webpack_require__(252));
+__export(__webpack_require__(247));
+__export(__webpack_require__(251));
+__export(__webpack_require__(249));
+__export(__webpack_require__(242));
 __export(__webpack_require__(239));
+__export(__webpack_require__(265));
+__export(__webpack_require__(263));
+__export(__webpack_require__(253));
+__export(__webpack_require__(257));
+__export(__webpack_require__(255));
+__export(__webpack_require__(244));
 __export(__webpack_require__(233));
 __export(__webpack_require__(237));
 __export(__webpack_require__(235));
@@ -49694,18 +49726,18 @@ __export(__webpack_require__(218));
 __export(__webpack_require__(220));
 __export(__webpack_require__(216));
 __export(__webpack_require__(214));
+__export(__webpack_require__(275));
+__export(__webpack_require__(271));
 __export(__webpack_require__(273));
 __export(__webpack_require__(269));
-__export(__webpack_require__(271));
-__export(__webpack_require__(267));
 __export(__webpack_require__(226));
 __export(__webpack_require__(228));
-__export(__webpack_require__(275));
+__export(__webpack_require__(277));
 __export(__webpack_require__(230));
 
 
 /***/ }),
-/* 265 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49733,7 +49765,7 @@ exports._MenuBaseBase = _MenuBaseBase;
 
 
 /***/ }),
-/* 266 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49771,7 +49803,7 @@ exports._MenuDropdownBase = _MenuDropdownBase;
 
 
 /***/ }),
-/* 267 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49784,7 +49816,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
-const _base_1 = __webpack_require__(266);
+const _base_1 = __webpack_require__(268);
 let MenuDropdown = class MenuDropdown extends _base_1._MenuDropdownBase {
     target() {
         return $(this.$el);
@@ -49815,7 +49847,7 @@ exports.MenuDropdown = MenuDropdown;
 
 
 /***/ }),
-/* 268 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49832,7 +49864,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const menu_base_1 = __webpack_require__(37);
 const vue_typed_1 = __webpack_require__(0);
-class _MenuHorizontalBase extends vue_typed_1.Mixin(menu_base_1.MenuBase) {
+class _MenuHorizontalBase extends menu_base_1.MenuBase {
 }
 __decorate([
     vue_typed_1.Prop({
@@ -49843,7 +49875,7 @@ exports._MenuHorizontalBase = _MenuHorizontalBase;
 
 
 /***/ }),
-/* 269 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49855,7 +49887,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const _base_1 = __webpack_require__(268);
+const _base_1 = __webpack_require__(270);
 const vue_typed_1 = __webpack_require__(0);
 let MenuHorizontal = class MenuHorizontal extends _base_1._MenuHorizontalBase {
     target() {
@@ -49871,7 +49903,7 @@ exports.MenuHorizontal = MenuHorizontal;
 
 
 /***/ }),
-/* 270 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49911,7 +49943,7 @@ exports._MenuItemBase = _MenuItemBase;
 
 
 /***/ }),
-/* 271 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49924,7 +49956,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
-const _base_1 = __webpack_require__(270);
+const _base_1 = __webpack_require__(272);
 let MenuItem = class MenuItem extends _base_1._MenuItemBase {
     target() {
         return $(this.$el);
@@ -49971,7 +50003,7 @@ exports.MenuItem = MenuItem;
 
 
 /***/ }),
-/* 272 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49981,14 +50013,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * PLEASE DO NOT EDIT THIS FILE (automatically generated from ./schema/props.json)
  */
 const menu_base_1 = __webpack_require__(37);
-const vue_typed_1 = __webpack_require__(0);
-class _MenuVerticalBase extends vue_typed_1.Mixin(menu_base_1.MenuBase) {
+class _MenuVerticalBase extends menu_base_1.MenuBase {
 }
 exports._MenuVerticalBase = _MenuVerticalBase;
 
 
 /***/ }),
-/* 273 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50000,7 +50031,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const _base_1 = __webpack_require__(272);
+const _base_1 = __webpack_require__(274);
 const vue_typed_1 = __webpack_require__(0);
 let MenuVertical = class MenuVertical extends _base_1._MenuVerticalBase {
     target() {
@@ -50016,7 +50047,7 @@ exports.MenuVertical = MenuVertical;
 
 
 /***/ }),
-/* 274 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50083,7 +50114,7 @@ exports._ModalBase = _ModalBase;
 
 
 /***/ }),
-/* 275 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50096,7 +50127,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
-const _base_1 = __webpack_require__(274);
+const _base_1 = __webpack_require__(276);
 let Modal = class Modal extends _base_1._ModalBase {
     target() { return $(this.$el); }
     show() { return this.target().modal('show'); }
@@ -50172,7 +50203,7 @@ exports.Modal = Modal;
 
 
 /***/ }),
-/* 276 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50250,7 +50281,7 @@ exports.FormComponent = FormComponent;
 
 
 /***/ }),
-/* 277 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50278,7 +50309,7 @@ exports.Validate = Validate;
 
 
 /***/ }),
-/* 278 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50296,7 +50327,7 @@ exports.Date = Date;
 
 
 /***/ }),
-/* 279 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50314,7 +50345,7 @@ exports.DateTime = DateTime;
 
 
 /***/ }),
-/* 280 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50332,7 +50363,7 @@ exports.Time = Time;
 
 
 /***/ }),
-/* 281 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50356,28 +50387,28 @@ exports.Currency = Currency;
 
 
 /***/ }),
-/* 282 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var datetime_1 = __webpack_require__(279);
+var datetime_1 = __webpack_require__(281);
 exports.DateTime = datetime_1.DateTime;
-var date_1 = __webpack_require__(278);
+var date_1 = __webpack_require__(280);
 exports.Date = date_1.Date;
-var time_1 = __webpack_require__(280);
+var time_1 = __webpack_require__(282);
 exports.Time = time_1.Time;
-var numeric_1 = __webpack_require__(284);
+var numeric_1 = __webpack_require__(286);
 exports.Numeric = numeric_1.Numeric;
-var currency_1 = __webpack_require__(281);
+var currency_1 = __webpack_require__(283);
 exports.Currency = currency_1.Currency;
-var int_1 = __webpack_require__(283);
+var int_1 = __webpack_require__(285);
 exports.Int = int_1.Int;
 
 
 /***/ }),
-/* 283 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50395,7 +50426,7 @@ exports.Int = Int;
 
 
 /***/ }),
-/* 284 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50413,7 +50444,7 @@ exports.Numeric = Numeric;
 
 
 /***/ }),
-/* 285 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50430,7 +50461,7 @@ exports.alert = alert;
 
 
 /***/ }),
-/* 286 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50451,7 +50482,7 @@ exports.focus = focus;
 
 
 /***/ }),
-/* 287 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50460,14 +50491,14 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(285));
-__export(__webpack_require__(289));
-__export(__webpack_require__(286));
+__export(__webpack_require__(287));
+__export(__webpack_require__(291));
 __export(__webpack_require__(288));
+__export(__webpack_require__(290));
 
 
 /***/ }),
-/* 288 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50495,7 +50526,7 @@ exports.loading = loading;
 
 
 /***/ }),
-/* 289 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50510,15 +50541,15 @@ exports.toast = toast;
 
 
 /***/ }),
-/* 290 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const components = __webpack_require__(264);
-const modules = __webpack_require__(287);
-const filters = __webpack_require__(282);
+const components = __webpack_require__(266);
+const modules = __webpack_require__(289);
+const filters = __webpack_require__(284);
 const Vue = __webpack_require__(3);
 const _ = __webpack_require__(2);
 const hyphenateRE = /([^-])([A-Z])/g;
@@ -50581,19 +50612,19 @@ exports.register_all_filters = register_all_filters;
 
 
 /***/ }),
-/* 291 */
+/* 293 */
 /***/ (function(module, exports) {
 
 module.exports = Prism;
 
 /***/ }),
-/* 292 */
+/* 294 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 293 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(39);
