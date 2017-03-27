@@ -1,9 +1,8 @@
-import * as Vue from 'vue'
-import { Component } from 'vue-typed';
+import { Options } from 'vue-typed';
 import { _FieldBase } from './_base';
 import { IField } from '../../../../lib/interface';
 
-@Component()
+@Options()
 export class Field extends _FieldBase implements IField {
 
 	target(): JQuery {
@@ -13,4 +12,5 @@ export class Field extends _FieldBase implements IField {
 	createComponent(ch) {
 		return null
 	}
+		
 }

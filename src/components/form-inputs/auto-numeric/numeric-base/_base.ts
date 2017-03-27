@@ -3,14 +3,14 @@
  */
 import {
     FieldBase
-} from "../../fields/field-base"
+} from "../../../fields/field-base"
 import {
     Prop,
     Virtual,
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _NumericBase extends Mixin(FieldBase) {
+export abstract class _NumericBaseBase extends FieldBase {
 
     /**
      * Input element name

@@ -1,13 +1,12 @@
 import * as Vue from 'vue'
-import { Component, Prop } from 'vue-typed';
+import { Options, Prop } from 'vue-typed';
 import { Util } from '../../../utils';
 import { _FieldBaseBase } from './_base';
 
 
-@Component()
-export class FieldBase extends _FieldBaseBase {
+export abstract class FieldBase extends _FieldBaseBase {
 
-	createComponent(ch): any { };
+	abstract createComponent(ch): any;
 
 	render(ch) {
 
@@ -30,16 +29,16 @@ export class FieldBase extends _FieldBaseBase {
 			style += ' disabled'
 		}
 
-		var el = ch('div', {
+		return ch('div', {
 			'class': Util.buildClassObject(style, Util.parseWide(this.wide))
 		}, contents);
 
-		return this.postRender(ch, el);
+		// return this.postRender(ch, el);
 	}
 
-	postRender(ch, el) {
-		return el
-	}
+	// postRender(ch, el) {
+	// 	return el
+	// }
 	
 	emiter(type) {
 		var self = this;

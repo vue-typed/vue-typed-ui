@@ -10,6 +10,6 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _MenuVerticalBase extends Mixin(MenuBase) {
+export abstract class _MenuVerticalBase extends MenuBase {
 
 }

@@ -23,9 +23,9 @@
       "type": "boolean",
       "description": "A selection dropdown can allow multiple selections"
     },
-    "css": {
-      "type": "string",
-      "description": "Css class(es) applied to dropdown component"
+    "settings": {
+      "type": "object",
+      "description": "Semantic UI dropdown settings. See: https://semantic-ui.com/modules/dropdown.html#/settings"
     }
   },
   "methods": {

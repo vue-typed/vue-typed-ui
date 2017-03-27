@@ -1,12 +1,12 @@
 import * as Vue from 'vue'
-import { Component, Prop, Watch } from 'vue-typed';
+import { Options, Prop, Watch } from 'vue-typed';
 import { Calendar } from '../calendar';
 import * as moment from 'moment'
 import { _TimeBase } from './_base';
 import { ITime } from '../../../../../lib/interface'
 
 
-@Component()
+@Options()
 export class Time extends _TimeBase implements ITime {
 
 	target(): JQuery {

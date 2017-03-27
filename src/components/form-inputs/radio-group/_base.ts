@@ -10,7 +10,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _RadioGroupBase extends Mixin(FieldBase) {
+export abstract class _RadioGroupBase extends FieldBase {
 
     /**
      * Name of radio group

@@ -10,7 +10,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _MenuHorizontalBase extends Mixin(MenuBase) {
+export abstract class _MenuHorizontalBase extends MenuBase {
 
     /**
      * Display as secondary menu. See: http://semantic-ui.com/collections/menu.html#secondary-menu

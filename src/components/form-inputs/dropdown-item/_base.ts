@@ -7,7 +7,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _DropdownItemBase extends Virtual < Vue > () {
+export abstract class _DropdownItemBase extends Virtual < Vue > () {
 
     /**
      * Dropdown item value

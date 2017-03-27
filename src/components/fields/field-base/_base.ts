@@ -7,7 +7,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _FieldBaseBase extends Virtual < Vue > () {
+export abstract class _FieldBaseBase extends Virtual < Vue > () {
 
     /**
      * Field label text

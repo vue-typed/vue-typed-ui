@@ -7,7 +7,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _AccordionItemBase extends Virtual < Vue > () {
+export abstract class _AccordionItemBase extends Virtual < Vue > () {
 
     /**
      * Accordion title

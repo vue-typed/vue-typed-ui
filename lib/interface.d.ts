@@ -423,11 +423,6 @@ export interface IDatetime {
 export interface IDropdown {
 
     /**
-     * Css class(es) applied to dropdown component
-     */
-    css: string
-
-    /**
      * Disabled field
      */
     disabled: boolean
@@ -461,6 +456,11 @@ export interface IDropdown {
      * A selection dropdown can allow a user to search through a large list of choices.
      */
     search: boolean
+
+    /**
+     * Semantic UI dropdown settings. See: https://semantic-ui.com/modules/dropdown.html#/settings
+     */
+    settings: object
 
     /**
      * v-model binding
@@ -920,7 +920,11 @@ export interface IModal {
 
 /// <reference path="./semantic-ui.d.ts" />
 
-export interface INumeric {
+export interface INumeric {}
+
+/// <reference path="./semantic-ui.d.ts" />
+
+export interface INumericBase {
 
     /**
      * Number of decimal places
@@ -1360,6 +1364,11 @@ export class Components {
      * Get instance of Numeric from [ref]
      */
     numeric(ref: string): INumeric
+
+    /**
+     * Get instance of NumericBase from [ref]
+     */
+    numericBase(ref: string): INumericBase
 
     /**
      * Get instance of Pusher from [ref]

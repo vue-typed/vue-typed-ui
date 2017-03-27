@@ -7,7 +7,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _TabItemBase extends Virtual < Vue > () {
+export abstract class _TabItemBase extends Virtual < Vue > () {
 
     /**
      * Tab caption

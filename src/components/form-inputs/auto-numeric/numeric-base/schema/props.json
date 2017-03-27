@@ -1,6 +1,7 @@
 {
+  "isBase": "true",
   "base": {
-    "FieldBase": "../../fields/field-base"
+    "FieldBase": "../../../fields/field-base"
   },
   "props": {
     "name": {

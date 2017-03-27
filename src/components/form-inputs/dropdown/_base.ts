@@ -10,7 +10,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _DropdownBase extends Mixin(FieldBase) {
+export abstract class _DropdownBase extends FieldBase {
 
     /**
      * Input element name
@@ -61,13 +61,13 @@ export class _DropdownBase extends Mixin(FieldBase) {
     multiple: boolean
 
     /**
-     * Css class(es) applied to dropdown component
+     * Semantic UI dropdown settings. See: https://semantic-ui.com/modules/dropdown.html#/settings
      * 
-     * @type {string}
+     * @type {object}
      */
     @Prop({
-        type: String
+        type: Object
     })
-    css: string
+    settings: object
 
 }

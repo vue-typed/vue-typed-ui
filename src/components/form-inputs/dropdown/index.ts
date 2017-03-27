@@ -1,34 +1,28 @@
-import * as Vue from 'vue'
-import { Component, Prop, Watch } from 'vue-typed';
-import { FieldBase } from '../../fields/field-base';
+import { Options, Watch } from 'vue-typed';
 import { Util } from '../../../utils';
 import { _DropdownBase } from './_base';
 import { IDropdown } from '../../../../lib/interface';
+import * as _ from 'lodash';
 
-@Component()
+
+@Options()
 export class Dropdown extends _DropdownBase implements IDropdown {
 
 	selectedItems = undefined
 	_htmlItems = ''
 
-	target() : JQuery {
+	target(): JQuery {
 		return $(this.$el.querySelector('.ui.dropdown'))
 	}
 
 	createComponent(ch) {
-		let css = 'ui selection dropdown'
-
-		if (this.css)
-			css += ' ' + this.css
-
-		return ch('div', { 'class': css }, [
+		return ch('div', { 'class': 'ui selection dropdown' }, [
 			ch('input', { attrs: { type: 'hidden', name: this.name } }),
 			ch('i', { 'class': 'dropdown icon' }),
 			ch('div', { 'class': 'default text' }, this.placeholder),
 			ch('div', { 'class': 'menu', 'ref': 'menu' }, this.$slots['default'])
 		])
 	}
-
 
 	beforeUpdate() {
 		// store dropdown items state
@@ -68,8 +62,8 @@ export class Dropdown extends _DropdownBase implements IDropdown {
 			this.selectedItems = this.value;
 		}
 
-		// init semantic-ui dropdown
-		this.sui({
+
+		let settings = _.merge({
 			forceSelection: false,
 			'onChange': function (arg) {
 				if (!self.multiple) self.selectedItems = arg;
@@ -81,8 +75,10 @@ export class Dropdown extends _DropdownBase implements IDropdown {
 			'onRemove': function (val) {
 				self.selectedItems.splice(self.selectedItems.indexOf(val), 1);
 			}
-		});
+		}, this.$UI.$settings.dropdown, this.settings || {})
 
+		// init semantic-ui dropdown
+		this.sui(settings);
 
 		// manual force selection
 		$(this.$el).find('input.search').on('blur', (e) => {

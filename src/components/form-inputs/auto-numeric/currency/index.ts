@@ -1,13 +1,13 @@
 import * as Vue from 'vue'
-import { Component, Prop } from 'vue-typed';
-import { Util } from '../../../utils';
+import { Options, Prop } from 'vue-typed';
+import { Util } from '../../../../utils';
 import { Numeric } from '../numeric';
 import { _CurrencyBase } from './_base';
-import { ICurrency } from '../../../../lib/interface';
+import { ICurrency } from '../../../../../lib/interface';
 
 require('autonumeric')
 
-@Component()
+@Options()
 export class Currency extends _CurrencyBase implements ICurrency {
 
 	beforeCreate() {

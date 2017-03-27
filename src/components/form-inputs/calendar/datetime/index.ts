@@ -1,5 +1,5 @@
 import * as Vue from 'vue'
-import { Component, Prop, Watch } from 'vue-typed';
+import { Options, Prop, Watch } from 'vue-typed';
 import { Calendar } from '../calendar';
 import { Settings } from '../../../../../lib/settings';
 import * as moment from 'moment'
@@ -7,7 +7,7 @@ import { _DatetimeBase } from './_base';
 import { IDatetime } from '../../../../../lib/interface'
 
 
-@Component()
+@Options()
 export class DateTime extends _DatetimeBase implements IDatetime {
 
 	target(): JQuery {

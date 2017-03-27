@@ -7,7 +7,7 @@ import {
     Mixin
 } from "vue-typed"
 import * as Vue from "vue"
-export class _MenuItemBase extends Virtual < Vue > () {
+export abstract class _MenuItemBase extends Virtual < Vue > () {
 
     /**
      * Name of icon to be displayed
