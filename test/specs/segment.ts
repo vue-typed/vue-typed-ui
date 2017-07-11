@@ -1,7 +1,10 @@
 import * as Vue from 'vue'
 import { Component } from 'vue-typed'
 import * as VueTypedUI from '../../dist/vue-typed-ui'
-import { expect } from 'chai'
+import { expect, use } from 'chai'
+import * as chaiDom from 'chai-dom'
+
+use(chaiDom)
 
 
 describe('<ui-segment>', () => {
