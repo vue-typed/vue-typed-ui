@@ -5,7 +5,7 @@ import { Settings } from '../lib/settings';
 import { DefaultOptions, DefaultSettings } from './defaults';
 import * as toastr from 'toastr'
 import * as _ from 'lodash'
-import { Virtual } from 'vue-typed';
+
 
 import { register_all_components, register_all_filters, register_all_methods } from './register';
 

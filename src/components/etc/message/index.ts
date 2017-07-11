@@ -44,7 +44,7 @@ export class Message extends _MessageBase implements IMessage {
 				.on('click', function () {
 					$(this)
 						.closest('.message')
-						.transition(self.transition)
+						.transition(self.transition as any)
 				})
 		}
 	}

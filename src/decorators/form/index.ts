@@ -69,7 +69,7 @@ export function FormComponent(options: FormOptions): ClassDecorator {
 
 	}
 
-	return function (target: typeof Function) {
+	return <ClassDecorator>function (target: typeof Function) {
 
 		let validators = target.prototype[ValidatorPropNameTmp] || undefined
 		delete target.prototype[ValidatorPropNameTmp]

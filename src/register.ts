@@ -30,7 +30,7 @@ export function register_all_methods(vue: typeof Vue, instance) {
 
 	let global_methods = {
 		'createValidationRule': (name: string, rule: Function) => {
-			$.fn.form.settings.rules[name] = rule
+			($.fn.form as any).settings.rules[name] = rule
 		},
 
 		'showModal': (element: string | HTMLElement | JQuery) => {
