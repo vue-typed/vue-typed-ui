@@ -1,5 +1,5 @@
 /**
-  * vue-typed-ui 1.6.6
+  * vue-typed-ui 1.6.8
   * UI components made with Semantic UI, VueTyped and friends
   * https://github.com/vue-typed/vue-typed-ui
   
@@ -210,6 +210,17 @@ __decorate([vueTyped.Prop({
     type: Boolean,
     default: true
 })], _FormBase.prototype, "keyboardShortcuts", void 0);
+var _FormEvents;
+(function (_FormEvents) {
+    /**
+     * Callback when all validations passed on submit
+     */
+    _FormEvents["success"] = "success";
+    /**
+     * Callback when validation is not passed on submit
+     */
+    _FormEvents["error"] = "error";
+})(_FormEvents || (_FormEvents = {}));
 
 var Form = function (_FormBase2) {
     inherits(Form, _FormBase2);
@@ -230,10 +241,10 @@ var Form = function (_FormBase2) {
             var self = this;
             var opt = {
                 onSuccess: function onSuccess() {
-                    self.$emit('success');
+                    self.$emit(_FormEvents.success);
                 },
                 onFailure: function onFailure(formErrors, fields) {
-                    self.$emit('error', formErrors, fields);
+                    self.$emit(_FormEvents.error, formErrors, fields);
                 },
                 // using default form keyboard shortcuts instead 
                 keyboardShortcuts: false // this.keyboardShortcuts
@@ -610,6 +621,13 @@ __decorate([vueTyped.Prop({
     type: Boolean,
     default: true
 })], _InputBase.prototype, "selectOnFocus", void 0);
+var _InputEvents;
+(function (_InputEvents) {
+    /**
+     * Callback when input has been change
+     */
+    _InputEvents["change"] = "change";
+})(_InputEvents || (_InputEvents = {}));
 
 var Input = function (_InputBase2) {
     inherits(Input, _InputBase2);
@@ -645,7 +663,7 @@ var Input = function (_InputBase2) {
                 },
                 on: {
                     input: this.emiter('input'),
-                    change: this.emiter('change')
+                    change: this.emiter(_InputEvents.change)
                 }
             });
             if (!this.icon) return ch('div', {
@@ -1056,6 +1074,13 @@ __decorate([vueTyped.Prop({
     type: Boolean,
     default: true
 })], _NumericBaseBase.prototype, "selectOnFocus", void 0);
+var _NumericBaseEvents;
+(function (_NumericBaseEvents) {
+    /**
+     * Callback when input has been change
+     */
+    _NumericBaseEvents["change"] = "change";
+})(_NumericBaseEvents || (_NumericBaseEvents = {}));
 
 require('autonumeric');
 
@@ -1089,7 +1114,7 @@ var NumericBase = function (_NumericBaseBase2) {
                 },
                 on: {
                     input: this.emiter('input'),
-                    change: this.emiter('change')
+                    change: this.emiter(_NumericBaseEvents.change)
                 }
             });
         }
@@ -1125,7 +1150,7 @@ var NumericBase = function (_NumericBaseBase2) {
             var target = $(this.$el).find('input').autoNumeric('init', this.buildOptions(opt)).autoNumeric('set', this.value || 0).on('keyup change paste propertychange', function (v) {
                 var value = $(v.target).autoNumeric('get');
                 _this2.$emit('input', value);
-                _this2.$emit('change', value);
+                _this2.$emit(_NumericBaseEvents.change, value);
             });
             if (this.selectOnFocus) target.on('focus', function () {
                 $(this).select();
@@ -1683,6 +1708,13 @@ __decorate([vueTyped.Prop({
     type: String,
     default: 'button'
 })], _ButtonBase.prototype, "type", void 0);
+var _ButtonEvents;
+(function (_ButtonEvents) {
+    /**
+     * Callback when button clicked
+     */
+    _ButtonEvents["click"] = "click";
+})(_ButtonEvents || (_ButtonEvents = {}));
 
 var Button = function (_ButtonBase2) {
     inherits(Button, _ButtonBase2);
@@ -1757,7 +1789,7 @@ var Button = function (_ButtonBase2) {
     }, {
         key: 'click',
         value: function click(e) {
-            this.$emit('click', e);
+            this.$emit(_ButtonEvents.click, e);
         }
     }, {
         key: 'setDisabled',
@@ -2227,6 +2259,29 @@ __decorate([vueTyped.Prop({
     type: Boolean,
     default: true
 })], _AccordionBase.prototype, "collapsible", void 0);
+var _AccordionEvents;
+(function (_AccordionEvents) {
+    /**
+     * Callback before element opens
+     */
+    _AccordionEvents["opening"] = "opening";
+    /**
+     * Callback after element is open
+     */
+    _AccordionEvents["open"] = "open";
+    /**
+     * Callback before element closes
+     */
+    _AccordionEvents["closing"] = "closing";
+    /**
+     * Callback after element is closed
+     */
+    _AccordionEvents["close"] = "close";
+    /**
+     * Callback on element open or close
+     */
+    _AccordionEvents["change"] = "change";
+})(_AccordionEvents || (_AccordionEvents = {}));
 
 var Accordion = function (_AccordionBase2) {
     inherits(Accordion, _AccordionBase2);
@@ -2253,19 +2308,19 @@ var Accordion = function (_AccordionBase2) {
                 collapsible: this.collapsible,
                 duration: this.duration,
                 onOpening: function onOpening() {
-                    self.$emit('opening', this);
+                    self.$emit(_AccordionEvents.opening, this);
                 },
                 onOpen: function onOpen() {
-                    self.$emit('open', this);
+                    self.$emit(_AccordionEvents.open, this);
                 },
                 onClosing: function onClosing() {
-                    self.$emit('closing', this);
+                    self.$emit(_AccordionEvents.closing, this);
                 },
                 onClose: function onClose() {
-                    self.$emit('close', this);
+                    self.$emit(_AccordionEvents.close, this);
                 },
                 onChange: function onChange() {
-                    self.$emit('change', this);
+                    self.$emit(_AccordionEvents.change, this);
                 }
             });
         }
@@ -2469,6 +2524,13 @@ __decorate([vueTyped.Prop({
 __decorate([vueTyped.Prop({
     type: String
 })], _MenuItemBase.prototype, "content", void 0);
+var _MenuItemEvents;
+(function (_MenuItemEvents) {
+    /**
+     * Callback when menu item clicked
+     */
+    _MenuItemEvents["click"] = "click";
+})(_MenuItemEvents || (_MenuItemEvents = {}));
 
 var MenuItem = function (_MenuItemBase2) {
     inherits(MenuItem, _MenuItemBase2);
@@ -2502,7 +2564,7 @@ var MenuItem = function (_MenuItemBase2) {
                 'class': 'item',
                 on: {
                     'click': function click() {
-                        _this2.$emit('click');
+                        _this2.$emit(_MenuItemEvents.click);
                     }
                 }
             };
@@ -2849,6 +2911,33 @@ __decorate([vueTyped.Prop({
 __decorate([vueTyped.Prop({
     type: String
 })], _ModalBase.prototype, "icon", void 0);
+var _ModalEvents;
+(function (_ModalEvents) {
+    /**
+     * Is called when a modal starts to show.
+     */
+    _ModalEvents["show"] = "show";
+    /**
+     * Is called when a modal has finished showing animating.
+     */
+    _ModalEvents["visible"] = "visible";
+    /**
+     * Is called when a modal starts to hide. If the function returns false, the modal will not hide.
+     */
+    _ModalEvents["hide"] = "hide";
+    /**
+     * Is called after a modal has finished hiding animation.
+     */
+    _ModalEvents["hidden"] = "hidden";
+    /**
+     * Is called when a positive, approve or ok button is pressed. If the function returns false, the modal will not hide.
+     */
+    _ModalEvents["approve"] = "approve";
+    /**
+     * Is called when a negative, deny or cancel button is pressed. If the function returns false the modal will not hide.
+     */
+    _ModalEvents["deny"] = "deny";
+})(_ModalEvents || (_ModalEvents = {}));
 
 var Modal = function (_ModalBase2) {
     inherits(Modal, _ModalBase2);
@@ -2896,12 +2985,12 @@ var Modal = function (_ModalBase2) {
             };
             var target = this.target();
             target.modal({
-                onDeny: emit('deny'),
-                onApprove: emit('approve'),
-                onShow: emit('show'),
-                onHide: emit('hide'),
-                onHidden: emit('hidden'),
-                onVisible: emit('visible'),
+                onDeny: emit(_ModalEvents.deny),
+                onApprove: emit(_ModalEvents.approve),
+                onShow: emit(_ModalEvents.show),
+                onHide: emit(_ModalEvents.hide),
+                onHidden: emit(_ModalEvents.hidden),
+                onVisible: emit(_ModalEvents.visible),
                 closable: this.closable,
                 transition: this.transition,
                 allowMultiple: this.allowMultiple,
@@ -3098,6 +3187,13 @@ __decorate([vueTyped.Prop({
     type: String,
     default: 'li'
 })], _TreeBase.prototype, "childTag", void 0);
+var _TreeEvents;
+(function (_TreeEvents) {
+    /**
+     * Callback when node clicked
+     */
+    _TreeEvents["nodeClick"] = "node-click";
+})(_TreeEvents || (_TreeEvents = {}));
 
 var Tree = function (_TreeBase2) {
     inherits(Tree, _TreeBase2);
@@ -3133,7 +3229,7 @@ var Tree = function (_TreeBase2) {
                     }, {
                         on: {
                             'node-click': function nodeClick(m) {
-                                self.$emit('node-click', m);
+                                self.$emit(_TreeEvents.nodeClick, m);
                             }
                         }
                     });
@@ -3155,7 +3251,7 @@ var Tree = function (_TreeBase2) {
                 on: {
                     click: function click(e) {
                         if (e.target == e.currentTarget) {
-                            self.$emit('node-click', self.model);
+                            self.$emit(_TreeEvents.nodeClick, self.model);
                         }
                     }
                 }
