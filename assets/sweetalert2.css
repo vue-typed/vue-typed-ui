@@ -1,6 +1,3 @@
-html.swal2-shown {
-  overflow-y: hidden; }
-
 body.swal2-shown {
   overflow-y: hidden; }
 
@@ -34,13 +31,15 @@ body.swal2-iosfix {
   background-color: #fff;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   border-radius: 5px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   text-align: center;
   margin: auto;
   overflow-x: hidden;
   overflow-y: auto;
   display: none;
-  position: relative; }
+  position: relative;
+  max-width: 100%; }
   .swal2-modal:focus {
     outline: none; }
   .swal2-modal.swal2-loading {
@@ -54,34 +53,22 @@ body.swal2-iosfix {
     position: relative;
     margin: 0 0 .4em;
     padding: 0;
-    display: block; }
-  .swal2-modal .swal2-spacer {
-    height: 10px;
-    color: transparent;
-    border: 0; }
-  .swal2-modal .swal2-styled {
-    border: 0;
-    border-radius: 3px;
-    box-shadow: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: 500;
-    margin: 0 5px;
-    padding: 10px 32px; }
-    .swal2-modal .swal2-styled:not(.swal2-loading)[disabled] {
+    display: block;
+    word-wrap: break-word; }
+  .swal2-modal .swal2-buttonswrapper {
+    margin-top: 15px; }
+    .swal2-modal .swal2-buttonswrapper:not(.swal2-loading) .swal2-styled[disabled] {
       opacity: .4;
       cursor: no-drop; }
-    .swal2-modal .swal2-styled .swal2-styled + .swal2-styled {
-      margin-top: 15px; }
-    .swal2-modal .swal2-styled.swal2-loading {
-      box-sizing: border-box;
+    .swal2-modal .swal2-buttonswrapper.swal2-loading .swal2-styled.swal2-confirm {
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
       border: 4px solid transparent;
       border-color: transparent;
       width: 40px;
       height: 40px;
       padding: 0;
-      margin: -2px 30px;
+      margin: 7.5px;
       vertical-align: top;
       background-color: transparent !important;
       color: transparent;
@@ -93,28 +80,50 @@ body.swal2-iosfix {
          -moz-user-select: none;
           -ms-user-select: none;
               user-select: none; }
-  .swal2-modal :not(.swal2-styled).swal2-loading::after {
-    display: inline-block;
-    content: '';
-    margin-left: 5px;
-    vertical-align: -1px;
-    height: 6px;
-    width: 6px;
-    border: 3px solid #999999;
-    border-right-color: transparent;
-    border-radius: 50%;
-    -webkit-animation: rotate-loading 1.5s linear 0s infinite normal;
-            animation: rotate-loading 1.5s linear 0s infinite normal; }
+    .swal2-modal .swal2-buttonswrapper.swal2-loading .swal2-styled.swal2-cancel {
+      margin-left: 30px;
+      margin-right: 30px; }
+    .swal2-modal .swal2-buttonswrapper.swal2-loading :not(.swal2-styled).swal2-confirm::after {
+      display: inline-block;
+      content: '';
+      margin-left: 5px 0 15px;
+      vertical-align: -1px;
+      height: 15px;
+      width: 15px;
+      border: 3px solid #999999;
+      -webkit-box-shadow: 1px 1px 1px #fff;
+              box-shadow: 1px 1px 1px #fff;
+      border-right-color: transparent;
+      border-radius: 50%;
+      -webkit-animation: rotate-loading 1.5s linear 0s infinite normal;
+              animation: rotate-loading 1.5s linear 0s infinite normal; }
+  .swal2-modal .swal2-styled {
+    border: 0;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 500;
+    margin: 15px 5px 0;
+    padding: 10px 32px; }
   .swal2-modal .swal2-image {
     margin: 20px auto;
     max-width: 100%; }
   .swal2-modal .swal2-close {
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width: 38px;
+    height: 40px;
     font-size: 36px;
-    line-height: 36px;
+    line-height: 40px;
     font-family: serif;
     position: absolute;
     top: 5px;
-    right: 13px;
+    right: 8px;
     cursor: pointer;
     color: #cccccc;
     -webkit-transition: color .1s ease;
@@ -137,7 +146,8 @@ body.swal2-iosfix {
     margin: 0;
     padding: 0;
     line-height: normal;
-    color: #545454; }
+    color: #545454;
+    word-wrap: break-word; }
   .swal2-modal .swal2-input,
   .swal2-modal .swal2-file,
   .swal2-modal .swal2-textarea,
@@ -149,23 +159,28 @@ body.swal2-iosfix {
   .swal2-modal .swal2-file,
   .swal2-modal .swal2-textarea {
     width: 100%;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-size: 18px;
     border-radius: 3px;
     border: 1px solid #d9d9d9;
-    font-size: 18px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06);
     -webkit-transition: border-color box-shadow .3s;
     transition: border-color box-shadow .3s; }
     .swal2-modal .swal2-input.swal2-inputerror,
     .swal2-modal .swal2-file.swal2-inputerror,
     .swal2-modal .swal2-textarea.swal2-inputerror {
-      border-color: #f06e57 !important; }
+      border-color: #f27474 !important;
+      -webkit-box-shadow: 0 0 2px #f27474 !important;
+              box-shadow: 0 0 2px #f27474 !important; }
     .swal2-modal .swal2-input:focus,
     .swal2-modal .swal2-file:focus,
     .swal2-modal .swal2-textarea:focus {
       outline: none;
-      box-shadow: 0 0 3px #c4e6f5;
-      border: 1px solid #b4dbed; }
+      border: 1px solid #b4dbed;
+      -webkit-box-shadow: 0 0 3px #c4e6f5;
+              box-shadow: 0 0 3px #c4e6f5; }
       .swal2-modal .swal2-input:focus::-webkit-input-placeholder,
       .swal2-modal .swal2-file:focus::-webkit-input-placeholder,
       .swal2-modal .swal2-textarea:focus::-webkit-input-placeholder {
@@ -293,7 +308,8 @@ body.swal2-iosfix {
   margin: 20px auto 30px;
   padding: 0;
   position: relative;
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -301,10 +317,10 @@ body.swal2-iosfix {
           user-select: none; }
   .swal2-icon.swal2-error {
     border-color: #f27474; }
-    .swal2-icon.swal2-error .x-mark {
+    .swal2-icon.swal2-error .swal2-x-mark {
       position: relative;
       display: block; }
-    .swal2-icon.swal2-error .line {
+    .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
       position: absolute;
       height: 5px;
       width: 47px;
@@ -312,11 +328,11 @@ body.swal2-iosfix {
       display: block;
       top: 37px;
       border-radius: 2px; }
-      .swal2-icon.swal2-error .line.left {
+      .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='left'] {
         -webkit-transform: rotate(45deg);
                 transform: rotate(45deg);
         left: 17px; }
-      .swal2-icon.swal2-error .line.right {
+      .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='right'] {
         -webkit-transform: rotate(-45deg);
                 transform: rotate(-45deg);
         right: 16px; }
@@ -343,65 +359,63 @@ body.swal2-iosfix {
     text-align: center; }
   .swal2-icon.swal2-success {
     border-color: #a5dc86; }
-    .swal2-icon.swal2-success::before, .swal2-icon.swal2-success::after {
-      content: '';
+    .swal2-icon.swal2-success [class^='swal2-success-circular-line'] {
       border-radius: 50%;
       position: absolute;
       width: 60px;
       height: 120px;
-      background: #fff;
       -webkit-transform: rotate(45deg);
               transform: rotate(45deg); }
-    .swal2-icon.swal2-success::before {
-      border-radius: 120px 0 0 120px;
-      top: -7px;
-      left: -33px;
-      -webkit-transform: rotate(-45deg);
-              transform: rotate(-45deg);
-      -webkit-transform-origin: 60px 60px;
-              transform-origin: 60px 60px; }
-    .swal2-icon.swal2-success::after {
-      border-radius: 0 120px 120px 0;
-      top: -11px;
-      left: 30px;
-      -webkit-transform: rotate(-45deg);
-              transform: rotate(-45deg);
-      -webkit-transform-origin: 0 60px;
-              transform-origin: 0 60px; }
-    .swal2-icon.swal2-success .placeholder {
+      .swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='left'] {
+        border-radius: 120px 0 0 120px;
+        top: -7px;
+        left: -33px;
+        -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+        -webkit-transform-origin: 60px 60px;
+                transform-origin: 60px 60px; }
+      .swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='right'] {
+        border-radius: 0 120px 120px 0;
+        top: -11px;
+        left: 30px;
+        -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+        -webkit-transform-origin: 0 60px;
+                transform-origin: 0 60px; }
+    .swal2-icon.swal2-success .swal2-success-ring {
       width: 80px;
       height: 80px;
       border: 4px solid rgba(165, 220, 134, 0.2);
       border-radius: 50%;
-      box-sizing: content-box;
+      -webkit-box-sizing: content-box;
+              box-sizing: content-box;
       position: absolute;
       left: -4px;
       top: -4px;
       z-index: 2; }
-    .swal2-icon.swal2-success .fix {
+    .swal2-icon.swal2-success .swal2-success-fix {
       width: 7px;
       height: 90px;
-      background-color: #fff;
       position: absolute;
       left: 28px;
       top: 8px;
       z-index: 1;
       -webkit-transform: rotate(-45deg);
               transform: rotate(-45deg); }
-    .swal2-icon.swal2-success .line {
+    .swal2-icon.swal2-success [class^='swal2-success-line'] {
       height: 5px;
       background-color: #a5dc86;
       display: block;
       border-radius: 2px;
       position: absolute;
       z-index: 2; }
-      .swal2-icon.swal2-success .line.tip {
+      .swal2-icon.swal2-success [class^='swal2-success-line'][class$='tip'] {
         width: 25px;
         left: 14px;
         top: 46px;
         -webkit-transform: rotate(45deg);
                 transform: rotate(45deg); }
-      .swal2-icon.swal2-success .line.long {
+      .swal2-icon.swal2-success [class^='swal2-success-line'][class$='long'] {
         width: 47px;
         right: 8px;
         top: 38px;
@@ -613,15 +627,15 @@ body.swal2-iosfix {
     -webkit-transform: rotate(-405deg);
             transform: rotate(-405deg); } }
 
-.animate-success-tip {
+.swal2-animate-success-line-tip {
   -webkit-animation: animate-success-tip 0.75s;
           animation: animate-success-tip 0.75s; }
 
-.animate-success-long {
+.swal2-animate-success-line-long {
   -webkit-animation: animate-success-long 0.75s;
           animation: animate-success-long 0.75s; }
 
-.swal2-success.animate::after {
+.swal2-success.swal2-animate-success-icon .swal2-success-circular-line-right {
   -webkit-animation: rotatePlaceholder 4.25s ease-in;
           animation: rotatePlaceholder 4.25s ease-in; }
 
@@ -645,7 +659,7 @@ body.swal2-iosfix {
             transform: rotateX(0deg);
     opacity: 1; } }
 
-.animate-error-icon {
+.swal2-animate-error-icon {
   -webkit-animation: animate-error-icon 0.5s;
           animation: animate-error-icon 0.5s; }
 
@@ -691,25 +705,9 @@ body.swal2-iosfix {
     margin-top: 0;
     opacity: 1; } }
 
-.animate-x-mark {
+.swal2-animate-x-mark {
   -webkit-animation: animate-x-mark 0.5s;
           animation: animate-x-mark 0.5s; }
-
-@-webkit-keyframes pulse-warning {
-  0% {
-    border-color: #f8d486; }
-  100% {
-    border-color: #f8bb86; } }
-
-@keyframes pulse-warning {
-  0% {
-    border-color: #f8d486; }
-  100% {
-    border-color: #f8bb86; } }
-
-.pulse-warning {
-  -webkit-animation: pulse-warning 0.75s infinite alternate;
-          animation: pulse-warning 0.75s infinite alternate; }
 
 @-webkit-keyframes rotate-loading {
   0% {
