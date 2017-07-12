@@ -84,3 +84,11 @@ export abstract class _ButtonBase extends Virtual < Vue > () {
     type: string
 
 }
+
+
+export enum _ButtonEvents {
+    /**
+     * Callback when button clicked
+     */
+    click = "click"
+}

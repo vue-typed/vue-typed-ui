@@ -50,3 +50,16 @@ export abstract class _FormBase extends Virtual < Vue > () {
     keyboardShortcuts: boolean
 
 }
+
+
+export enum _FormEvents {
+    /**
+     * Callback when all validations passed on submit
+     */
+    success = "success",
+
+        /**
+         * Callback when validation is not passed on submit
+         */
+        error = "error"
+}

@@ -82,3 +82,31 @@ export abstract class _AccordionBase extends Virtual < Vue > () {
     collapsible: boolean
 
 }
+
+
+export enum _AccordionEvents {
+    /**
+     * Callback before element opens
+     */
+    opening = "opening",
+
+        /**
+         * Callback after element is open
+         */
+        open = "open",
+
+        /**
+         * Callback before element closes
+         */
+        closing = "closing",
+
+        /**
+         * Callback after element is closed
+         */
+        close = "close",
+
+        /**
+         * Callback on element open or close
+         */
+        change = "change"
+}

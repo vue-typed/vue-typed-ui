@@ -1,5 +1,5 @@
 import { Options } from 'vue-typed'
-import { _InputBase } from './_base'
+import { _InputBase, _InputEvents } from './_base'
 import { IInput } from '../../../../lib/interface';
 import { Util } from '../../../utils';
 
@@ -32,7 +32,7 @@ export class Input extends _InputBase implements IInput {
 			},
 			on: {
 				input: this.emiter('input'),
-				change: this.emiter('change')
+				change: this.emiter(_InputEvents.change)
 			}
 		})
 

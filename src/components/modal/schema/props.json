@@ -87,5 +87,25 @@
       "description": "Header icon.",
       "type": "string"
     }
+  },
+  "events": {
+    "show": {
+      "description": "Is called when a modal starts to show."
+    },
+    "visible": {
+      "description": "Is called when a modal has finished showing animating."
+    },
+    "hide": {
+      "description": "Is called when a modal starts to hide. If the function returns false, the modal will not hide."
+    },
+    "hidden": {
+      "description": "Is called after a modal has finished hiding animation."
+    },
+    "approve": {
+      "description": "Is called when a positive, approve or ok button is pressed. If the function returns false, the modal will not hide."
+    },
+    "deny": {
+      "description": "Is called when a negative, deny or cancel button is pressed. If the function returns false the modal will not hide."
+    }
   }
 }

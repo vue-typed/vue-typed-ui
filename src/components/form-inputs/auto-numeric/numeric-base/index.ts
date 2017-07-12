@@ -1,6 +1,6 @@
 import { Watch } from 'vue-typed';
 import { Util } from '../../../../utils';
-import { _NumericBaseBase } from './_base';
+import { _NumericBaseBase, _NumericBaseEvents } from './_base';
 
 require('autonumeric')
 
@@ -27,7 +27,7 @@ export abstract class NumericBase extends _NumericBaseBase {
 
 			on: {
 				input: this.emiter('input'),
-				change: this.emiter('change')
+				change: this.emiter(_NumericBaseEvents.change)
 			}
 		})
 	}
@@ -65,7 +65,7 @@ export abstract class NumericBase extends _NumericBaseBase {
 			.autoNumeric('set', this.value || 0).on('keyup change paste propertychange', (v) => {
 				var value = $(v.target).autoNumeric('get')
 				this.$emit('input', value)
-				this.$emit('change', value)
+				this.$emit(_NumericBaseEvents.change, value)
 			})
 
 		if (this.selectOnFocus)

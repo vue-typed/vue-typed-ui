@@ -1,6 +1,6 @@
 import * as Vue from 'vue'
 import { Options, Watch } from 'vue-typed';
-import { _ButtonBase } from './_base';
+import { _ButtonBase, _ButtonEvents } from './_base';
 import { IButton } from '../../../../lib/interface'
 
 @Options({
@@ -79,7 +79,7 @@ export class Button extends _ButtonBase implements IButton {
 	}
 
 	click(e) {
-		this.$emit('click', e);
+		this.$emit(_ButtonEvents.click, e);
 	}
 
 	setDisabled(disabled) {

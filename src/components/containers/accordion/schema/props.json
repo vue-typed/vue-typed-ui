@@ -39,5 +39,22 @@
       "type": "JQuery",
       "description": "Target element"
     }
+  },
+  "events": {
+    "opening": {
+      "description": "Callback before element opens"
+    },
+    "open": {
+      "description": "Callback after element is open"
+    },
+    "closing": {
+      "description": "Callback before element closes"
+    },
+    "close": {
+      "description": "Callback after element is closed"
+    },
+    "change": {
+      "description": "Callback on element open or close"
+    }
   }
 }

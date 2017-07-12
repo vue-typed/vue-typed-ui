@@ -1,4 +1,4 @@
-import { _AccordionBase } from './_base';
+import { _AccordionBase, _AccordionEvents } from './_base';
 import { Options } from 'vue-typed';
 import { IAccordion } from '../../../../lib/interface';
 
@@ -21,19 +21,19 @@ export class Accordion extends _AccordionBase implements IAccordion {
 			collapsible: this.collapsible,
 			duration: this.duration,
 			onOpening: function(){
-				self.$emit('opening', this)
+				self.$emit(_AccordionEvents.opening, this)
 			},
 			onOpen: function(){
-				self.$emit('open', this)
+				self.$emit(_AccordionEvents.open, this)
 			},
 			onClosing: function(){
-				self.$emit('closing', this)
+				self.$emit(_AccordionEvents.closing, this)
 			},
 			onClose: function(){
-				self.$emit('close', this)
+				self.$emit(_AccordionEvents.close, this)
 			},
 			onChange: function(){
-				self.$emit('change', this)
+				self.$emit(_AccordionEvents.change, this)
 			},
 		})
 	}

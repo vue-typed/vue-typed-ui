@@ -94,3 +94,11 @@ export abstract class _InputBase extends FieldBase {
     selectOnFocus: boolean
 
 }
+
+
+export enum _InputEvents {
+    /**
+     * Callback when input has been change
+     */
+    change = "change"
+}

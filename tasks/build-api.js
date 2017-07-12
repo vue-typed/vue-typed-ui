@@ -44,7 +44,8 @@ module.exports = function(done) {
             module: moduleName,
             value: {
               props: json.props,
-              methods: json.methods
+              methods: json.methods,
+              events: json.events
             },
             isBase: json.isBase,
             base: json.base,
@@ -69,13 +70,14 @@ module.exports = function(done) {
           type: v.type,
           readme: utils.hasReadme(v.dir),
           props: v.value.props,
-          methods: v.value.methods
+          methods: v.value.methods,
+          events: v.value.events
         }
         return obj
       })
 
       json = _.groupBy(json, 'id')
-      json = _.mapValues(json, function(v) { return _.merge.apply({}, v) })
+      json = _.mapValues(json, function(v) { return _.merge.apply({}, v) })      
 
       _.each(json, function(obj, k) {
         if (obj.type === 'component') {
@@ -93,6 +95,7 @@ module.exports = function(done) {
           // sorting
           obj.props = utils.sortByKey(obj.props)
           obj.methods = utils.sortByKey(obj.methods)
+          obj.events = utils.sortByKey(obj.events)
         }
       })
 

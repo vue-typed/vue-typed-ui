@@ -48,3 +48,11 @@ export abstract class _MenuItemBase extends Virtual < Vue > () {
     content: string
 
 }
+
+
+export enum _MenuItemEvents {
+    /**
+     * Callback when menu item clicked
+     */
+    click = "click"
+}

@@ -26,5 +26,13 @@
       "type": "JQuery",
       "description": "Target element"
     }
+  },
+  "events": {
+    "success": {
+      "description": "Callback when all validations passed on submit"
+    },
+    "error": {
+      "description": "Callback when validation is not passed on submit"
+    }
   }
 }

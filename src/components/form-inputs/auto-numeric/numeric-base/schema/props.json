@@ -52,5 +52,10 @@
       "type": "JQuery",
       "description": "Target element"
     }
+  },
+  "events": {
+    "change": {
+      "description": "Callback when input has been change"
+    }
   }
 }

@@ -19,9 +19,8 @@ div#demo
           ui-tab-item(caption='Typescript (VueTyped)')
             ui-source(lang='typescript') {{ts}}
     ui-accordion-item(title='API')
-      .api
-        div(v-for='a in api')
-          ui-source {{a.apiInfo}}
+      ui-tab.api
+        ui-tab-item(v-for='a in api', :caption="a.apiInfo")
           .props.ui.segment(v-if='a.hasProp')
             h4 Props
             table.ui.table
@@ -47,5 +46,15 @@ div#demo
               tr(v-for='(p, n) in a.methods')
                 td {{n}}
                 td {{p.params}}
+                td {{p.description}}
+          .events.ui.segment(v-if='a.hasEvent')
+            h4 Events
+            table.ui.table
+              thead
+                tr
+                  th Name
+                  th Description
+              tr(v-for='(p, n) in a.events')
+                td {{n}}
                 td {{p.description}}
           .ui.divider.hidden

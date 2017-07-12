@@ -106,3 +106,36 @@ export abstract class _ModalBase extends Virtual < Vue > () {
     icon: string
 
 }
+
+
+export enum _ModalEvents {
+    /**
+     * Is called when a modal starts to show.
+     */
+    show = "show",
+
+        /**
+         * Is called when a modal has finished showing animating.
+         */
+        visible = "visible",
+
+        /**
+         * Is called when a modal starts to hide. If the function returns false, the modal will not hide.
+         */
+        hide = "hide",
+
+        /**
+         * Is called after a modal has finished hiding animation.
+         */
+        hidden = "hidden",
+
+        /**
+         * Is called when a positive, approve or ok button is pressed. If the function returns false, the modal will not hide.
+         */
+        approve = "approve",
+
+        /**
+         * Is called when a negative, deny or cancel button is pressed. If the function returns false the modal will not hide.
+         */
+        deny = "deny"
+}

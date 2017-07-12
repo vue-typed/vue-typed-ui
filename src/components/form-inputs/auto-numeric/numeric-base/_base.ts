@@ -115,3 +115,11 @@ export abstract class _NumericBaseBase extends FieldBase {
     selectOnFocus: boolean
 
 }
+
+
+export enum _NumericBaseEvents {
+    /**
+     * Callback when input has been change
+     */
+    change = "change"
+}

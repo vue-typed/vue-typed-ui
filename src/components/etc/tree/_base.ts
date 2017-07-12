@@ -82,3 +82,11 @@ export abstract class _TreeBase extends Virtual < Vue > () {
     childTag: string
 
 }
+
+
+export enum _TreeEvents {
+    /**
+     * Callback when node clicked
+     */
+    nodeClick = "node-click"
+}

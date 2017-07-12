@@ -52,5 +52,10 @@
       "description": "Button type",
       "default": "'button'"
     }
+  },
+  "events": {
+    "click": {
+      "description": "Callback when button clicked"
+    }
   }
 }

@@ -32,8 +32,10 @@ export class DemoPage extends Virtual<Vue>() {
           module: api.module,
           props: api.props,
           methods: api.methods,
+          events: api.events,
           hasProp: !_.isEmpty(api.props),
           hasMethod: !_.isEmpty(api.methods),
+          hasEvent: !_.isEmpty(api.events),
           apiInfo: apiInfo(api)
         });
       });

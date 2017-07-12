@@ -25,5 +25,10 @@
       "type": "JQuery",
       "description": "Target element"
     }
+  },
+  "events": {
+    "click": {
+      "description": "Callback when menu item clicked"
+    }
   }
 }

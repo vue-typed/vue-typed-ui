@@ -45,6 +45,23 @@
         "type": "JQuery",
         "description": "Target element"
       }
+    },
+    "events": {
+      "change": {
+        "description": "Callback on element open or close"
+      },
+      "close": {
+        "description": "Callback after element is closed"
+      },
+      "closing": {
+        "description": "Callback before element closes"
+      },
+      "open": {
+        "description": "Callback after element is open"
+      },
+      "opening": {
+        "description": "Callback before element opens"
+      }
     }
   },
   "component/accordion-item": {
@@ -71,7 +88,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/button": {
     "dir": "src/components/form-inputs/button",
@@ -132,6 +150,11 @@
         "type": "JQuery",
         "description": "Target element"
       }
+    },
+    "events": {
+      "click": {
+        "description": "Callback when button clicked"
+      }
     }
   },
   "component/calendar": {
@@ -187,7 +210,8 @@
         "description": "Size of field"
       }
     },
-    "methods": {}
+    "methods": {},
+    "events": {}
   },
   "component/checkbox": {
     "dir": "src/components/form-inputs/checkbox",
@@ -225,7 +249,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/currency": {
     "dir": "src/components/form-inputs/auto-numeric/currency",
@@ -305,7 +330,8 @@
         "description": "Size of field"
       }
     },
-    "methods": {}
+    "methods": {},
+    "events": {}
   },
   "component/date": {
     "dir": "src/components/form-inputs/calendar/date",
@@ -368,7 +394,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/datetime": {
     "dir": "src/components/form-inputs/calendar/datetime",
@@ -431,7 +458,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/dropdown": {
     "dir": "src/components/form-inputs/dropdown",
@@ -490,7 +518,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/dropdown-item": {
     "dir": "src/components/form-inputs/dropdown-item",
@@ -512,7 +541,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/field": {
     "dir": "src/components/fields/field",
@@ -547,7 +577,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/field-base": {
     "dir": "src/components/fields/field-base",
@@ -578,7 +609,8 @@
         "description": "Size of field"
       }
     },
-    "methods": {}
+    "methods": {},
+    "events": {}
   },
   "component/fields-group": {
     "dir": "src/components/fields/fields-group",
@@ -604,7 +636,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/fields-inline": {
     "dir": "src/components/fields/fields-inline",
@@ -630,7 +663,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/form": {
     "dir": "src/components/form-inputs/form",
@@ -665,6 +699,14 @@
         "type": "JQuery",
         "description": "Target element"
       }
+    },
+    "events": {
+      "error": {
+        "description": "Callback when validation is not passed on submit"
+      },
+      "success": {
+        "description": "Callback when all validations passed on submit"
+      }
     }
   },
   "component/header": {
@@ -683,7 +725,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/input": {
     "dir": "src/components/form-inputs/input",
@@ -752,6 +795,11 @@
         "type": "JQuery",
         "description": "Target element"
       }
+    },
+    "events": {
+      "change": {
+        "description": "Callback when input has been change"
+      }
     }
   },
   "component/menu-base": {
@@ -774,7 +822,8 @@
         "description": "JQuery object or selector to be attached as sidebar toggle"
       }
     },
-    "methods": {}
+    "methods": {},
+    "events": {}
   },
   "component/menu-dropdown": {
     "dir": "src/components/menus/menu-dropdown",
@@ -805,7 +854,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/menu-horizontal": {
     "dir": "src/components/menus/menu-horizontal",
@@ -835,7 +885,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/menu-item": {
     "dir": "src/components/menus/menu-item",
@@ -869,6 +920,11 @@
         "type": "JQuery",
         "description": "Target element"
       }
+    },
+    "events": {
+      "click": {
+        "description": "Callback when menu item clicked"
+      }
     }
   },
   "component/menu-vertical": {
@@ -895,7 +951,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/message": {
     "dir": "src/components/etc/message",
@@ -931,7 +988,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/modal": {
     "dir": "src/components/modal",
@@ -1027,6 +1085,26 @@
         "type": "JQuery",
         "description": "Toggles the modal"
       }
+    },
+    "events": {
+      "approve": {
+        "description": "Is called when a positive, approve or ok button is pressed. If the function returns false, the modal will not hide."
+      },
+      "deny": {
+        "description": "Is called when a negative, deny or cancel button is pressed. If the function returns false the modal will not hide."
+      },
+      "hidden": {
+        "description": "Is called after a modal has finished hiding animation."
+      },
+      "hide": {
+        "description": "Is called when a modal starts to hide. If the function returns false, the modal will not hide."
+      },
+      "show": {
+        "description": "Is called when a modal starts to show."
+      },
+      "visible": {
+        "description": "Is called when a modal has finished showing animating."
+      }
     }
   },
   "component/numeric": {
@@ -1039,7 +1117,8 @@
     "type": "component",
     "readme": false,
     "props": {},
-    "methods": {}
+    "methods": {},
+    "events": {}
   },
   "component/numeric-base": {
     "dir": "src/components/form-inputs/auto-numeric/numeric-base",
@@ -1117,6 +1196,11 @@
         "type": "JQuery",
         "description": "Target element"
       }
+    },
+    "events": {
+      "change": {
+        "description": "Callback when input has been change"
+      }
     }
   },
   "component/pusher": {
@@ -1134,7 +1218,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/radio": {
     "dir": "src/components/form-inputs/radio",
@@ -1164,7 +1249,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/radio-group": {
     "dir": "src/components/form-inputs/radio-group",
@@ -1203,7 +1289,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/segment": {
     "dir": "src/components/containers/segment",
@@ -1220,7 +1307,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/tab": {
     "dir": "src/components/containers/tab",
@@ -1251,7 +1339,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/tab-item": {
     "dir": "src/components/containers/tab-item",
@@ -1281,7 +1370,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/time": {
     "dir": "src/components/form-inputs/calendar/time",
@@ -1344,7 +1434,8 @@
         "type": "JQuery",
         "description": "Target element"
       }
-    }
+    },
+    "events": {}
   },
   "component/tree": {
     "dir": "src/components/etc/tree",
@@ -1391,6 +1482,11 @@
       "target": {
         "type": "JQuery",
         "description": "Target element"
+      }
+    },
+    "events": {
+      "node-click": {
+        "description": "Callback when node clicked"
       }
     }
   },

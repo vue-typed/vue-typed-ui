@@ -39,5 +39,10 @@
       "type": "JQuery",
       "description": "Target element"
     }
+  },
+  "events": {
+    "node-click": {
+      "description": "Callback when node clicked"
+    }
   }
 }

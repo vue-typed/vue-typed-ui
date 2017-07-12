@@ -1,7 +1,7 @@
 import * as Vue from 'vue'
 import { Component, Prop } from 'vue-typed';
 import { Util } from '../../../utils';
-import { _MenuItemBase } from './_base';
+import { _MenuItemBase, _MenuItemEvents } from './_base';
 import { IMenuItem } from '../../../../lib/interface';
 
 
@@ -31,7 +31,7 @@ export class MenuItem extends _MenuItemBase implements IMenuItem {
 		var opts = {
 			'class': 'item',
 			on: {
-				'click': () => { this.$emit('click') }
+				'click': () => { this.$emit(_MenuItemEvents.click) }
 			}
 		}
 

@@ -8,9 +8,9 @@ var beautify = require('js-beautify').js_beautify
 var utils = require('./utils')
 
 
-module.exports = function(done) {
+module.exports = function (done) {
   gulp.src('./src/components/**/schema/props.json')
-    .pipe(through.obj(function(file, enc, cb) {
+    .pipe(through.obj(function (file, enc, cb) {
       var dir = Path.resolve(Path.dirname(file.path), '..')
       var modul = Path.basename(dir)
       var jsonTarget = getSchema(dir)
@@ -18,12 +18,12 @@ module.exports = function(done) {
       file.contents = new Buffer(parseProp(modul, JSON.stringify(jsonTarget)), 'utf8')
       cb(null, file)
     }))
-    .pipe(rename(function(path) {
+    .pipe(rename(function (path) {
       path.extname = '.ts'
       path.basename = '_base'
       path.dirname = path.dirname.substr(0, path.dirname.length - 7)
     }))
-    .pipe(gulp.dest(function(file) {
+    .pipe(gulp.dest(function (file) {
       return file.base
     }))
     .on('end', done)
@@ -72,7 +72,7 @@ function parseProp(module, json) {
     let prms = []
 
     if (v.type && v.type !== 'any' && v.type.indexOf('|') <= -1 && v.type.indexOf('.') <= -1) prms.push('type: ' + utils.pascalCase(v.type))
-    if (typeof(v.default) !== 'undefined') prms.push('default: ' + v.default)
+    if (typeof (v.default) !== 'undefined') prms.push('default: ' + v.default)
 
     if (prms.length)
       strProps += '{ ' + prms.join() + ' }'
@@ -85,5 +85,18 @@ function parseProp(module, json) {
 
   })
   strProps += '\r\n\r\n}'
+
+
+  if (schema.events ) {
+    var strEvents = `\r\nexport enum _${utils.pascalCase(module)}Events {`
+    _.each(schema.events, (v, k) => {
+      strEvents += utils.comment(v)
+      strEvents += `\r\n${_.camelCase(k)} = "${k}",\r\n`
+    })
+    strEvents = strEvents.substr(0, strEvents.length - 3) + '\r\n}'
+    
+    strProps += '\r\n\r\n' + strEvents
+  }
+
   return beautify(strProps)
 }

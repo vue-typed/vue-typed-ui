@@ -1,6 +1,6 @@
 import * as Vue from 'vue'
 import { Options, Prop } from 'vue-typed'
-import { _FormBase } from './_base';
+import { _FormBase, _FormEvents } from './_base';
 import { IForm } from '../../../../lib/interface';
 
 @Options()
@@ -15,10 +15,10 @@ export class Form extends _FormBase implements IForm {
 		var self = this
 		var opt = {
 			onSuccess: function () {
-				self.$emit('success')
+				self.$emit(_FormEvents.success)
 			},
 			onFailure: function (formErrors, fields) {
-				self.$emit('error', formErrors, fields)
+				self.$emit(_FormEvents.error, formErrors, fields)
 			},
 
 			// using default form keyboard shortcuts instead 

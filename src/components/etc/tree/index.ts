@@ -2,7 +2,7 @@ import * as Vue from 'vue'
 import { Options, Prop } from 'vue-typed';
 import { Util } from '../../../utils';
 import { VueTypedUI } from '../../../index';
-import { _TreeBase } from './_base';
+import { _TreeBase, _TreeEvents } from './_base';
 import { ITree } from '../../../../lib/interface';
 
 
@@ -35,7 +35,7 @@ export class Tree extends _TreeBase implements ITree {
 				}, {
 						on: {
 							'node-click': function (m) {
-								self.$emit('node-click', m)
+								self.$emit(_TreeEvents.nodeClick, m)
 							}
 						}
 					});
@@ -63,7 +63,7 @@ export class Tree extends _TreeBase implements ITree {
 			on: {
 				click: function (e) {
 					if (e.target == e.currentTarget) {
-						self.$emit('node-click', self.model)
+						self.$emit(_TreeEvents.nodeClick, self.model)
 					}
 				}
 			}

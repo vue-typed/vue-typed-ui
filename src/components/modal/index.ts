@@ -2,7 +2,7 @@ import * as Vue from 'vue'
 import { Component, Prop } from 'vue-typed';
 import { Util } from '../../utils';
 import * as _ from 'lodash'
-import { _ModalBase } from './_base';
+import { _ModalBase, _ModalEvents } from './_base';
 import { IModal } from '../../../lib/interface'
 
 
@@ -65,12 +65,12 @@ export class Modal extends _ModalBase implements SemanticUI.Modal.Settings, IMod
 		let target = this.target()
 
 		target.modal({
-			onDeny: emit('deny'),
-			onApprove: emit('approve'),
-			onShow: emit('show'),
-			onHide: emit('hide'),
-			onHidden: emit('hidden'),
-			onVisible: emit('visible'),
+			onDeny: emit(_ModalEvents.deny),
+			onApprove: emit(_ModalEvents.approve),
+			onShow: emit(_ModalEvents.show),
+			onHide: emit(_ModalEvents.hide),
+			onHidden: emit(_ModalEvents.hidden),
+			onVisible: emit(_ModalEvents.visible),
 			closable: this.closable,
 			transition: this.transition,
 			allowMultiple: this.allowMultiple,
