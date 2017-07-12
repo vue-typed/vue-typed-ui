@@ -8,7 +8,7 @@
     "build": "gulp build && rollup -c",
     "dev": "node demo/dev-server.js",
     "build:demo": "npm run build && cross-env NODE_ENV='production' webpack --config demo/webpack.prod.config.js",
-    "test": "./node_modules/.bin/karma start test/karma.conf.js"
+    "test": "npm run build && ./node_modules/.bin/karma start test/karma.conf.js"
   },
   "author": "Budi Adiono <budiadiono@gmail.com>",
   "license": "MIT",
