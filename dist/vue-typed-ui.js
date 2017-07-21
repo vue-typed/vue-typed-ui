@@ -1121,7 +1121,6 @@ var NumericBase = function (_NumericBaseBase2) {
     }, {
         key: 'mounted',
         value: function mounted() {
-            console.log('called mounted');
             this.setupUI();
         }
     }, {
@@ -1148,7 +1147,7 @@ var NumericBase = function (_NumericBaseBase2) {
                 opt.aSep = '';
             }
             var target = $(this.$el).find('input').autoNumeric('init', this.buildOptions(opt)).autoNumeric('set', this.value || 0).on('keyup change paste propertychange', function (v) {
-                var value = $(v.target).autoNumeric('get');
+                var value = _.toNumber($(v.target).autoNumeric('get'));
                 _this2.$emit('input', value);
                 _this2.$emit(_NumericBaseEvents.change, value);
             });
@@ -2075,7 +2074,7 @@ var Tab = function (_TabBase2) {
 }(_TabBase);
 __decorate([vueTyped.Watch('kind')], Tab.prototype, "onStyleChanged", null);
 Tab = __decorate([vueTyped.Options({
-    template: '<div>\n\t\t<div :class="css">\n\t\t\t<a v-for="i in items" class="item" v-bind:data-tab="i.dataTab">\n  \t\t\t{{i.caption}}\n\t\t\t</a>\n\t\t</div>\n\t\t<slot></slot>\n\t</div>'
+    template: '<div>\n\t\t<div :class="css">\n\t\t\t<slot name="left-menu"></slot>\n\t\t\t<a v-for="i in items" class="item" v-bind:data-tab="i.dataTab">\n  \t\t\t{{i.caption}}\n\t\t\t</a>\n\t\t\t<slot name="right-menu"></slot>\n\t\t</div>\n\t\t<slot></slot>\n\t</div>'
 })], Tab);
 
 /**

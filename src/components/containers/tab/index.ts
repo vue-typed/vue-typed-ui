@@ -6,9 +6,11 @@ import { ITab } from '../../../../lib/interface'
 @Options({
 	template: `<div>
 		<div :class="css">
+			<slot name="left-menu"></slot>
 			<a v-for="i in items" class="item" v-bind:data-tab="i.dataTab">
   			{{i.caption}}
 			</a>
+			<slot name="right-menu"></slot>
 		</div>
 		<slot></slot>
 	</div>`

@@ -1,6 +1,7 @@
 import { Watch } from 'vue-typed';
 import { Util } from '../../../../utils';
 import { _NumericBaseBase, _NumericBaseEvents } from './_base';
+import * as _ from 'lodash'
 
 require('autonumeric')
 
@@ -33,7 +34,6 @@ export abstract class NumericBase extends _NumericBaseBase {
 	}
 
 	mounted() {
-		console.log('called mounted');
 		this.setupUI();
 	}
 
@@ -63,7 +63,7 @@ export abstract class NumericBase extends _NumericBaseBase {
 		var target = $(this.$el).find('input')
 			.autoNumeric('init', this.buildOptions(opt))
 			.autoNumeric('set', this.value || 0).on('keyup change paste propertychange', (v) => {
-				var value = $(v.target).autoNumeric('get')
+				var value = _.toNumber($(v.target).autoNumeric('get'))
 				this.$emit('input', value)
 				this.$emit(_NumericBaseEvents.change, value)
 			})
