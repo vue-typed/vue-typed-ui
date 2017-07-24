@@ -54,15 +54,44 @@ export class Button extends _ButtonBase implements IButton {
 			css += ' ' + this.color
 		}
 
-		var el = ch('button', {
-			attrs: {
-				type: this.type
-			},
-			on: {
-				'click': this.click
-			},
-			'class': css
-		}, children)
+		var el
+
+		if (!this.to) {
+			el = ch('button', {
+				attrs: {
+					type: this.type
+				},
+				on: {
+					'click': this.click
+				},
+				'class': css
+			}, children)
+		} else {
+			if (this.preventRouter) {
+				el = ch('a', {
+					attrs: {
+						href: this.to
+					},
+					on: {
+						'click': this.click
+					},
+					'class': css
+				}, children)
+			} else {
+				el = ch('router-link', {
+					props: {
+						to: this.to,
+						exact: true
+					},
+					on: {
+						'click': this.click
+					},
+					'class': css
+				}, children)
+			}
+		}
+
+
 
 		return el
 	}

@@ -93,9 +93,19 @@ export interface IButton {
     iconPos: 'left' | 'right'
 
     /**
+     * If set to `true` then `to` attribute will always represents `href` attribute of `a` tag.
+     */
+    preventRouter: boolean
+
+    /**
      * Button size
      */
     size: 'mini' | 'tiny' | 'small' | 'medium' | 'large' | 'big' | 'huge' | 'massive'
+
+    /**
+     * Target URL when button clicked. If you are using vue-router then this attribute represents `to` attribute of `router-link` tag.
+     */
+    to: string | Object
 
     /**
      * Button type

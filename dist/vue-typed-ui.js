@@ -1707,6 +1707,10 @@ __decorate([vueTyped.Prop({
     type: String,
     default: 'button'
 })], _ButtonBase.prototype, "type", void 0);
+__decorate([vueTyped.Prop()], _ButtonBase.prototype, "to", void 0);
+__decorate([vueTyped.Prop({
+    type: Boolean
+})], _ButtonBase.prototype, "preventRouter", void 0);
 var _ButtonEvents;
 (function (_ButtonEvents) {
     /**
@@ -1765,15 +1769,41 @@ var Button = function (_ButtonBase2) {
             if (this.color) {
                 css += ' ' + this.color;
             }
-            var el = ch('button', {
-                attrs: {
-                    type: this.type
-                },
-                on: {
-                    'click': this.click
-                },
-                'class': css
-            }, children);
+            var el;
+            if (!this.to) {
+                el = ch('button', {
+                    attrs: {
+                        type: this.type
+                    },
+                    on: {
+                        'click': this.click
+                    },
+                    'class': css
+                }, children);
+            } else {
+                if (this.preventRouter) {
+                    el = ch('a', {
+                        attrs: {
+                            href: this.to
+                        },
+                        on: {
+                            'click': this.click
+                        },
+                        'class': css
+                    }, children);
+                } else {
+                    el = ch('router-link', {
+                        props: {
+                            to: this.to,
+                            exact: true
+                        },
+                        on: {
+                            'click': this.click
+                        },
+                        'class': css
+                    }, children);
+                }
+            }
             return el;
         }
     }, {

@@ -83,6 +83,24 @@ export abstract class _ButtonBase extends Virtual < Vue > () {
     })
     type: string
 
+    /**
+     * Target URL when button clicked. If you are using vue-router then this attribute represents `to` attribute of `router-link` tag.
+     * 
+     * @type {string | Object}
+     */
+    @Prop()
+    to: string | Object
+
+    /**
+     * If set to `true` then `to` attribute will always represents `href` attribute of `a` tag.
+     * 
+     * @type {boolean}
+     */
+    @Prop({
+        type: Boolean
+    })
+    preventRouter: boolean
+
 }
 
 
