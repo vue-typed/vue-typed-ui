@@ -5,5 +5,5 @@ export = {
 	path: '/component/dropdown',
 	component: Dropdown,
 	source: require('!raw-loader!./index.ts'),
-	api: ["component/dropdown"]
+	api: ["component/dropdown", "component/dropdown-item"]
 }

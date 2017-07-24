@@ -71,3 +71,11 @@ export abstract class _DropdownBase extends FieldBase {
     settings: object
 
 }
+
+
+export enum _DropdownEvents {
+    /**
+     * Callback when selected item has been change
+     */
+    change = "change"
+}

@@ -4,7 +4,7 @@ import * as Vue from 'vue'
 @Options({
 	template: require('./view.pug')()
 })
-export class Dropdown {
+export class Dropdown extends Vue {
 
 	choosen = 'first'
 
@@ -13,5 +13,9 @@ export class Dropdown {
 	fruits = ['Mango', 'Durian', 'Apple', 'Orange']
 
 	allowEdit = true
+
+	selectedItemChanged() {
+		this.$ui.toast.info("Selected item change to " + this.choosen)
+	}
 
 }

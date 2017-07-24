@@ -33,5 +33,10 @@
       "type": "JQuery",
       "description": "Target element"
     }
+  },
+  "events": {
+    "change": {
+      "description": "Callback when selected item has been change"
+    }
   }
 }

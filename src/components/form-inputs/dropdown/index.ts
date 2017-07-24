@@ -1,6 +1,6 @@
 import { Options, Watch } from 'vue-typed';
 import { Util } from '../../../utils';
-import { _DropdownBase } from './_base';
+import { _DropdownBase, _DropdownEvents } from './_base';
 import { IDropdown } from '../../../../lib/interface';
 import * as _ from 'lodash';
 
@@ -68,6 +68,7 @@ export class Dropdown extends _DropdownBase implements IDropdown {
 			'onChange': function (arg) {
 				if (!self.multiple) self.selectedItems = arg;
 				self.$emit('input', self.selectedItems);
+				self.$emit(_DropdownEvents.change)
 			},
 			'onAdd': function (val) {
 				self.selectedItems.push(val);
