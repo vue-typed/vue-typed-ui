@@ -70,6 +70,16 @@ export abstract class _DropdownBase extends FieldBase {
     })
     settings: object
 
+    /**
+     * Add css to dropdown element
+     * 
+     * @type {string}
+     */
+    @Prop({
+        type: String
+    })
+    css: string
+
 }
 
 

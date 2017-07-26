@@ -479,6 +479,10 @@
     "type": "component",
     "readme": false,
     "props": {
+      "css": {
+        "type": "string",
+        "description": "Add css to dropdown element"
+      },
       "disabled": {
         "type": "boolean",
         "description": "Disabled field",
@@ -527,7 +531,11 @@
         "description": "Target element"
       }
     },
-    "events": {}
+    "events": {
+      "change": {
+        "description": "Callback when selected item has been change"
+      }
+    }
   },
   "component/dropdown-item": {
     "dir": "src/components/form-inputs/dropdown-item",

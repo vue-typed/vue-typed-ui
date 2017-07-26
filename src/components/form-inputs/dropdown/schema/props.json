@@ -26,6 +26,10 @@
     "settings": {
       "type": "object",
       "description": "Semantic UI dropdown settings. See: https://semantic-ui.com/modules/dropdown.html#/settings"
+    },
+    "css": {
+      "type": "string",
+      "description": "Add css to dropdown element"
     }
   },
   "methods": {

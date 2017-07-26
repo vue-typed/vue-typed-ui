@@ -1505,6 +1505,16 @@ __decorate([vueTyped.Prop({
 __decorate([vueTyped.Prop({
     type: Object
 })], _DropdownBase.prototype, "settings", void 0);
+__decorate([vueTyped.Prop({
+    type: String
+})], _DropdownBase.prototype, "css", void 0);
+var _DropdownEvents;
+(function (_DropdownEvents) {
+    /**
+     * Callback when selected item has been change
+     */
+    _DropdownEvents["change"] = "change";
+})(_DropdownEvents || (_DropdownEvents = {}));
 
 var Dropdown = function (_DropdownBase2) {
     inherits(Dropdown, _DropdownBase2);
@@ -1527,7 +1537,7 @@ var Dropdown = function (_DropdownBase2) {
     }, {
         key: 'createComponent',
         value: function createComponent(ch) {
-            return ch('div', { 'class': 'ui selection dropdown' }, [ch('input', { attrs: { type: 'hidden', name: this.name } }), ch('i', { 'class': 'dropdown icon' }), ch('div', { 'class': 'default text' }, this.placeholder), ch('div', { 'class': 'menu', 'ref': 'menu' }, this.$slots['default'])]);
+            return ch('div', { 'class': 'ui selection dropdown ' + this.css }, [ch('input', { attrs: { type: 'hidden', name: this.name } }), ch('i', { 'class': 'dropdown icon' }), ch('div', { 'class': 'default text' }, this.placeholder), ch('div', { 'class': 'menu', 'ref': 'menu' }, this.$slots['default'])]);
         }
     }, {
         key: 'beforeUpdate',
@@ -1538,7 +1548,9 @@ var Dropdown = function (_DropdownBase2) {
     }, {
         key: 'updated',
         value: function updated() {
-            // refresh dropdown when items has been changed
+            // ui ready?
+            if (!this.$refs['menu']) return;
+            // refresh dropdown when items has been changed		
             if (this._htmlItems !== this.$refs['menu'].innerHTML) {
                 this.sui('refresh');
             }
@@ -1571,6 +1583,7 @@ var Dropdown = function (_DropdownBase2) {
                 'onChange': function onChange(arg) {
                     if (!self.multiple) self.selectedItems = arg;
                     self.$emit('input', self.selectedItems);
+                    self.$emit(_DropdownEvents.change);
                 },
                 'onAdd': function onAdd(val) {
                     self.selectedItems.push(val);

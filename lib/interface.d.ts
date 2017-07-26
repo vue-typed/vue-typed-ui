@@ -433,6 +433,11 @@ export interface IDatetime {
 export interface IDropdown {
 
     /**
+     * Add css to dropdown element
+     */
+    css: string
+
+    /**
      * Disabled field
      */
     disabled: boolean

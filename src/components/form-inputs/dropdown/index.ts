@@ -16,7 +16,7 @@ export class Dropdown extends _DropdownBase implements IDropdown {
 	}
 
 	createComponent(ch) {
-		return ch('div', { 'class': 'ui selection dropdown' }, [
+		return ch('div', { 'class': 'ui selection dropdown ' + this.css }, [
 			ch('input', { attrs: { type: 'hidden', name: this.name } }),
 			ch('i', { 'class': 'dropdown icon' }),
 			ch('div', { 'class': 'default text' }, this.placeholder),
@@ -30,7 +30,10 @@ export class Dropdown extends _DropdownBase implements IDropdown {
 	}
 
 	updated() {
-		// refresh dropdown when items has been changed
+		// ui ready?
+		if (!this.$refs['menu']) return
+			
+		// refresh dropdown when items has been changed		
 		if (this._htmlItems !== (this.$refs['menu'] as HTMLDivElement).innerHTML) {
 			this.sui('refresh')
 		}
