@@ -43006,6 +43006,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
 const utils_1 = __webpack_require__(4);
 const _base_1 = __webpack_require__(240);
+const _ = __webpack_require__(2);
 __webpack_require__(13);
 class NumericBase extends _base_1._NumericBaseBase {
     target() {
@@ -43030,7 +43031,6 @@ class NumericBase extends _base_1._NumericBaseBase {
         });
     }
     mounted() {
-        console.log('called mounted');
         this.setupUI();
     }
     onSettingsChanged(val) {
@@ -43053,7 +43053,7 @@ class NumericBase extends _base_1._NumericBaseBase {
         var target = $(this.$el).find('input')
             .autoNumeric('init', this.buildOptions(opt))
             .autoNumeric('set', this.value || 0).on('keyup change paste propertychange', (v) => {
-            var value = $(v.target).autoNumeric('get');
+            var value = _.toNumber($(v.target).autoNumeric('get'));
             this.$emit('input', value);
             this.$emit(_base_1._NumericBaseEvents.change, value);
         });
@@ -43568,9 +43568,17 @@ module.exports = {
 				"type": "'left' | 'right'",
 				"description": "Button icon position"
 			},
+			"preventRouter": {
+				"type": "boolean",
+				"description": "If set to `true` then `to` attribute will always represents `href` attribute of `a` tag."
+			},
 			"size": {
 				"type": "'mini' | 'tiny' | 'small' | 'medium' | 'large' | 'big' | 'huge' | 'massive'",
 				"description": "Button size"
+			},
+			"to": {
+				"type": "string | Object",
+				"description": "Target URL when button clicked. If you are using vue-router then this attribute represents `to` attribute of `router-link` tag."
 			},
 			"type": {
 				"type": "string",
@@ -43914,6 +43922,10 @@ module.exports = {
 		"type": "component",
 		"readme": false,
 		"props": {
+			"css": {
+				"type": "string",
+				"description": "Add css to dropdown element"
+			},
 			"disabled": {
 				"type": "boolean",
 				"description": "Disabled field",
@@ -43962,7 +43974,11 @@ module.exports = {
 				"description": "Target element"
 			}
 		},
-		"events": {}
+		"events": {
+			"change": {
+				"description": "Callback when selected item has been change"
+			}
+		}
 	},
 	"component/dropdown-item": {
 		"dir": "src/components/form-inputs/dropdown-item",
@@ -45085,7 +45101,7 @@ module.exports = template;
 
 var pug = __webpack_require__(1);
 
-function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cdiv\u003E\u003Cui-form\u003E\u003Cui-fields-inline label=\"Default\"\u003E\u003Cui-dropdown v-model=\"choosen\" name=\"chooser\" default-text=\"Please make a choice!\" :disabled=\"!allowEdit\"\u003E\u003Cui-dropdown-item value=\"first\"\u003EFirst Choice\u003C\u002Fui-dropdown-item\u003E\u003Cui-dropdown-item value=\"two\"\u003ESecond Choice\u003C\u002Fui-dropdown-item\u003E\u003Cui-dropdown-item value=\"three\"\u003EThird Choice\u003C\u002Fui-dropdown-item\u003E\u003C\u002Fui-dropdown\u003E\u003Cui-field label=\"Choosen:\"\u003E{{choosen}}\u003C\u002Fui-field\u003E\u003C\u002Fui-fields-inline\u003E\u003Cui-fields-inline label=\"Search\"\u003E\u003Cui-dropdown :search=\"true\" v-model=\"choosen\" name=\"chooser\" default-text=\"Please make a choice!\" :disabled=\"!allowEdit\"\u003E\u003Cui-dropdown-item value=\"first\"\u003EFirst Choice\u003C\u002Fui-dropdown-item\u003E\u003Cui-dropdown-item value=\"two\"\u003ESecond Choice\u003C\u002Fui-dropdown-item\u003E\u003Cui-dropdown-item value=\"three\"\u003EThird Choice\u003C\u002Fui-dropdown-item\u003E\u003C\u002Fui-dropdown\u003E\u003Cui-field label=\"Choosen:\"\u003E{{choosen}}\u003C\u002Fui-field\u003E\u003C\u002Fui-fields-inline\u003E\u003Cui-fields-inline label=\"Multiple\"\u003E\u003Cui-dropdown :multiple=\"true\" v-model=\"selection\" name=\"chooser\" default-text=\"Please select your favorite fruits\" :disabled=\"!allowEdit\"\u003E\u003Cui-dropdown-item v-for=\"f in fruits\" :value=\"f\"\u003E{{f}}\u003C\u002Fui-dropdown-item\u003E\u003C\u002Fui-dropdown\u003E\u003Cui-field :label=\"'Choosen (' + selection.length + '):'\"\u003E{{selection}}\u003C\u002Fui-field\u003E\u003C\u002Fui-fields-inline\u003E\u003Cui-fields-inline label=\"Multiple Search\"\u003E\u003Cui-dropdown :search=\"true\" :multiple=\"true\" v-model=\"selection\" name=\"chooser\" default-text=\"Please select your favorite fruits\" :disabled=\"!allowEdit\"\u003E\u003Cui-dropdown-item v-for=\"f in fruits\" :value=\"f\"\u003E{{f}}\u003C\u002Fui-dropdown-item\u003E\u003C\u002Fui-dropdown\u003E\u003Cui-field :label=\"'Choosen (' + selection.length + '):'\"\u003E{{selection}}\u003C\u002Fui-field\u003E\u003C\u002Fui-fields-inline\u003E\u003Cui-checkbox v-model=\"allowEdit\"\u003EAllow editing\u003C\u002Fui-checkbox\u003E\u003C\u002Fui-form\u003E\u003C\u002Fdiv\u003E";;return pug_html;};
+function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cdiv\u003E\u003Cui-form\u003E\u003Cui-fields-inline label=\"Default\"\u003E\u003Cui-dropdown v-model=\"choosen\" name=\"chooser\" default-text=\"Please make a choice!\" :disabled=\"!allowEdit\"\u003E\u003Cui-dropdown-item value=\"first\"\u003EFirst Choice\u003C\u002Fui-dropdown-item\u003E\u003Cui-dropdown-item value=\"two\"\u003ESecond Choice\u003C\u002Fui-dropdown-item\u003E\u003Cui-dropdown-item value=\"three\"\u003EThird Choice\u003C\u002Fui-dropdown-item\u003E\u003C\u002Fui-dropdown\u003E\u003Cui-field label=\"Choosen:\"\u003E{{choosen}}\u003C\u002Fui-field\u003E\u003C\u002Fui-fields-inline\u003E\u003Cui-fields-inline label=\"Search\"\u003E\u003Cui-dropdown :search=\"true\" v-model=\"choosen\" name=\"chooser\" default-text=\"Please make a choice!\" :disabled=\"!allowEdit\" @change=\"selectedItemChanged\"\u003E\u003Cui-dropdown-item value=\"first\"\u003EFirst Choice\u003C\u002Fui-dropdown-item\u003E\u003Cui-dropdown-item value=\"two\"\u003ESecond Choice\u003C\u002Fui-dropdown-item\u003E\u003Cui-dropdown-item value=\"three\"\u003EThird Choice\u003C\u002Fui-dropdown-item\u003E\u003C\u002Fui-dropdown\u003E\u003Cui-field label=\"Choosen:\"\u003E{{choosen}}\u003C\u002Fui-field\u003E\u003C\u002Fui-fields-inline\u003E\u003Cui-fields-inline label=\"Multiple\"\u003E\u003Cui-dropdown :multiple=\"true\" v-model=\"selection\" name=\"chooser\" default-text=\"Please select your favorite fruits\" :disabled=\"!allowEdit\"\u003E\u003Cui-dropdown-item v-for=\"f in fruits\" :value=\"f\"\u003E{{f}}\u003C\u002Fui-dropdown-item\u003E\u003C\u002Fui-dropdown\u003E\u003Cui-field :label=\"'Choosen (' + selection.length + '):'\"\u003E{{selection}}\u003C\u002Fui-field\u003E\u003C\u002Fui-fields-inline\u003E\u003Cui-fields-inline label=\"Multiple Search\"\u003E\u003Cui-dropdown :search=\"true\" :multiple=\"true\" v-model=\"selection\" name=\"chooser\" default-text=\"Please select your favorite fruits\" :disabled=\"!allowEdit\"\u003E\u003Cui-dropdown-item v-for=\"f in fruits\" :value=\"f\"\u003E{{f}}\u003C\u002Fui-dropdown-item\u003E\u003C\u002Fui-dropdown\u003E\u003Cui-field :label=\"'Choosen (' + selection.length + '):'\"\u003E{{selection}}\u003C\u002Fui-field\u003E\u003C\u002Fui-fields-inline\u003E\u003Cui-checkbox v-model=\"allowEdit\"\u003EAllow editing\u003C\u002Fui-checkbox\u003E\u003C\u002Fui-form\u003E\u003C\u002Fdiv\u003E";;return pug_html;};
 module.exports = template;
 
 /***/ }),
@@ -45395,7 +45411,7 @@ module.exports = "import { Options } from 'vue-typed';\r\n\r\n@Options({\r\n\tte
 /* 106 */
 /***/ (function(module, exports) {
 
-module.exports = "import { Options } from 'vue-typed';\r\nimport * as Vue from 'vue'\r\n\r\n@Options({\r\n\ttemplate: require('./view.pug')()\r\n})\r\nexport class Dropdown {\r\n\r\n\tchoosen = 'first'\r\n\r\n\tselection: string[] = ['Mango', 'Durian']\r\n\r\n\tfruits = ['Mango', 'Durian', 'Apple', 'Orange']\r\n\r\n\tallowEdit = true\r\n\r\n}"
+module.exports = "import { Options } from 'vue-typed';\r\nimport * as Vue from 'vue'\r\n\r\n@Options({\r\n\ttemplate: require('./view.pug')()\r\n})\r\nexport class Dropdown extends Vue {\r\n\r\n\tchoosen = 'first'\r\n\r\n\tselection: string[] = ['Mango', 'Durian']\r\n\r\n\tfruits = ['Mango', 'Durian', 'Apple', 'Orange']\r\n\r\n\tallowEdit = true\r\n\r\n\tselectedItemChanged() {\r\n\t\tthis.$ui.toast.info(\"Selected item change to \" + this.choosen)\r\n\t}\r\n\r\n}"
 
 /***/ }),
 /* 107 */
@@ -46449,7 +46465,7 @@ module.exports = {
     path: '/component/dropdown',
     component: _1.Dropdown,
     source: __webpack_require__(106),
-    api: ["component/dropdown"]
+    api: ["component/dropdown", "component/dropdown-item"]
 };
 
 
@@ -46467,12 +46483,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vue_typed_1 = __webpack_require__(0);
-let Dropdown = class Dropdown {
+const Vue = __webpack_require__(3);
+let Dropdown = class Dropdown extends Vue {
     constructor() {
+        super(...arguments);
         this.choosen = 'first';
         this.selection = ['Mango', 'Durian'];
         this.fruits = ['Mango', 'Durian', 'Apple', 'Orange'];
         this.allowEdit = true;
+    }
+    selectedItemChanged() {
+        this.$ui.toast.info("Selected item change to " + this.choosen);
     }
 };
 Dropdown = __decorate([
@@ -48799,9 +48820,11 @@ Tab = __decorate([
     vue_typed_1.Options({
         template: `<div>
 		<div :class="css">
+			<slot name="left-menu"></slot>
 			<a v-for="i in items" class="item" v-bind:data-tab="i.dataTab">
   			{{i.caption}}
 			</a>
+			<slot name="right-menu"></slot>
 		</div>
 		<slot></slot>
 	</div>`
@@ -49631,6 +49654,14 @@ __decorate([
         default: 'button'
     })
 ], _ButtonBase.prototype, "type", void 0);
+__decorate([
+    vue_typed_1.Prop()
+], _ButtonBase.prototype, "to", void 0);
+__decorate([
+    vue_typed_1.Prop({
+        type: Boolean
+    })
+], _ButtonBase.prototype, "preventRouter", void 0);
 exports._ButtonBase = _ButtonBase;
 var _ButtonEvents;
 (function (_ButtonEvents) {
@@ -49696,15 +49727,43 @@ let Button = class Button extends _base_1._ButtonBase {
         if (this.color) {
             css += ' ' + this.color;
         }
-        var el = ch('button', {
-            attrs: {
-                type: this.type
-            },
-            on: {
-                'click': this.click
-            },
-            'class': css
-        }, children);
+        var el;
+        if (!this.to) {
+            el = ch('button', {
+                attrs: {
+                    type: this.type
+                },
+                on: {
+                    'click': this.click
+                },
+                'class': css
+            }, children);
+        }
+        else {
+            if (this.preventRouter) {
+                el = ch('a', {
+                    attrs: {
+                        href: this.to
+                    },
+                    on: {
+                        'click': this.click
+                    },
+                    'class': css
+                }, children);
+            }
+            else {
+                el = ch('router-link', {
+                    props: {
+                        to: this.to,
+                        exact: true
+                    },
+                    on: {
+                        'click': this.click
+                    },
+                    'class': css
+                }, children);
+            }
+        }
         return el;
     }
     mounted() {
@@ -50300,7 +50359,19 @@ __decorate([
         type: Object
     })
 ], _DropdownBase.prototype, "settings", void 0);
+__decorate([
+    vue_typed_1.Prop({
+        type: String
+    })
+], _DropdownBase.prototype, "css", void 0);
 exports._DropdownBase = _DropdownBase;
+var _DropdownEvents;
+(function (_DropdownEvents) {
+    /**
+     * Callback when selected item has been change
+     */
+    _DropdownEvents["change"] = "change";
+})(_DropdownEvents = exports._DropdownEvents || (exports._DropdownEvents = {}));
 
 
 /***/ }),
@@ -50330,7 +50401,7 @@ let Dropdown = class Dropdown extends _base_1._DropdownBase {
         return $(this.$el.querySelector('.ui.dropdown'));
     }
     createComponent(ch) {
-        return ch('div', { 'class': 'ui selection dropdown' }, [
+        return ch('div', { 'class': 'ui selection dropdown ' + this.css }, [
             ch('input', { attrs: { type: 'hidden', name: this.name } }),
             ch('i', { 'class': 'dropdown icon' }),
             ch('div', { 'class': 'default text' }, this.placeholder),
@@ -50342,7 +50413,10 @@ let Dropdown = class Dropdown extends _base_1._DropdownBase {
         this._htmlItems = this.$refs['menu'].innerHTML;
     }
     updated() {
-        // refresh dropdown when items has been changed
+        // ui ready?
+        if (!this.$refs['menu'])
+            return;
+        // refresh dropdown when items has been changed		
         if (this._htmlItems !== this.$refs['menu'].innerHTML) {
             this.sui('refresh');
         }
@@ -50375,6 +50449,7 @@ let Dropdown = class Dropdown extends _base_1._DropdownBase {
                 if (!self.multiple)
                     self.selectedItems = arg;
                 self.$emit('input', self.selectedItems);
+                self.$emit(_base_1._DropdownEvents.change);
             },
             'onAdd': function (val) {
                 self.selectedItems.push(val);
